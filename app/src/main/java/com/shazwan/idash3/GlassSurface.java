@@ -113,8 +113,8 @@ final class GlassSurface extends Drawable {
  }
  private float touchLevel(){
   if(touchA<=0f||touchShader==null)return 0f;
-  if(!touching){long idle=android.os.SystemClock.uptimeMillis()-touchStamp;touchA=Math.max(0f,touchA-idle/260f);touchStamp=android.os.SystemClock.uptimeMillis();if(touchA<=0f)return 0f;}
-  invalidateSelf();return touchA;
+  if(!touching){long idle=android.os.SystemClock.uptimeMillis()-touchStamp;touchA=Math.max(0f,touchA-idle/260f);touchStamp=android.os.SystemClock.uptimeMillis();if(touchA<=0f)return 0f;invalidateSelf();}
+  return touchA; // a held, still finger draws nothing new; only the release fade animates
  }
  private void drawTouchWash(Canvas canvas){
   float a=touchLevel();if(a<=0f)return;

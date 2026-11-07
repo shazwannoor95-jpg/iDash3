@@ -46,7 +46,7 @@ final class HomeGrid extends LinearLayout implements SpringDriver.Listener {
         addView(pager, new LayoutParams(-1, 0, 1));
         dots = new LinearLayout(a);
         dots.setGravity(Gravity.CENTER);
-        addView(dots, new LayoutParams(-1, a.dp(28)));
+        addView(dots, new LayoutParams(-1, a.dp(40)));
         setContentDescription("Home apps");
         offset.jumpTo(a.homePage);
     }
@@ -143,12 +143,12 @@ final class HomeGrid extends LinearLayout implements SpringDriver.Listener {
             android.graphics.drawable.GradientDrawable d = new android.graphics.drawable.GradientDrawable();
             d.setShape(android.graphics.drawable.GradientDrawable.OVAL); d.setColor(i == current ? 0xf0ffffff : 0x66ffffff);
             dot.setBackground(d);
-            FrameLayout hit = new FrameLayout(a); // 28dp tall row; each dot gets a 40dp-wide hit area
+            FrameLayout hit = new FrameLayout(a); // 48x40dp hit area per dot
             hit.setContentDescription("Page " + (i + 1) + " of " + total);
             hit.setOnClickListener(v -> goTo(page));
             FrameLayout.LayoutParams dp = new FrameLayout.LayoutParams(a.dp(8), a.dp(8), Gravity.CENTER);
             hit.addView(dot, dp);
-            dots.addView(hit, new LayoutParams(a.dp(40), -1));
+            dots.addView(hit, new LayoutParams(a.dp(48), -1));
         }
     }
 
@@ -190,7 +190,23 @@ final class HomeGrid extends LinearLayout implements SpringDriver.Listener {
     private void track(MotionEvent e) { if (velocity == null) velocity = VelocityTracker.obtain(); velocity.addMovement(e); }
 
     private boolean drag(MotionEvent e) {
-        if (!dragging) return e.getActionMasked() == MotionEvent.ACTION_DOWN && pages.size() > 1;
+        if (!dragging) {
+            // Touch began on empty space (no child took ACTION_DOWN): detect the swipe here.
+            if (pages.size() <= 1) return false;
+            switch (e.getActionMasked()) {
+                case MotionEvent.ACTION_DOWN: downX = e.getX(); downY = e.getY(); track(e); return true;
+                case MotionEvent.ACTION_MOVE:
+                    track(e);
+                    if (Math.abs(e.getX() - downX) > slop && Math.abs(e.getX() - downX) > Math.abs(e.getY() - downY) * 1.3f) {
+                        dragging = true; startOffset = offset.value; driver.cancel(); downX = e.getX();
+                        if (getParent() != null) getParent().requestDisallowInterceptTouchEvent(true);
+                    }
+                    return true;
+                default:
+                    if (velocity != null) { velocity.recycle(); velocity = null; }
+                    return false;
+            }
+        }
         track(e);
         int w = Math.max(1, pager.getWidth());
         switch (e.getActionMasked()) {
