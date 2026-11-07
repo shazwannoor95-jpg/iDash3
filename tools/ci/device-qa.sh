@@ -28,9 +28,13 @@ focus | grep -q "$PKG" && res return_home PASS || res return_home FAIL "$(focus)
 # Page swipe on the home grid (right part of the screen)
 sw(){ adb shell input swipe "$1" 300 "$2" 300 220; sleep 1; }
 # gfxinfo: FULL vs LOW (pref edited through run-as on the debug build)
-setperf(){
-  adb shell am force-stop $PKG
-  adb shell "run-as $PKG sh -c 'f=shared_prefs/idash.xml; if [ -f \$f ]; then grep -v perf_mode \$f | sed \"s#</map>#<int name=\\\"perf_mode\\\" value=\\\"$1\\\" />\\n</map>#\" > \$f.tmp && mv \$f.tmp \$f; fi'" 2>>"$OUT/run-as.txt"
+setperf(){ # 0 auto, 1 low, 2 full — edits the debug build's prefs via run-as and verifies it
+  adb shell am force-stop $PKG; sleep 1
+  adb shell run-as $PKG cat shared_prefs/idash.xml > "$OUT/prefs.xml" 2>/dev/null
+  grep -v 'name="perf_mode"' "$OUT/prefs.xml" | sed "s#</map>#    <int name=\"perf_mode\" value=\"$1\" />\n</map>#" > "$OUT/prefs-new.xml"
+  adb shell "run-as $PKG sh -c 'cat > shared_prefs/idash.xml'" < "$OUT/prefs-new.xml"
+  got=$(adb shell run-as $PKG cat shared_prefs/idash.xml | grep -o 'name="perf_mode" value="[0-9]"' | grep -o '[0-9]"$' | tr -d '"')
+  [ "$got" = "$1" ] && res "perf_mode_$1_applied" PASS || res "perf_mode_$1_applied" FAIL "got=$got"
   adb shell am start -W -n "$ACT" >/dev/null 2>&1; sleep 6
 }
 measure(){ # label
