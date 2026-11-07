@@ -5,6 +5,7 @@ Format ringkas berasaskan [Keep a Changelog](https://keepachangelog.com/). Tarik
 ## [0.2.0-dev] — 2026-11-07 (belum dikeluarkan sebagai release)
 
 ### Ditambah
+- **Resolusi panel gaya PiP** (`ResolutionStage`): kandungan panel media dilukis pada resolusi maya 16:9 (360p/480p/540p/720p, lalai 480p) dan dikecilkan seragam supaya muat kotak panel; sentuhan dipetakan semula. Butang resolusi pada kepala panel. Digunakan untuk YouTube web dan FM.
 - **iDash3 Debloat 1.0** (`com.shazwan.idash3.debloat`, modul `:debloat`): lumpuhkan bloatware head unit Saga (automatik dengan root, wizard tanpa root), buang log MTK/cache, pintasan WebView → Chrome, pulihkan semua; skrip ADB `tools/headunit/debloat-adb.sh|.bat`.
 - `dist/RECOMMENDED-APPS.md`: Waze/NewPipe/SmartTube/Chrome yang serasi dengan API 27 32-bit.
 - **Ikon gaya iOS** untuk app head unit (Radio, localmusic, Bluetooth, Backcar, CarSet/CanBus, Car Settings, Maps/Net Navi, File Manager, Gallery, Video/VLC, Sound Effects, Downloads, Calendar dinamik, dll.) — glyph asli pada jubin squircle; boleh dimatikan.
@@ -20,7 +21,8 @@ Format ringkas berasaskan [Keep a Changelog](https://keepachangelog.com/). Tarik
 
 ### Diubah
 - Home: tajuk "Shazwan's Saga"; kad jam kini memaparkan "TODAY" + jam + tarikh di tengah (kad Today berasingan dibuang); kad waktu solat berpusat dengan hierarki font (waktu seterusnya > baris JAKIM > jadual); susunan kad dipusatkan secara menegak.
-- Panel media: saiz frekuensi FM menyesuaikan ruang (tidak lagi terlindung oleh butang); YouTube web dizum keluar (78%, teks 85%) supaya muat dalam panel.
+- Panel media: saiz frekuensi FM menyesuaikan ruang (tidak lagi terlindung oleh butang).
+- Label TODAY tidak lagi mempunyai bulatan scrim gelap (label aksen dikecualikan daripada scrim, diberi bayang teks sendiri).
 - Kaca baked hanya untuk panel yang dipaparkan pada window (view offscreen kekal dengan frost).
 - Pakej baharu **`com.shazwan.idash3`** (standalone; dipasang bersama iDash/iDash2). Nama permission dalaman juga ditukar untuk elak konflik pemasangan.
 - Kad kiri Home lebih lapang (jam besar, label diringkaskan, waktu solat 3 baris); panel kanan kosong secara lalai.

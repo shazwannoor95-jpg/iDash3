@@ -17,6 +17,8 @@ final class GlassSurface extends Drawable {
  /** Transient shapes (morph) change every frame and must not bake. */
  GlassSurface bakeEnabled(boolean on){bakeEnabled=on;if(!on){baked=null;bakedShader=null;}return this;}
  boolean isBaked(){return bakedShader!=null;}
+ /** Tag a short accent label (e.g. "TODAY") to skip the local contrast scrim; it must have its own contrast. */
+ static final String NO_SCRIM="glass-no-scrim";
  GlassSurface(float d,int tint,int radius,int style,boolean sheet){this(d,tint,radius,style,sheet,null,1,0);}
  GlassSurface(float d,int tint,int radius,int style,boolean sheet,GlassBackdrop backdrop,int quality,int tone){this(d,tint,radius,style,sheet,backdrop,quality,tone,false);}
  GlassSurface(float d,int tint,int radius,int style,boolean sheet,GlassBackdrop backdrop,int quality,int tone,boolean premium){this.premium=premium;this.density=d;this.radius=radius*d;this.tint=tint;this.style=style;this.sheet=sheet;this.backdrop=backdrop;this.quality=quality;this.baseQuality=quality;this.tone=tone;if(backdrop!=null){if(backdrop.surfaces.size()>128)for(int i=backdrop.surfaces.size()-1;i>=0;i--)if(backdrop.surfaces.get(i).get()==null)backdrop.surfaces.remove(i);backdrop.surfaces.add(new WeakReference<>(this));}}
@@ -153,7 +155,7 @@ final class GlassSurface extends Drawable {
  // Geometry and nine low-resolution samples are cached per material/bounds revision.
  // This protects content locally rather than forcing the complete glass panel opaque.
  private void collectProtection(View view,float x,float y){
-  if(!view.isEnabled())return;
+  if(!view.isEnabled()||NO_SCRIM.equals(view.getTag()))return;
   if(view.getWidth()==0||view.getHeight()==0){protectionDirty=true;return;}
   boolean text=view instanceof TextView, glyph=view instanceof ControlGlyph||view instanceof IosStyle.Icon;
   if(text){TextView label=(TextView)view;android.text.Layout layout=label.getLayout();if(layout!=null){

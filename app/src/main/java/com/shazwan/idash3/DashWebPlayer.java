@@ -35,14 +35,17 @@ final class DashWebPlayer extends LinearLayout implements AutoCloseable {
     private int savedSystemUi,savedWindowFlags;
     private static final int FULLSCREEN_WINDOW_FLAGS=WindowManager.LayoutParams.FLAG_FULLSCREEN|WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON;
 
-    DashWebPlayer(Activity activity){
+    private ResolutionStage stage;
+    DashWebPlayer(Activity activity){this(activity,0,0);}
+    /** designW/H (dp) render the page at a fixed PiP-style resolution scaled into the panel; 0 = fill. */
+    DashWebPlayer(Activity activity,int designW,int designH){
         super(activity);this.activity=activity;setOrientation(VERTICAL);
         LinearLayout search=new LinearLayout(activity);searchRow=search;query=new EditText(activity);query.setSingleLine(true);
         query.setPadding(dp(8),0,dp(8),0);query.setIncludeFontPadding(false);query.setGravity(Gravity.CENTER_VERTICAL|Gravity.START);query.setTextSize(13);query.setTextColor(0xfff8faff);query.setHintTextColor(0xffbdcce5);
         query.setHint("YouTube link or search");query.setImeOptions(EditorInfo.IME_ACTION_GO);
         query.setOnEditorActionListener((v,action,event)->{if(action==EditorInfo.IME_ACTION_GO){open(query.getText().toString());return true;}return false;});
         search.addView(query,new LayoutParams(0,dp(32),1));search.addView(button("Go",()->open(query.getText().toString())),new LayoutParams(dp(44),dp(32)));addView(search);
-        body=new FrameLayout(activity);body.setBackgroundColor(Color.BLACK);addView(body,new LayoutParams(-1,0,1));
+        body=new FrameLayout(activity);body.setBackgroundColor(Color.BLACK);addView(body,new LayoutParams(-1,0,1));stage=new ResolutionStage(activity,designW,designH);body.addView(stage,new FrameLayout.LayoutParams(-1,-1));
         start=button("Start YouTube web\nPlays here · Internet required",()->open(query.getText().toString()));start.setTextSize(14);body.addView(start,new FrameLayout.LayoutParams(-1,-1));
         status=new TextView(activity);status.setTextSize(11);status.setTextColor(0xffbdcce5);status.setText("Website player · tap video to play");status.setMaxLines(2);addView(status,new LayoutParams(-1,-2));
         LinearLayout controls=new LinearLayout(activity);
@@ -84,7 +87,7 @@ final class DashWebPlayer extends LinearLayout implements AutoCloseable {
             settings.setAllowFileAccess(false);settings.setAllowContentAccess(false);settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
             settings.setMediaPlaybackRequiresUserGesture(true);settings.setUseWideViewPort(true);settings.setLoadWithOverviewMode(true);
             // Dashboard labels may follow accessibility font scaling; the website has its own viewport.
-            settings.setTextZoom(85);created.setInitialScale(0);
+            settings.setTextZoom(100);created.setInitialScale(0);
             settings.setGeolocationEnabled(false);CookieManager.getInstance().setAcceptThirdPartyCookies(created,false);
             created.setWebViewClient(Build.VERSION.SDK_INT>=26?new ModernClient():new Client());
             created.setWebChromeClient(new WebChromeClient(){
@@ -96,7 +99,7 @@ final class DashWebPlayer extends LinearLayout implements AutoCloseable {
                 @Override public void onGeolocationPermissionsShowPrompt(String origin,GeolocationPermissions.Callback callback){callback.invoke(origin,false,false);}
             });
             created.setDownloadListener((url,ua,disposition,mime,length)->{status.setVisibility(VISIBLE);status.setText("Downloads are unavailable in this player");});
-            start.setVisibility(GONE);body.addView(created,new FrameLayout.LayoutParams(-1,-1));
+            start.setVisibility(GONE);stage.addView(created,new FrameLayout.LayoutParams(-1,-1));
         }catch(RuntimeException|LinkageError unavailable){releaseWeb();status.setText("WebView unavailable. Update Android System WebView on this device.");return null;}
         return web;
     }
@@ -142,13 +145,11 @@ final class DashWebPlayer extends LinearLayout implements AutoCloseable {
         activity.getWindow().getDecorView().setSystemUiVisibility(savedSystemUi);
         notifyHidden(callback);return true;
     }
-    /** YouTube's mobile layout is sized for phones held close; zoom it out to fit the dashboard panel. */
-    static void fitPage(WebView view){try{view.evaluateJavascript("(function(){var d=document.documentElement;if(d&&d.style.zoom!=='0.78')d.style.zoom='0.78';})()",null);}catch(RuntimeException ignored){}}
     private class Client extends WebViewClient {
         @Override public boolean shouldOverrideUrlLoading(WebView view,WebResourceRequest request){return block(request.getUrl().toString());}
         @Override public boolean shouldOverrideUrlLoading(WebView view,String url){return block(url);}
         private boolean block(String url){if(allowed(url))return false;status.setVisibility(VISIBLE);status.setText("This link is unavailable in the panel. No external app was opened.");return true;}
-        @Override public void onPageFinished(WebView view,String url){if(web==view){fitPage(view);status.setText("YouTube web · tap video to play · sign-in/restricted videos may be unavailable");compactWatch(url);}}
+        @Override public void onPageFinished(WebView view,String url){if(web==view){status.setText("YouTube web · tap video to play · sign-in/restricted videos may be unavailable");compactWatch(url);}}
         @Override public void doUpdateVisitedHistory(WebView view,String url,boolean reload){if(web==view)compactWatch(url);}
         private void compactWatch(String url){Uri uri=Uri.parse(url);String path=uri.getPath();if(allowed(url)&&path!=null&&(path.equals("/watch")||path.startsWith("/shorts/"))){searchRow.setVisibility(GONE);status.setVisibility(GONE);}}
         @Override public void onReceivedError(WebView view,WebResourceRequest request,WebResourceError error){if(web==view&&request.isForMainFrame()){status.setVisibility(VISIBLE);status.setText("Page unavailable. Check Internet/System WebView, then tap Home to retry.");}}
@@ -162,7 +163,7 @@ final class DashWebPlayer extends LinearLayout implements AutoCloseable {
     private void releaseWeb(){
         WebView old=web;web=null;exitFullscreen();
         if(old!=null){
-            body.removeView(old);
+            stage.removeView(old);
             // A dead OEM renderer may reject stopLoading/onPause. Always attempt destroy,
             // so recovery leaves neither an attached browser nor a retained player.
             try{old.stopLoading();old.onPause();}catch(RuntimeException ignored){}
