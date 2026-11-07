@@ -4,7 +4,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 /** One wallpaper-derived, bounded frost cache per Activity. Prepared off the UI thread. */
 final class GlassBackdrop {
- static final class Frame {final Bitmap bitmap;final int tint,quality;Frame(Bitmap b,int t){this(b,t,-1);}Frame(Bitmap b,int t,int q){bitmap=b;tint=t;quality=q;}}
+ static final class Frame {final Bitmap bitmap,soft;final int tint,quality;Frame(Bitmap b,int t){this(b,t,-1);}Frame(Bitmap b,int t,int q){this(b,null,t,q);}Frame(Bitmap b,Bitmap s,int t,int q){bitmap=b;soft=s;tint=t;quality=q;}}
  Frame frame=new Frame(null,0xff526783);int revision;
  final ArrayList<WeakReference<GlassSurface>> surfaces=new ArrayList<>();
  void publish(Frame next){frame=next;revision++;for(int i=surfaces.size()-1;i>=0;i--){GlassSurface s=surfaces.get(i).get();if(s==null)surfaces.remove(i);else s.invalidateSelf();}}
@@ -15,7 +15,7 @@ final class GlassBackdrop {
   float scale=Math.min(1,edge/(float)Math.max(source.getWidth(),source.getHeight()));int w=Math.max(1,Math.round(source.getWidth()*scale)),h=Math.max(1,Math.round(source.getHeight()*scale));
   Bitmap out=Bitmap.createBitmap(w,h,Bitmap.Config.ARGB_8888);Canvas c=new Canvas(out);c.drawColor(Color.BLACK);c.drawBitmap(source,null,new Rect(0,0,w,h),new Paint(Paint.FILTER_BITMAP_FLAG));
   int[] a=new int[w*h],b=new int[w*h];out.getPixels(a,0,w,0,0,w,h);long red=0,green=0,blue=0;for(int pixel:a){red+=Color.red(pixel);green+=Color.green(pixel);blue+=Color.blue(pixel);}int tint=Color.rgb((int)(red/a.length),(int)(green/a.length),(int)(blue/a.length));
-  for(int pass=0;pass<3;pass++){blur(a,b,w,h,radius,true);blur(b,a,w,h,radius,false);}out.setPixels(a,0,w,0,0,w,h);return new Frame(out,tint,quality);
+  for(int pass=0;pass<3;pass++){blur(a,b,w,h,radius,true);blur(b,a,w,h,radius,false);}out.setPixels(a,0,w,0,0,w,h);Bitmap soft=null;try{soft=Bitmap.createScaledBitmap(out,Math.max(8,w/4),Math.max(8,h/4),true);}catch(OutOfMemoryError skip){/* transition falls back to the sharp frame */}return new Frame(out,soft,tint,quality);
  }
  private static void blur(int[] src,int[] dst,int w,int h,int radius,boolean horizontal){
   int outer=horizontal?h:w,inner=horizontal?w:h;

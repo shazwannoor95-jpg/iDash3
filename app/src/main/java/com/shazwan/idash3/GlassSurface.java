@@ -4,20 +4,23 @@ import java.lang.ref.WeakReference;
 /** Original API27 glass: wallpaper frost, cached shaders, rim/reflection and inset shadow bands. */
 final class GlassSurface extends Drawable {
  private final Paint paint=new Paint(3);private final RectF box=new RectF(),rim=new RectF(),shadow=new RectF();private final Path clip=new Path();private final Matrix matrix=new Matrix();private final int[] position=new int[2];
- private final float radius,density;private final int tint,style,tone;private final int baseQuality;private int quality;private GlassAppearance appearance;private final boolean sheet,premium;private final GlassBackdrop backdrop;
+ private float radius;private final float density;private final int tint,style,tone;private final int baseQuality;private int quality;private GlassAppearance appearance;private final boolean sheet,premium;private final GlassBackdrop backdrop;
  private final java.util.ArrayList<Protection> protections=new java.util.ArrayList<>();private int protectionCount;private int protectionGeometry;private boolean protectionDirty=true;private int bodyRgb,bodyAlpha;
  private final Path specular=new Path();private final RectF inner=new RectF();private Shader bevel,specularFade;private boolean light,contrastQueued;
  private Shader body,sheen,edge,reflection;private ColorFilter externalFilter;private BitmapShader frost;private int opacity=255,revision=-1;
+ // Liquid Glass v2 state: region tint, edge lensing, touch specular, depth and reveal (blur/lens transition).
+ private BitmapShader frostLens,frostSoft;private final Matrix lensMatrix=new Matrix(),softMatrix=new Matrix(),touchMatrix=new Matrix();private final Path ring=new Path();private final RectF ringInner=new RectF();
+ private int regionTint,adaptKey=Integer.MIN_VALUE,fxGen=-1;private float reveal=1f,depth,lensK,touchX,touchY,touchA;private boolean lens,dynSpec,touching;private long touchStamp;private Shader touchShader;private final Paint fxPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
  GlassSurface(float d,int tint,int radius,int style,boolean sheet){this(d,tint,radius,style,sheet,null,1,0);}
  GlassSurface(float d,int tint,int radius,int style,boolean sheet,GlassBackdrop backdrop,int quality,int tone){this(d,tint,radius,style,sheet,backdrop,quality,tone,false);}
  GlassSurface(float d,int tint,int radius,int style,boolean sheet,GlassBackdrop backdrop,int quality,int tone,boolean premium){this.premium=premium;this.density=d;this.radius=radius*d;this.tint=tint;this.style=style;this.sheet=sheet;this.backdrop=backdrop;this.quality=quality;this.baseQuality=quality;this.tone=tone;if(backdrop!=null){if(backdrop.surfaces.size()>128)for(int i=backdrop.surfaces.size()-1;i>=0;i--)if(backdrop.surfaces.get(i).get()==null)backdrop.surfaces.remove(i);backdrop.surfaces.add(new WeakReference<>(this));}}
- GlassSurface appearance(GlassAppearance value){if(appearance==value||(appearance!=null&&value!=null&&appearance.same(value)))return this;appearance=value;quality=value==null?baseQuality:value.quality;if(!box.isEmpty())rebuild();invalidateSelf();return this;}
+ GlassSurface appearance(GlassAppearance value){if(appearance==value||(appearance!=null&&value!=null&&appearance.same(value)))return this;appearance=value;quality=value==null?baseQuality:value.quality;fxGen=-1;if(!box.isEmpty())rebuild();invalidateSelf();return this;}
  private static int mix(int a,int b,float f){return Color.rgb(Math.round(Color.red(a)*f+Color.red(b)*(1-f)),Math.round(Color.green(a)*f+Color.green(b)*(1-f)),Math.round(Color.blue(a)*f+Color.blue(b)*(1-f)));}
  @Override protected void onBoundsChange(Rect bounds){box.set(bounds);box.inset(2*density,2*density);rim.set(box);rim.inset(density*.5f,density*.5f);clip.reset();clip.addRoundRect(box,radius,radius,Path.Direction.CW);rebuild();}
  private void rebuild(){
   GlassBackdrop.Frame frame=backdrop==null?null:backdrop.frame;
   revision=backdrop==null?0:backdrop.revision;
-  int sampled=frame==null?tint:frame.tint;
+  int sampled=regionTint!=0?regionTint:frame==null?tint:frame.tint;
   int selectedTone=appearance==null?tone:appearance.tone;
   light=selectedTone==IosStyle.LIGHT||(selectedTone==IosStyle.AUTO&&Color.luminance(sampled)>.35);
   int chosen=appearance==null?sampled:appearance.tintColor(sampled);
@@ -38,23 +41,89 @@ final class GlassSurface extends Drawable {
   specular.lineTo(box.left+Math.max(radius,box.width()*.46f),box.top+density*2);
   protectionDirty=true;contrastQueued=false;
   frost=frame==null||frame.bitmap==null||style==2?null:new BitmapShader(frame.bitmap,Shader.TileMode.CLAMP,Shader.TileMode.CLAMP);
+  buildFx(frame);
+ }
+ /** Depth, lens ring and touch shader. Cheap objects, rebuilt only with the material. */
+ private void buildFx(GlassBackdrop.Frame frame){
+  float shortest=Math.min(box.width(),box.height())/density;depth=Math.max(0f,Math.min(1f,(shortest-56f)/184f));
+  lens=quality>=IosStyle.BALANCED&&style!=2&&frost!=null;dynSpec=quality>=IosStyle.BALANCED&&style!=2;
+  if(lens){float lw=density*(5f+9f*depth);lensK=.018f+.05f*depth;ring.reset();ring.setFillType(Path.FillType.EVEN_ODD);ring.addRoundRect(box,radius,radius,Path.Direction.CW);ringInner.set(box);ringInner.inset(lw,lw);float ir=Math.max(0,radius-lw);ring.addRoundRect(ringInner,ir,ir,Path.Direction.CW);frostLens=new BitmapShader(frame.bitmap,Shader.TileMode.CLAMP,Shader.TileMode.CLAMP);}else frostLens=null;
+  frostSoft=frame!=null&&frame.soft!=null&&style!=2?new BitmapShader(frame.soft,Shader.TileMode.CLAMP,Shader.TileMode.CLAMP):null;
+  float reach=Math.max(density*60,Math.min(box.width(),box.height())*.6f);
+  touchShader=dynSpec?new RadialGradient(0,0,reach,new int[]{0xe0ffffff,0x60ffffff,0x00ffffff},new float[]{0,.35f,1},Shader.TileMode.CLAMP):null;
+ }
+ /** Adaptive tint: mean wallpaper colour under THIS panel, recomputed only when position/size/backdrop change. */
+ private void adaptRegion(View owner){
+  GlassBackdrop.Frame f=backdrop==null?null:backdrop.frame;
+  if(f==null||f.bitmap==null||style==2){if(regionTint!=0){regionTint=0;adaptKey=Integer.MIN_VALUE;rebuild();}return;}
+  owner.getLocationOnScreen(position);
+  int key=31*(31*(31*position[0]+position[1])+(int)box.width())+(int)box.height();key=31*key+backdrop.revision;
+  if(key==adaptKey)return;adaptKey=key;
+  Bitmap bmp=f.bitmap;android.util.DisplayMetrics m=owner.getResources().getDisplayMetrics();
+  float scale=Math.max(m.widthPixels/(float)bmp.getWidth(),m.heightPixels/(float)bmp.getHeight());
+  float ox=(m.widthPixels-bmp.getWidth()*scale)/2f,oy=(m.heightPixels-bmp.getHeight()*scale)/2f;
+  float l=(position[0]+box.left-ox)/scale,t=(position[1]+box.top-oy)/scale,r=(position[0]+box.right-ox)/scale,b=(position[1]+box.bottom-oy)/scale;
+  int[] grid=new int[25];for(int gy=0;gy<5;gy++)for(int gx=0;gx<5;gx++){int px=Math.max(0,Math.min(bmp.getWidth()-1,(int)(l+(r-l)*(gx+.5f)/5)));int py=Math.max(0,Math.min(bmp.getHeight()-1,(int)(t+(b-t)*(gy+.5f)/5)));grid[gy*5+gx]=bmp.getPixel(px,py);}
+  int avg=Adaptive.averageRegion(grid,5,5,0,0,5,5,5,f.tint);
+  if(avg!=regionTint){regionTint=avg;rebuild();invalidateSelf();}
+ }
+ /** Corner radius in px for morphing shapes; geometry is rebuilt on the next bounds change. */
+ void setRadiusPx(float px){if(px!=radius){radius=Math.max(0,px);Rect b=getBounds();if(!b.isEmpty())onBoundsChange(b);invalidateSelf();}}
+ /** Drives the appear/disappear transition: 0 = strong lens and heavy blur, 1 = settled. */
+ void setReveal(float value){float next=Math.max(0f,Math.min(1f,value));if(next!=reveal){reveal=next;invalidateSelf();}}
+ float reveal(){return reveal;}
+ /** Screen-coordinate touch feed from the Activity; no event is consumed. */
+ void onScreenTouch(float sx,float sy,int action){
+  if(!dynSpec||box.isEmpty())return;
+  float lx=sx-position[0],ly=sy-position[1],slop=density*24;
+  boolean inside=lx>=box.left-slop&&lx<=box.right+slop&&ly>=box.top-slop&&ly<=box.bottom+slop;
+  if(action==android.view.MotionEvent.ACTION_UP||action==android.view.MotionEvent.ACTION_CANCEL||!inside){if(touching){touching=false;touchStamp=android.os.SystemClock.uptimeMillis();invalidateSelf();}return;}
+  touchX=lx;touchY=ly;touching=true;touchA=Math.min(1f,Math.max(touchA,.01f)+.18f);touchStamp=android.os.SystemClock.uptimeMillis();invalidateSelf();
  }
  private static int scaled(int color,float value){return (Math.min(255,Math.round(Color.alpha(color)*value))<<24)|(color&0xffffff);}
  int foregroundColor(){return light?IosStyle.INK:Color.WHITE;}
  @Override public void draw(Canvas canvas){
-  if(box.isEmpty())return;if(body==null||(backdrop!=null&&revision!=backdrop.revision))rebuild();Drawable.Callback ownerCallback=getCallback();for(int depth=0;depth<4&&ownerCallback instanceof Drawable;depth++)ownerCallback=((Drawable)ownerCallback).getCallback();if(!contrastQueued&&ownerCallback instanceof View){contrastQueued=true;View owner=(View)ownerCallback;final boolean currentLight=light;final int generation=revision;final Drawable.Callback attached=getCallback();owner.post(()->{if(getCallback()==attached&&revision==generation)IosStyle.contrast(owner,currentLight);});}if(!(ownerCallback instanceof View))protectionCount=0;if(ownerCallback instanceof View){View owner=(View)ownerCallback;owner.getLocationOnScreen(position);int geometry=31*(31*geometryHash(owner)+position[0])+position[1];if(protectionDirty||geometry!=protectionGeometry){protectionCount=0;protectionDirty=false;collectProtection(owner,0,0);protectionGeometry=geometry;}}paint.setShader(null);paint.setStyle(Paint.Style.FILL);
-  shadow.set(box);shadow.offset(0,density*1.5f);paint.setColor(0x26000000);paint.setAlpha(opacity*38/255);canvas.drawRoundRect(shadow,radius,radius,paint);shadow.offset(0,-density*.8f);paint.setAlpha(opacity*24/255);canvas.drawRoundRect(shadow,radius,radius,paint);
+  if(box.isEmpty())return;if(fxGen!=GlassPerf.generation()){fxGen=GlassPerf.generation();int eq=GlassPerf.capQuality(appearance==null?baseQuality:appearance.quality);if(eq!=quality){quality=eq;rebuild();}}if(body==null||(backdrop!=null&&revision!=backdrop.revision))rebuild();Drawable.Callback ownerCallback=getCallback();for(int depth=0;depth<4&&ownerCallback instanceof Drawable;depth++)ownerCallback=((Drawable)ownerCallback).getCallback();if(ownerCallback instanceof View)adaptRegion((View)ownerCallback);if(!contrastQueued&&ownerCallback instanceof View){contrastQueued=true;View owner=(View)ownerCallback;final boolean currentLight=light;final int generation=revision;final Drawable.Callback attached=getCallback();owner.post(()->{if(getCallback()==attached&&revision==generation)IosStyle.contrast(owner,currentLight);});}if(!(ownerCallback instanceof View))protectionCount=0;if(ownerCallback instanceof View){View owner=(View)ownerCallback;owner.getLocationOnScreen(position);int geometry=31*(31*geometryHash(owner)+position[0])+position[1];if(protectionDirty||geometry!=protectionGeometry){protectionCount=0;protectionDirty=false;collectProtection(owner,0,0);protectionGeometry=geometry;}}paint.setShader(null);paint.setStyle(Paint.Style.FILL);
+  shadow.set(box);shadow.offset(0,density*(1.5f+2.5f*depth));paint.setColor(0x26000000);paint.setAlpha(opacity*(38+Math.round(30*depth))/255);canvas.drawRoundRect(shadow,radius,radius,paint);shadow.offset(0,-density*(.8f+1.5f*depth));paint.setAlpha(opacity*(24+Math.round(22*depth))/255);canvas.drawRoundRect(shadow,radius,radius,paint);
   int save=canvas.save();canvas.clipPath(clip);
-  if(frost!=null){GlassBackdrop.Frame f=backdrop.frame;Drawable.Callback callback=getCallback();if(callback instanceof View){View view=(View)callback;view.getLocationOnScreen(position);android.util.DisplayMetrics metrics=view.getResources().getDisplayMetrics();float scale=Math.max(metrics.widthPixels/(float)f.bitmap.getWidth(),metrics.heightPixels/(float)f.bitmap.getHeight());matrix.setScale(scale,scale);matrix.postTranslate((metrics.widthPixels-f.bitmap.getWidth()*scale)/2-position[0],(metrics.heightPixels-f.bitmap.getHeight()*scale)/2-position[1]);}else{float scale=Math.max(box.width()/f.bitmap.getWidth(),box.height()/f.bitmap.getHeight());matrix.setScale(scale,scale);matrix.postTranslate(box.centerX()-f.bitmap.getWidth()*scale/2,box.centerY()-f.bitmap.getHeight()*scale/2);}frost.setLocalMatrix(matrix);paint.setShader(frost);paint.setColorFilter(externalFilter!=null?externalFilter:light?null:IosStyle.DARK_FROST_FILTER);paint.setAlpha(opacity*(style==0||appearance!=null?255:(style==1?125:210))/255);canvas.drawRect(box,paint);paint.setColorFilter(externalFilter);}
-  paint.setAlpha(opacity);paint.setShader(body);canvas.drawRect(box,paint);if(style!=2){paint.setShader(sheen);canvas.drawRect(box,paint);if(quality>0){paint.setShader(reflection);canvas.drawRect(box,paint);}}
+  if(frost!=null){GlassBackdrop.Frame f=backdrop.frame;Drawable.Callback callback=getCallback();if(callback instanceof View){View view=(View)callback;view.getLocationOnScreen(position);android.util.DisplayMetrics metrics=view.getResources().getDisplayMetrics();float scale=Math.max(metrics.widthPixels/(float)f.bitmap.getWidth(),metrics.heightPixels/(float)f.bitmap.getHeight());matrix.setScale(scale,scale);matrix.postTranslate((metrics.widthPixels-f.bitmap.getWidth()*scale)/2-position[0],(metrics.heightPixels-f.bitmap.getHeight()*scale)/2-position[1]);}else{float scale=Math.max(box.width()/f.bitmap.getWidth(),box.height()/f.bitmap.getHeight());matrix.setScale(scale,scale);matrix.postTranslate(box.centerX()-f.bitmap.getWidth()*scale/2,box.centerY()-f.bitmap.getHeight()*scale/2);}frost.setLocalMatrix(matrix);paint.setShader(frost);paint.setColorFilter(externalFilter!=null?externalFilter:light?null:IosStyle.DARK_FROST_FILTER);paint.setAlpha(opacity*(style==0||appearance!=null?255:(style==1?125:210))/255);canvas.drawRect(box,paint);paint.setColorFilter(externalFilter);drawFxFrost(canvas);}
+  paint.setAlpha(Math.round(opacity*(.35f+.65f*reveal)));paint.setShader(body);canvas.drawRect(box,paint);paint.setAlpha(opacity);if(style!=2){paint.setShader(sheen);canvas.drawRect(box,paint);if(quality>0){paint.setShader(reflection);canvas.drawRect(box,paint);}}
   if(style!=2&&quality>0){
    paint.setStyle(Paint.Style.STROKE);paint.setShader(bevel);paint.setStrokeWidth((style==0?2:IosStyle.BEVEL_DP)*density);canvas.drawRoundRect(inner,Math.max(0,radius-2*density),Math.max(0,radius-2*density),paint);
    paint.setShader(specularFade);paint.setStrokeWidth((style==0?(quality==2?1.8f:1.2f):(quality==2?5.5f:3.5f))*density);paint.setStrokeCap(Paint.Cap.ROUND);canvas.drawPath(specular,paint);paint.setStrokeCap(Paint.Cap.BUTT);
   }
   if(style!=2){paint.setStyle(Paint.Style.FILL);paint.setAlpha(opacity);for(int i=0;i<protectionCount;i++){Protection p=protections.get(i);paint.setShader(p.shader);canvas.drawOval(p.bounds,paint);}}
+  drawTouchWash(canvas);
   canvas.restoreToCount(save);
   paint.setShader(edge);paint.setStyle(Paint.Style.STROKE);paint.setStrokeWidth(IosStyle.RIM_OUTER_DP*density);paint.setAlpha(opacity);canvas.drawRoundRect(rim,Math.max(0,radius-density*.5f),Math.max(0,radius-density*.5f),paint);if(style!=2&&quality>0){paint.setShader(specularFade);paint.setStrokeWidth(IosStyle.RIM_INNER_DP*density);canvas.drawRoundRect(inner,Math.max(0,radius-2*density),Math.max(0,radius-2*density),paint);}
+  drawTouchRim(canvas);
   paint.setShader(null);
+ }
+ private void drawFxFrost(Canvas canvas){
+  GlassBackdrop.Frame f=backdrop.frame;
+  float k=lens?lensK*(reveal<1f?1f+(1f-reveal)*2.5f:1f):0f;
+  if(lens&&k>0f&&frostLens!=null){
+   lensMatrix.set(matrix);lensMatrix.postScale(1f+k,1f+k,box.centerX(),box.centerY());frostLens.setLocalMatrix(lensMatrix);
+   int s=canvas.save();canvas.clipPath(ring);paint.setShader(frostLens);paint.setColorFilter(externalFilter!=null?externalFilter:light?null:IosStyle.DARK_FROST_FILTER);paint.setAlpha(opacity);canvas.drawRect(box,paint);paint.setColorFilter(externalFilter);canvas.restoreToCount(s);
+  }
+  if(reveal<1f&&frostSoft!=null&&f.soft!=null){
+   softMatrix.set(matrix);softMatrix.preScale(f.bitmap.getWidth()/(float)f.soft.getWidth(),f.bitmap.getHeight()/(float)f.soft.getHeight());frostSoft.setLocalMatrix(softMatrix);
+   paint.setShader(frostSoft);paint.setColorFilter(externalFilter!=null?externalFilter:light?null:IosStyle.DARK_FROST_FILTER);paint.setAlpha(Math.round(opacity*(1f-reveal)));canvas.drawRect(box,paint);paint.setColorFilter(externalFilter);
+  }
+ }
+ private float touchLevel(){
+  if(touchA<=0f||touchShader==null)return 0f;
+  if(!touching){long idle=android.os.SystemClock.uptimeMillis()-touchStamp;touchA=Math.max(0f,touchA-idle/260f);touchStamp=android.os.SystemClock.uptimeMillis();if(touchA<=0f)return 0f;}
+  invalidateSelf();return touchA;
+ }
+ private void drawTouchWash(Canvas canvas){
+  float a=touchLevel();if(a<=0f)return;
+  touchMatrix.setTranslate(touchX,touchY);touchShader.setLocalMatrix(touchMatrix);fxPaint.setShader(touchShader);fxPaint.setStyle(Paint.Style.FILL);fxPaint.setAlpha(Math.round(opacity*a*.22f));canvas.drawRect(box,fxPaint);
+ }
+ private void drawTouchRim(Canvas canvas){
+  if(touchA<=0f||touchShader==null)return;
+  touchMatrix.setTranslate(touchX,touchY);touchShader.setLocalMatrix(touchMatrix);fxPaint.setShader(touchShader);fxPaint.setStyle(Paint.Style.STROKE);fxPaint.setStrokeWidth(IosStyle.RIM_OUTER_DP*density*2.4f);fxPaint.setAlpha(Math.round(opacity*touchA*.9f));
+  canvas.drawRoundRect(rim,Math.max(0,radius-density*.5f),Math.max(0,radius-density*.5f),fxPaint);
  }
  // Geometry and nine low-resolution samples are cached per material/bounds revision.
  // This protects content locally rather than forcing the complete glass panel opaque.

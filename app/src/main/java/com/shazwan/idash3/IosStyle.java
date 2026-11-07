@@ -32,7 +32,14 @@ final class IosStyle {
  static Typeface regular,medium,bold;
  static Typeface font(Context c,boolean strong){if(regular==null){regular=Typeface.create("sans-serif",Typeface.NORMAL);medium=Typeface.create("sans-serif-medium",Typeface.NORMAL);bold=Typeface.create("sans-serif-medium",Typeface.BOLD);}return strong?bold:regular;}
  static boolean motion(Context c){return GlassAppearance.read(c).animationAllowed(c);}
- static void enter(View v){if(!motion(v.getContext()))return;v.setAlpha(.35f);v.setTranslationY(12*v.getResources().getDisplayMetrics().density);v.animate().alpha(1).translationY(0).setDuration(180).start();}
+ /** Appear transition: glass emerges through lens/blur (reveal 0 -> 1 on a spring); content settles lightly. */
+ static void enter(View v){if(!motion(v.getContext()))return;final java.util.ArrayList<GlassSurface> glass=new java.util.ArrayList<>();collectGlass(v,glass,0);
+  if(glass.isEmpty()||GlassPerf.low()){v.setAlpha(.35f);v.setTranslationY(12*v.getResources().getDisplayMetrics().density);v.animate().alpha(1).translationY(0).setDuration(180).start();return;}
+  final Spring s=Spring.soft(0f);s.target=1f;final float lift=8*v.getResources().getDisplayMetrics().density;
+  final SpringDriver[] holder=new SpringDriver[1];
+  holder[0]=new SpringDriver(new SpringDriver.Listener(){public void onSpringUpdate(){float t=Math.max(0f,Math.min(1f,s.value));for(GlassSurface g:glass)g.setReveal(t);v.setAlpha(.55f+.45f*t);v.setTranslationY(lift*(1f-t));}public void onSpringRest(){for(GlassSurface g:glass)g.setReveal(1f);v.setAlpha(1f);v.setTranslationY(0);}},s);
+  for(GlassSurface g:glass)g.setReveal(0f);v.setAlpha(.55f);holder[0].start();}
+ private static void collectGlass(View v,java.util.ArrayList<GlassSurface> out,int depth){if(depth>12||out.size()>48)return;if(v.getBackground() instanceof GlassSurface)out.add((GlassSurface)v.getBackground());if(v instanceof ViewGroup){ViewGroup g=(ViewGroup)v;for(int i=0;i<g.getChildCount();i++)collectGlass(g.getChildAt(i),out,depth+1);}}
  static Drawable glass(Context c,int tint,int radius){return glass(c,tint,radius,false);}
  static Drawable glass(Context c,int tint,int radius,boolean sheet){return new GlassSurface(c.getResources().getDisplayMetrics().density,tint,radius,GlassAppearance.clamp(GlassAppearance.integer(c.getSharedPreferences("idash",0),"glass_style",0),0,2),sheet,backdrop(c),quality(c),GlassAppearance.read(c).tone).appearance(GlassAppearance.active(c));}
 
