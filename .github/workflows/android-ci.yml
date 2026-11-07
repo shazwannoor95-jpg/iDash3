@@ -40,7 +40,7 @@ jobs:
       - name: Static guard
         run: bash tools/ci/guard.sh
       - name: assembleDebug + assembleDebugAndroidTest
-        run: ./gradlew --no-daemon --stacktrace :app:assembleDebug :app:assembleDebugAndroidTest 2>&1 | tee build.log
+        run: ./gradlew --no-daemon --stacktrace :app:assembleDebug :app:assembleDebugAndroidTest :debloat:assembleDebug 2>&1 | tee build.log
       - name: Unit tests (testDebugUnitTest)
         run: |
           ./gradlew --no-daemon :app:testDebugUnitTest --console=plain 2>&1 | tee unit-test.log
@@ -49,7 +49,7 @@ jobs:
           echo "### Unit tests: $n run, $f failures" >> "$GITHUB_STEP_SUMMARY"
           [ "${n:-0}" -gt 0 ] || { echo "no unit tests ran"; exit 1; }
       - name: lintDebug
-        run: ./gradlew --no-daemon :app:lintDebug 2>&1 | tee lint.log
+        run: ./gradlew --no-daemon :app:lintDebug :debloat:lintDebug 2>&1 | tee lint.log
       - name: APK guard
         run: bash tools/ci/guard.sh app/build/outputs/apk/debug/app-debug.apk
       - name: Lint summary
@@ -62,6 +62,7 @@ jobs:
           mkdir -p qa-apk
           cp app/build/outputs/apk/debug/app-debug.apk qa-apk/iDash3-debug-QA.apk
           cp app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk qa-apk/iDash3-androidTest-QA.apk
+          cp debloat/build/outputs/apk/debug/debloat-debug.apk qa-apk/iDash3-Debloat-QA.apk
           (cd qa-apk && sha256sum *.apk | tee SHA256SUMS.txt)
           echo '```' >> "$GITHUB_STEP_SUMMARY"; cat qa-apk/SHA256SUMS.txt >> "$GITHUB_STEP_SUMMARY"; echo '```' >> "$GITHUB_STEP_SUMMARY"
           echo "Generic debug APK for QA only; not a release." > qa-apk/NOTE.txt

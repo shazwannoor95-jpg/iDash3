@@ -5,6 +5,8 @@ Format ringkas berasaskan [Keep a Changelog](https://keepachangelog.com/). Tarik
 ## [0.2.0-dev] — 2026-11-07 (belum dikeluarkan sebagai release)
 
 ### Ditambah
+- **iDash3 Debloat 1.0** (`com.shazwan.idash3.debloat`, modul `:debloat`): lumpuhkan bloatware head unit Saga (automatik dengan root, wizard tanpa root), buang log MTK/cache, pintasan WebView → Chrome, pulihkan semua; skrip ADB `tools/headunit/debloat-adb.sh|.bat`.
+- `dist/RECOMMENDED-APPS.md`: Waze/NewPipe/SmartTube/Chrome yang serasi dengan API 27 32-bit.
 - **Ikon gaya iOS** untuk app head unit (Radio, localmusic, Bluetooth, Backcar, CarSet/CanBus, Car Settings, Maps/Net Navi, File Manager, Gallery, Video/VLC, Sound Effects, Downloads, Calendar dinamik, dll.) — glyph asli pada jubin squircle; boleh dimatikan.
 - **Kaca refraksi "baked"** (`GlassBake`): refraksi tepi, vibrancy, bevel dikira sekali per panel di thread latar; cache LRU 6 MB.
 - Font **Inter / Inter Display** (SIL OFL).

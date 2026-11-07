@@ -8,7 +8,10 @@
 
 | Fail | Nota |
 |---|---|
-| [**iDash3-0.2.0-dev-debug-QA.apk**](dist/iDash3-0.2.0-dev-debug-QA.apk?raw=true) | APK ujian (debug). SHA256 dan nota pemasangan dalam [`dist/README.md`](dist/README.md) |
+| [**iDash3-0.2.0-dev-debug-QA.apk**](dist/iDash3-0.2.0-dev-debug-QA.apk?raw=true) | Launcher — APK ujian (debug). SHA256 dan nota pemasangan dalam [`dist/README.md`](dist/README.md) |
+| [**iDash3-Debloat-1.0.apk**](dist/iDash3-Debloat-1.0.apk?raw=true) | Alat sekali guna: lumpuhkan bloatware head unit Saga, buang log diagnostik/cache, tetapkan WebView → Chrome. Boleh diundur |
+| [App disyorkan](dist/RECOMMENDED-APPS.md) | Waze 5.9.5.4, NewPipe, SmartTube ≥30.56, Chrome 138 — pautan rasmi & versi yang serasi |
+| [Skrip ADB](tools/headunit/) | `debloat-adb.sh` / `.bat` untuk PC |
 
 - Pakej `com.shazwan.idash3` — dipasang **bersama** launcher sedia ada (tidak menggantikannya). Kekalkan launcher asal sebagai sandaran.
 - Selepas pasang: buka iDash3, kemudian **Control Center → Choose default launcher** (atau tekan butang HOME dan pilih iDash3).
