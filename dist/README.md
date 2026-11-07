@@ -3,7 +3,7 @@
 | Fail | Versi | Pakej | SHA256 |
 |---|---|---|---|
 | `iDash3-Debloat-1.0.apk` | 1.0 (code 1) | `com.shazwan.idash3.debloat` | `576f237a05793f521d14512220bfebd549c1f656a9f1aa5688a533a9bb9d8fcb` |
-| `iDash3-0.2.0-dev-debug-QA.apk` | 0.2.0-dev (code 1) | `com.shazwan.idash3` | `df9e7caf74dcce8b66e076b7cfc93c2debc2e67d306b612c1575b35fd1605fc4` |
+| `iDash3-0.2.0-dev-debug-QA.apk` | 0.2.0-dev (code 1) | `com.shazwan.idash3` | `0b77c74a28e9126f6597ef6d53f054d44e82dfa39d665ab20a496253c7b96d97` |
 
 - Dibina daripada kod terkini cawangan ini (tema ikon gaya iOS untuk app head unit, kaca refraksi baked, ikon squircle, font Inter, panel kanan kosong). minSdk 26, targetSdk 35, tiada pustaka native (jalan pada ARM32).
 - **APK debug untuk ujian sahaja, bukan release.** Ditandatangani kunci debug generik (sijil SHA-256 `404cb209…500e`). Ia **tidak** mengemas kini iDash atau iDash2 — boleh dipasang bersama.

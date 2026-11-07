@@ -8,12 +8,15 @@ import android.view.View;
 /** Original white glyphs for the dock's Settings and Apps tiles (drawn in a 64-unit box). */
 @SuppressLint("ViewConstructor")
 final class DockGlyph extends View {
-    static final int SETTINGS = 0, APPS = 1;
+    static final int SETTINGS = 0, APPS = 1, DRIVE = 2;
     private final int kind; private final Paint ink = new Paint(Paint.ANTI_ALIAS_FLAG); private final Path path = new Path();
     DockGlyph(Context c, int kind) { super(c); this.kind = kind; }
     @Override protected void onDraw(Canvas canvas) {
         canvas.save(); canvas.scale(getWidth() / 64f, getHeight() / 64f); ink.setColor(Color.WHITE);
-        if (kind == APPS) {
+        if (kind == DRIVE) {
+            // Split-screen: two panes with a divider.
+            ink.setStyle(Paint.Style.FILL); canvas.drawRoundRect(12, 18, 30, 46, 4, 4, ink); ink.setAlpha(190); canvas.drawRoundRect(34, 18, 52, 46, 4, 4, ink); ink.setAlpha(255);
+        } else if (kind == APPS) {
             ink.setStyle(Paint.Style.FILL);
             for (int r = 0; r < 3; r++) for (int col = 0; col < 3; col++) { float x = 17 + col * 11, y = 17 + r * 11; canvas.drawRoundRect(x, y, x + 8, y + 8, 2.4f, 2.4f, ink); }
         } else {

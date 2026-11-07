@@ -35,7 +35,19 @@ final class DashWebPlayer extends LinearLayout implements AutoCloseable {
     private int savedSystemUi,savedWindowFlags;
     private static final int FULLSCREEN_WINDOW_FLAGS=WindowManager.LayoutParams.FLAG_FULLSCREEN|WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON;
 
-    private ResolutionStage stage;
+    private ResolutionStage stage;private int viewportWidth;
+    /**
+     * Head-unit video decoders are usually H.264 only. YouTube prefers VP9/AV1, which then plays audio
+     * with a black picture. Report those codecs as unsupported (the h264ify technique) so the player
+     * picks AVC. Injected as early as the old WebView allows and again when the page finishes.
+     */
+    static final String H264_ONLY="(function(){if(window.__idashH264)return;window.__idashH264=true;var bad=/vp9|vp09|av01|av1/i;"
+        +"var ms=window.MediaSource;if(ms&&ms.isTypeSupported){var o=ms.isTypeSupported.bind(ms);ms.isTypeSupported=function(t){return bad.test(t)?false:o(t);};}"
+        +"var cp=HTMLMediaElement.prototype.canPlayType;HTMLMediaElement.prototype.canPlayType=function(t){return bad.test(t)?'':cp.call(this,t);};"
+        +"var mc=navigator.mediaCapabilities;if(mc&&mc.decodingInfo){var d=mc.decodingInfo.bind(mc);mc.decodingInfo=function(c){return bad.test(JSON.stringify(c))?Promise.resolve({supported:false,smooth:false,powerEfficient:false}):d(c);};}})();";
+    /** PiP-style resolution without transforming the WebView: ask the page to lay out at a fixed CSS width. */
+    static String viewportScript(int width){return width<=0?"":"(function(){var m=document.querySelector('meta[name=viewport]');if(!m){m=document.createElement('meta');m.name='viewport';(document.head||document.documentElement).appendChild(m);}m.content='width="+width+"';})();";}
+    void inject(WebView view){try{view.evaluateJavascript(H264_ONLY,null);String v=viewportScript(viewportWidth);if(!v.isEmpty())view.evaluateJavascript(v,null);}catch(RuntimeException ignored){}}
     DashWebPlayer(Activity activity){this(activity,0,0);}
     /** designW/H (dp) render the page at a fixed PiP-style resolution scaled into the panel; 0 = fill. */
     DashWebPlayer(Activity activity,int designW,int designH){
@@ -45,7 +57,7 @@ final class DashWebPlayer extends LinearLayout implements AutoCloseable {
         query.setHint("YouTube link or search");query.setImeOptions(EditorInfo.IME_ACTION_GO);
         query.setOnEditorActionListener((v,action,event)->{if(action==EditorInfo.IME_ACTION_GO){open(query.getText().toString());return true;}return false;});
         search.addView(query,new LayoutParams(0,dp(32),1));search.addView(button("Go",()->open(query.getText().toString())),new LayoutParams(dp(44),dp(32)));addView(search);
-        body=new FrameLayout(activity);body.setBackgroundColor(Color.BLACK);addView(body,new LayoutParams(-1,0,1));stage=new ResolutionStage(activity,designW,designH);body.addView(stage,new FrameLayout.LayoutParams(-1,-1));
+        body=new FrameLayout(activity);body.setBackgroundColor(Color.BLACK);addView(body,new LayoutParams(-1,0,1));viewportWidth=designW;stage=new ResolutionStage(activity,0,0);body.addView(stage,new FrameLayout.LayoutParams(-1,-1));
         start=button("Start YouTube web\nPlays here · Internet required",()->open(query.getText().toString()));start.setTextSize(14);body.addView(start,new FrameLayout.LayoutParams(-1,-1));
         status=new TextView(activity);status.setTextSize(11);status.setTextColor(0xffbdcce5);status.setText("Website player · tap video to play");status.setMaxLines(2);addView(status,new LayoutParams(-1,-2));
         LinearLayout controls=new LinearLayout(activity);
@@ -149,8 +161,9 @@ final class DashWebPlayer extends LinearLayout implements AutoCloseable {
         @Override public boolean shouldOverrideUrlLoading(WebView view,WebResourceRequest request){return block(request.getUrl().toString());}
         @Override public boolean shouldOverrideUrlLoading(WebView view,String url){return block(url);}
         private boolean block(String url){if(allowed(url))return false;status.setVisibility(VISIBLE);status.setText("This link is unavailable in the panel. No external app was opened.");return true;}
-        @Override public void onPageFinished(WebView view,String url){if(web==view){status.setText("YouTube web · tap video to play · sign-in/restricted videos may be unavailable");compactWatch(url);}}
-        @Override public void doUpdateVisitedHistory(WebView view,String url,boolean reload){if(web==view)compactWatch(url);}
+        @Override public void onPageStarted(WebView view,String url,android.graphics.Bitmap icon){if(web==view)inject(view);}
+        @Override public void onPageFinished(WebView view,String url){if(web==view){inject(view);status.setText("YouTube web · tap video to play · sign-in/restricted videos may be unavailable");compactWatch(url);}}
+        @Override public void doUpdateVisitedHistory(WebView view,String url,boolean reload){if(web==view){inject(view);compactWatch(url);}}
         private void compactWatch(String url){Uri uri=Uri.parse(url);String path=uri.getPath();if(allowed(url)&&path!=null&&(path.equals("/watch")||path.startsWith("/shorts/"))){searchRow.setVisibility(GONE);status.setVisibility(GONE);}}
         @Override public void onReceivedError(WebView view,WebResourceRequest request,WebResourceError error){if(web==view&&request.isForMainFrame()){status.setVisibility(VISIBLE);status.setText("Page unavailable. Check Internet/System WebView, then tap Home to retry.");}}
         @Override public void onReceivedSslError(WebView view,android.webkit.SslErrorHandler handler,android.net.http.SslError error){handler.cancel();if(web==view){status.setVisibility(VISIBLE);status.setText("Secure connection failed. Check the device date/time.");}}

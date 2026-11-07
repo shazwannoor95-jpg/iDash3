@@ -8,7 +8,7 @@ APP_APK="$1"; TEST_APK="$2"; OUT="${3:-qa-out}"
 PKG=com.shazwan.idash3; TEST_PKG=$PKG.test
 mkdir -p "$OUT"; : > "$OUT/results.tsv"
 GATE="${GATE:-Idash3Checks SmokeChecks QualityChecks StabilityChecks WallpaperChecks GlassRenderChecks GlassMaterialChecks SettingsChecks PanelMigrationChecks}"
-INFO="${INFO:-DeviceReadinessChecks SettingsCompleteChecks SettingsAccessChecks SettingsResetChecks MediaUtilitiesChecks ControlLayoutChecks ControlGlassChecks AppearanceChecks AppearanceRenderChecks AppearanceGradientChecks CompactChecks Glass6aChecks ControlVisualChecks PerformanceAuditChecks SystemControlsChecks}"
+INFO="${INFO:-DriveChecks DeviceReadinessChecks SettingsCompleteChecks SettingsAccessChecks SettingsResetChecks MediaUtilitiesChecks ControlLayoutChecks ControlGlassChecks AppearanceChecks AppearanceRenderChecks AppearanceGradientChecks CompactChecks Glass6aChecks ControlVisualChecks PerformanceAuditChecks SystemControlsChecks}"
 adb install -r -t "$APP_APK" > "$OUT/install-app.txt" 2>&1 || { cat "$OUT/install-app.txt"; exit 2; }
 adb install -r -t "$TEST_APK" > "$OUT/install-test.txt" 2>&1 || { cat "$OUT/install-test.txt"; exit 2; }
 adb shell settings put secure immersive_mode_confirmations confirmed
@@ -31,6 +31,7 @@ detail(){ grep -m1 -o "stream=[A-Z]*[^\r]*" "$OUT/$1.txt" 2>/dev/null | head -1 
 show(){ [ "$2" = LULUS ] && return; echo "::group::BUTIRAN $1 => $2"; head -c 2500 "$OUT/$1.txt" 2>/dev/null; echo; grep -E "FATAL EXCEPTION|AndroidRuntime|ANR in" "$OUT/logcat-instrumentation.txt" | tail -30; echo "::endgroup::"; }
 for c in $GATE; do r=$(run_one "$c"); printf '%s\tgate\t%s\t%s\n' "$c" "$r" "$(detail "$c")" >> "$OUT/results.tsv"; echo "$c: $r"; show "$c" "$r"; done
 for c in $INFO; do r=$(run_one "$c"); printf '%s\tmaklumat\t%s\t%s\n' "$c" "$r" "$(detail "$c")" >> "$OUT/results.tsv"; echo "$c: $r"; show "$c" "$r"; done
+echo "::group::DriveChecks output (split-screen on Android 8.1)"; head -c 5000 "$OUT/DriveChecks.txt" 2>/dev/null; echo; grep -A60 "STACKS BEFORE" "$OUT/logcat-instrumentation.txt" 2>/dev/null | head -90 | cut -c1-220; echo "::endgroup::"
 kill $LOGCAT 2>/dev/null
 { echo "### Instrumentation (emulator API27 x86_64, benar-benar dijalankan)"; echo; echo "| Kelas | Jenis | Keputusan | Butiran |"; echo "|---|---|---|---|"
   while IFS=$'\t' read -r n t r d; do echo "| $n | $t | $r | ${d:-} |"; done < "$OUT/results.tsv"; } > "$OUT/summary.md"

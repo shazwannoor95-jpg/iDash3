@@ -111,7 +111,7 @@ public class LauncherActivity extends Activity {
         status.addView(headerAction("Customize",5,this::customize));
         status.addView(headerAction("Control Center",6,this::controlCenter)); shell.addView(status);
         body=column(); shell.addView(body,new LinearLayout.LayoutParams(-1,0,1));
-        if("apps".equals(page)) buildDrawer();else if("settings".equals(page)){settingsScreen=new DashSettings(this);settingsScreen.build(body);}else buildHome();
+        if("apps".equals(page)) buildDrawer();else if("drive".equals(page))DrivePage.build(this,body);else if("settings".equals(page)){settingsScreen=new DashSettings(this);settingsScreen.build(body);}else buildHome();
         buildDock(); updateClock();IosStyle.enter(body);
     }
     void buildHome() {
@@ -154,13 +154,14 @@ public class LauncherActivity extends Activity {
         for(int i=0;i<slots.length;i++) dock.addView(shortcut(i,true),new LinearLayout.LayoutParams(dp(prefs.getInt("dock_size",0)==0?60:66),-1));
         View divider=new View(this);divider.setBackgroundColor(0x40ffffff);LinearLayout.LayoutParams d=new LinearLayout.LayoutParams(dp(1),dp(32));d.setMargins(dp(6),0,dp(6),0);dock.addView(divider,d);
         dock.addView(dockAction("⚙","Settings",()->{settingsSection="";page="settings";render();}),new LinearLayout.LayoutParams(dp(prefs.getInt("dock_size",0)==0?60:66),-1));
+        dock.addView(dockAction("◎","Drive",()->{page="drive";render();}),new LinearLayout.LayoutParams(dp(prefs.getInt("dock_size",0)==0?60:66),-1));
         dock.addView(dockAction("▦","Apps",()-> {if("apps".equals(page)){page="home";query="";hideKeyboard();render();}else showApps();}),new LinearLayout.LayoutParams(dp(prefs.getInt("dock_size",0)==0?60:66),-1));
     }
     View dockAction(String glyph,String label,Runnable action) {
         LinearLayout l=column();l.setGravity(Gravity.CENTER);View icon;
-        FrameLayout tile=new FrameLayout(this);boolean settings="Settings".equals(label);float density=getResources().getDisplayMetrics().density;
-        tile.setBackground(settings?new Squircle.Tile(0xffa3abb8,0xff69717f,density):new Squircle.Tile(0xff7f8ba3,0xff4b5468,density));tile.setElevation(dp(3));
-        tile.addView(new DockGlyph(this,settings?DockGlyph.SETTINGS:DockGlyph.APPS),new FrameLayout.LayoutParams(-1,-1));icon=tile;
+        FrameLayout tile=new FrameLayout(this);boolean settings="Settings".equals(label),drive="Drive".equals(label);float density=getResources().getDisplayMetrics().density;
+        tile.setBackground(settings?new Squircle.Tile(0xffa3abb8,0xff69717f,density):drive?new Squircle.Tile(0xff34c759,0xff1f9d40,density):new Squircle.Tile(0xff7f8ba3,0xff4b5468,density));tile.setElevation(dp(3));
+        tile.addView(new DockGlyph(this,settings?DockGlyph.SETTINGS:drive?DockGlyph.DRIVE:DockGlyph.APPS),new FrameLayout.LayoutParams(-1,-1));icon=tile;
         l.addView(icon,new LinearLayout.LayoutParams(dp(prefs.getInt("dock_size",0)==0?34:42),dp(prefs.getInt("dock_size",0)==0?34:42)));TextView name=text(label,10,Color.WHITE);name.setGravity(Gravity.CENTER);l.addView(name,new LinearLayout.LayoutParams(-1,dp(15)));l.setContentDescription(label);l.setOnClickListener(v->action.run());Elastic.attach(l);return l;
     }
     void showApps() {page="apps";render();}
