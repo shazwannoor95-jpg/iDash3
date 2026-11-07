@@ -60,3 +60,16 @@ Cadangan: iDash3 bermula **tanpa** aset MRiOS/SF Pro; gunakan aset sendiri/berle
 - Prestasi/RAM pada head unit sebenar, ARM32, WebView sebenar.
 - Isi artifact `instrumentation-logs` (punca Smoke GAGAL) dan keputusan run 2.
 - Signer APK 0.1.8 (tiada `apksigner`).
+
+## G. Status selepas Fasa 2–5 (iDash3)
+| ID | Status dalam iDash3 | Bukti |
+|---|---|---|
+| A5 | **Terbuka**: kebenaran diwarisi tanpa perubahan (perlu ujian fungsi Control Center pada head unit sebelum dibuang) | `AndroidManifest.xml` |
+| A6/A8 | Ditangani: permission signature dinamakan `com.shazwan.idash3.permission.CONTROL` (elak `INSTALL_FAILED_DUPLICATE_PERMISSION` bila dipasang bersama iDash); `queries` SmartTube dibuang | `guard.sh` |
+| B1/B4 | Ditangani untuk pemasangan selari: `applicationId com.shazwan.idash3`, `versionCode 1`. Release/keystore **belum diputuskan**; tiada APK release dibina | `app/build.gradle` |
+| B3 | Debug APK iDash3: v2 sahaja (minSdk 26 → v1 tidak diperlukan; API 27 menyokong v2). Disahkan `apksigner verify` | log sesi |
+| C2 | Ditangani: APK tiada `native-code` (disemak `guard.sh` dengan aapt2) | CI |
+| D7 | Ditangani sebahagian: 29+ ujian unit JVM sebenar (Spring, GlassPerf, Adaptive, LiquidShape, HomeLayout); runner instrumentation iDash3 jalankan kelas satu demi satu dengan had masa + semakan kesihatan emulator | `app/src/test`, `tools/ci` |
+| D1 | **Terbuka**: `geometryHash` setiap bingkai dikekalkan (tingkah laku 6C yang diuji); kos tambahan Fasa 3 (adaptRegion) hanya hash + `getLocationOnScreen`, sampel piksel hanya bila berubah | `GlassSurface.java` |
+| E1 | Ditangani: aset MRiOS, SF Pro dan SmartTube **tidak** dibawa; wallpaper dijana kod, font sistem, ikon = ikon app sendiri. Saiz APK 6.4 MB → ±1.3 MB | `guard.sh`, `NOTICE` |
+| E2 | **Terbuka**: atlas kereta Saga (NexaDash) dikekalkan atas permintaan pemilik; pemegang hak asal belum disahkan — ganti sebelum edaran awam | `NOTICE` |
