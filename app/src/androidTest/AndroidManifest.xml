@@ -1,0 +1,29 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Public instrumentation entries let one test APK run the complete regression suite. -->
+    <instrumentation android:name="com.shazwan.idash3.SmokeChecks" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.PerformanceAuditChecks" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.QualityChecks" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.StabilityChecks" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.CompactChecks" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.Glass6aChecks" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.GlassMaterialChecks" android:targetPackage="com.shazwan.idash3"/>
+    <!-- AGP rewrites the first entry to the configured default runner. -->
+    <instrumentation android:name="com.shazwan.idash3.DeviceReadinessChecks" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.WallpaperChecks" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.GlassRenderChecks" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.SystemControlsChecks" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.SettingsChecks" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.MediaUtilitiesChecks" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.ControlLayoutChecks" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.ControlVisualChecks" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.ControlGlassChecks" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.AppearanceChecks" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.AppearanceRenderChecks" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.AppearancePersistenceChecks" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.AppearanceGradientChecks" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.SettingsCompleteChecks" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.SettingsPersistenceChecks" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.SettingsAccessChecks" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.SettingsResetChecks" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.PanelMigrationChecks" android:targetPackage="com.shazwan.idash3"/>
+</manifest>
