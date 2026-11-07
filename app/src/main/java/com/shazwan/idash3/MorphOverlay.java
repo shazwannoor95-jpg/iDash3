@@ -38,7 +38,7 @@ final class MorphOverlay extends View implements SpringDriver.Listener {
         round = new Spring(380, .9f, r0); round.target = r1;
         progress = new Spring(420, 1f, opening ? 0f : 1f); progress.target = opening ? 1f : 0f;
         driver = new SpringDriver(this, left, top, right, bottom, round, progress);
-        glass = (GlassSurface) IosStyle.glass(a, 0x9a2b3d5c, 24, true);
+        glass = ((GlassSurface) IosStyle.glass(a, 0x9a2b3d5c, 24, true)).bakeEnabled(false);
         glass.setCallback(this);
         neckPaint.setColor(0x8a2b3d5c);
         setWillNotDraw(false);

@@ -20,7 +20,7 @@ import java.util.Map;
  */
 @SuppressLint("ViewConstructor")
 final class HomeGrid extends LinearLayout implements SpringDriver.Listener {
-    static final String PREF = "home_layout";
+    static final String PREF = "home_layout", ENABLED = "home_grid";
     private final LauncherActivity a;
     private final FrameLayout pager;
     private final LinearLayout dots;

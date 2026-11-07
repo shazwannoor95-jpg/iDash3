@@ -45,12 +45,17 @@ public class Idash3Checks extends Instrumentation {
         prefs = getTargetContext().getSharedPreferences("idash", 0);
         saved = new HashMap<>(prefs.getAll());
         try {
-            prefs.edit().remove(HomeGrid.PREF).putInt("panel_mode", 0).apply();
+            prefs.edit().remove(HomeGrid.PREF).remove(HomeGrid.ENABLED).putInt("panel_mode", 0).apply();
             a = (LauncherActivity) startActivitySync(new Intent(getTargetContext(), LauncherActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
             waitForIdleSync();
             long end = SystemClock.elapsedRealtime() + 20000;
             while (!a.loaded && SystemClock.elapsedRealtime() < end) sleep(100);
             sleep(600); waitForIdleSync();
+            runOnMainSync(() -> {
+                check(a.homeGrid == null, "right side is empty by default (grid opt-in)");
+                prefs.edit().putBoolean(HomeGrid.ENABLED, true).commit(); a.render();
+            });
+            sleep(800); waitForIdleSync();
             runOnMainSync(() -> {
                 check(a.loaded && a.apps.size() > 0, "apps discovered");
                 check(a.homeGrid != null && find(a.stage, "Home apps") != null, "home grid present when panel hidden");

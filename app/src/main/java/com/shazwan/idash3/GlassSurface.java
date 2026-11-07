@@ -11,6 +11,12 @@ final class GlassSurface extends Drawable {
  // Liquid Glass v2 state: region tint, edge lensing, touch specular, depth and reveal (blur/lens transition).
  private BitmapShader frostLens,frostSoft;private final Matrix lensMatrix=new Matrix(),softMatrix=new Matrix(),touchMatrix=new Matrix();private final Path ring=new Path();private final RectF ringInner=new RectF();
  private int regionTint,adaptKey=Integer.MIN_VALUE,fxGen=-1;private float reveal=1f,depth,lensK,touchX,touchY,touchA;private boolean lens,dynSpec,touching;private long touchStamp;private Shader touchShader;private final Paint fxPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
+ // Baked refraction (GlassBake): replaces frost + lens ring when ready; frost stays the fallback.
+ private Bitmap baked;private BitmapShader bakedShader;private final Matrix bakedMatrix=new Matrix();private int bakeKey=Integer.MIN_VALUE;private boolean bakeEnabled=true;
+ static final ColorFilter BAKED_DARK_FILTER=new LightingColorFilter(0xffd2d2d2,0);static final int BAKED_DARK_MULTIPLIER=0xd2;
+ /** Transient shapes (morph) change every frame and must not bake. */
+ GlassSurface bakeEnabled(boolean on){bakeEnabled=on;if(!on){baked=null;bakedShader=null;}return this;}
+ boolean isBaked(){return bakedShader!=null;}
  GlassSurface(float d,int tint,int radius,int style,boolean sheet){this(d,tint,radius,style,sheet,null,1,0);}
  GlassSurface(float d,int tint,int radius,int style,boolean sheet,GlassBackdrop backdrop,int quality,int tone){this(d,tint,radius,style,sheet,backdrop,quality,tone,false);}
  GlassSurface(float d,int tint,int radius,int style,boolean sheet,GlassBackdrop backdrop,int quality,int tone,boolean premium){this.premium=premium;this.density=d;this.radius=radius*d;this.tint=tint;this.style=style;this.sheet=sheet;this.backdrop=backdrop;this.quality=quality;this.baseQuality=quality;this.tone=tone;if(backdrop!=null){if(backdrop.surfaces.size()>128)for(int i=backdrop.surfaces.size()-1;i>=0;i--)if(backdrop.surfaces.get(i).get()==null)backdrop.surfaces.remove(i);backdrop.surfaces.add(new WeakReference<>(this));}}
@@ -66,9 +72,25 @@ final class GlassSurface extends Drawable {
   int[] grid=new int[25];for(int gy=0;gy<5;gy++)for(int gx=0;gx<5;gx++){int px=Math.max(0,Math.min(bmp.getWidth()-1,(int)(l+(r-l)*(gx+.5f)/5)));int py=Math.max(0,Math.min(bmp.getHeight()-1,(int)(t+(b-t)*(gy+.5f)/5)));grid[gy*5+gx]=bmp.getPixel(px,py);}
   int avg=Adaptive.averageRegion(grid,5,5,0,0,5,5,5,f.tint);
   if(avg!=regionTint){regionTint=avg;rebuild();invalidateSelf();}
+  requestBake(f,scale,ox,oy);
  }
  /** Corner radius in px for morphing shapes; geometry is rebuilt on the next bounds change. */
  void setRadiusPx(float px){if(px!=radius){radius=Math.max(0,px);Rect b=getBounds();if(!b.isEmpty())onBoundsChange(b);invalidateSelf();}}
+ private void requestBake(GlassBackdrop.Frame f,float scale,float ox,float oy){
+  boolean eligible=bakeEnabled&&style!=2&&quality>=IosStyle.BALANCED&&Math.min(box.width(),box.height())>=36*density;
+  if(!eligible){if(bakedShader!=null){baked=null;bakedShader=null;invalidateSelf();}return;}
+  final float left=position[0]+box.left,top=position[1]+box.top,pw=box.width(),ph=box.height();
+  int key=System.identityHashCode(f.bitmap);key=31*key+Math.round(left);key=31*key+Math.round(top);key=31*key+Math.round(pw);key=31*key+Math.round(ph);key=31*key+Math.round(radius);
+  if(key==bakeKey&&bakedShader!=null)return;
+  bakeKey=key;
+  Bitmap hit=GlassBake.cache.get(key);
+  if(hit!=null){applyBake(hit);return;}
+  baked=null;bakedShader=null;
+  if(!GlassBake.begin(key))return;
+  float s=Math.min(1f,360f/Math.max(pw,ph));int ow=Math.max(2,Math.round(pw*s)),oh=Math.max(2,Math.round(ph*s));
+  GlassBake.request(f.bitmap,scale,ox,oy,left,top,pw,ph,radius,density,depth,ow,oh,key,(result,k)->{if(k==bakeKey&&result!=null&&bakeEnabled){applyBake(result);invalidateSelf();}});
+ }
+ private void applyBake(Bitmap b){baked=b;bakedShader=new BitmapShader(b,Shader.TileMode.CLAMP,Shader.TileMode.CLAMP);protectionDirty=true;contrastQueued=false;}
  /** Drives the appear/disappear transition: 0 = strong lens and heavy blur, 1 = settled. */
  void setReveal(float value){float next=Math.max(0f,Math.min(1f,value));if(next!=reveal){reveal=next;invalidateSelf();}}
  float reveal(){return reveal;}
@@ -86,8 +108,9 @@ final class GlassSurface extends Drawable {
   if(box.isEmpty())return;if(fxGen!=GlassPerf.generation()){fxGen=GlassPerf.generation();int eq=GlassPerf.capQuality(appearance==null?baseQuality:appearance.quality);if(eq!=quality){quality=eq;rebuild();}}if(body==null||(backdrop!=null&&revision!=backdrop.revision))rebuild();Drawable.Callback ownerCallback=getCallback();for(int depth=0;depth<4&&ownerCallback instanceof Drawable;depth++)ownerCallback=((Drawable)ownerCallback).getCallback();if(ownerCallback instanceof View)adaptRegion((View)ownerCallback);if(!contrastQueued&&ownerCallback instanceof View){contrastQueued=true;View owner=(View)ownerCallback;final boolean currentLight=light;final int generation=revision;final Drawable.Callback attached=getCallback();owner.post(()->{if(getCallback()==attached&&revision==generation)IosStyle.contrast(owner,currentLight);});}if(!(ownerCallback instanceof View))protectionCount=0;if(ownerCallback instanceof View){View owner=(View)ownerCallback;owner.getLocationOnScreen(position);int geometry=31*(31*geometryHash(owner)+position[0])+position[1];if(protectionDirty||geometry!=protectionGeometry){protectionCount=0;protectionDirty=false;collectProtection(owner,0,0);protectionGeometry=geometry;}}paint.setShader(null);paint.setStyle(Paint.Style.FILL);
   shadow.set(box);shadow.offset(0,density*(1.5f+2.5f*depth));paint.setColor(0x26000000);paint.setAlpha(opacity*(38+Math.round(30*depth))/255);canvas.drawRoundRect(shadow,radius,radius,paint);shadow.offset(0,-density*(.8f+1.5f*depth));paint.setAlpha(opacity*(24+Math.round(22*depth))/255);canvas.drawRoundRect(shadow,radius,radius,paint);
   int save=canvas.save();canvas.clipPath(clip);
-  if(frost!=null){GlassBackdrop.Frame f=backdrop.frame;Drawable.Callback callback=getCallback();if(callback instanceof View){View view=(View)callback;view.getLocationOnScreen(position);android.util.DisplayMetrics metrics=view.getResources().getDisplayMetrics();float scale=Math.max(metrics.widthPixels/(float)f.bitmap.getWidth(),metrics.heightPixels/(float)f.bitmap.getHeight());matrix.setScale(scale,scale);matrix.postTranslate((metrics.widthPixels-f.bitmap.getWidth()*scale)/2-position[0],(metrics.heightPixels-f.bitmap.getHeight()*scale)/2-position[1]);}else{float scale=Math.max(box.width()/f.bitmap.getWidth(),box.height()/f.bitmap.getHeight());matrix.setScale(scale,scale);matrix.postTranslate(box.centerX()-f.bitmap.getWidth()*scale/2,box.centerY()-f.bitmap.getHeight()*scale/2);}frost.setLocalMatrix(matrix);paint.setShader(frost);paint.setColorFilter(externalFilter!=null?externalFilter:light?null:IosStyle.DARK_FROST_FILTER);paint.setAlpha(opacity*(style==0||appearance!=null?255:(style==1?125:210))/255);canvas.drawRect(box,paint);paint.setColorFilter(externalFilter);drawFxFrost(canvas);}
-  paint.setAlpha(Math.round(opacity*(.35f+.65f*reveal)));paint.setShader(body);canvas.drawRect(box,paint);paint.setAlpha(opacity);if(style!=2){paint.setShader(sheen);canvas.drawRect(box,paint);if(quality>0){paint.setShader(reflection);canvas.drawRect(box,paint);}}
+  if(bakedShader!=null&&baked!=null&&!baked.isRecycled()){bakedMatrix.setScale(box.width()/baked.getWidth(),box.height()/baked.getHeight());bakedMatrix.postTranslate(box.left,box.top);bakedShader.setLocalMatrix(bakedMatrix);paint.setShader(bakedShader);paint.setColorFilter(externalFilter!=null?externalFilter:light?null:BAKED_DARK_FILTER);paint.setAlpha(opacity);canvas.drawRect(box,paint);paint.setColorFilter(externalFilter);if(frost!=null){if(getCallback() instanceof View){View view=(View)getCallback();view.getLocationOnScreen(position);android.util.DisplayMetrics metrics=view.getResources().getDisplayMetrics();GlassBackdrop.Frame f=backdrop.frame;float sc=Math.max(metrics.widthPixels/(float)f.bitmap.getWidth(),metrics.heightPixels/(float)f.bitmap.getHeight());matrix.setScale(sc,sc);matrix.postTranslate((metrics.widthPixels-f.bitmap.getWidth()*sc)/2-position[0],(metrics.heightPixels-f.bitmap.getHeight()*sc)/2-position[1]);}drawFxFrost(canvas);}}
+  else if(frost!=null){GlassBackdrop.Frame f=backdrop.frame;Drawable.Callback callback=getCallback();if(callback instanceof View){View view=(View)callback;view.getLocationOnScreen(position);android.util.DisplayMetrics metrics=view.getResources().getDisplayMetrics();float scale=Math.max(metrics.widthPixels/(float)f.bitmap.getWidth(),metrics.heightPixels/(float)f.bitmap.getHeight());matrix.setScale(scale,scale);matrix.postTranslate((metrics.widthPixels-f.bitmap.getWidth()*scale)/2-position[0],(metrics.heightPixels-f.bitmap.getHeight()*scale)/2-position[1]);}else{float scale=Math.max(box.width()/f.bitmap.getWidth(),box.height()/f.bitmap.getHeight());matrix.setScale(scale,scale);matrix.postTranslate(box.centerX()-f.bitmap.getWidth()*scale/2,box.centerY()-f.bitmap.getHeight()*scale/2);}frost.setLocalMatrix(matrix);paint.setShader(frost);paint.setColorFilter(externalFilter!=null?externalFilter:light?null:IosStyle.DARK_FROST_FILTER);paint.setAlpha(opacity*(style==0||appearance!=null?255:(style==1?125:210))/255);canvas.drawRect(box,paint);paint.setColorFilter(externalFilter);drawFxFrost(canvas);}
+  paint.setAlpha(Math.round(opacity*(.35f+.65f*reveal)*(bakedShader!=null?.55f:1f)));paint.setShader(body);canvas.drawRect(box,paint);paint.setAlpha(opacity);if(style!=2){paint.setShader(sheen);canvas.drawRect(box,paint);if(quality>0){paint.setShader(reflection);canvas.drawRect(box,paint);}}
   if(style!=2&&quality>0){
    paint.setStyle(Paint.Style.STROKE);paint.setShader(bevel);paint.setStrokeWidth((style==0?2:IosStyle.BEVEL_DP)*density);canvas.drawRoundRect(inner,Math.max(0,radius-2*density),Math.max(0,radius-2*density),paint);
    paint.setShader(specularFade);paint.setStrokeWidth((style==0?(quality==2?1.8f:1.2f):(quality==2?5.5f:3.5f))*density);paint.setStrokeCap(Paint.Cap.ROUND);canvas.drawPath(specular,paint);paint.setStrokeCap(Paint.Cap.BUTT);
@@ -101,7 +124,7 @@ final class GlassSurface extends Drawable {
  }
  private void drawFxFrost(Canvas canvas){
   GlassBackdrop.Frame f=backdrop.frame;
-  float k=lens?lensK*(reveal<1f?1f+(1f-reveal)*2.5f:1f):0f;
+  float k=lens&&bakedShader==null?lensK*(reveal<1f?1f+(1f-reveal)*2.5f:1f):0f;
   if(lens&&k>0f&&frostLens!=null){
    lensMatrix.set(matrix);lensMatrix.postScale(1f+k,1f+k,box.centerX(),box.centerY());frostLens.setLocalMatrix(lensMatrix);
    int s=canvas.save();canvas.clipPath(ring);paint.setShader(frostLens);paint.setColorFilter(externalFilter!=null?externalFilter:light?null:IosStyle.DARK_FROST_FILTER);paint.setAlpha(opacity);canvas.drawRect(box,paint);paint.setColorFilter(externalFilter);canvas.restoreToCount(s);
@@ -166,7 +189,7 @@ final class GlassSurface extends Drawable {
   for(int row=1;row<=3;row++)for(int col=1;col<=3;col++){
    int px=Math.max(0,Math.min(image.getWidth()-1,(int)((position[0]+x+w*((col-1)*.4f+.1f)-(screenW-image.getWidth()*scale)/2)/scale)));
    int py=Math.max(0,Math.min(image.getHeight()-1,(int)((position[1]+y+h*((row-1)*.4f+.1f)-(screenH-image.getHeight()*scale)/2)/scale)));
-   int substrate=image.getPixel(px,py);if(!light){float transmission=IosStyle.DARK_FROST_MULTIPLIER/255f;substrate=Color.rgb(Math.round(Color.red(substrate)*transmission),Math.round(Color.green(substrate)*transmission),Math.round(Color.blue(substrate)*transmission));}int bg=mix(bodyRgb,substrate,bodyAlpha/255f);
+   int substrate=image.getPixel(px,py);if(!light){float transmission=(bakedShader!=null?BAKED_DARK_MULTIPLIER:IosStyle.DARK_FROST_MULTIPLIER)/255f;substrate=Color.rgb(Math.round(Color.red(substrate)*transmission),Math.round(Color.green(substrate)*transmission),Math.round(Color.blue(substrate)*transmission));}int bg=mix(bodyRgb,substrate,bodyAlpha/255f);
    maximum=Math.max(maximum,requiredAlpha(foreground,bg,scrim,target));
   }return maximum;
  }

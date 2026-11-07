@@ -14,7 +14,7 @@ final class Wallpapers {
     private static final String[] NAMES = {"Lautan", "Senja", "Hutan", "Aurora", "Pasir", "Malam", "Sakura", "Karbon"};
     // base top, base bottom, three blob colours (ARGB) per wallpaper.
     private static final int[][] PALETTE = {
-        {0xff0b2a4a, 0xff12395f, 0xff2e7fd1, 0xff1b9aaa, 0xff5a4fcf},
+        {0xff0a1f4a, 0xff1a1450, 0xff2ec5ff, 0xff7a5cff, 0xffff5fa2},
         {0xff3a1c3f, 0xff6a2c3e, 0xfff08a4b, 0xffe05a7a, 0xff8f4fd0},
         {0xff0c2a22, 0xff123c2e, 0xff2fae7a, 0xff9acd32, 0xff1b7f8c},
         {0xff0a1630, 0xff102a44, 0xff35d6b0, 0xff4f7cf0, 0xffa24fe0},
@@ -56,7 +56,7 @@ final class Wallpapers {
         for (int i = 0; i < 3; i++) {
             float cx = w * blob[i][0], cy = h * blob[i][1], r = Math.max(w, h) * blob[i][2];
             int color = p[2 + i];
-            paint.setShader(new RadialGradient(cx, cy, r, new int[]{(0xaa << 24) | (color & 0xffffff), (0x40 << 24) | (color & 0xffffff), color & 0xffffff}, new float[]{0, .5f, 1}, Shader.TileMode.CLAMP));
+            paint.setShader(new RadialGradient(cx, cy, r, new int[]{(0xe6 << 24) | (color & 0xffffff), (0x70 << 24) | (color & 0xffffff), color & 0xffffff}, new float[]{0, .5f, 1}, Shader.TileMode.CLAMP));
             c.drawRect(0, 0, w, h, paint);
         }
         paint.setShader(null);

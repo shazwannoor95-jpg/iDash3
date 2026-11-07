@@ -23,11 +23,11 @@ final class IconStyler {
         Canvas c = new Canvas(out);
         float pad = Math.max(1f, px * .045f), r = (px - 2 * pad) * .26f;
         RectF tile = new RectF(pad, pad, px - pad, px - pad - (heavy ? density : 0));
-        Path shape = new Path(); shape.addRoundRect(tile, r, r, Path.Direction.CW);
+        Path shape = Squircle.path(tile, null);
         Paint p = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG);
 
         // Tile shadow (outside the tile, cheap: one offset round rect).
-        if (heavy) { p.setColor(0x38000000); RectF s = new RectF(tile); s.offset(0, density * 1.2f); c.drawRoundRect(s, r, r, p); }
+        if (heavy) { p.setColor(0x38000000); Path sh = new Path(shape); sh.offset(0, density * 1.2f); c.drawPath(sh, p); }
 
         boolean adaptive = src instanceof AdaptiveIconDrawable;
         Drawable bg = adaptive ? ((AdaptiveIconDrawable) src).getBackground() : null;
@@ -75,7 +75,7 @@ final class IconStyler {
         p.setStyle(Paint.Style.STROKE); p.setStrokeWidth(Math.max(1f, density * .8f));
         p.setShader(new LinearGradient(tile.left, tile.top, tile.right, tile.bottom, new int[]{0xb0ffffff, 0x22ffffff, 0x44ffffff}, new float[]{0, .55f, 1}, Shader.TileMode.CLAMP));
         RectF rim = new RectF(tile); float half = p.getStrokeWidth() / 2f; rim.inset(half, half);
-        c.drawRoundRect(rim, r - half, r - half, p);
+        c.drawPath(Squircle.path(rim, null), p);
         return out;
     }
 

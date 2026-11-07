@@ -11,5 +11,8 @@ Provenance
   (plate-bearing Saga angle atlas) was reused at the project owner's request; its
   original rights holder has not been independently verified. Replace before any public release.
 - Wallpapers are generated procedurally in code (Wallpapers.java); icons shown for installed
-  apps come from those apps; typeface is the Android system sans-serif.
+  apps come from those apps (shaped by IconStyler).
+- Typeface: Inter and Inter Display (c) The Inter Project Authors, SIL Open Font License 1.1
+  (docs/licenses/Inter-OFL.txt); converted from the inter-ui 4.1.1 web fonts (latin subset) to TTF.
+  SF Pro is NOT included: Apple's licence does not allow redistribution in an Android app.
 - Gradle wrapper: Apache License 2.0 (gradle/wrapper/LICENSE).

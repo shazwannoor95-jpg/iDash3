@@ -1,6 +1,6 @@
 package com.shazwan.idash3;
 import android.content.*;import android.graphics.*;import android.os.*;import android.view.*;import android.graphics.drawable.*;
-/** API26 glass styling and bounded transitions; system sans-serif typeface. */
+/** API26 glass styling and bounded transitions; Inter (SIL OFL) typeface. */
 final class IosStyle {
  static final int GLASS_BODY_ALPHA=140;
  static final int DARK_FROST_MULTIPLIER=166;
@@ -30,7 +30,12 @@ final class IosStyle {
   if(root instanceof android.view.ViewGroup){android.view.ViewGroup group=(android.view.ViewGroup)root;for(int i=0;i<group.getChildCount();i++){View child=group.getChildAt(i);if(child.getBackground()==null)contrast(child,light);}}
  }
  static Typeface regular,medium,bold;
- static Typeface font(Context c,boolean strong){if(regular==null){regular=Typeface.create("sans-serif",Typeface.NORMAL);medium=Typeface.create("sans-serif-medium",Typeface.NORMAL);bold=Typeface.create("sans-serif-medium",Typeface.BOLD);}return strong?bold:regular;}
+ static Typeface font(Context c,boolean strong){loadFonts(c);return strong?bold:regular;}
+ static Typeface medium(Context c){loadFonts(c);return medium;}
+ /** Inter Display (OFL), optical size for large numerals/titles. */
+ static Typeface display(Context c,boolean strong){loadFonts(c);return strong?displayBold:displayLight;}
+ static Typeface displayLight,displayBold;
+ private static void loadFonts(Context c){if(regular!=null)return;try{android.content.res.Resources r=c.getResources();regular=r.getFont(R.font.inter_regular);medium=r.getFont(R.font.inter_medium);bold=r.getFont(R.font.inter_semibold);displayLight=r.getFont(R.font.inter_display_light);displayBold=r.getFont(R.font.inter_display_semibold);}catch(RuntimeException missing){regular=Typeface.DEFAULT;medium=Typeface.create("sans-serif-medium",Typeface.NORMAL);bold=Typeface.DEFAULT_BOLD;displayLight=Typeface.create("sans-serif-light",Typeface.NORMAL);displayBold=Typeface.DEFAULT_BOLD;}}
  static boolean motion(Context c){return GlassAppearance.read(c).animationAllowed(c);}
  /** Appear transition: glass emerges through lens/blur (reveal 0 -> 1 on a spring); content settles lightly. */
  static void enter(View v){if(!motion(v.getContext()))return;final java.util.ArrayList<GlassSurface> glass=new java.util.ArrayList<>();collectGlass(v,glass,0);

@@ -117,26 +117,27 @@ public class LauncherActivity extends Activity {
     void buildHome() {
         boolean tightHeader=getResources().getConfiguration().screenHeightDp<=400&&getResources().getConfiguration().fontScale>1.10f;
         LinearLayout heading=row(); LinearLayout words=column();
-        TextView greeting=text("Make yourself at home.",20,Color.WHITE);greeting.setTypeface(IosStyle.font(this,true));greeting.setIncludeFontPadding(false);greeting.setMaxLines(1);greeting.setEllipsize(TextUtils.TruncateAt.END);greeting.setAutoSizeTextTypeUniformWithConfiguration(14,20,1,android.util.TypedValue.COMPLEX_UNIT_SP);words.addView(greeting);TextView intro=text("Your drive. Your space.",11,0xcce6eaff);intro.setIncludeFontPadding(false);intro.setPadding(0,tightHeader?0:dp(2),0,tightHeader?0:dp(3));words.addView(intro); heading.addView(words,new LinearLayout.LayoutParams(0,-2,1));
-        LinearLayout.LayoutParams hp=new LinearLayout.LayoutParams(-1,-2);hp.bottomMargin=tightHeader?0:dp(4);
+        TextView greeting=text("Make yourself at home.",22,Color.WHITE);greeting.setTypeface(IosStyle.display(this,true));greeting.setLetterSpacing(-.01f);greeting.setIncludeFontPadding(false);greeting.setMaxLines(1);greeting.setEllipsize(TextUtils.TruncateAt.END);greeting.setAutoSizeTextTypeUniformWithConfiguration(14,20,1,android.util.TypedValue.COMPLEX_UNIT_SP);words.addView(greeting);TextView intro=text("Your drive. Your space.",11,0xcce6eaff);intro.setIncludeFontPadding(false);intro.setPadding(0,tightHeader?0:dp(2),0,tightHeader?0:dp(3));intro.setVisibility(View.GONE);words.addView(intro); heading.addView(words,new LinearLayout.LayoutParams(0,-2,1));
+        LinearLayout.LayoutParams hp=new LinearLayout.LayoutParams(-1,-2);hp.bottomMargin=tightHeader?dp(2):dp(10);
         LinearLayout content=row(); content.setGravity(Gravity.TOP); body.addView(content,new LinearLayout.LayoutParams(-1,0,1));
         HomeWidgets widgets=new HomeWidgets(this);LinearLayout left=column();LinearLayout.LayoutParams wp=new LinearLayout.LayoutParams(0,-1,0.37f);wp.rightMargin=dp(16);content.addView(left,wp);left.addView(heading,hp);left.addView(widgets,new LinearLayout.LayoutParams(-1,0,1));
-        LinearLayout timeCard=column();timeCard.setMinimumHeight(dp(56));timeCard.setBackground(glass(0x7c20395d,24));
-        TextView eyebrow=text("LOCAL TIME",10,0xffbaceeb);eyebrow.setLetterSpacing(.12f);timeCard.addView(eyebrow);widgets.fitText(eyebrow,10,9.5f);
-        clock=text("",32,Color.WHITE);clock.setMaxLines(1);clock.setAutoSizeTextTypeUniformWithConfiguration(26,32,1,android.util.TypedValue.COMPLEX_UNIT_SP);timeCard.addView(clock);widgets.fitText(clock,32,26);
-        date=text("",12,0xffe0eaff);date.setMaxLines(1);date.setAutoSizeTextTypeUniformWithConfiguration(11,12,1,android.util.TypedValue.COMPLEX_UNIT_SP);timeCard.addView(date);widgets.fitText(date,12,11);timeCard.setContentDescription("Clock widget");timeCard.setOnClickListener(v->openSettings(Settings.ACTION_DATE_SETTINGS));widgets.addView(timeCard,new LinearLayout.LayoutParams(-1,-2));
+        LinearLayout timeCard=column();timeCard.setMinimumHeight(dp(56));timeCard.setBackground(glass(0x7c20395d,26));
+        TextView eyebrow=text("LOCAL TIME",10,0xffbaceeb);eyebrow.setVisibility(View.GONE);timeCard.addView(eyebrow);
+        clock=text("",46,Color.WHITE);clock.setTypeface(IosStyle.display(this,false));clock.setLetterSpacing(-.02f);clock.setMaxLines(1);clock.setAutoSizeTextTypeUniformWithConfiguration(30,46,1,android.util.TypedValue.COMPLEX_UNIT_SP);timeCard.addView(clock);widgets.fitText(clock,46,30);
+        date=text("",14,0xd9ffffff);date.setTypeface(IosStyle.medium(this));date.setMaxLines(1);date.setAutoSizeTextTypeUniformWithConfiguration(12,14,1,android.util.TypedValue.COMPLEX_UNIT_SP);timeCard.addView(date);widgets.fitText(date,14,12);timeCard.setContentDescription("Clock widget");timeCard.setOnClickListener(v->openSettings(Settings.ACTION_DATE_SETTINGS));widgets.addView(timeCard,new LinearLayout.LayoutParams(-1,-2));
         if(prefs.getBoolean("calendar",true)) {
-            LinearLayout calendar=column();calendar.setMinimumHeight(dp(48));calendar.setBackground(glass(0x65ffffff,24));
-            TextView label=text("TODAY",10,0xffe3cbff);label.setLetterSpacing(.12f);calendar.addView(label);widgets.fitText(label,10,9.5f);
-            calendarDay=text("",16,Color.WHITE);calendarDay.setMaxLines(1);calendarDay.setAutoSizeTextTypeUniformWithConfiguration(12,16,1,android.util.TypedValue.COMPLEX_UNIT_SP);calendar.addView(calendarDay);widgets.fitText(calendarDay,16,12);
-            TextView hint=text("Tap to view your calendar",11,0xcce6eaff);calendar.addView(hint);widgets.fitText(hint,11,10.5f);calendar.setContentDescription("Calendar widget");calendar.setOnClickListener(v->showCalendar());
+            LinearLayout calendar=column();calendar.setMinimumHeight(dp(48));calendar.setBackground(glass(0x65ffffff,26));
+            TextView label=text("TODAY",11,0xffff8a80);label.setTypeface(IosStyle.font(this,true));label.setLetterSpacing(.08f);calendar.addView(label);widgets.fitText(label,11,10);
+            calendarDay=text("",18,Color.WHITE);calendarDay.setTypeface(IosStyle.font(this,true));calendarDay.setMaxLines(1);calendarDay.setAutoSizeTextTypeUniformWithConfiguration(13,18,1,android.util.TypedValue.COMPLEX_UNIT_SP);calendar.addView(calendarDay);widgets.fitText(calendarDay,18,13);
+            TextView hint=text("Tap to view your calendar",11,0xcce6eaff);hint.setVisibility(View.GONE);calendar.addView(hint);calendar.setContentDescription("Calendar widget");calendar.setOnClickListener(v->showCalendar());
             widgets.addView(calendar,new LinearLayout.LayoutParams(-1,-2));
         }
         if(prefs.getBoolean("jakim",true)) {
-            LinearLayout card=column();card.setMinimumHeight(dp(48));card.setBackground(glass(0x682b426a,24));card.setContentDescription("JAKIM calendar widget");
-            jakimNext=text("Waktu solat",15,Color.WHITE);jakimNext.setTypeface(IosStyle.font(this,true));jakimNext.setMaxLines(1);jakimNext.setAutoSizeTextTypeUniformWithConfiguration(12,15,1,android.util.TypedValue.COMPLEX_UNIT_SP);jakimNext.setVisibility(prefs.getBoolean("prayer_countdown",true)?View.VISIBLE:View.GONE);card.addView(jakimNext,new LinearLayout.LayoutParams(-1,-2));widgets.fitText(jakimNext,15,12);jakimText=text("",12,Color.WHITE);card.addView(jakimText);widgets.fitText(jakimText,12,11.5f);card.setOnClickListener(v->jakimDialog());widgets.addView(card,Math.min(1,widgets.getChildCount()),new LinearLayout.LayoutParams(-1,-2));updateJakim();loadJakim(false);
+            LinearLayout card=column();card.setMinimumHeight(dp(48));card.setBackground(glass(0x682b426a,26));card.setContentDescription("JAKIM calendar widget");
+            jakimNext=text("Waktu solat",18,Color.WHITE);jakimNext.setTypeface(IosStyle.font(this,true));jakimNext.setMaxLines(1);jakimNext.setAutoSizeTextTypeUniformWithConfiguration(13,18,1,android.util.TypedValue.COMPLEX_UNIT_SP);jakimNext.setVisibility(prefs.getBoolean("prayer_countdown",true)?View.VISIBLE:View.GONE);card.addView(jakimNext,new LinearLayout.LayoutParams(-1,-2));widgets.fitText(jakimNext,18,13);jakimText=text("",13,0xe0ffffff);jakimText.setLineSpacing(0,1.12f);LinearLayout.LayoutParams jp=new LinearLayout.LayoutParams(-1,-2);jp.topMargin=dp(3);card.addView(jakimText,jp);widgets.fitText(jakimText,13,11.5f);card.setOnClickListener(v->jakimDialog());widgets.addView(card,Math.min(1,widgets.getChildCount()),new LinearLayout.LayoutParams(-1,-2));updateJakim();loadJakim(false);
         }
         if(panelVisible){panelBox=column();panelBox.setPadding(dp(10),dp(8),dp(10),dp(8));panelBox.setBackground(glass(0x77324461,24));panelBox.setContentDescription("Optional media panel");LinearLayout.LayoutParams pp=new LinearLayout.LayoutParams(0,-1,.63f);pp.topMargin=dp(24);content.addView(panelBox,pp);buildPanel();}
+        else if(!prefs.getBoolean(HomeGrid.ENABLED,false))content.addView(new View(this),new LinearLayout.LayoutParams(0,-1,.63f));
         else {homeGrid=new HomeGrid(this);LinearLayout.LayoutParams gp=new LinearLayout.LayoutParams(0,-1,.63f);gp.topMargin=dp(8);content.addView(homeGrid,gp);if(loaded)homeGrid.setApps(apps);}
     }
     View shortcut(int slot,boolean dock) {
@@ -145,9 +146,8 @@ public class LauncherActivity extends Activity {
         FrameLayout icon=new FrameLayout(this);
         int[] tops={0xff36b4ff,0xff48baff,0xffff4c6c};
         int[] bottoms={0xff0055ee,0xff0660ed,0xffe60027};
-        GradientDrawable tileFill=new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM,new int[]{tops[slot],bottoms[slot]});
-        tileFill.setCornerRadius(dp(dock?12:19));tileFill.setStroke(dp(1),0x65ffffff);icon.setBackground(tileFill);icon.setElevation(dp(dock?2:5));
-        if(slot==1){ImageView files=new ImageView(this);files.setImageResource(R.drawable.ic_dock_files);files.setScaleType(ImageView.ScaleType.FIT_CENTER);icon.setClipToOutline(true);icon.addView(files,new FrameLayout.LayoutParams(-1,-1));}
+        icon.setBackground(new Squircle.Tile(tops[slot],bottoms[slot],getResources().getDisplayMetrics().density));icon.setElevation(dp(dock?3:5));
+        if(slot==1){ImageView files=new ImageView(this);files.setImageResource(R.drawable.ic_dock_files);files.setScaleType(ImageView.ScaleType.FIT_CENTER);icon.addView(files,new FrameLayout.LayoutParams(-1,-1));}
         else icon.addView(new FavoriteGlyph(this,slot),new FrameLayout.LayoutParams(-1,-1));
         tile.addView(icon,new LinearLayout.LayoutParams(dp(size),dp(size)));
         TextView label=text(slots[slot],dock?10:12,Color.WHITE); label.setMaxLines(1);label.setEllipsize(TextUtils.TruncateAt.END);label.setGravity(Gravity.CENTER);LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(-1,dp(dock?15:22));lp.topMargin=dp(dock?1:3);tile.addView(label,lp);
@@ -163,8 +163,9 @@ public class LauncherActivity extends Activity {
     }
     View dockAction(String glyph,String label,Runnable action) {
         LinearLayout l=column();l.setGravity(Gravity.CENTER);View icon;
-        if("Settings".equals(label)){ImageView image=new ImageView(this);image.setImageResource(R.drawable.ic_dock_settings);icon=image;}
-        else {TextView mark=text(glyph,27,Color.WHITE);mark.setGravity(Gravity.CENTER);mark.setBackground(glass(0x70ffffff,15));icon=mark;}
+        FrameLayout tile=new FrameLayout(this);boolean settings="Settings".equals(label);float density=getResources().getDisplayMetrics().density;
+        tile.setBackground(settings?new Squircle.Tile(0xffa3abb8,0xff69717f,density):new Squircle.Tile(0xff7f8ba3,0xff4b5468,density));tile.setElevation(dp(3));
+        tile.addView(new DockGlyph(this,settings?DockGlyph.SETTINGS:DockGlyph.APPS),new FrameLayout.LayoutParams(-1,-1));icon=tile;
         l.addView(icon,new LinearLayout.LayoutParams(dp(prefs.getInt("dock_size",0)==0?34:42),dp(prefs.getInt("dock_size",0)==0?34:42)));TextView name=text(label,10,Color.WHITE);name.setGravity(Gravity.CENTER);l.addView(name,new LinearLayout.LayoutParams(-1,dp(15)));l.setContentDescription(label);l.setOnClickListener(v->action.run());Elastic.attach(l);return l;
     }
     void showApps() {page="apps";render();}
@@ -301,10 +302,10 @@ public class LauncherActivity extends Activity {
     void updateJakim(){updateJakim(System.currentTimeMillis());}
     void updateJakim(long now){
         jakimDayKey=JakimCalendar.key(now);jakimMinute=now/60000;if(jakimText==null)return;String zone=prefs.getString("jakim_zone",""),heading="Waktu solat",body;
-        if(zone.isEmpty())body="KALENDAR JAKIM\nPilih zon waktu solat\nTekan untuk tetapan";
+        if(zone.isEmpty())body="Pilih zon JAKIM · tekan di sini";
         else{JakimCalendar.Day d=zone.equals(loadedZone)?jakimDays.get(jakimDayKey):null;
             if(d==null)body="JAKIM · "+zone+"\n"+jakimDayKey+" · MYT\n"+(jakimLoading?"Memuat jadual…":"Tiada jadual tarikh ini · tekan untuk kemas kini");
-            else{heading=JakimCalendar.nextPrayer(jakimDays,now);body="JAKIM · "+zone+" · "+d.hijri+" H\nSubuh "+d.times[0]+"   Syuruk "+d.times[1]+"\nZohor "+d.times[2]+"   Asar "+d.times[3]+"\nMaghrib "+d.times[4]+"   Isyak "+d.times[5]+"\nMYT · Tekan untuk kalendar";}
+            else{heading=JakimCalendar.nextPrayer(jakimDays,now);body="JAKIM · "+zone+" · "+d.hijri+" H\nSubuh "+d.times[0]+" · Syuruk "+d.times[1]+" · Zohor "+d.times[2]+"\nAsar "+d.times[3]+" · Maghrib "+d.times[4]+" · Isyak "+d.times[5];}
         }label(jakimNext,heading);label(jakimText,body);
     }
     void jakimDialog() {
