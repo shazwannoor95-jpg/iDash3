@@ -6,8 +6,10 @@ fail=0; bad(){ echo "GAGAL: $*"; fail=1; }; ok(){ echo "OK: $*"; }
 cd "$(dirname "$0")/../.."
 grep -q "applicationId '$APPID'" app/build.gradle && ok "applicationId $APPID" || bad "applicationId berubah"
 grep -qi "signingConfig" app/build.gradle build.gradle && bad "signingConfig dalam Gradle (keputusan signing belum dibuat)" || ok "tiada signingConfig"
-pat='VirtualDisplay|allowEmbedded|ActivityView|SurfaceControlViewHost|LAUNCH_ADJACENT|setLaunchDisplayId|a1lab|DashNative|createVirtualDisplay'
-grep -rnE "$pat" app/src/main && bad "ciri eksperimen embedding/split-screen ditemui" || ok "tiada embedding/VirtualDisplay/split-screen"
+# Embedding experiments stay out. Split-screen is now a requested feature (Drive) done via the system's own
+# split-screen (global action + launch flags), so LAUNCH_ADJACENT is allowed; VirtualDisplay/embedding is not.
+pat='VirtualDisplay|allowEmbedded|ActivityView|SurfaceControlViewHost|setLaunchDisplayId|a1lab|DashNative|createVirtualDisplay'
+grep -rnE "$pat" app/src/main && bad "ciri eksperimen embedding/VirtualDisplay ditemui" || ok "tiada embedding/VirtualDisplay"
 # Third-party assets whose licence is not established must not come back.
 if find app/src -iname '*mrios*' -o -iname 'sf_pro*' -o -iname '*smarttube*' | grep -q .; then bad "aset MRiOS/SF Pro/SmartTube ditemui"; else ok "tiada aset MRiOS/SF Pro/SmartTube"; fi
 grep -rqi "mrios\|sf_pro" app/src/main && bad "rujukan MRiOS/SF Pro dalam source" || ok "tiada rujukan MRiOS/SF Pro"
