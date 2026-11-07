@@ -103,7 +103,7 @@ public class Idash3Checks extends Instrumentation {
             sleep(1200);
             runOnMainSync(() -> {
                 GlassBackdrop bd = IosStyle.backdrops.get(a); int settled = 0, live = 0;
-                if (bd != null) for (java.lang.ref.WeakReference<GlassSurface> w : bd.surfaces) { GlassSurface g = w.get(); if (g == null || g.getCallback() == null) continue; live++; if (g.reveal() == 1f) settled++; }
+                if (bd != null) for (java.lang.ref.WeakReference<GlassSurface> w : bd.surfaces) { GlassSurface g = w.get(); if (g == null || !(g.getCallback() instanceof View) || !((View) g.getCallback()).isAttachedToWindow()) continue; live++; if (g.reveal() == 1f) settled++; }
                 check(live > 0 && settled == live, "all attached glass surfaces settled (" + settled + "/" + live + ")");
             });
             android.os.Debug.MemoryInfo mi = new android.os.Debug.MemoryInfo(); android.os.Debug.getMemoryInfo(mi);

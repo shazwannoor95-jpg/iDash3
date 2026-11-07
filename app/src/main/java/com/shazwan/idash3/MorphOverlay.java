@@ -53,6 +53,7 @@ final class MorphOverlay extends View implements SpringDriver.Listener {
 
     @Override public void onSpringRest() {
         ViewGroup parent = (ViewGroup) getParent();
+        glass.setCallback(null); // detached transient surface: no further invalidation or touch feed
         if (done != null) done.run();
         if (parent != null) parent.removeView(this);
     }

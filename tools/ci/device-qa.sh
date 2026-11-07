@@ -9,6 +9,8 @@ res(){ printf '%s\t%s\t%s\n' "$1" "$2" "${3:-}" >> "$OUT/results.tsv"; echo "$1:
 focus(){ adb shell dumpsys window windows 2>/dev/null | grep -m1 -E "mCurrentFocus" | tr -d '\r'; }
 crashed(){ grep -qE "FATAL EXCEPTION.*|Process: $PKG" "$OUT/logcat.txt" && grep -A3 "FATAL EXCEPTION" "$OUT/logcat.txt" | grep -q "$PKG"; }
 adb install -r -t "$APK" > "$OUT/install.txt" 2>&1 && res install PASS || { res install FAIL "$(tail -1 "$OUT/install.txt")"; exit 1; }
+# The one-time "Viewing full screen" system prompt steals focus from immersive apps; confirm it up front.
+adb shell settings put secure immersive_mode_confirmations confirmed
 adb logcat -c; adb logcat -v threadtime > "$OUT/logcat.txt" 2>&1 & LOGCAT=$!
 adb shell wm size 1024x600; adb shell wm density 160
 adb shell am start -W -n "$ACT" > "$OUT/launch.txt" 2>&1; sleep 6
@@ -38,6 +40,7 @@ setperf(){ # 0 auto, 1 low, 2 full — edits the debug build's prefs via run-as 
   adb shell am start -W -n "$ACT" >/dev/null 2>&1; sleep 6
 }
 measure(){ # label
+  focus | grep -q "$PKG" || res "focus_$1" FAIL "$(focus)"
   adb shell dumpsys gfxinfo $PKG reset >/dev/null
   for i in 1 2 3 4; do sw 900 450; sw 450 900; done
   adb shell input tap 700 300; sleep 1; adb shell input keyevent KEYCODE_BACK; sleep 1

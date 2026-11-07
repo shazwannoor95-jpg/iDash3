@@ -11,6 +11,7 @@ GATE="${GATE:-Idash3Checks SmokeChecks QualityChecks StabilityChecks WallpaperCh
 INFO="${INFO:-DeviceReadinessChecks SettingsCompleteChecks SettingsAccessChecks SettingsResetChecks MediaUtilitiesChecks ControlLayoutChecks ControlGlassChecks AppearanceChecks AppearanceRenderChecks AppearanceGradientChecks CompactChecks Glass6aChecks ControlVisualChecks PerformanceAuditChecks SystemControlsChecks}"
 adb install -r -t "$APP_APK" > "$OUT/install-app.txt" 2>&1 || { cat "$OUT/install-app.txt"; exit 2; }
 adb install -r -t "$TEST_APK" > "$OUT/install-test.txt" 2>&1 || { cat "$OUT/install-test.txt"; exit 2; }
+adb shell settings put secure immersive_mode_confirmations confirmed
 adb shell wm size 1024x600; adb shell wm density 160
 adb logcat -c; adb logcat -v threadtime > "$OUT/logcat-instrumentation.txt" 2>&1 & LOGCAT=$!
 healthy(){ [ "$(timeout 20 adb get-state 2>/dev/null)" = device ] && [ "$(timeout 20 adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')" = 1 ]; }
