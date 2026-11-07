@@ -13,7 +13,7 @@ final class GlassSurface extends Drawable {
  private int regionTint,adaptKey=Integer.MIN_VALUE,fxGen=-1;private float reveal=1f,depth,lensK,touchX,touchY,touchA;private boolean lens,dynSpec,touching;private long touchStamp;private Shader touchShader;private final Paint fxPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
  // Baked refraction (GlassBake): replaces frost + lens ring when ready; frost stays the fallback.
  private Bitmap baked;private BitmapShader bakedShader;private final Matrix bakedMatrix=new Matrix();private int bakeKey=Integer.MIN_VALUE;private boolean bakeEnabled=true;
- static final ColorFilter BAKED_DARK_FILTER=new LightingColorFilter(0xffd2d2d2,0);static final int BAKED_DARK_MULTIPLIER=0xd2;
+ static final ColorFilter BAKED_DARK_FILTER=new LightingColorFilter(0xffd2d2d2,0);static final int BAKED_DARK_MULTIPLIER=0xd2;static final float BAKED_BODY=.55f;
  /** Transient shapes (morph) change every frame and must not bake. */
  GlassSurface bakeEnabled(boolean on){bakeEnabled=on;if(!on){baked=null;bakedShader=null;}return this;}
  boolean isBaked(){return bakedShader!=null;}
@@ -110,7 +110,7 @@ final class GlassSurface extends Drawable {
   int save=canvas.save();canvas.clipPath(clip);
   if(bakedShader!=null&&baked!=null&&!baked.isRecycled()){bakedMatrix.setScale(box.width()/baked.getWidth(),box.height()/baked.getHeight());bakedMatrix.postTranslate(box.left,box.top);bakedShader.setLocalMatrix(bakedMatrix);paint.setShader(bakedShader);paint.setColorFilter(externalFilter!=null?externalFilter:light?null:BAKED_DARK_FILTER);paint.setAlpha(opacity);canvas.drawRect(box,paint);paint.setColorFilter(externalFilter);if(frost!=null){if(getCallback() instanceof View){View view=(View)getCallback();view.getLocationOnScreen(position);android.util.DisplayMetrics metrics=view.getResources().getDisplayMetrics();GlassBackdrop.Frame f=backdrop.frame;float sc=Math.max(metrics.widthPixels/(float)f.bitmap.getWidth(),metrics.heightPixels/(float)f.bitmap.getHeight());matrix.setScale(sc,sc);matrix.postTranslate((metrics.widthPixels-f.bitmap.getWidth()*sc)/2-position[0],(metrics.heightPixels-f.bitmap.getHeight()*sc)/2-position[1]);}drawFxFrost(canvas);}}
   else if(frost!=null){GlassBackdrop.Frame f=backdrop.frame;Drawable.Callback callback=getCallback();if(callback instanceof View){View view=(View)callback;view.getLocationOnScreen(position);android.util.DisplayMetrics metrics=view.getResources().getDisplayMetrics();float scale=Math.max(metrics.widthPixels/(float)f.bitmap.getWidth(),metrics.heightPixels/(float)f.bitmap.getHeight());matrix.setScale(scale,scale);matrix.postTranslate((metrics.widthPixels-f.bitmap.getWidth()*scale)/2-position[0],(metrics.heightPixels-f.bitmap.getHeight()*scale)/2-position[1]);}else{float scale=Math.max(box.width()/f.bitmap.getWidth(),box.height()/f.bitmap.getHeight());matrix.setScale(scale,scale);matrix.postTranslate(box.centerX()-f.bitmap.getWidth()*scale/2,box.centerY()-f.bitmap.getHeight()*scale/2);}frost.setLocalMatrix(matrix);paint.setShader(frost);paint.setColorFilter(externalFilter!=null?externalFilter:light?null:IosStyle.DARK_FROST_FILTER);paint.setAlpha(opacity*(style==0||appearance!=null?255:(style==1?125:210))/255);canvas.drawRect(box,paint);paint.setColorFilter(externalFilter);drawFxFrost(canvas);}
-  paint.setAlpha(Math.round(opacity*(.35f+.65f*reveal)*(bakedShader!=null?.55f:1f)));paint.setShader(body);canvas.drawRect(box,paint);paint.setAlpha(opacity);if(style!=2){paint.setShader(sheen);canvas.drawRect(box,paint);if(quality>0){paint.setShader(reflection);canvas.drawRect(box,paint);}}
+  paint.setAlpha(Math.round(opacity*(.35f+.65f*reveal)*(bakedShader!=null?BAKED_BODY:1f)));paint.setShader(body);canvas.drawRect(box,paint);paint.setAlpha(opacity);if(style!=2){paint.setShader(sheen);canvas.drawRect(box,paint);if(quality>0){paint.setShader(reflection);canvas.drawRect(box,paint);}}
   if(style!=2&&quality>0){
    paint.setStyle(Paint.Style.STROKE);paint.setShader(bevel);paint.setStrokeWidth((style==0?2:IosStyle.BEVEL_DP)*density);canvas.drawRoundRect(inner,Math.max(0,radius-2*density),Math.max(0,radius-2*density),paint);
    paint.setShader(specularFade);paint.setStrokeWidth((style==0?(quality==2?1.8f:1.2f):(quality==2?5.5f:3.5f))*density);paint.setStrokeCap(Paint.Cap.ROUND);canvas.drawPath(specular,paint);paint.setStrokeCap(Paint.Cap.BUTT);
@@ -182,6 +182,17 @@ final class GlassSurface extends Drawable {
  private int protectionAlpha(float x,float y,int w,int h,int foreground,double target){
   int maximum=0,scrim=Color.luminance(foreground)>.4?0xff07101c:Color.WHITE;
   if(backdrop==null||backdrop.frame.bitmap==null){int worst=Color.luminance(foreground)>.4?Color.WHITE:Color.BLACK;return requiredAlpha(foreground,mix(bodyRgb,worst,bodyAlpha/255f),scrim,target);}
+  // Baked glass shows its own (brighter, vibrancy-lifted) bitmap with a thinner body: estimate
+  // contrast against exactly that, otherwise the scrim is sized for a darker backdrop than is drawn.
+  Bitmap bk=bakedShader!=null?baked:null;
+  if(bk!=null&&!bk.isRecycled()&&box.width()>0&&box.height()>0){float effective=bodyAlpha/255f*BAKED_BODY;
+   for(int row=1;row<=3;row++)for(int col=1;col<=3;col++){
+    float sx=x+w*((col-1)*.4f+.1f),sy=y+h*((row-1)*.4f+.1f);
+    int px=Math.max(0,Math.min(bk.getWidth()-1,(int)((sx-box.left)/box.width()*bk.getWidth())));
+    int py=Math.max(0,Math.min(bk.getHeight()-1,(int)((sy-box.top)/box.height()*bk.getHeight())));
+    int substrate=bk.getPixel(px,py);if(!light){float tr=BAKED_DARK_MULTIPLIER/255f;substrate=Color.rgb(Math.round(Color.red(substrate)*tr),Math.round(Color.green(substrate)*tr),Math.round(Color.blue(substrate)*tr));}
+    maximum=Math.max(maximum,requiredAlpha(foreground,mix(bodyRgb,substrate,effective),scrim,target));
+   }return maximum;}
   Bitmap image=backdrop.frame.bitmap;Drawable.Callback owner=getCallback();while(owner instanceof Drawable)owner=((Drawable)owner).getCallback();
   int screenW=Math.max(1,(int)box.width()),screenH=Math.max(1,(int)box.height());
   if(owner instanceof View){View v=(View)owner;v.getLocationOnScreen(position);screenW=v.getResources().getDisplayMetrics().widthPixels;screenH=v.getResources().getDisplayMetrics().heightPixels;}else{position[0]=position[1]=0;}
@@ -189,7 +200,7 @@ final class GlassSurface extends Drawable {
   for(int row=1;row<=3;row++)for(int col=1;col<=3;col++){
    int px=Math.max(0,Math.min(image.getWidth()-1,(int)((position[0]+x+w*((col-1)*.4f+.1f)-(screenW-image.getWidth()*scale)/2)/scale)));
    int py=Math.max(0,Math.min(image.getHeight()-1,(int)((position[1]+y+h*((row-1)*.4f+.1f)-(screenH-image.getHeight()*scale)/2)/scale)));
-   int substrate=image.getPixel(px,py);if(!light){float transmission=(bakedShader!=null?BAKED_DARK_MULTIPLIER:IosStyle.DARK_FROST_MULTIPLIER)/255f;substrate=Color.rgb(Math.round(Color.red(substrate)*transmission),Math.round(Color.green(substrate)*transmission),Math.round(Color.blue(substrate)*transmission));}int bg=mix(bodyRgb,substrate,bodyAlpha/255f);
+   int substrate=image.getPixel(px,py);if(!light){float transmission=IosStyle.DARK_FROST_MULTIPLIER/255f;substrate=Color.rgb(Math.round(Color.red(substrate)*transmission),Math.round(Color.green(substrate)*transmission),Math.round(Color.blue(substrate)*transmission));}int bg=mix(bodyRgb,substrate,bodyAlpha/255f);
    maximum=Math.max(maximum,requiredAlpha(foreground,bg,scrim,target));
   }return maximum;
  }

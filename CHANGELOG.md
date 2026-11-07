@@ -28,6 +28,7 @@ Format ringkas berasaskan [Keep a Changelog](https://keepachangelog.com/). Tarik
 - Mod panel native (VirtualDisplay/embedding) — eksperimen yang tidak berjaya.
 
 ### Dibetulkan
+- Perlindungan kontras teks pada kaca "baked" kini dikira daripada bitmap baked sebenar dan alfa badan yang berkesan (sebelum ini teks putih boleh jatuh bawah 4.5:1 selepas bake selesai; dikesan oleh `GlassRenderChecks`).
 - `panel_mode=3` lama dipindahkan ke mod sah (disahkan oleh `PanelMigrationChecks`).
 - Baris tetapan Home & Dock tidak lagi terpotong pada 1024×600.
 - Swipe halaman pada ruang kosong grid; tiada lukisan semula ketika jari ditahan.
