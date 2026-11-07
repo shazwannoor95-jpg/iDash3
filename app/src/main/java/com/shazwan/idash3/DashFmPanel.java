@@ -90,8 +90,12 @@ final class DashFmPanel extends LinearLayout {
     void pause(){active=false;if(dialog!=null){dialog.dismiss();dialog=null;}controller.stop();}
     void close(){if(closed)return;pause();controller.close();closed=true;}
     @Override protected void onMeasure(int w,int h){
-        boolean small=MeasureSpec.getMode(h)!=MeasureSpec.UNSPECIFIED&&MeasureSpec.getSize(h)<p(280);
+        boolean bounded=MeasureSpec.getMode(h)!=MeasureSpec.UNSPECIFIED;int height=MeasureSpec.getSize(h);
+        boolean small=bounded&&height<p(360);
         if(small!=compact){compact=small;heading.getLayoutParams().height=p(48);status.getLayoutParams().height=p(small?20:38);status.setMaxLines(small?1:2);status.setEllipsize(android.text.TextUtils.TruncateAt.END);tuning.getLayoutParams().height=p(52);transport.getLayoutParams().height=p(52);favourites.setVisibility(small?GONE:VISIBLE);}
-        frequency.setTextSize(TypedValue.COMPLEX_UNIT_PX,p(small?28:54));super.onMeasure(w,h);
+        // Fit the frequency into what the fixed rows leave, so it is never hidden behind the buttons.
+        int fixed=p(48)+p(small?20:38)+p(52)*2+(small?0:p(52))+getPaddingTop()+getPaddingBottom();
+        float size=bounded?Math.max(p(18),Math.min(p(54),(height-fixed)*.7f)):p(54);
+        frequency.setTextSize(TypedValue.COMPLEX_UNIT_PX,size);super.onMeasure(w,h);
     }
 }

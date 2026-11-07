@@ -5,7 +5,7 @@ final class HomeWidgets extends LinearLayout {
  private final ArrayList<Label> labels=new ArrayList<>();private final android.text.TextPaint measure=new android.text.TextPaint();private int lastWidth,lastHeight,fit;
  private static final float[] SCALE={1,.94f,.80f,.80f};
  private static final class Label {final TextView view;final float size,min;final boolean single;Label(TextView v,float s,float m){view=v;size=s;min=m;single=v.getAutoSizeTextType()!=TextView.AUTO_SIZE_TEXT_TYPE_NONE;}}
- HomeWidgets(Context c){super(c);setOrientation(VERTICAL);setContentDescription("Dashboard widgets");}
+ HomeWidgets(Context c){super(c);setOrientation(VERTICAL);setGravity(android.view.Gravity.CENTER_VERTICAL);setContentDescription("Dashboard widgets");}
  void fitText(TextView view,float size,float min){Label label=new Label(view,size,min);labels.add(label);if(label.single)view.setAutoSizeTextTypeWithDefaults(TextView.AUTO_SIZE_TEXT_TYPE_NONE);view.setIncludeFontPadding(false);}
  private int dp(float n){return Math.round(n*getResources().getDisplayMetrics().density);}
  private void textSize(TextView view,float sp){float px=TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,sp,getResources().getDisplayMetrics());if(Math.abs(view.getTextSize()-px)>.01f)view.setTextSize(TypedValue.COMPLEX_UNIT_SP,sp);}

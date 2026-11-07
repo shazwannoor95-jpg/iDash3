@@ -19,6 +19,9 @@ Format ringkas berasaskan [Keep a Changelog](https://keepachangelog.com/). Tarik
 - Dokumen: reka bentuk, pengesahan, audit, inventori & audit keserasian app head unit.
 
 ### Diubah
+- Home: tajuk "Shazwan's Saga"; kad jam kini memaparkan "TODAY" + jam + tarikh di tengah (kad Today berasingan dibuang); kad waktu solat berpusat dengan hierarki font (waktu seterusnya > baris JAKIM > jadual); susunan kad dipusatkan secara menegak.
+- Panel media: saiz frekuensi FM menyesuaikan ruang (tidak lagi terlindung oleh butang); YouTube web dizum keluar (78%, teks 85%) supaya muat dalam panel.
+- Kaca baked hanya untuk panel yang dipaparkan pada window (view offscreen kekal dengan frost).
 - Pakej baharu **`com.shazwan.idash3`** (standalone; dipasang bersama iDash/iDash2). Nama permission dalaman juga ditukar untuk elak konflik pemasangan.
 - Kad kiri Home lebih lapang (jam besar, label diringkaskan, waktu solat 3 baris); panel kanan kosong secara lalai.
 - Kegemaran dock "Files" mencuba `com.mediatek.filemanager` dahulu.

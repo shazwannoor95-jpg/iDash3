@@ -72,12 +72,14 @@ final class GlassSurface extends Drawable {
   int[] grid=new int[25];for(int gy=0;gy<5;gy++)for(int gx=0;gx<5;gx++){int px=Math.max(0,Math.min(bmp.getWidth()-1,(int)(l+(r-l)*(gx+.5f)/5)));int py=Math.max(0,Math.min(bmp.getHeight()-1,(int)(t+(b-t)*(gy+.5f)/5)));grid[gy*5+gx]=bmp.getPixel(px,py);}
   int avg=Adaptive.averageRegion(grid,5,5,0,0,5,5,5,f.tint);
   if(avg!=regionTint){regionTint=avg;rebuild();invalidateSelf();}
-  requestBake(f,scale,ox,oy);
+  requestBake(owner,f,scale,ox,oy);
  }
  /** Corner radius in px for morphing shapes; geometry is rebuilt on the next bounds change. */
  void setRadiusPx(float px){if(px!=radius){radius=Math.max(0,px);Rect b=getBounds();if(!b.isEmpty())onBoundsChange(b);invalidateSelf();}}
- private void requestBake(GlassBackdrop.Frame f,float scale,float ox,float oy){
-  boolean eligible=bakeEnabled&&style!=2&&quality>=IosStyle.BALANCED&&Math.min(box.width(),box.height())>=36*density;
+ private void requestBake(View owner,GlassBackdrop.Frame f,float scale,float ox,float oy){
+  // Only on-screen panels have a real screen position to refract; detached/offscreen views (previews,
+  // measurement fixtures) keep the frost path instead of baking the wrong region from (0,0).
+  boolean eligible=bakeEnabled&&style!=2&&quality>=IosStyle.BALANCED&&Math.min(box.width(),box.height())>=36*density&&owner.isAttachedToWindow()&&owner.getWindowToken()!=null;
   if(!eligible){if(bakedShader!=null){baked=null;bakedShader=null;invalidateSelf();}return;}
   final float left=position[0]+box.left,top=position[1]+box.top,pw=box.width(),ph=box.height();
   int key=System.identityHashCode(f.bitmap);key=31*key+Math.round(left);key=31*key+Math.round(top);key=31*key+Math.round(pw);key=31*key+Math.round(ph);key=31*key+Math.round(radius);
