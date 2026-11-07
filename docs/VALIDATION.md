@@ -1,6 +1,6 @@
 # VALIDATION — iDash3
 
-Rujukan: GitHub Actions **run 42320648951** (commit `1f90aae`), cawangan `claude/hopeful-cannon-r401pi`: **kedua-dua job lulus.**
+Rujukan: GitHub Actions **run 42320648951** (commit `1f90aae`): **kedua-dua job lulus.** Run seterusnya dengan perubahan visual (run 7, `ae037d1`) dan tema ikon iOS (run 8, `eaeb036`) juga **lulus** build + emulator; butiran jadual di bawah daripada run 42320648951.
 Status: **PASS** = dijalankan dan lulus · **FAIL** = dijalankan dan gagal · **NOT RUN** = tidak dijalankan · **BLOCKED** = tidak boleh dijalankan dalam persekitaran ini.
 
 > Semua ujian peranti dibuat pada **emulator API 27 x86_64** (GPU SwiftShader, 2 vCPU). Emulator menaikkan RAM 1024 MB yang diminta kepada **1536 MB** (log: "Increasing RAM size to 1536MB"), jadi profil 1 GB **tidak** disahkan. Angka emulator **bukan** prestasi head unit ARM32.
