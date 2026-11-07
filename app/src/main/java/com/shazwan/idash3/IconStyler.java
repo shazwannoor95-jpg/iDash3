@@ -18,7 +18,10 @@ final class IconStyler {
     static int variant(android.content.SharedPreferences p) { return GlassAppearance.clamp(GlassAppearance.integer(p, "icon_style", DEFAULT), 0, 4); }
 
     /** @param heavy false in low-performance mode: no glyph shadow and no specular arc. */
-    static Bitmap render(Drawable src, int px, int variant, int tint, float density, boolean heavy) {
+    static Bitmap render(Drawable src, int px, int variant, int tint, float density, boolean heavy) { return render(src, px, variant, tint, density, heavy, IosGlyphs.NONE); }
+
+    /** @param ios IosGlyphs id to draw an original iOS-style icon instead of the app's artwork, or NONE. */
+    static Bitmap render(Drawable src, int px, int variant, int tint, float density, boolean heavy, int ios) {
         Bitmap out = Bitmap.createBitmap(px, px, Bitmap.Config.ARGB_8888);
         Canvas c = new Canvas(out);
         float pad = Math.max(1f, px * .045f), r = (px - 2 * pad) * .26f;
@@ -29,7 +32,8 @@ final class IconStyler {
         // Tile shadow (outside the tile, cheap: one offset round rect).
         if (heavy) { p.setColor(0x38000000); Path sh = new Path(shape); sh.offset(0, density * 1.2f); c.drawPath(sh, p); }
 
-        boolean adaptive = src instanceof AdaptiveIconDrawable;
+        boolean themed = ios != IosGlyphs.NONE;
+        boolean adaptive = !themed && src instanceof AdaptiveIconDrawable;
         Drawable bg = adaptive ? ((AdaptiveIconDrawable) src).getBackground() : null;
         Drawable fg = adaptive ? ((AdaptiveIconDrawable) src).getForeground() : src;
         int dominant = dominant(fg != null ? fg : src);
@@ -42,7 +46,9 @@ final class IconStyler {
             case CLEAR: top = 0x58ffffff; bottom = 0x26ffffff; break;
             case TINT_LIGHT: top = mix(tint, 0xffffffff, .82f); bottom = mix(tint, 0xffffffff, .62f); break;
             case TINT_DARK: top = mix(tint, 0xff000000, .55f); bottom = mix(tint, 0xff000000, .78f); break;
-            default: top = bg == null ? mix(dominant, 0xffffffff, .30f) : 0; bottom = bg == null ? mix(dominant, 0xff000000, .18f) : 0;
+            default:
+                if (themed) { top = IosGlyphs.top(ios); bottom = IosGlyphs.bottom(ios); }
+                else { top = bg == null ? mix(dominant, 0xffffffff, .30f) : 0; bottom = bg == null ? mix(dominant, 0xff000000, .18f) : 0; }
         }
         if (variant == DEFAULT && bg != null) { Rect b = adaptiveBounds(tile); bg.setBounds(b); bg.draw(c); }
         else { p.setShader(new LinearGradient(0, tile.top, 0, tile.bottom, top, bottom, Shader.TileMode.CLAMP)); c.drawRect(tile, p); p.setShader(null); }
@@ -51,15 +57,21 @@ final class IconStyler {
         Bitmap glyph = Bitmap.createBitmap(px, px, Bitmap.Config.ARGB_8888);
         Canvas g = new Canvas(glyph);
         Drawable art = fg != null ? fg : src;
-        if (adaptive) art.setBounds(adaptiveBounds(tile));
+        if (themed) {
+            boolean mono = variant != DEFAULT;
+            int ink = !mono && IosGlyphs.lightTile(ios) ? 0xff1c1c1e : 0xffffffff;
+            RectF gb = new RectF(tile); gb.inset(tile.width() * .06f, tile.height() * .06f);
+            IosGlyphs.draw(g, gb, ios, ink, mono);
+        }
+        else if (adaptive) art.setBounds(adaptiveBounds(tile));
         else { float inset = variant == DEFAULT ? tile.width() * .12f : tile.width() * .16f; art.setBounds(Math.round(tile.left + inset), Math.round(tile.top + inset), Math.round(tile.right - inset), Math.round(tile.bottom - inset)); }
-        art.draw(g);
+        if (!themed) art.draw(g);
         ColorFilter mono = null;
         if (variant == CLEAR) mono = monochrome(0xffffffff);
         else if (variant == TINT_LIGHT) mono = monochrome(mix(tint, 0xff000000, .35f));
         else if (variant == TINT_DARK) mono = monochrome(mix(tint, 0xffffffff, .45f));
-        else if (variant == DARK) { ColorMatrix m = new ColorMatrix(); m.setSaturation(.85f); mono = new ColorMatrixColorFilter(m); }
-        if (heavy && variant != DEFAULT) { p.setColorFilter(new PorterDuffColorFilter(0x55000000, PorterDuff.Mode.SRC_IN)); c.drawBitmap(glyph, 0, density, p); }
+        else if (variant == DARK && !themed) { ColorMatrix m = new ColorMatrix(); m.setSaturation(.85f); mono = new ColorMatrixColorFilter(m); }
+        if (heavy && (variant != DEFAULT || (themed && !IosGlyphs.lightTile(ios)))) { p.setColorFilter(new PorterDuffColorFilter(0x55000000, PorterDuff.Mode.SRC_IN)); c.drawBitmap(glyph, 0, density, p); }
         p.setColorFilter(mono); c.drawBitmap(glyph, 0, 0, p); p.setColorFilter(null);
         glyph.recycle();
 

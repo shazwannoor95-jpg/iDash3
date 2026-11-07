@@ -194,11 +194,11 @@ public class LauncherActivity extends Activity {
     void loadApps() {
         if(worker.isShutdown())return;
         worker.execute(()->{
-            PackageManager pm=getPackageManager();ArrayList<App> found=new ArrayList<>();final int iconVariant=IconStyler.variant(prefs);final int iconTint=prefs.getInt("icon_tint",0xff6f8fc8);Set<String> seen=new HashSet<>();
+            PackageManager pm=getPackageManager();ArrayList<App> found=new ArrayList<>();final int iconVariant=IconStyler.variant(prefs);final boolean iosIcons=prefs.getBoolean("ios_icons",true);final int iconTint=prefs.getInt("icon_tint",0xff6f8fc8);Set<String> seen=new HashSet<>();
             for(ResolveInfo info:pm.queryIntentActivities(new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER),0)) {
                 if(Thread.currentThread().isInterrupted())return;if(info.activityInfo.packageName.equals(getPackageName()))continue;
                 String key=new ComponentName(info.activityInfo.packageName,info.activityInfo.name).flattenToString();if(!seen.add(key))continue;
-                try{Drawable d=info.loadIcon(pm);Bitmap bitmap;try{bitmap=IconStyler.render(d,dp(56),iconVariant,iconTint,getResources().getDisplayMetrics().density,!GlassPerf.low());}catch(OutOfMemoryError oom){bitmap=Bitmap.createBitmap(dp(48),dp(48),Bitmap.Config.ARGB_8888);d.setBounds(0,0,bitmap.getWidth(),bitmap.getHeight());d.draw(new Canvas(bitmap));}
+                try{Drawable d=info.loadIcon(pm);Bitmap bitmap;try{String appLabel=info.loadLabel(pm).toString();bitmap=IconStyler.render(d,dp(56),iconVariant,iconTint,getResources().getDisplayMetrics().density,!GlassPerf.low(),iosIcons?IosGlyphs.match(info.activityInfo.packageName,appLabel):IosGlyphs.NONE);}catch(OutOfMemoryError oom){bitmap=Bitmap.createBitmap(dp(48),dp(48),Bitmap.Config.ARGB_8888);d.setBounds(0,0,bitmap.getWidth(),bitmap.getHeight());d.draw(new Canvas(bitmap));}
                     found.add(new App(info.loadLabel(pm).toString(),key,bitmap));}catch(RuntimeException unavailable){/* Removed packages are skipped. */}
             }
             found.sort((a,b)->a.label.compareToIgnoreCase(b.label));
@@ -223,7 +223,7 @@ public class LauncherActivity extends Activity {
         edit.apply();
     }
     void seedFavorites() {
-        String[][] hints={{"com.autochips.bluetooth"},{"com.android.documentsui","com.google.android.documentsui"},{"com.google.android.youtube"}};
+        String[][] hints={{"com.autochips.bluetooth"},{"com.mediatek.filemanager","com.android.documentsui","com.google.android.documentsui"},{"com.google.android.youtube"}};
         android.content.SharedPreferences.Editor e=prefs.edit();for(int slot=0;slot<slots.length;slot++){if(prefs.contains("favorite_"+slots[slot]))continue;boolean done=false;for(String pkg:hints[slot]){for(App a:apps)if(ComponentName.unflattenFromString(a.component).getPackageName().equals(pkg)){e.putString("favorite_"+slots[slot],a.component);done=true;break;}if(done)break;}}e.apply();
     }
     void openSettings(String action) {try{startActivity(new Intent(action));}catch(RuntimeException unavailable){try{startActivity(new Intent(Settings.ACTION_SETTINGS));}catch(RuntimeException absent){Toast.makeText(this,"Settings unavailable on this device",Toast.LENGTH_SHORT).show();}}}
