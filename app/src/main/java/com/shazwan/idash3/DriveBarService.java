@@ -105,11 +105,11 @@ public class DriveBarService extends Service {
         loadApps();
         FrameLayout root = new FrameLayout(this); root.setPadding(dp(10), 0, dp(10), dp(6));
         LinearLayout row = new LinearLayout(this); row.setOrientation(LinearLayout.HORIZONTAL); row.setGravity(Gravity.CENTER_VERTICAL);
-        row.setPadding(dp(6), dp(5), dp(6), dp(5)); row.setBackground(round(0xf2101218, 28, 0x33ffffff));
-        row.addView(glyphButton(DockGlyph.APPS, this::toggleLauncher), new LinearLayout.LayoutParams(dp(44), dp(44)));
-        row.addView(squareButton(), new LinearLayout.LayoutParams(dp(44), dp(44)));
+        row.setPadding(dp(5), dp(4), dp(5), dp(4)); row.setBackground(round(0xf2101218, 22, 0x33ffffff));
+        row.addView(glyphButton(DockGlyph.APPS, this::toggleLauncher), new LinearLayout.LayoutParams(dp(34), dp(34)));
+        row.addView(squareButton(), new LinearLayout.LayoutParams(dp(34), dp(34)));
         addShortcuts(row);
-        row.addView(new View(this), new LinearLayout.LayoutParams(dp(10), dp(1)));
+        row.addView(new View(this), new LinearLayout.LayoutParams(dp(6), dp(1)));
         row.addView(status(), new LinearLayout.LayoutParams(-2, -2));
         root.addView(row);
         // Compact centred pill like Android Auto; no FLAG_LAYOUT_NO_LIMITS so it cannot stretch over apps.
@@ -125,7 +125,7 @@ public class DriveBarService extends Service {
         FrameLayout holder = new FrameLayout(this);
         holder.setBackground(round(0x1fffffff, 22, 0));
         View icon = new DockGlyph(this, glyph);
-        FrameLayout.LayoutParams ip = new FrameLayout.LayoutParams(-1, -1); ip.setMargins(dp(10), dp(10), dp(10), dp(10));
+        FrameLayout.LayoutParams ip = new FrameLayout.LayoutParams(-1, -1); ip.setMargins(dp(8), dp(8), dp(8), dp(8));
         holder.addView(icon, ip);
         holder.setOnClickListener(v -> action.run());
         return holder;
@@ -136,7 +136,7 @@ public class DriveBarService extends Service {
         FrameLayout holder = new FrameLayout(this);
         holder.setBackground(round(0x1fffffff, 22, 0));
         View icon = new Glyph(this, Glyph.RECENTS);
-        FrameLayout.LayoutParams ip = new FrameLayout.LayoutParams(-1, -1); ip.setMargins(dp(13), dp(13), dp(13), dp(13));
+        FrameLayout.LayoutParams ip = new FrameLayout.LayoutParams(-1, -1); ip.setMargins(dp(10), dp(10), dp(10), dp(10));
         holder.addView(icon, ip);
         holder.setContentDescription("Skrin penuh");
         holder.setOnClickListener(v -> DriveController.toggleFullscreen(this));
@@ -144,11 +144,13 @@ public class DriveBarService extends Service {
     }
 
     private View status() {
-        LinearLayout s = new LinearLayout(this); s.setOrientation(LinearLayout.HORIZONTAL); s.setGravity(Gravity.CENTER_VERTICAL); s.setPadding(dp(8), 0, dp(4), 0);
-        s.addView(new Battery(this), new LinearLayout.LayoutParams(dp(20), dp(11)));
+        LinearLayout s = new LinearLayout(this); s.setOrientation(LinearLayout.HORIZONTAL); s.setGravity(Gravity.CENTER_VERTICAL); s.setPadding(dp(4), 0, dp(2), 0);
+        s.addView(new Battery(this), new LinearLayout.LayoutParams(dp(17), dp(9)));
         TextClock clock = new TextClock(this); clock.setFormat24Hour("HH:mm"); clock.setFormat12Hour("h:mm");
-        clock.setTextColor(Color.WHITE); clock.setTextSize(15); clock.setTypeface(IosStyle.font(this, true));
-        LinearLayout.LayoutParams cp = new LinearLayout.LayoutParams(-2, -2); cp.leftMargin = dp(7); s.addView(clock, cp);
+        clock.setTextColor(Color.WHITE); clock.setTextSize(12); clock.setTypeface(IosStyle.font(this, true));
+        // A wrapping TextClock would re-measure after the first minute, so fix one line and one width.
+        clock.setSingleLine(true); clock.setGravity(Gravity.CENTER_VERTICAL); clock.setIncludeFontPadding(false);
+        LinearLayout.LayoutParams cp = new LinearLayout.LayoutParams(dp(34), -2); cp.leftMargin = dp(5); s.addView(clock, cp);
         return s;
     }
 
@@ -167,10 +169,10 @@ public class DriveBarService extends Service {
     }
 
     private void addApp(LinearLayout target, String component) {
-        View view = appIcon(component, 26);
+        View view = appIcon(component, 21);
         if (view == null) return;
         view.setOnClickListener(v -> DriveController.launch(this, component, false));
-        LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(dp(40), dp(40)); p.leftMargin = dp(2); target.addView(view, p);
+        LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(dp(32), dp(32)); p.leftMargin = dp(1); target.addView(view, p);
     }
 
     private View appIcon(String component, int sizeDp) {
