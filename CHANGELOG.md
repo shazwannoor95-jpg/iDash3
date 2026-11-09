@@ -34,6 +34,7 @@ Format ringkas berasaskan [Keep a Changelog](https://keepachangelog.com/). Tarik
 - Mod panel native (VirtualDisplay/embedding) — eksperimen yang tidak berjaya.
 
 ### Dibetulkan
+- **Kad Drive terpotong pada skrin rendah:** label PETA/MEDIA dan nama app kini muat dalam kad — ikon mengambil baki tinggi (lebar maksimum 64dp, `FIT_CENTER`) dan hint "Tekan untuk tukar" disembunyikan apabila kad lebih pendek daripada 120dp. APK QA dalam `dist/` dibina semula daripada commit ini.
 - **Video YouTube hitam dalam panel (audio ada):** panel kini melaporkan VP9/AV1 sebagai tidak disokong supaya YouTube memilih H.264 (kebanyakan cip head unit tiada penyahkod VP9/AV1); resolusi PiP untuk laman web kini melalui lebar viewport halaman, bukan skala pada WebView (skala boleh menyembunyikan lapisan video).
 - Perlindungan kontras teks pada kaca "baked" kini dikira daripada bitmap baked sebenar dan alfa badan yang berkesan (sebelum ini teks putih boleh jatuh bawah 4.5:1 selepas bake selesai; dikesan oleh `GlassRenderChecks`).
 - `panel_mode=3` lama dipindahkan ke mod sah (disahkan oleh `PanelMigrationChecks`).
