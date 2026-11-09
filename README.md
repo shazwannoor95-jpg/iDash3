@@ -63,6 +63,11 @@ APK: `app/build/outputs/apk/debug/app-debug.apk`. CI GitHub Actions (`.github/wo
 | [`docs/DRIVE-MODE.md`](docs/DRIVE-MODE.md) | Skrin Drive (split-screen), kebenaran, ADB |
 | [`docs/VALIDATION.md`](docs/VALIDATION.md) | Keputusan ujian sebenar (PASS/FAIL/NOT RUN) |
 | [`docs/HEADUNIT-APPS.md`](docs/HEADUNIT-APPS.md) | App head unit Saga, audit keserasian, cadangan Waze/YouTube/debloat |
+| [`docs/HARDWARE-BASELINE.md`](docs/HARDWARE-BASELINE.md) | Spesifikasi head unit TEST9278B dan bajet memori |
+| [`docs/ANDROID-COMPATIBILITY-AUDIT.md`](docs/ANDROID-COMPATIBILITY-AUDIT.md) | Keserasian API 27, manifest, lifecycle, Back/Home |
+| [`docs/PERFORMANCE-AUDIT.md`](docs/PERFORMANCE-AUDIT.md) | RAM, CPU, ANR, OOM pada peranti 1 GB |
+| [`docs/INSTALL-SIGNING-AUDIT.md`](docs/INSTALL-SIGNING-AUDIT.md) | applicationId, tandatangan, ABI, prosedur pasang |
+| [`docs/HEADUNIT-VALIDATION.md`](docs/HEADUNIT-VALIDATION.md) | Fungsi API vs OEM dan matriks ujian |
 | [`docs/AUDIT.md`](docs/AUDIT.md), [`docs/REVIEW.md`](docs/REVIEW.md), [`docs/SOURCE-INVENTORY.md`](docs/SOURCE-INVENTORY.md) | Audit asal & asal-usul kod |
 
 ## Lesen
