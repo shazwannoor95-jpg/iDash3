@@ -21,6 +21,7 @@ Format ringkas berasaskan [Keep a Changelog](https://keepachangelog.com/). Tarik
 - Dokumen: reka bentuk, pengesahan, audit, inventori & audit keserasian app head unit.
 
 ### Diubah
+- **Bar Drive gaya Android Auto:** bar bawah dengan **App launcher** (grid app + tile Exit + butang dashboard), pintasan peta/media/telefon/Settings, dan **status bateri + jam**. Mikrofon dikecualikan sepenuhnya; butang Back/Home/Recents, volume dan ✕ dibuang daripada bar (guna kawalan peranti).
 - **Bar terapung Drive dikecilkan:** sel butang 52dp → 38dp, jam 20sp → 15sp, padding pil dan radius sudut dikurangkan, jarak dari tepi bawah 10dp → 6dp — pil tidak lagi menutup kandungan split-screen.
 - Home: tajuk "Shazwan's Saga"; kad jam kini memaparkan "TODAY" + jam + tarikh di tengah (kad Today berasingan dibuang); kad waktu solat berpusat dengan hierarki font (waktu seterusnya > baris JAKIM > jadual); susunan kad dipusatkan secara menegak.
 - Panel media: saiz frekuensi FM menyesuaikan ruang (tidak lagi terlindung oleh butang).

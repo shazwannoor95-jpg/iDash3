@@ -23,7 +23,7 @@
 - Kiri: jam besar, kalendar, **waktu solat JAKIM** (zon dipilih sendiri; jadual rasmi 2026 untuk SGR01–03 & WLY01 dibundel, zon lain dimuat turun).
 - Kanan: kosong secara lalai (wallpaper kelihatan) — atau **panel media** (YouTube web, Radio FM OEM, paparan kereta Saga 8 sudut) atau **grid app berhalaman** dengan folder (pilihan).
 - Dock terapung: 3 kegemaran (Bluetooth, Files, YouTube — tekan lama untuk tukar), Settings, Apps.
-- **Drive:** skrin gaya Android Auto — peta di satu sisi, SmartTube/NewPipe/YouTube/muzik di sisi lain (split-screen Android), bar terapung berjam. Lihat [`docs/DRIVE-MODE.md`](docs/DRIVE-MODE.md).
+- **Drive:** skrin gaya Android Auto — peta di satu sisi, SmartTube/NewPipe/YouTube/muzik di sisi lain (split-screen Android), dengan bar gaya Android Auto: launcher app, pintasan peta/media/telefon/Settings dan status bateri + jam (**tiada mikrofon**). Lihat [`docs/DRIVE-MODE.md`](docs/DRIVE-MODE.md).
 - App Library dengan carian, Control Center (Wi-Fi, Bluetooth, kecerahan, kelantangan, media), Settings lengkap.
 
 **Liquid Glass (dibina khas untuk Android 8.1)**

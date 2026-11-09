@@ -18,8 +18,12 @@ adb shell settings put secure enabled_accessibility_services com.shazwan.idash3/
 adb shell settings put secure accessibility_enabled 1
 ```
 
-## Bar terapung
-Jam · Back · Home · Recents · Vol − / + · pintasan app peta dan media · ✕ keluar. Back/Home/Recents hanya muncul jika perkhidmatan aksesibiliti hidup.
+## Bar terapung (gaya Android Auto)
+Bar bawah: **App launcher** (grid) · pintasan app **peta**, **media**, **telefon** dan **Settings** · **status** (bateri + jam).
+
+- **App launcher:** grid 4 lajur dengan tile **Exit** dahulu, app peta/media yang dipilih, kemudian semua app yang dipasang. Butang **dashboard** (dua pane) menutup grid dan kembali ke split-screen.
+- **Tiada mikrofon dan tiada pembantu suara** — iDash3 tidak membuka mikrofon atau Assistant.
+- Back / Home / Recents / volume dan ✕ keluar tidak lagi ada pada bar: gunakan kawalan pada peranti head unit, atau butang Home untuk kembali ke iDash3.
 
 ## Had dan nota
 - Bergantung pada **split-screen ROM** head unit. Pemilik melaporkan split-screen berfungsi pada TEST9278B; urutan Drive **belum diuji pada head unit** itu.
