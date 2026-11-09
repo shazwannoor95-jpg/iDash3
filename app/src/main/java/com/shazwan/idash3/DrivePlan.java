@@ -35,6 +35,15 @@ final class DrivePlan {
         return pick(installed, prefs);
     }
 
+    /** Android Auto "Change Layout": which side sits closest to the driver. */
+    static final int LAYOUT_NAV_CLOSER = 0, LAYOUT_MEDIA_CLOSER = 1;
+
+    /** Converts an old left/right choice (the swap button) into the matching layout option. */
+    static int layoutFor(boolean mapOnLeft, boolean driverOnLeft) { return mapOnLeft == driverOnLeft ? LAYOUT_NAV_CLOSER : LAYOUT_MEDIA_CLOSER; }
+
+    /** Navigation or media closest to the driver; the other app takes the remaining side. */
+    static boolean mapLeft(int layout, boolean driverOnLeft) { return layout == LAYOUT_NAV_CLOSER ? driverOnLeft : !driverOnLeft; }
+
     /**
      * Split-screen docks the FIRST launched app on the left (landscape). Returns {first, second}:
      * the app to launch and dock first, then the app launched into the other side.

@@ -3,6 +3,7 @@ package com.shazwan.idash3;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.Settings;
@@ -15,15 +16,40 @@ import android.widget.Toast;
  */
 final class DriveController {
     static final String PREF_MAP = "drive_map", PREF_MEDIA = "drive_media", PREF_MAP_LEFT = "drive_map_left", PREF_BAR = "drive_bar", PREF_ADJACENT = "drive_adjacent";
+    static final String PREF_LAYOUT = "drive_layout", PREF_DRIVER_LEFT = "drive_driver_left";
     static final long DOCK_DELAY_MS = 2300, SECOND_DELAY_MS = 1700, BAR_DELAY_MS = 900;
     private static final Handler MAIN = new Handler(Looper.getMainLooper());
-    private static volatile boolean active;
+    private static volatile boolean active, fullscreen;
+    private static String lastMap, lastMedia;
+    private static boolean lastMapLeft, lastBar;
 
     private DriveController() {}
 
     static boolean isActive() { return active; }
 
     static boolean overlayAllowed(Context c) { return Settings.canDrawOverlays(c); }
+
+    /** Malaysia drives on the right, so "closest to the driver" is the right-hand slot by default. */
+    static boolean driverOnLeft(SharedPreferences p) { return p.getBoolean(PREF_DRIVER_LEFT, false); }
+
+    /** Android Auto "Change Layout", migrated from the old swap-button preference. */
+    static int layout(SharedPreferences p) {
+        if (p.contains(PREF_LAYOUT)) return p.getInt(PREF_LAYOUT, DrivePlan.LAYOUT_NAV_CLOSER);
+        if (p.contains(PREF_MAP_LEFT)) return DrivePlan.layoutFor(p.getBoolean(PREF_MAP_LEFT, true), driverOnLeft(p));
+        return DrivePlan.LAYOUT_NAV_CLOSER;
+    }
+
+    static boolean mapLeft(SharedPreferences p) { return DrivePlan.mapLeft(layout(p), driverOnLeft(p)); }
+
+    static boolean isFullscreen() { return fullscreen; }
+
+    /** Android Auto's bottom-left square: the focused app takes the whole screen, tap again to re-dock. */
+    static void toggleFullscreen(Context app) {
+        Context c = app.getApplicationContext();
+        if (!SplitService.isRunning() || lastMap == null || lastMedia == null) return;
+        if (!fullscreen) { if (SplitService.toggleSplit()) fullscreen = true; }
+        else if (start(c, lastMap, lastMedia, lastMapLeft, lastBar, false) == null) fullscreen = false;
+    }
 
     static boolean launch(Context c, String component, boolean adjacent) {
         ComponentName name = component == null ? null : ComponentName.unflattenFromString(component);
@@ -38,6 +64,7 @@ final class DriveController {
         if (map == null || media == null) return "Pilih app peta dan app media dahulu.";
         if (!SplitService.isRunning()) return "Hidupkan perkhidmatan aksesibiliti iDash3 dahulu (untuk butang split-screen).";
         final Context c = app.getApplicationContext();
+        lastMap = map; lastMedia = media; lastMapLeft = mapLeft; lastBar = bar; fullscreen = false;
         String[] order = DrivePlan.launchOrder(map, media, mapLeft);
         active = true;
         if (!launch(c, order[0], false)) { active = false; return "App pertama tidak dapat dibuka."; }
@@ -56,7 +83,7 @@ final class DriveController {
         Context c = app.getApplicationContext();
         DriveBarService.stop(c);
         if (active) SplitService.toggleSplit();
-        active = false;
+        active = false; fullscreen = false;
         MAIN.postDelayed(() -> c.startActivity(new Intent(c, LauncherActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)), 600);
     }
 }

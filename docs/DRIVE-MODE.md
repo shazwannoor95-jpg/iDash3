@@ -25,9 +25,16 @@ Bar bawah: **App launcher** (grid) · pintasan app **peta**, **media**, **telefo
 - **Tiada mikrofon dan tiada pembantu suara** — iDash3 tidak membuka mikrofon atau Assistant.
 - Back / Home / Recents / volume dan ✕ keluar tidak lagi ada pada bar: gunakan kawalan pada peranti head unit, atau butang Home untuk kembali ke iDash3.
 
+## Susun atur & skrin penuh (gaya Android Auto)
+- **Change Layout:** butang **⇄** menukar antara **navigasi dekat pemandu** dan **media dekat pemandu**, sama seperti *Android Auto → Settings → Display → Change Layout*. Lalai: navigasi dekat pemandu; pemandu di sebelah **kanan** (RHD), jadi peta mula di kanan. Pilihan disimpan.
+- **Skrin penuh (butang segi empat):** butang kotak di sebelah launcher pada bar membuat app yang sedang fokus mengambil seluruh skrin; tekan sekali lagi untuk **dok semula** pasangan split-screen (peta + media). Ini padanan butang segi empat di kiri bawah Android Auto.
+- **Automatik:** urutan split (app pertama → dok → app kedua) berjalan sendiri apabila **Mula Drive** ditekan, tanpa perlu drag atau susun app secara manual.
+
 ## Had dan nota
 - Bergantung pada **split-screen ROM** head unit. Pemilik melaporkan split-screen berfungsi pada TEST9278B; urutan Drive **belum diuji pada head unit** itu.
 - App yang tidak menyokong tetingkap saiz-boleh-ubah (`resizeableActivity=false`) mungkin dipaksa skrin penuh atau menolak split.
 - Pemasaan urutan (2.3 s sebelum dok, 1.7 s sebelum app kedua) tetap; head unit perlahan mungkin perlu **Mulakan semula Drive**.
 - Pembahagi dan saiz kedua-dua sisi dikawal oleh sistem Android, bukan iDash3.
+- **Tidak ditiru daripada Android Auto:** mikrofon/Assistant (sengaja tiada), "third split" untuk mesej/panggilan masuk (perlukan akses kandungan notifikasi), dan tiling dinamik Coolwalk (ROM menentukan saiz panel). Kad "Home/Work 18 min" juga perlukan data navigasi AA.
+- Skrin penuh bergantung pada tindak balas ROM terhadap `GLOBAL_ACTION_TOGGLE_SPLIT_SCREEN`; sesetengah ROM menutup split dan membiarkan app fokus skrin penuh, yang lain mungkin mendok semula — uji pada head unit.
 - Ujian: `DriveChecks` (emulator API 27) menghidupkan perkhidmatan, menjalankan urutan dan **merekod stack aktiviti** yang dilaporkan Android; hasilnya dalam log CI. Ia bukan bukti untuk ROM head unit.

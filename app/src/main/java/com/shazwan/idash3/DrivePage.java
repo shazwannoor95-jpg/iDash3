@@ -34,10 +34,11 @@ final class DrivePage {
         final List<String> installed = components(a);
         final String map = DrivePlan.keepOrPick(a.prefs.getString(DriveController.PREF_MAP, null), installed, DrivePlan.MAP_PREFS);
         final String media = DrivePlan.keepOrPick(a.prefs.getString(DriveController.PREF_MEDIA, null), installed, DrivePlan.MEDIA_PREFS);
-        final boolean mapLeft = a.prefs.getBoolean(DriveController.PREF_MAP_LEFT, true), bar = a.prefs.getBoolean(DriveController.PREF_BAR, true);
+        final int layout = DriveController.layout(a.prefs);
+        final boolean mapLeft = DriveController.mapLeft(a.prefs), bar = a.prefs.getBoolean(DriveController.PREF_BAR, true);
 
         LinearLayout header = a.row(); LinearLayout words = a.column();
-        a.title(words, "Drive", "Peta dan media, bersebelahan — split-screen Android");
+        a.title(words, "Drive", "Split-screen Android · " + (layout == DrivePlan.LAYOUT_NAV_CLOSER ? "navigasi dekat pemandu" : "media dekat pemandu"));
         header.addView(words, new LinearLayout.LayoutParams(0, -2, 1));
         header.addView(a.button("Tutup", () -> { a.page = "home"; a.render(); }));
         header.setContentDescription("Drive page");
@@ -48,8 +49,11 @@ final class DrivePage {
         View first = card(a, mapLeft ? "PETA" : "MEDIA", mapLeft ? map : media, mapLeft ? DrivePlan.MAP_PREFS : DrivePlan.MEDIA_PREFS, mapLeft ? DriveController.PREF_MAP : DriveController.PREF_MEDIA);
         View second = card(a, mapLeft ? "MEDIA" : "PETA", mapLeft ? media : map, mapLeft ? DrivePlan.MEDIA_PREFS : DrivePlan.MAP_PREFS, mapLeft ? DriveController.PREF_MEDIA : DriveController.PREF_MAP);
         cards.addView(first, new LinearLayout.LayoutParams(0, -1, 1));
-        TextView swap = a.button("⇄", () -> { a.prefs.edit().putBoolean(DriveController.PREF_MAP_LEFT, !mapLeft).apply(); a.render(); });
-        swap.setContentDescription("Tukar sisi peta dan media"); swap.setTextSize(22);
+        // Same choice as Android Auto's "Change Layout": navigation or media closest to the driver.
+        final int flipped = layout == DrivePlan.LAYOUT_NAV_CLOSER ? DrivePlan.LAYOUT_MEDIA_CLOSER : DrivePlan.LAYOUT_NAV_CLOSER;
+        TextView swap = a.button("⇄", () -> { a.prefs.edit().putInt(DriveController.PREF_LAYOUT, flipped).remove(DriveController.PREF_MAP_LEFT).apply(); a.render(); });
+        swap.setContentDescription(layout == DrivePlan.LAYOUT_NAV_CLOSER ? "Susun atur: navigasi dekat pemandu (tekan untuk media)" : "Susun atur: media dekat pemandu (tekan untuk navigasi)");
+        swap.setTextSize(22);
         LinearLayout.LayoutParams sp = new LinearLayout.LayoutParams(a.dp(64), a.dp(64)); sp.leftMargin = a.dp(10); sp.rightMargin = a.dp(10); cards.addView(swap, sp);
         cards.addView(second, new LinearLayout.LayoutParams(0, -1, 1));
 

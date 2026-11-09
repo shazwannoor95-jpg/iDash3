@@ -107,6 +107,7 @@ public class DriveBarService extends Service {
         LinearLayout row = new LinearLayout(this); row.setOrientation(LinearLayout.HORIZONTAL); row.setGravity(Gravity.CENTER_VERTICAL);
         row.setPadding(dp(6), dp(5), dp(6), dp(5)); row.setBackground(round(0xf2101218, 28, 0x33ffffff));
         row.addView(glyphButton(DockGlyph.APPS, this::toggleLauncher), new LinearLayout.LayoutParams(dp(44), dp(44)));
+        row.addView(squareButton(), new LinearLayout.LayoutParams(dp(44), dp(44)));
         addShortcuts(row);
         row.addView(new View(this), new LinearLayout.LayoutParams(0, -2, 1));
         row.addView(status(), new LinearLayout.LayoutParams(-2, -2));
@@ -126,6 +127,18 @@ public class DriveBarService extends Service {
         FrameLayout.LayoutParams ip = new FrameLayout.LayoutParams(-1, -1); ip.setMargins(dp(10), dp(10), dp(10), dp(10));
         holder.addView(icon, ip);
         holder.setOnClickListener(v -> action.run());
+        return holder;
+    }
+
+    /** Android Auto's bottom-left square: one app full screen, tap again to dock the pair back. */
+    private View squareButton() {
+        FrameLayout holder = new FrameLayout(this);
+        holder.setBackground(round(0x1fffffff, 22, 0));
+        View icon = new Glyph(this, Glyph.RECENTS);
+        FrameLayout.LayoutParams ip = new FrameLayout.LayoutParams(-1, -1); ip.setMargins(dp(13), dp(13), dp(13), dp(13));
+        holder.addView(icon, ip);
+        holder.setContentDescription("Skrin penuh");
+        holder.setOnClickListener(v -> DriveController.toggleFullscreen(this));
         return holder;
     }
 
@@ -189,6 +202,7 @@ public class DriveBarService extends Service {
         LinearLayout bottom = new LinearLayout(this); bottom.setOrientation(LinearLayout.HORIZONTAL); bottom.setGravity(Gravity.CENTER_VERTICAL);
         bottom.addView(glyphButton(DockGlyph.DRIVE, this::hideLauncher), new LinearLayout.LayoutParams(dp(44), dp(44)));
         bottom.addView(glyphButton(DockGlyph.APPS, this::hideLauncher), new LinearLayout.LayoutParams(dp(44), dp(44)));
+        bottom.addView(squareButton(), new LinearLayout.LayoutParams(dp(44), dp(44)));
         addShortcuts(bottom);
         bottom.addView(new View(this), new LinearLayout.LayoutParams(0, -2, 1));
         bottom.addView(status(), new LinearLayout.LayoutParams(-2, -2));

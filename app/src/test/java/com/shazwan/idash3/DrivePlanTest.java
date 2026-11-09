@@ -30,6 +30,16 @@ public class DrivePlanTest {
         assertEquals("org.smarttube.stable/.Splash", DrivePlan.keepOrPick("gone/.X", INSTALLED, DrivePlan.MEDIA_PREFS));
         assertEquals("org.smarttube.stable/.Splash", DrivePlan.keepOrPick("", INSTALLED, DrivePlan.MEDIA_PREFS));
     }
+    @Test public void changeLayoutKeepsNavigationOrMediaCloserToDriver() {
+        assertFalse(DrivePlan.mapLeft(DrivePlan.LAYOUT_NAV_CLOSER, false));   // RHD: navigation on the right
+        assertTrue(DrivePlan.mapLeft(DrivePlan.LAYOUT_MEDIA_CLOSER, false));  // media on the right, map left
+        assertTrue(DrivePlan.mapLeft(DrivePlan.LAYOUT_NAV_CLOSER, true));     // LHD: navigation on the left
+        assertFalse(DrivePlan.mapLeft(DrivePlan.LAYOUT_MEDIA_CLOSER, true));
+    }
+    @Test public void oldSwapPreferenceMapsToLayoutOption() {
+        assertEquals(DrivePlan.LAYOUT_MEDIA_CLOSER, DrivePlan.layoutFor(true, false));
+        assertEquals(DrivePlan.LAYOUT_NAV_CLOSER, DrivePlan.layoutFor(false, false));
+    }
     @Test public void firstLaunchedIsDockedLeft() {
         assertArrayEquals(new String[]{"map", "media"}, DrivePlan.launchOrder("map", "media", true));
         assertArrayEquals(new String[]{"media", "map"}, DrivePlan.launchOrder("map", "media", false));
