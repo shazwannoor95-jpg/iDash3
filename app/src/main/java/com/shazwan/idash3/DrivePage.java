@@ -85,13 +85,23 @@ final class DrivePage {
     }
 
     private static View card(final LauncherActivity a, String role, String component, final String[] prefs, final String prefKey) {
-        LinearLayout card = a.column(); card.setGravity(Gravity.CENTER); card.setPadding(a.dp(12), a.dp(8), a.dp(12), a.dp(8)); card.setBackground(a.glass(0x6a2b3d5c, 26));
-        TextView r = a.text(role, 12, 0xffff9f9a); r.setTypeface(IosStyle.font(a, true)); r.setLetterSpacing(.1f); r.setGravity(Gravity.CENTER); r.setTag(GlassSurface.NO_SCRIM); card.addView(r);
+        LinearLayout card = a.column(); card.setGravity(Gravity.CENTER); card.setPadding(a.dp(12), a.dp(6), a.dp(12), a.dp(6)); card.setBackground(a.glass(0x6a2b3d5c, 26));
+        TextView r = a.text(role, 12, 0xffff9f9a); r.setTypeface(IosStyle.font(a, true)); r.setLetterSpacing(.1f); r.setGravity(Gravity.CENTER); r.setTag(GlassSurface.NO_SCRIM); r.setMaxLines(1); r.setIncludeFontPadding(false); card.addView(r);
         LauncherActivity.App app = component == null ? null : find(a, component);
-        ImageView icon = new ImageView(a); if (app != null) icon.setImageBitmap(app.icon);
-        LinearLayout.LayoutParams ip = new LinearLayout.LayoutParams(a.dp(64), a.dp(64)); ip.topMargin = a.dp(6); card.addView(icon, ip);
-        TextView name = a.text(app == null ? "Belum dipilih" : app.label, 17, Color.WHITE); name.setTypeface(IosStyle.font(a, true)); name.setGravity(Gravity.CENTER); name.setMaxLines(1); name.setEllipsize(android.text.TextUtils.TruncateAt.END);
-        card.addView(name); TextView change = a.text("Tekan untuk tukar", 12, 0xb3ffffff); change.setGravity(Gravity.CENTER); card.addView(change);
+        // The icon absorbs the leftover height (never wider than 64dp), so a short head-unit screen
+        // shrinks it instead of clipping the role label above it and the app name below it.
+        ImageView icon = new ImageView(a); icon.setScaleType(ImageView.ScaleType.FIT_CENTER); if (app != null) icon.setImageBitmap(app.icon);
+        LinearLayout.LayoutParams ip = new LinearLayout.LayoutParams(a.dp(64), 0, 1); ip.topMargin = a.dp(2); ip.gravity = Gravity.CENTER_HORIZONTAL; card.addView(icon, ip);
+        TextView name = a.text(app == null ? "Belum dipilih" : app.label, 17, Color.WHITE); name.setTypeface(IosStyle.font(a, true)); name.setGravity(Gravity.CENTER); name.setMaxLines(1); name.setEllipsize(android.text.TextUtils.TruncateAt.END); name.setIncludeFontPadding(false);
+        card.addView(name, new LinearLayout.LayoutParams(-1, -2));
+        final TextView change = a.text("Tekan untuk tukar", 12, 0xb3ffffff); change.setGravity(Gravity.CENTER); change.setMaxLines(1); change.setIncludeFontPadding(false);
+        card.addView(change, new LinearLayout.LayoutParams(-1, -2));
+        // Short cards drop the tap hint rather than letting the three text rows overflow the card.
+        final int hintMinHeight = a.dp(120);
+        card.addOnLayoutChangeListener((v, l, t, right, bottom, oldL, oldT, oldRight, oldBottom) -> {
+            int wanted = bottom - t < hintMinHeight ? View.GONE : View.VISIBLE;
+            if (change.getVisibility() != wanted) change.setVisibility(wanted);
+        });
         card.setContentDescription(role + ": " + (app == null ? "belum dipilih" : app.label));
         card.setMinimumHeight(a.dp(48));
         card.setOnClickListener(v -> choose(a, role, prefs, prefKey));
