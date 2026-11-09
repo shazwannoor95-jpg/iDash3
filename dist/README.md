@@ -3,9 +3,9 @@
 | Fail | Versi | Pakej | SHA256 |
 |---|---|---|---|
 | `iDash3-Debloat-1.0.apk` | 1.0 (code 1) | `com.shazwan.idash3.debloat` | `576f237a05793f521d14512220bfebd549c1f656a9f1aa5688a533a9bb9d8fcb` |
-| `iDash3-0.2.0-dev-debug-QA.apk` | 0.2.0-dev (code 1) | `com.shazwan.idash3` | `275ff5186be880c97e12ff8fdfae534091e2ee15b97910b1cdc7f454331b0584` |
+| `iDash3-0.2.0-dev-debug-QA.apk` | 0.2.0-dev (code 1) | `com.shazwan.idash3` | `eda3ed7b789cb32eaebf0fb335dbae33b92aea598ca2614a1cb28894cac465e1` |
 
-- Dibina daripada kod terkini `main` (commit `39d93f1`): tema ikon gaya iOS, kaca refraksi baked, ikon squircle, font Inter, dan **Drive (split-screen Android)** dengan kad PETA/MEDIA yang tidak lagi terpotong pada skrin rendah. minSdk 26, targetSdk 35, tiada pustaka native (jalan pada ARM32). 1,569,679 bait.
+- Dibina daripada kod terkini `main` (commit `93c1313`): tema ikon gaya iOS, kaca refraksi baked, ikon squircle, font Inter, dan **Drive (split-screen Android)** dengan kad PETA/MEDIA yang muat pada skrin rendah dan bar terapung yang lebih kecil. minSdk 26, targetSdk 35, tiada pustaka native (jalan pada ARM32). 1,744,435 bait.
 - **APK debug untuk ujian sahaja, bukan release.** Ditandatangani kunci debug generik (sijil SHA-256 `404cb209…500e`). Ia **tidak** mengemas kini iDash atau iDash2 — boleh dipasang bersama.
 - APK debug seterusnya mungkin ditandatangani kunci debug lain; jika Android menolak kemas kini ("signatures do not match"), nyahpasang versi lama dahulu (susunan Home/tetapan akan hilang).
 

@@ -55,11 +55,12 @@ public class DriveBarService extends Service {
         windows = (WindowManager) getSystemService(WINDOW_SERVICE);
         final float density = getResources().getDisplayMetrics().density;
         LinearLayout pill = new LinearLayout(this);
-        pill.setOrientation(LinearLayout.HORIZONTAL); pill.setGravity(Gravity.CENTER_VERTICAL); pill.setPadding(dp(14), dp(4), dp(14), dp(4));
-        GradientDrawable bg = new GradientDrawable(); bg.setColor(0xe61a2233); bg.setCornerRadius(dp(30)); bg.setStroke(Math.max(1, dp(1)), 0x66ffffff); pill.setBackground(bg);
+        pill.setOrientation(LinearLayout.HORIZONTAL); pill.setGravity(Gravity.CENTER_VERTICAL); pill.setPadding(dp(9), dp(3), dp(9), dp(3));
+        GradientDrawable bg = new GradientDrawable(); bg.setColor(0xe61a2233); bg.setCornerRadius(dp(22)); bg.setStroke(Math.max(1, dp(1)), 0x59ffffff); pill.setBackground(bg);
 
-        TextClock clock = new TextClock(this); clock.setFormat24Hour("HH:mm"); clock.setFormat12Hour("h:mm"); clock.setTextColor(Color.WHITE); clock.setTextSize(20); clock.setTypeface(IosStyle.font(this, true));
-        pill.addView(clock, new LinearLayout.LayoutParams(-2, -2));
+        TextClock clock = new TextClock(this); clock.setFormat24Hour("HH:mm"); clock.setFormat12Hour("h:mm"); clock.setTextColor(Color.WHITE); clock.setTextSize(15); clock.setTypeface(IosStyle.font(this, true));
+        LinearLayout.LayoutParams clockLp = new LinearLayout.LayoutParams(-2, -2); clockLp.leftMargin = dp(2); clockLp.rightMargin = dp(2);
+        pill.addView(clock, clockLp);
         boolean controls = SplitService.isRunning();
         if (controls) {
             pill.addView(button(Glyph.BACK, () -> SplitService.back()), cell());
@@ -76,11 +77,11 @@ public class DriveBarService extends Service {
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT,
             WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
             WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, PixelFormat.TRANSLUCENT);
-        lp.gravity = Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL; lp.y = dp(10);
+        lp.gravity = Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL; lp.y = dp(6);
         try { windows.addView(pill, lp); bar = pill; } catch (RuntimeException denied) { bar = null; stopSelf(); }
     }
 
-    private LinearLayout.LayoutParams cell() { LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(dp(52), dp(52)); p.leftMargin = dp(4); return p; }
+    private LinearLayout.LayoutParams cell() { LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(dp(38), dp(38)); p.leftMargin = dp(2); return p; }
 
     private void volume(int direction) {
         AudioManager am = (AudioManager) getSystemService(AUDIO_SERVICE);
@@ -94,11 +95,11 @@ public class DriveBarService extends Service {
             if (name == null) return;
             android.content.pm.PackageManager pm = getPackageManager();
             android.graphics.drawable.Drawable icon = pm.getActivityIcon(name);
-            int px = dp(40);
+            int px = dp(28);
             ImageView view = new ImageView(this);
             view.setImageBitmap(IconStyler.render(icon, px, IconStyler.DEFAULT, 0xff6f8fc8, getResources().getDisplayMetrics().density, false, IosGlyphs.match(name.getPackageName(), name.getPackageName())));
             view.setOnClickListener(v -> DriveController.launch(this, component, false));
-            LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(dp(52), dp(52)); p.leftMargin = dp(4); view.setPadding(dp(6), dp(6), dp(6), dp(6));
+            LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(dp(38), dp(38)); p.leftMargin = dp(2); view.setPadding(dp(5), dp(5), dp(5), dp(5));
             pill.addView(view, p);
         } catch (android.content.pm.PackageManager.NameNotFoundException | RuntimeException missing) { /* app removed: no shortcut */ }
     }
