@@ -103,19 +103,20 @@ public class DriveBarService extends Service {
     private void addBar() {
         windows = (WindowManager) getSystemService(WINDOW_SERVICE);
         loadApps();
-        FrameLayout root = new FrameLayout(this); root.setPadding(dp(12), 0, dp(12), dp(8));
+        FrameLayout root = new FrameLayout(this); root.setPadding(dp(10), 0, dp(10), dp(6));
         LinearLayout row = new LinearLayout(this); row.setOrientation(LinearLayout.HORIZONTAL); row.setGravity(Gravity.CENTER_VERTICAL);
         row.setPadding(dp(6), dp(5), dp(6), dp(5)); row.setBackground(round(0xf2101218, 28, 0x33ffffff));
         row.addView(glyphButton(DockGlyph.APPS, this::toggleLauncher), new LinearLayout.LayoutParams(dp(44), dp(44)));
         row.addView(squareButton(), new LinearLayout.LayoutParams(dp(44), dp(44)));
         addShortcuts(row);
-        row.addView(new View(this), new LinearLayout.LayoutParams(0, -2, 1));
+        row.addView(new View(this), new LinearLayout.LayoutParams(dp(10), dp(1)));
         row.addView(status(), new LinearLayout.LayoutParams(-2, -2));
-        root.addView(row, new FrameLayout.LayoutParams(-1, -2));
-        WindowManager.LayoutParams lp = new WindowManager.LayoutParams(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT,
+        root.addView(row);
+        // Compact centred pill like Android Auto; no FLAG_LAYOUT_NO_LIMITS so it cannot stretch over apps.
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT,
             WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
-            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, PixelFormat.TRANSLUCENT);
-        lp.gravity = Gravity.BOTTOM;
+            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL, PixelFormat.TRANSLUCENT);
+        lp.gravity = Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL;
         try { windows.addView(root, lp); bar = root; } catch (RuntimeException denied) { bar = null; stopSelf(); }
     }
 
@@ -185,31 +186,42 @@ public class DriveBarService extends Service {
 
     private void toggleLauncher() { if (launcher != null) hideLauncher(); else showLauncher(); }
 
+    /**
+     * Android-Auto-style app sheet: a decided panel at the bottom over a light scrim, never a
+     * full-screen black window. Tapping the scrim or ✕ always closes it, and the panel keeps a
+     * visible header even when no app could be listed.
+     */
     private void showLauncher() {
         if (windows == null || launcher != null) return;
-        LinearLayout root = new LinearLayout(this); root.setOrientation(LinearLayout.VERTICAL);
-        root.setBackgroundColor(0xf20b0d12); root.setPadding(dp(18), dp(14), dp(18), dp(10));
+        FrameLayout root = new FrameLayout(this);
+        root.setBackgroundColor(0x66000000);
+        root.setOnClickListener(v -> hideLauncher());
+        LinearLayout panel = new LinearLayout(this); panel.setOrientation(LinearLayout.VERTICAL);
+        panel.setBackground(round(0xf00b0d12, 24, 0x33ffffff)); panel.setPadding(dp(18), dp(12), dp(18), dp(10));
+        panel.setOnClickListener(v -> { });
         LinearLayout header = new LinearLayout(this); header.setOrientation(LinearLayout.HORIZONTAL); header.setGravity(Gravity.CENTER_VERTICAL);
-        TextView title = new TextView(this); title.setText("App launcher"); title.setTextColor(Color.WHITE); title.setTextSize(20); title.setTypeface(IosStyle.font(this, true));
+        TextView title = new TextView(this); title.setText("Aplikasi"); title.setTextColor(Color.WHITE); title.setTextSize(20); title.setTypeface(IosStyle.font(this, true));
         header.addView(title, new LinearLayout.LayoutParams(0, -2, 1));
-        header.addView(glyphButton(DockGlyph.DRIVE, this::hideLauncher), new LinearLayout.LayoutParams(dp(44), dp(44)));
-        root.addView(header);
+        header.addView(glyphButton(Glyph.CLOSE, this::hideLauncher), new LinearLayout.LayoutParams(dp(44), dp(44)));
+        panel.addView(header);
         ScrollView scroll = new ScrollView(this); scroll.setFillViewport(false);
         LinearLayout grid = new LinearLayout(this); grid.setOrientation(LinearLayout.VERTICAL);
-        scroll.addView(grid, new FrameLayout.LayoutParams(-1, -2));
-        root.addView(scroll, new LinearLayout.LayoutParams(-1, 0, 1));
+        scroll.addView(grid);
+        panel.addView(scroll, new LinearLayout.LayoutParams(-1, 0, 1));
         fillGrid(grid);
         LinearLayout bottom = new LinearLayout(this); bottom.setOrientation(LinearLayout.HORIZONTAL); bottom.setGravity(Gravity.CENTER_VERTICAL);
         bottom.addView(glyphButton(DockGlyph.DRIVE, this::hideLauncher), new LinearLayout.LayoutParams(dp(44), dp(44)));
-        bottom.addView(glyphButton(DockGlyph.APPS, this::hideLauncher), new LinearLayout.LayoutParams(dp(44), dp(44)));
         bottom.addView(squareButton(), new LinearLayout.LayoutParams(dp(44), dp(44)));
         addShortcuts(bottom);
         bottom.addView(new View(this), new LinearLayout.LayoutParams(0, -2, 1));
         bottom.addView(status(), new LinearLayout.LayoutParams(-2, -2));
-        root.addView(bottom, new LinearLayout.LayoutParams(-1, -2));
+        panel.addView(bottom, new LinearLayout.LayoutParams(-1, -2));
+        int panelHeight = Math.round(getResources().getDisplayMetrics().heightPixels * 0.66f);
+        FrameLayout.LayoutParams pp = new FrameLayout.LayoutParams(-1, panelHeight, Gravity.BOTTOM); pp.setMargins(dp(10), 0, dp(10), dp(10));
+        root.addView(panel, pp);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT,
             WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
-            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, PixelFormat.TRANSLUCENT);
+            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL, PixelFormat.TRANSLUCENT);
         try { windows.addView(root, lp); launcher = root; } catch (RuntimeException denied) { launcher = null; }
     }
 
@@ -219,6 +231,11 @@ public class DriveBarService extends Service {
     }
 
     private void fillGrid(LinearLayout grid) {
+        if (apps.isEmpty()) {
+            TextView empty = new TextView(this); empty.setText("Tiada app dijumpai. Tutup dan cuba lagi.");
+            empty.setTextColor(0xffe6eaff); empty.setTextSize(14); empty.setPadding(dp(6), dp(16), dp(6), dp(4));
+            grid.addView(empty, new LinearLayout.LayoutParams(-1, -2));
+        }
         final ArrayList<App> cells = new ArrayList<>();
         cells.add(null); // Exit tile
         SharedPreferences prefs = getSharedPreferences("idash", MODE_PRIVATE);

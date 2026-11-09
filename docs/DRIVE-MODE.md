@@ -28,6 +28,7 @@ Bar bawah: **App launcher** (grid) · pintasan app **peta**, **media**, **telefo
 ## Susun atur & skrin penuh (gaya Android Auto)
 - **Change Layout:** butang **⇄** menukar antara **navigasi dekat pemandu** dan **media dekat pemandu**, sama seperti *Android Auto → Settings → Display → Change Layout*. Lalai: navigasi dekat pemandu; pemandu di sebelah **kanan** (RHD), jadi peta mula di kanan. Pilihan disimpan.
 - **Skrin penuh (butang segi empat):** butang kotak di sebelah launcher pada bar membuat app yang sedang fokus mengambil seluruh skrin; tekan sekali lagi untuk **dok semula** pasangan split-screen (peta + media). Ini padanan butang segi empat di kiri bawah Android Auto.
+- **Bar & launcher:** bar ialah pil kompak di tengah bawah (bukan jalur hitam selebar skrin, dan tiada `FLAG_LAYOUT_NO_LIMITS`). Butang launcher membuka panel 66% tinggi dengan senarai app, tile Exit dan butang ✕; tekan kawasan gelap di luar panel untuk tutup, jadi tiada lagi tetingkap hitam penuh skrin tanpa isi.
 - **Automatik:** urutan split (app pertama → dok → app kedua) berjalan sendiri apabila **Mula Drive** ditekan, tanpa perlu drag atau susun app secara manual.
 
 ## Had dan nota
