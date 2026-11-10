@@ -28,6 +28,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextClock;
 import android.widget.TextView;
+import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -131,15 +132,18 @@ public class DriveBarService extends Service {
         return holder;
     }
 
-    /** Android Auto's bottom-left square: one app full screen, tap again to dock the pair back. */
+    /** Square button: stops the split-screen pair (one app full screen) and never docks it again. */
     private View squareButton() {
         FrameLayout holder = new FrameLayout(this);
         holder.setBackground(round(0x1fffffff, 22, 0));
         View icon = new Glyph(this, Glyph.RECENTS);
         FrameLayout.LayoutParams ip = new FrameLayout.LayoutParams(-1, -1); ip.setMargins(dp(10), dp(10), dp(10), dp(10));
         holder.addView(icon, ip);
-        holder.setContentDescription("Skrin penuh");
-        holder.setOnClickListener(v -> DriveController.toggleFullscreen(this));
+        holder.setContentDescription("Hentikan split-screen");
+        holder.setOnClickListener(v -> {
+            boolean stopped = DriveController.endSplit(this);
+            Toast.makeText(this, stopped ? "Split-screen dihentikan" : "Split-screen tidak dapat dihentikan (aksesibiliti iDash3 mati?)", Toast.LENGTH_SHORT).show();
+        });
         return holder;
     }
 
@@ -195,6 +199,7 @@ public class DriveBarService extends Service {
      */
     private void showLauncher() {
         if (windows == null || launcher != null) return;
+        loadApps(); // fresh list each time: an app installed after the bar started must still appear
         FrameLayout root = new FrameLayout(this);
         root.setBackgroundColor(0x66000000);
         root.setOnClickListener(v -> hideLauncher());
@@ -209,8 +214,16 @@ public class DriveBarService extends Service {
         ScrollView scroll = new ScrollView(this); scroll.setFillViewport(false);
         LinearLayout grid = new LinearLayout(this); grid.setOrientation(LinearLayout.VERTICAL);
         scroll.addView(grid);
-        panel.addView(scroll, new LinearLayout.LayoutParams(-1, 0, 1));
+        panel.addView(scroll, new LinearLayout.LayoutParams(-1, -2));
         fillGrid(grid);
+        // The sheet is as tall as its content and the grid only scrolls past half the screen, so a
+        // fixed-height panel can never leave an empty band where the grid should be.
+        final int maxGrid = Math.round(getResources().getDisplayMetrics().heightPixels * 0.50f);
+        grid.post(() -> {
+            if (launcher == null || grid.getHeight() <= maxGrid || scroll.getLayoutParams().height == maxGrid) return;
+            scroll.getLayoutParams().height = maxGrid;
+            scroll.requestLayout();
+        });
         LinearLayout bottom = new LinearLayout(this); bottom.setOrientation(LinearLayout.HORIZONTAL); bottom.setGravity(Gravity.CENTER_VERTICAL);
         bottom.addView(glyphButton(DockGlyph.DRIVE, this::hideLauncher), new LinearLayout.LayoutParams(dp(44), dp(44)));
         bottom.addView(squareButton(), new LinearLayout.LayoutParams(dp(44), dp(44)));
@@ -218,8 +231,7 @@ public class DriveBarService extends Service {
         bottom.addView(new View(this), new LinearLayout.LayoutParams(0, -2, 1));
         bottom.addView(status(), new LinearLayout.LayoutParams(-2, -2));
         panel.addView(bottom, new LinearLayout.LayoutParams(-1, -2));
-        int panelHeight = Math.round(getResources().getDisplayMetrics().heightPixels * 0.66f);
-        FrameLayout.LayoutParams pp = new FrameLayout.LayoutParams(-1, panelHeight, Gravity.BOTTOM); pp.setMargins(dp(10), 0, dp(10), dp(10));
+        FrameLayout.LayoutParams pp = new FrameLayout.LayoutParams(-1, -2, Gravity.BOTTOM); pp.setMargins(dp(10), 0, dp(10), dp(10));
         root.addView(panel, pp);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT,
             WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
@@ -234,8 +246,9 @@ public class DriveBarService extends Service {
 
     private void fillGrid(LinearLayout grid) {
         if (apps.isEmpty()) {
-            TextView empty = new TextView(this); empty.setText("Tiada app dijumpai. Tutup dan cuba lagi.");
-            empty.setTextColor(0xffe6eaff); empty.setTextSize(14); empty.setPadding(dp(6), dp(16), dp(6), dp(4));
+            TextView empty = new TextView(this); empty.setText("Tiada app dijumpai (0). Tekan untuk muat semula.");
+            empty.setTextColor(0xffe6eaff); empty.setTextSize(14); empty.setPadding(dp(6), dp(16), dp(6), dp(16));
+            empty.setOnClickListener(v -> { hideLauncher(); showLauncher(); });
             grid.addView(empty, new LinearLayout.LayoutParams(-1, -2));
         }
         final ArrayList<App> cells = new ArrayList<>();

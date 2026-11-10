@@ -27,7 +27,7 @@ Bar bawah: **App launcher** (grid) · pintasan app **peta**, **media**, **telefo
 
 ## Susun atur & skrin penuh (gaya Android Auto)
 - **Change Layout:** butang **⇄** menukar antara **navigasi dekat pemandu** dan **media dekat pemandu**, sama seperti *Android Auto → Settings → Display → Change Layout*. Lalai: navigasi dekat pemandu; pemandu di sebelah **kanan** (RHD), jadi peta mula di kanan. Pilihan disimpan.
-- **Skrin penuh (butang segi empat):** butang kotak di sebelah launcher pada bar membuat app yang sedang fokus mengambil seluruh skrin; tekan sekali lagi untuk **dok semula** pasangan split-screen (peta + media). Ini padanan butang segi empat di kiri bawah Android Auto.
+- **Hentikan split-screen (butang segi empat):** butang kotak di sebelah launcher pada bar **menghentikan** pasangan split-screen dan membiarkan app yang fokus mengambil seluruh skrin. Ia satu hala — tekan lagi tidak mendok semula pasangan itu. Untuk kembali ke split, buka halaman Drive dan tekan mula semula. Selepas split dihentikan, **Keluar** tidak lagi menghantar tindakan togol (yang akan mendok semula app itu).
 - **Bar & launcher:** bar ialah pil kompak di tengah bawah (bukan jalur hitam selebar skrin, dan tiada `FLAG_LAYOUT_NO_LIMITS`). Butang launcher membuka panel 66% tinggi dengan senarai app, tile Exit dan butang ✕; tekan kawasan gelap di luar panel untuk tutup, jadi tiada lagi tetingkap hitam penuh skrin tanpa isi.
 - **Automatik:** urutan split (app pertama → dok → app kedua) berjalan sendiri apabila **Mula Drive** ditekan, tanpa perlu drag atau susun app secara manual.
 
@@ -37,5 +37,6 @@ Bar bawah: **App launcher** (grid) · pintasan app **peta**, **media**, **telefo
 - Pemasaan urutan (2.3 s sebelum dok, 1.7 s sebelum app kedua) tetap; head unit perlahan mungkin perlu **Mulakan semula Drive**.
 - Pembahagi dan saiz kedua-dua sisi dikawal oleh sistem Android, bukan iDash3.
 - **Tidak ditiru daripada Android Auto:** mikrofon/Assistant (sengaja tiada), "third split" untuk mesej/panggilan masuk (perlukan akses kandungan notifikasi), dan tiling dinamik Coolwalk (ROM menentukan saiz panel). Kad "Home/Work 18 min" juga perlukan data navigasi AA.
-- Skrin penuh bergantung pada tindak balas ROM terhadap `GLOBAL_ACTION_TOGGLE_SPLIT_SCREEN`; sesetengah ROM menutup split dan membiarkan app fokus skrin penuh, yang lain mungkin mendok semula — uji pada head unit.
+- Hentikan split bergantung pada tindak balas ROM terhadap `GLOBAL_ACTION_TOGGLE_SPLIT_SCREEN`; kebanyakan ROM menutup dok dan membiarkan app fokus skrin penuh. Jika aksesibiliti iDash3 mati, butang itu memaparkan toast dan tidak melakukan apa-apa.
+- Panel **Aplikasi** memuat semula senarai app setiap kali dibuka dan kini bersaiz mengikut kandungan (grid menatal hanya selepas separuh skrin), jadi ia tidak boleh muncul sebagai panel kosong.
 - Ujian: `DriveChecks` (emulator API 27) menghidupkan perkhidmatan, menjalankan urutan dan **merekod stack aktiviti** yang dilaporkan Android; hasilnya dalam log CI. Ia bukan bukti untuk ROM head unit.

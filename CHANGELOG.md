@@ -37,6 +37,8 @@ Format ringkas berasaskan [Keep a Changelog](https://keepachangelog.com/). Tarik
 - Mod panel native (VirtualDisplay/embedding) — eksperimen yang tidak berjaya.
 
 ### Dibetulkan
+- **Butang petak Drive tidak menghentikan split-screen:** butang segi empat pada bar kini menamatkan pasangan split-screen dan membiarkan app fokus skrin penuh, satu hala (tekan lagi tidak mendok semula). `Keluar` tidak lagi menghantar togol yang akan mendok semula app selepas split dihentikan.
+- **Panel Aplikasi Drive kosong:** senarai app dimuat semula setiap kali panel dibuka, panel bersaiz mengikut kandungan (grid menatal selepas separuh skrin) dan bukannya kotak 66% tetap, dan jika tiada app dijumpai ia memaparkan bilangan app dengan arahan tekan untuk muat semula.
 - **P1 dan P2 di-revert semula (2026-11-10):** dua pembetulan prestasi yang menyentuh kaca — pengesanan memori Auto (`GlassPerf`) dan tunda permintaan bake semasa animasi masuk (`GlassSurface`) — dibuang semula atas permintaan kerana ia mengubah penampilan kaca pada head unit 1 GB. Kaca kembali sama seperti sebelum audit: tiada lensa, bevel, specular, refleksi atau refraksi yang hilang secara automatik. Mod **Rendah** masih boleh dipilih secara manual dalam Settings → Mod prestasi.
 - **Keluar Drive masih menjalankan langkah tertangguh:** rantaian `postDelayed` (dock, app kedua, bar) kini dibatalkan oleh `cancelPending()` dalam `stop()`, jadi bar/split tidak muncul semula selepas pengguna keluar.
 - **Launcher dibina semula apabila saiz fon/resolusi/`uiMode` berubah:** `configChanges` dilengkapkan (`smallestScreenSize`, `screenLayout`, `fontScale`, `uiMode`, `locale`, `layoutDirection`, `keyboard`, `navigation`); `onConfigurationChanged` → `render()` sudah wujud.

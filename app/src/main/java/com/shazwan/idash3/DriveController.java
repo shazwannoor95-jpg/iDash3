@@ -53,12 +53,16 @@ final class DriveController {
 
     static boolean isFullscreen() { return fullscreen; }
 
-    /** Android Auto's bottom-left square: the focused app takes the whole screen, tap again to re-dock. */
-    static void toggleFullscreen(Context app) {
-        Context c = app.getApplicationContext();
-        if (!SplitService.isRunning() || lastMap == null || lastMedia == null) return;
-        if (!fullscreen) { if (SplitService.toggleSplit()) fullscreen = true; }
-        else if (start(c, lastMap, lastMedia, lastMapLeft, lastBar, false) == null) fullscreen = false;
+    /**
+     * Square button: ends the split pair once and leaves the focused app full screen. It never re-docks
+     * (tapping it again does nothing), so the button always means "stop split-screen".
+     */
+    static boolean endSplit(Context app) {
+        if (fullscreen) return true;
+        if (!SplitService.isRunning()) return false;
+        if (!SplitService.toggleSplit()) return false;
+        fullscreen = true;
+        return true;
     }
 
     static boolean launch(Context c, String component, boolean adjacent) {
@@ -94,7 +98,7 @@ final class DriveController {
         Context c = app.getApplicationContext();
         cancelPending();
         DriveBarService.stop(c);
-        if (active) SplitService.toggleSplit();
+        if (active && !fullscreen) SplitService.toggleSplit();
         active = false; fullscreen = false;
         MAIN.postDelayed(() -> c.startActivity(new Intent(c, LauncherActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)), 600);
     }
