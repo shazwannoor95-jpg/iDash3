@@ -37,6 +37,10 @@ Format ringkas berasaskan [Keep a Changelog](https://keepachangelog.com/). Tarik
 - Mod panel native (VirtualDisplay/embedding) — eksperimen yang tidak berjaya.
 
 ### Dibetulkan
+- **Mod prestasi Auto tidak aktif pada head unit 1 GB:** ambang memori kini `heap ≤ 96 MB` (bukan `< 96 MB`, yang tepat sama dengan `heapgrowthlimit` peranti 1 GB) atau `RAM ≤ 1.5 GB`, jadi lensing/specular/bake dimatikan secara automatik. Lihat `docs/PERFORMANCE-AUDIT.md` P1.
+- **Keluar Drive masih menjalankan langkah tertangguh:** rantaian `postDelayed` (dock, app kedua, bar) kini dibatalkan oleh `cancelPending()` dalam `stop()`, jadi bar/split tidak muncul semula selepas pengguna keluar.
+- **Launcher dibina semula apabila saiz fon/resolusi/`uiMode` berubah:** `configChanges` dilengkapkan (`smallestScreenSize`, `screenLayout`, `fontScale`, `uiMode`, `locale`, `layoutDirection`, `keyboard`, `navigation`); `onConfigurationChanged` → `render()` sudah wujud.
+- **Perkhidmatan aksesibiliti menerima `typeWindowStateChanged` tanpa sebab:** atribut dibuang daripada `res/xml/split_service.xml`; ia hanya menggunakan tindakan global (`performGlobalAction`).
 - **Kotak hitam kosong di atas app:** bar terapung kini pil **kompak di tengah bawah** (lebar `WRAP_CONTENT`, tanpa `FLAG_LAYOUT_NO_LIMITS`) dan butang launcher membuka **panel separa telus 66% tinggi** yang boleh ditutup dengan ✕ atau tekan kawasan gelap — bukan lagi tetingkap hitam penuh skrin. Panel juga memaparkan mesej jika senarai app gagal dibaca, jadi ia tidak pernah menjadi kotak hitam tanpa isi.
 - **Kad Drive terpotong pada skrin rendah:** label PETA/MEDIA dan nama app kini muat dalam kad — ikon mengambil baki tinggi (lebar maksimum 64dp, `FIT_CENTER`) dan hint "Tekan untuk tukar" disembunyikan apabila kad lebih pendek daripada 120dp. APK QA dalam `dist/` dibina semula daripada commit ini.
 - **Video YouTube hitam dalam panel (audio ada):** panel kini melaporkan VP9/AV1 sebagai tidak disokong supaya YouTube memilih H.264 (kebanyakan cip head unit tiada penyahkod VP9/AV1); resolusi PiP untuk laman web kini melalui lebar viewport halaman, bukan skala pada WebView (skala boleh menyembunyikan lapisan video).

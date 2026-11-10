@@ -94,7 +94,7 @@ Persekitaran: JDK 17 (Temurin), Android SDK 35, Gradle 8.9, `GRADLE_USER_HOME` b
 | Semakan | Arahan | Status | Bukti |
 |---|---|---|---|
 | Bina debug | `./gradlew :app:assembleDebug` | **PASS** | BUILD SUCCESSFUL (17 s) |
-| Ujian unit | `./gradlew :app:testDebugUnitTest` | **PASS** | **44 ujian, 0 gagal** (10 kelas: Adaptive, DrivePlan, GlassBake, GlassPerf, HomeLayout, IosGlyphs, LiquidShape, ResolutionStage, Spring, WebVideoScript) |
+| Ujian unit | `./gradlew :app:testDebugUnitTest` | **PASS** | **46 ujian, 0 gagal** (10 kelas: Adaptive, DrivePlan, GlassBake, GlassPerf, HomeLayout, IosGlyphs, LiquidShape, ResolutionStage, Spring, WebVideoScript) |
 | Lint | `./gradlew :app:lintDebug` | **PASS** (0 ralat) | 59 amaran: `SetTextI18n` 41, `ViewConstructor` 10, `ObsoleteSdkInt` 2, `ClickableViewAccessibility` 2, `PrivateApi` 1 (`DashFmController.java:44`), `DiscouragedApi` 1, `DataExtractionRules` 1, `DrawAllocation` 1 (`DriveBarService.java:310`) |
 | Bina APK ujian | `./gradlew :app:assembleDebugAndroidTest` | **PASS** | 124,856 bait |
 | Bina modul debloat | `./gradlew :debloat:assembleDebug` | **PASS** | 20,094 bait |
@@ -115,11 +115,13 @@ Persekitaran: JDK 17 (Temurin), Android SDK 35, Gradle 8.9, `GRADLE_USER_HOME` b
 
 Mengikut keutamaan (butiran penuh dalam `docs/PERFORMANCE-AUDIT.md` dan `docs/ANDROID-COMPATIBILITY-AUDIT.md`):
 
-1. **P1** — ambang memori `GlassPerf.java:32` supaya mod Auto memilih LOW pada peranti 1 GB.
-2. **A1** — lengkapkan `configChanges` supaya tukar saiz fon tidak membina semula launcher.
-3. **P2** — jangan bake kaca semasa animasi masuk (banjir kerja).
-4. **Drive callback** — `removeCallbacks` dalam `stop()` supaya Drive tidak hidup semula selepas Keluar.
-5. **A2** — buang `accessibilityEventTypes` yang tidak digunakan.
-6. **P6** — kitar semula `VelocityTracker` dalam grid.
+| # | Item | Status |
+|---|---|---|
+| 1 | **P1** — ambang memori supaya mod Auto memilih LOW pada peranti 1 GB | **DIBETULKAN** (`GlassPerf.memoryTight`) |
+| 2 | **A1** — lengkapkan `configChanges` | **DIBETULKAN** |
+| 3 | **A2** — buang `accessibilityEventTypes` yang tidak digunakan | **DIBETULKAN** |
+| 4 | **Drive callback** — batalkan langkah tertangguh dalam `stop()` | **DIBETULKAN** (`cancelPending`) |
+| 5 | **P2** — jangan bake kaca semasa animasi masuk | Terbuka (menyentuh kaca; perlu kelulusan) |
+| 6 | **P6** — kitar semula `VelocityTracker` dalam grid | Terbuka |
 
-Semua ini **belum dilaksanakan**. Audit berhenti di sini mengikut arahan "berhenti sebelum membuat perubahan source aplikasi yang memerlukan kelulusan".
+Binaan QA semula selepas pembetulan: `assembleDebug` PASS, **46 ujian unit 0 gagal**, lint **0 ralat / 59 amaran**, `guard.sh` PASS. APK `dist/iDash3-0.2.0-dev-debug-QA.apk` (1,749,149 bait) dibina semula; ujian pada peranti masih **NOT RUN/BLOCKED**.

@@ -1,10 +1,12 @@
 # PERFORMANCE-AUDIT — RAM, CPU, ANR iDash3 pada 1 GB / ARM32
 
-Asas: `main` @ `ad16f48`. Enjin **Liquid Glass V2 / Fasa 3B tidak diubah** — audit ini hanya memerhati dan mencadangkan; tiada satu baris source diubah.
+Asas: `main` @ `ad16f48` (audit awal, read-only). Pembetulan **P1** dan **callback Drive** kemudiannya dilaksanakan tanpa menyentuh enjin **Liquid Glass V2 / Fasa 3B** — lihat §5.
 
 Label: **[BUKTI KOD]** = dibaca dalam source · **[BUKTI UKUR]** = dijalankan dalam sesi ini · **[ANDAIAN]** = perlu ukuran peranti.
 
 Ringkasan: **2 Tinggi · 4 Sederhana · 4 Rendah · 3 Maklumat (disahkan baik)**.
+
+> **Status 2026-11-10:** **P1** dan **callback Drive** (lihat §3) telah dibetulkan dalam commit susulan; isu lain di bawah masih terbuka.
 
 > Tiada ukuran `dumpsys meminfo`/`gfxinfo` pada head unit dalam audit ini (tiada peranti/adb). Semua severity di bawah berasaskan bukti kod dan aritmetik bitmap, bukan profil sebenar. Itu dijelaskan dalam `docs/HARDWARE-BASELINE.md §4` dan `docs/HEADUNIT-VALIDATION.md`.
 
@@ -47,11 +49,13 @@ Ringkasan: **2 Tinggi · 4 Sederhana · 4 Rendah · 3 Maklumat (disahkan baik)**
 
 ---
 
-## 3. Nota tambahan: Drive boleh meninggalkan callback tertangguh
+## 3. Nota tambahan: Drive boleh meninggalkan callback tertangguh (DIBETULKAN)
 
 `DriveController.start()` menjadualkan rantaian `postDelayed` 2300 ms → 1700 ms → 900 ms (`DriveController.java:20,71-75`) dan `stop()` hanya menjadualkan satu lagi `postDelayed` 600 ms (`:87`). Tiada `removeCallbacks`. Jika pengguna menekan "Mula Drive" kemudian "Keluar Drive" dalam < 2.3 s, callback split/launch/bar masih akan berjalan selepas keluar.
 
-Kesan: split-screen dipecah atau app kedua dibuka selepas pengguna sudah keluar Drive; bar terapung muncul semula. Ini isu kestabilan fungsi, bukan prestasi, dan dicatat di sini kerana ia melibatkan `Handler`. Severity **Sederhana**. Cadangan: simpan `Runnable` dalam medan dan `MAIN.removeCallbacks(...)` dalam `stop()`. **Perlu kelulusan.**
+Kesan: split-screen dipecah atau app kedua dibuka selepas pengguna sudah keluar Drive; bar terapung muncul semula. Ini isu kestabilan fungsi, bukan prestasi, dan dicatat di sini kerana ia melibatkan `Handler`. Severity **Sederhana**.
+
+**Pembetulan dilaksanakan:** setiap langkah tertangguh didaftarkan dalam `DriveController.PENDING` melalui `post(delay, task)`, dan `cancelPending()` dipanggil di awal `start()` dan `stop()`, jadi menekan Keluar membatalkan baki rantaian (dock 2300 ms, app kedua 1700 ms, bar 900 ms). Disahkan melalui semakan kod + binaan/ujian; **belum disahkan pada peranti**.
 
 ---
 
@@ -67,4 +71,12 @@ Kesan: split-screen dipecah atau app kedua dibuka selepas pengguna sudah keluar 
 | 6 | **P9** | 3 baris | Mesej jelas untuk wallpaper terlalu besar | Sangat rendah |
 | 7 | **P3/P5/P8** | Reka bentuk semula kecil | Prestasi lebih baik | Sederhana; jadualkan berasingan |
 
-Semua di atas **belum dilaksanakan**; audit ini berhenti sebelum mengubah source aplikasi.
+## 5. Status pelaksanaan (2026-11-10)
+
+| ID | Status | Perubahan |
+|---|---|---|
+| **P1** | **DIBETULKAN** | `GlassPerf.memoryTight(lowRam, maxMemory, totalMem)` baharu: LOW apabila heap ≤ 96 MB **atau** RAM keseluruhan ≤ 1.5 GB, bukan lagi `< 96 MB` sahaja. Diuji oleh `GlassPerfTest.oneGigabyteHeadUnitCountsAsLowMemory` dan `roomyDeviceStaysFull` (46 ujian unit, 0 gagal) |
+| **Callback Drive** | **DIBETULKAN** | `DriveController.PENDING` + `post()` + `cancelPending()` dalam `start()`/`stop()` |
+| P2, P3, P4, P5, P6, P7, P8, P9 | Terbuka | Cadangan masih seperti di atas; P2/P8 menyentuh laluan kaca dan memerlukan kelulusan berasingan |
+
+Tiada ukuran pada peranti dibuat selepas pembetulan ini (tiada peranti/adb dalam sesi).

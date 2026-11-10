@@ -19,6 +19,8 @@ final class DriveController {
     static final String PREF_LAYOUT = "drive_layout", PREF_DRIVER_LEFT = "drive_driver_left";
     static final long DOCK_DELAY_MS = 2300, SECOND_DELAY_MS = 1700, BAR_DELAY_MS = 900;
     private static final Handler MAIN = new Handler(Looper.getMainLooper());
+    /** Every delayed step of a Drive start, so leaving Drive can cancel the rest of the sequence. */
+    private static final java.util.ArrayList<Runnable> PENDING = new java.util.ArrayList<>();
     private static volatile boolean active, fullscreen;
     private static String lastMap, lastMedia;
     private static boolean lastMapLeft, lastBar;
@@ -26,6 +28,14 @@ final class DriveController {
     private DriveController() {}
 
     static boolean isActive() { return active; }
+
+    private static void post(long delay, Runnable task) { PENDING.add(task); MAIN.postDelayed(task, delay); }
+
+    /** Drops the pending dock/second-app/bar steps; a no-op when nothing is queued. */
+    private static void cancelPending() {
+        for (int i = 0; i < PENDING.size(); i++) MAIN.removeCallbacks(PENDING.get(i));
+        PENDING.clear();
+    }
 
     static boolean overlayAllowed(Context c) { return Settings.canDrawOverlays(c); }
 
@@ -64,23 +74,25 @@ final class DriveController {
         if (map == null || media == null) return "Pilih app peta dan app media dahulu.";
         if (!SplitService.isRunning()) return "Hidupkan perkhidmatan aksesibiliti iDash3 dahulu (untuk butang split-screen).";
         final Context c = app.getApplicationContext();
+        cancelPending();
         lastMap = map; lastMedia = media; lastMapLeft = mapLeft; lastBar = bar; fullscreen = false;
         String[] order = DrivePlan.launchOrder(map, media, mapLeft);
         active = true;
         if (!launch(c, order[0], false)) { active = false; return "App pertama tidak dapat dibuka."; }
-        MAIN.postDelayed(() -> {
+        post(DOCK_DELAY_MS, () -> {
             if (!SplitService.toggleSplit()) { active = false; Toast.makeText(c, "Split-screen gagal: perkhidmatan aksesibiliti terhenti.", Toast.LENGTH_LONG).show(); return; }
-            MAIN.postDelayed(() -> {
+            post(SECOND_DELAY_MS, () -> {
                 if (!launch(c, order[1], adjacent)) Toast.makeText(c, "App kedua tidak dapat dibuka.", Toast.LENGTH_LONG).show();
-                if (bar && overlayAllowed(c)) MAIN.postDelayed(() -> DriveBarService.start(c), BAR_DELAY_MS);
-            }, SECOND_DELAY_MS);
-        }, DOCK_DELAY_MS);
+                if (bar && overlayAllowed(c)) post(BAR_DELAY_MS, () -> DriveBarService.start(c));
+            });
+        });
         return null;
     }
 
     /** Leaves split-screen (if we started it), removes the floating bar and returns to the launcher. */
     static void stop(Context app) {
         Context c = app.getApplicationContext();
+        cancelPending();
         DriveBarService.stop(c);
         if (active) SplitService.toggleSplit();
         active = false; fullscreen = false;

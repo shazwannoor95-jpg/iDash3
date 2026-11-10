@@ -7,6 +7,8 @@ Label bukti: **[BUKTI KOD]** = dilihat dalam fail/artifak · **[BUKTI UKUR]** = 
 
 Ringkasan: **1 Tinggi · 3 Sederhana · 8 Rendah/Maklumat · 0 isu API>27 tanpa guard.**
 
+> **Status 2026-11-10:** **A1** dan **A2** telah dibetulkan; A3–A12 masih terbuka. Lihat §6a.
+
 ---
 
 ## 1. Jadual isu
@@ -92,7 +94,7 @@ Semua yang berikut disahkan wujud pada API ≤ 27, jadi tiada `NoSuchMethodError
 | Tiada API > 27 tanpa guard | PASS | `lintDebug`: **0 ralat**, 59 amaran; grep `Build.VERSION.SDK_INT` (11 tempat, semua berpasangan) |
 | Tiada pustaka native (ABI-neutral) | PASS | APK 20 entri, tiada `lib/`; `guard.sh`: "tiada pustaka native" |
 | Tiada VirtualDisplay/embedding | PASS | `guard.sh:12` lulus |
-| Ujian unit | PASS | **44 ujian, 0 gagal** |
+| Ujian unit | PASS | **46 ujian, 0 gagal** (44 asal + 2 untuk `GlassPerf.memoryTight`) |
 | Instrumentation API 27 | NOT RUN | Tiada emulator/KVM dalam sesi ini |
 | Pasang & lancar pada peranti ARM32 | BLOCKED | Tiada peranti/adb |
 
@@ -105,4 +107,16 @@ Semua yang berikut disahkan wujud pada API ≤ 27, jadi tiada `NoSuchMethodError
 3. **A3** (Sederhana) — keputusan produk: HOME patut kekal di halaman semasa atau kembali ke Home?
 4. **A4/A5** (Rendah) — hanya jika APK akan diedarkan lebih luas daripada head unit ini.
 
-Tiada perubahan source dibuat dalam audit ini.
+---
+
+## 6a. Status pelaksanaan (2026-11-10)
+
+| ID | Status | Perubahan |
+|---|---|---|
+| **A1** | **DIBETULKAN** | `configChanges` kini `orientation\|screenSize\|smallestScreenSize\|screenLayout\|keyboardHidden\|keyboard\|navigation\|fontScale\|uiMode\|locale\|layoutDirection`. `onConfigurationChanged` sedia ada memang memanggil `render()`, jadi setiap konfigurasi yang ditangani benar-benar melukis semula. Disahkan dalam APK: `configChanges=0x40002ff4` |
+| **A2** | **DIBETULKAN** | `split_service.xml` tidak lagi mendakwa `accessibilityEventTypes` (dan `notificationTimeout`); hanya tindakan global digunakan. Disahkan dalam APK: elemen `accessibility-service` tanpa atribut peristiwa |
+| A3–A12 | Terbuka | A3 ialah keputusan produk (HOME kekal di halaman semasa atau kembali ke Home) |
+
+Lint selepas pembetulan: **0 ralat, 59 amaran** — bilangan amaran tidak berubah, tiada amaran baharu daripada `configChanges`.
+
+Pengesahan pada peranti (tukar saiz fon, split-screen melalui perkhidmatan aksesibiliti) masih **NOT RUN/BLOCKED** (tiada peranti atau emulator dalam sesi).
