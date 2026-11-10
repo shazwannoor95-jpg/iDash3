@@ -121,7 +121,7 @@ Mengikut keutamaan (butiran penuh dalam `docs/PERFORMANCE-AUDIT.md` dan `docs/AN
 | 2 | **A1** — lengkapkan `configChanges` | **DIBETULKAN** |
 | 3 | **A2** — buang `accessibilityEventTypes` yang tidak digunakan | **DIBETULKAN** |
 | 4 | **Drive callback** — batalkan langkah tertangguh dalam `stop()` | **DIBETULKAN** (`cancelPending`) |
-| 5 | **P2** — jangan bake kaca semasa animasi masuk | Terbuka (menyentuh kaca; perlu kelulusan) |
+| 5 | **P2** — jangan bake kaca semasa animasi masuk | **DIBETULKAN** (`reveal < 1` + `adaptKey` reset; rupa akhir sama) |
 | 6 | **P6** — kitar semula `VelocityTracker` dalam grid | Terbuka |
 
-Binaan QA semula selepas pembetulan: `assembleDebug` PASS, **46 ujian unit 0 gagal**, lint **0 ralat / 59 amaran**, `guard.sh` PASS. APK `dist/iDash3-0.2.0-dev-debug-QA.apk` (1,749,149 bait) dibina semula; ujian pada peranti masih **NOT RUN/BLOCKED**.
+Binaan QA semula selepas pembetulan: `assembleDebug` PASS, **46 ujian unit 0 gagal**, lint **0 ralat / 59 amaran**, `guard.sh` PASS. APK `dist/iDash3-0.2.0-dev-debug-QA.apk` (1,749,219 bait) dibina semula; ujian pada peranti masih **NOT RUN/BLOCKED**, termasuk penurunan jumlah bake (tidak diukur).
