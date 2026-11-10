@@ -5,9 +5,15 @@ import android.graphics.drawable.AdaptiveIconDrawable;
 import android.graphics.drawable.Drawable;
 
 /**
- * Layered glass icons rendered once per app (worker thread) into a cached bitmap:
- * layer 1 background tile, layer 2 glyph (with its own soft shadow), layer 3 specular highlight + rim.
- * Uses the app's own icon artwork (AdaptiveIconDrawable layers when available).
+ * Layered Liquid Glass icons rendered once per app (worker thread) into a cached bitmap:
+ * layer 1 background tile lit from above, layer 2 glyph (with its own soft shadow),
+ * layer 3 specular sheen, light top edge and darker bottom edge.
+ * Uses the app's own icon artwork (AdaptiveIconDrawable layers when available); the glyph theme in
+ * {@link IosGlyphs} is original artwork drawn in-app, never Apple assets.
+ *
+ * Look follows the current iOS icon material: continuous-corner squircle, depth from a multi-stop
+ * gradient plus an inner top highlight and a darker inner bottom edge, and one sharp diagonal
+ * sheen instead of an overall blur, so the small 44–56 dp tiles stay crisp.
  */
 final class IconStyler {
     static final int DEFAULT = 0, DARK = 1, CLEAR = 2, TINT_LIGHT = 3, TINT_DARK = 4;
@@ -17,19 +23,19 @@ final class IconStyler {
 
     static int variant(android.content.SharedPreferences p) { return GlassAppearance.clamp(GlassAppearance.integer(p, "icon_style", DEFAULT), 0, 4); }
 
-    /** @param heavy false in low-performance mode: no glyph shadow and no specular arc. */
+    /** @param heavy false in low-performance mode: no glyph shadow, no sheen and no top edge light. */
     static Bitmap render(Drawable src, int px, int variant, int tint, float density, boolean heavy) { return render(src, px, variant, tint, density, heavy, IosGlyphs.NONE); }
 
     /** @param ios IosGlyphs id to draw an original iOS-style icon instead of the app's artwork, or NONE. */
     static Bitmap render(Drawable src, int px, int variant, int tint, float density, boolean heavy, int ios) {
         Bitmap out = Bitmap.createBitmap(px, px, Bitmap.Config.ARGB_8888);
         Canvas c = new Canvas(out);
-        float pad = Math.max(1f, px * .045f), r = (px - 2 * pad) * .26f;
+        float pad = Math.max(1f, px * .045f);
         RectF tile = new RectF(pad, pad, px - pad, px - pad - (heavy ? density : 0));
         Path shape = Squircle.path(tile, null);
         Paint p = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG);
 
-        // Tile shadow (outside the tile, cheap: one offset round rect).
+        // Tile shadow (outside the tile, cheap: one offset path).
         if (heavy) { p.setColor(0x38000000); Path sh = new Path(shape); sh.offset(0, density * 1.2f); c.drawPath(sh, p); }
 
         boolean themed = ios != IosGlyphs.NONE;
@@ -38,7 +44,7 @@ final class IconStyler {
         Drawable fg = adaptive ? ((AdaptiveIconDrawable) src).getForeground() : src;
         int dominant = dominant(fg != null ? fg : src);
 
-        // Layer 1: background.
+        // Layer 1: background tile, lit from above.
         int save = c.save(); c.clipPath(shape);
         int top, bottom;
         switch (variant) {
@@ -50,8 +56,17 @@ final class IconStyler {
                 if (themed) { top = IosGlyphs.top(ios); bottom = IosGlyphs.bottom(ios); }
                 else { top = bg == null ? mix(dominant, 0xffffffff, .30f) : 0; bottom = bg == null ? mix(dominant, 0xff000000, .18f) : 0; }
         }
-        if (variant == DEFAULT && bg != null) { Rect b = adaptiveBounds(tile); bg.setBounds(b); bg.draw(c); }
-        else { p.setShader(new LinearGradient(0, tile.top, 0, tile.bottom, top, bottom, Shader.TileMode.CLAMP)); c.drawRect(tile, p); p.setShader(null); }
+        if (variant == DEFAULT && bg != null) {
+            Rect b = adaptiveBounds(tile); bg.setBounds(b); bg.draw(c);
+            // Same depth as the drawn tiles so supplied artwork still reads as one material.
+            p.setShader(new LinearGradient(0, tile.top, 0, tile.bottom, new int[]{0x1fffffff, 0x00ffffff, 0x33000000}, new float[]{0f, .45f, 1f}, Shader.TileMode.CLAMP));
+            c.drawRect(tile, p); p.setShader(null);
+        } else {
+            p.setShader(new LinearGradient(0, tile.top, 0, tile.bottom,
+                new int[]{mix(top, 0xffffffff, .16f), top, bottom, mix(bottom, 0xff000000, .14f)},
+                new float[]{0f, .38f, .88f, 1f}, Shader.TileMode.CLAMP));
+            c.drawRect(tile, p); p.setShader(null);
+        }
 
         // Layer 2: glyph, rendered to its own bitmap so it can cast a soft shadow and be recoloured.
         Bitmap glyph = Bitmap.createBitmap(px, px, Bitmap.Config.ARGB_8888);
@@ -60,7 +75,7 @@ final class IconStyler {
         if (themed) {
             boolean mono = variant != DEFAULT;
             int ink = !mono && IosGlyphs.lightTile(ios) ? 0xff1c1c1e : 0xffffffff;
-            RectF gb = new RectF(tile); gb.inset(tile.width() * .06f, tile.height() * .06f);
+            RectF gb = new RectF(tile); gb.inset(tile.width() * .05f, tile.height() * .05f);
             IosGlyphs.draw(g, gb, ios, ink, mono);
         }
         else if (adaptive) art.setBounds(adaptiveBounds(tile));
@@ -75,12 +90,28 @@ final class IconStyler {
         p.setColorFilter(mono); c.drawBitmap(glyph, 0, 0, p); p.setColorFilter(null);
         glyph.recycle();
 
-        // Layer 3: highlight.
-        p.setShader(new LinearGradient(0, tile.top, 0, tile.top + tile.height() * .55f, variant == DARK ? 0x26ffffff : 0x40ffffff, 0x00ffffff, Shader.TileMode.CLAMP));
-        c.drawRect(tile, p);
+        // Layer 3: one sharp diagonal sheen (bright, narrow) — iOS 27 keeps highlights crisp rather
+        // than hazy, so this replaces the old full-tile white wash.
         if (heavy) {
-            p.setShader(new RadialGradient(tile.left + tile.width() * .25f, tile.top, tile.width() * .7f, new int[]{0x44ffffff, 0x00ffffff}, null, Shader.TileMode.CLAMP));
-            c.drawRect(tile, p);
+            p.setShader(new LinearGradient(tile.left, tile.top, tile.right, tile.bottom,
+                new int[]{0x00ffffff, 0x2bffffff, 0x00ffffff}, new float[]{.12f, .36f, .64f}, Shader.TileMode.CLAMP));
+            c.drawRect(tile, p); p.setShader(null);
+        } else {
+            p.setShader(new LinearGradient(0, tile.top, 0, tile.top + tile.height() * .5f, 0x24ffffff, 0x00ffffff, Shader.TileMode.CLAMP));
+            c.drawRect(tile, p); p.setShader(null);
+        }
+
+        // Inner edge: light along the top, shadow along the bottom (edge highlight + darker edge).
+        float rimW = Math.max(1f, density * 1.1f);
+        RectF inner = new RectF(tile); inner.inset(rimW / 2f, rimW / 2f);
+        p.setStyle(Paint.Style.STROKE); p.setStrokeWidth(rimW);
+        p.setShader(new LinearGradient(0, inner.top, 0, inner.bottom, new int[]{0x66ffffff, 0x00ffffff, 0x3d000000}, new float[]{0f, .55f, 1f}, Shader.TileMode.CLAMP));
+        c.drawPath(Squircle.path(inner, null), p);
+        if (heavy) {
+            RectF edge = new RectF(inner); edge.inset(rimW, rimW);
+            p.setStrokeWidth(Math.max(1f, density * .9f));
+            p.setShader(new LinearGradient(0, edge.top, 0, edge.top + edge.height() * .45f, 0x8cffffff, 0x00ffffff, Shader.TileMode.CLAMP));
+            c.drawPath(Squircle.path(edge, null), p);
         }
         p.setShader(null);
         c.restoreToCount(save);

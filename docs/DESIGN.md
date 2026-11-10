@@ -20,7 +20,7 @@ Sasaran: API 27, ARM32, ±1 GB RAM, 1024×600 / 800×480. Semua efek ialah tekni
 - Semua gerakan menghormati suis "Smooth transitions" dan `ANIMATOR_DURATION_SCALE`; mod rendah melangkau morph dan anjal.
 
 ## Ikon berlapis (3B #7) — `IconStyler`
-Dirender **sekali** per app di worker thread ke bitmap 56 dp: (1) latar (lapisan latar `AdaptiveIconDrawable` jika ada, jika tidak gradient dari warna dominan), (2) glyph (lapisan depan/ikon asal) dengan bayang sendiri, (3) highlight (gradient atas, kilauan radial, rim gradient). Varian: Default, Dark, Clear, Tinted terang, Tinted gelap. Artwork = ikon app itu sendiri; tiada ikon Apple/MRiOS.
+Dirender **sekali** per app di worker thread ke bitmap 56 dp: (1) latar (lapisan latar `AdaptiveIconDrawable` jika ada, jika tidak gradient dari warna dominan), (2) glyph (lapisan depan/ikon asal) dengan bayang sendiri, (3) kilauan: satu jalur specular pepenjuru yang tajam (bukan lapisan putih penuh yang kabur), tepi dalam atas terang, tepi dalam bawah gelap dan rim luar nipis. Latar guna gradient 4 hentian supaya tile nampak "bercahaya dari dalam". Bentuk squircle kini ikut sudut bulat grid ikon iOS semasa (eksponen 4.4, dahulu 5.0), dan glyph dinaikkan sedikit (inset 5%). Varian: Default, Dark, Clear, Tinted terang, Tinted gelap. Artwork = ikon app itu sendiri; tiada ikon Apple/MRiOS.
 
 ## Mod prestasi rendah — `GlassPerf`
 - Pengguna: Settings → Home & Dock → **Mod prestasi**: Auto / Rendah / Penuh.
