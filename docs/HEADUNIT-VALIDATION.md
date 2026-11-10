@@ -117,11 +117,11 @@ Mengikut keutamaan (butiran penuh dalam `docs/PERFORMANCE-AUDIT.md` dan `docs/AN
 
 | # | Item | Status |
 |---|---|---|
-| 1 | **P1** — ambang memori supaya mod Auto memilih LOW pada peranti 1 GB | **DIBETULKAN** (`GlassPerf.memoryTight`) |
+| 1 | **P1** — ambang memori supaya mod Auto memilih LOW pada peranti 1 GB | **DI-REVERT** — mengubah penampilan semua panel |
 | 2 | **A1** — lengkapkan `configChanges` | **DIBETULKAN** |
 | 3 | **A2** — buang `accessibilityEventTypes` yang tidak digunakan | **DIBETULKAN** |
 | 4 | **Drive callback** — batalkan langkah tertangguh dalam `stop()` | **DIBETULKAN** (`cancelPending`) |
-| 5 | **P2** — jangan bake kaca semasa animasi masuk | **DIBETULKAN** (`reveal < 1` + `adaptKey` reset; rupa akhir sama) |
+| 5 | **P2** — jangan bake kaca semasa animasi masuk | **DI-REVERT** bersama P1 (mengubah fasa reveal) |
 | 6 | **P6** — kitar semula `VelocityTracker` dalam grid | Terbuka |
 
-Binaan QA semula selepas pembetulan: `assembleDebug` PASS, **46 ujian unit 0 gagal**, lint **0 ralat / 59 amaran**, `guard.sh` PASS. APK `dist/iDash3-0.2.0-dev-debug-QA.apk` (1,749,219 bait) dibina semula; ujian pada peranti masih **NOT RUN/BLOCKED**, termasuk penurunan jumlah bake (tidak diukur).
+Binaan QA semula selepas revert P1/P2: `assembleDebug` PASS, **44 ujian unit 0 gagal**, lint **0 ralat / 59 amaran**, `guard.sh` PASS. APK `dist/iDash3-0.2.0-dev-debug-QA.apk` (1,748,828 bait) dibina semula. Ujian pada peranti masih **NOT RUN/BLOCKED**; yang masih berkuat kuasa daripada sesi audit ini hanyalah `configChanges` (A1), `split_service.xml` (A2) dan pembatalan langkah tertangguh Drive.

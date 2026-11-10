@@ -14,8 +14,6 @@ final class GlassPerf {
     static final int AUTO = 0, LOW = 1, FULL = 2;
     static final long JANK_NS = 24_000_000L, GOOD_NS = 14_000_000L;
     static final int WINDOW = 90, DEGRADE_AFTER = 3, RECOVER_AFTER = 6;
-    /** 1 GB head units report a 96 MB heap (and ~1 GB total RAM) without isLowRamDevice(). */
-    static final long TIGHT_HEAP_BYTES = 96L * 1024 * 1024, TIGHT_TOTAL_BYTES = 1536L * 1024 * 1024;
 
     private static volatile int generation;
     private static volatile boolean autoLow, memoryLow;
@@ -31,21 +29,8 @@ final class GlassPerf {
             SharedPreferences p = c.getSharedPreferences("idash", 0);
             mode = GlassAppearance.clamp(GlassAppearance.integer(p, "perf_mode", AUTO), 0, 2);
             android.app.ActivityManager am = (android.app.ActivityManager) c.getSystemService(Context.ACTIVITY_SERVICE);
-            long total = 0;
-            if (am != null) {
-                android.app.ActivityManager.MemoryInfo info = new android.app.ActivityManager.MemoryInfo();
-                am.getMemoryInfo(info);
-                total = info.totalMem;
-            }
-            memoryLow = memoryTight(am != null && am.isLowRamDevice(), Runtime.getRuntime().maxMemory(), total);
+            memoryLow = (am != null && am.isLowRamDevice()) || Runtime.getRuntime().maxMemory() < 96L * 1024 * 1024;
         } catch (RuntimeException ignored) { /* keep defaults */ }
-    }
-
-    /** Pure memory budget: a 96 MB heap or a 1 GB device is low, even when the ROM denies isLowRamDevice. */
-    static boolean memoryTight(boolean lowRam, long maxMemory, long totalMem) {
-        return lowRam
-            || (maxMemory > 0 && maxMemory <= TIGHT_HEAP_BYTES)
-            || (totalMem > 0 && totalMem <= TIGHT_TOTAL_BYTES);
     }
 
     static int generation() { return generation; }

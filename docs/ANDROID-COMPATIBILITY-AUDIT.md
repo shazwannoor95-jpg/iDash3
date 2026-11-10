@@ -94,7 +94,7 @@ Semua yang berikut disahkan wujud pada API ≤ 27, jadi tiada `NoSuchMethodError
 | Tiada API > 27 tanpa guard | PASS | `lintDebug`: **0 ralat**, 59 amaran; grep `Build.VERSION.SDK_INT` (11 tempat, semua berpasangan) |
 | Tiada pustaka native (ABI-neutral) | PASS | APK 20 entri, tiada `lib/`; `guard.sh`: "tiada pustaka native" |
 | Tiada VirtualDisplay/embedding | PASS | `guard.sh:12` lulus |
-| Ujian unit | PASS | **46 ujian, 0 gagal** (44 asal + 2 untuk `GlassPerf.memoryTight`) |
+| Ujian unit | PASS | **44 ujian, 0 gagal** (dua ujian `GlassPerf.memoryTight` dibuang bersama revert P1) |
 | Instrumentation API 27 | NOT RUN | Tiada emulator/KVM dalam sesi ini |
 | Pasang & lancar pada peranti ARM32 | BLOCKED | Tiada peranti/adb |
 

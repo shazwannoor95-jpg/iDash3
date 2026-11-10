@@ -37,8 +37,7 @@ Format ringkas berasaskan [Keep a Changelog](https://keepachangelog.com/). Tarik
 - Mod panel native (VirtualDisplay/embedding) — eksperimen yang tidak berjaya.
 
 ### Dibetulkan
-- **Banjir kerja "bake" kaca semasa animasi masuk:** permukaan kaca kini menunggu reveal tamat sebelum meminta refraksi, jadi satu bake berlaku pada geometri akhir dan bukan satu setiap bingkai semasa panel diangkat `translationY`. Tiada perubahan pada rumus kaca, lensa, specular atau animasi. Lihat `docs/PERFORMANCE-AUDIT.md` P2.
-- **Mod prestasi Auto tidak aktif pada head unit 1 GB:** ambang memori kini `heap ≤ 96 MB` (bukan `< 96 MB`, yang tepat sama dengan `heapgrowthlimit` peranti 1 GB) atau `RAM ≤ 1.5 GB`, jadi lensing/specular/bake dimatikan secara automatik. Lihat `docs/PERFORMANCE-AUDIT.md` P1.
+- **P1 dan P2 di-revert semula (2026-11-10):** dua pembetulan prestasi yang menyentuh kaca — pengesanan memori Auto (`GlassPerf`) dan tunda permintaan bake semasa animasi masuk (`GlassSurface`) — dibuang semula atas permintaan kerana ia mengubah penampilan kaca pada head unit 1 GB. Kaca kembali sama seperti sebelum audit: tiada lensa, bevel, specular, refleksi atau refraksi yang hilang secara automatik. Mod **Rendah** masih boleh dipilih secara manual dalam Settings → Mod prestasi.
 - **Keluar Drive masih menjalankan langkah tertangguh:** rantaian `postDelayed` (dock, app kedua, bar) kini dibatalkan oleh `cancelPending()` dalam `stop()`, jadi bar/split tidak muncul semula selepas pengguna keluar.
 - **Launcher dibina semula apabila saiz fon/resolusi/`uiMode` berubah:** `configChanges` dilengkapkan (`smallestScreenSize`, `screenLayout`, `fontScale`, `uiMode`, `locale`, `layoutDirection`, `keyboard`, `navigation`); `onConfigurationChanged` → `render()` sudah wujud.
 - **Perkhidmatan aksesibiliti menerima `typeWindowStateChanged` tanpa sebab:** atribut dibuang daripada `res/xml/split_service.xml`; ia hanya menggunakan tindakan global (`performGlobalAction`).

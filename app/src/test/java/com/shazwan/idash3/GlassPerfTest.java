@@ -32,17 +32,4 @@ public class GlassPerfTest {
         for (int i = 0; i < 20; i++) p.update(18_000_000L);
         assertFalse(p.degraded());
     }
-    @Test public void oneGigabyteHeadUnitCountsAsLowMemory() {
-        long heap96 = 96L * 1024 * 1024, total1gb = 1024L * 1024 * 1024;
-        assertTrue(GlassPerf.memoryTight(false, heap96, total1gb));
-        assertTrue(GlassPerf.memoryTight(false, heap96 + 1, total1gb));
-        assertTrue(GlassPerf.memoryTight(false, 256L * 1024 * 1024, total1gb));
-    }
-    @Test public void roomyDeviceStaysFull() {
-        long heap256 = 256L * 1024 * 1024, total8gb = 8L * 1024 * 1024 * 1024;
-        assertFalse(GlassPerf.memoryTight(false, heap256, total8gb));
-        assertFalse(GlassPerf.memoryTight(false, 128L * 1024 * 1024, total8gb));
-        assertTrue(GlassPerf.memoryTight(true, heap256, total8gb));
-        assertFalse(GlassPerf.memoryTight(false, 0, 0));
-    }
 }

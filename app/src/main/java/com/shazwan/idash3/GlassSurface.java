@@ -83,12 +83,6 @@ final class GlassSurface extends Drawable {
   // measurement fixtures) keep the frost path instead of baking the wrong region from (0,0).
   boolean eligible=bakeEnabled&&style!=2&&quality>=IosStyle.BALANCED&&Math.min(box.width(),box.height())>=36*density&&owner.isAttachedToWindow()&&owner.getWindowToken()!=null;
   if(!eligible){if(bakedShader!=null){baked=null;bakedShader=null;invalidateSelf();}return;}
-  // A reveal transition (IosStyle.enter) lifts the panel by a few dp on every frame, so a bake keyed on
-  // its current position would be obsolete before it lands: one queued task per surface per frame. Frost
-  // and the lens ring are cheap and are what a fresh surface shows anyway, so wait for the settle. The
-  // last frame after the spring rests (reveal 1, translation 0) calls this again with the final geometry
-  // and bakes once - the same bitmap the old code would eventually have shown, without the flood.
-  if(reveal<1f)return;
   final float left=position[0]+box.left,top=position[1]+box.top,pw=box.width(),ph=box.height();
   int key=System.identityHashCode(f.bitmap);key=31*key+Math.round(left);key=31*key+Math.round(top);key=31*key+Math.round(pw);key=31*key+Math.round(ph);key=31*key+Math.round(radius);
   if(key==bakeKey&&bakedShader!=null)return;
@@ -102,7 +96,7 @@ final class GlassSurface extends Drawable {
  }
  private void applyBake(Bitmap b){baked=b;bakedShader=new BitmapShader(b,Shader.TileMode.CLAMP,Shader.TileMode.CLAMP);protectionDirty=true;contrastQueued=false;}
  /** Drives the appear/disappear transition: 0 = strong lens and heavy blur, 1 = settled. */
- void setReveal(float value){float next=Math.max(0f,Math.min(1f,value));if(next!=reveal){reveal=next;if(next>=1f)adaptKey=Integer.MIN_VALUE;invalidateSelf();}}
+ void setReveal(float value){float next=Math.max(0f,Math.min(1f,value));if(next!=reveal){reveal=next;invalidateSelf();}}
  float reveal(){return reveal;}
  /** Screen-coordinate touch feed from the Activity; no event is consumed. */
  void onScreenTouch(float sx,float sy,int action){
