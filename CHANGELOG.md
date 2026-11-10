@@ -36,6 +36,10 @@ Format ringkas berasaskan [Keep a Changelog](https://keepachangelog.com/). Tarik
 - Aset MRiOS (ikon/wallpaper), font SF Pro dan SmartTube companion — lesen pengedaran tidak sah.
 - Mod panel native (VirtualDisplay/embedding) — eksperimen yang tidak berjaya.
 
+### Dokumentasi
+- **README dua bahasa:** Bahasa Inggeris dan Bahasa Melayu dalam satu fail, dengan jadual muat turun dikongsi dan pautan bahasa di bahagian atas, supaya pengguna bukan Melayu boleh memahami ciri, keperluan dan had projek.
+- **Panduan tangkapan skrin:** [`docs/SCREENSHOTS.md`](docs/SCREENSHOTS.md) menyenaraikan enam skrin pratonton (nama fail, apa yang patut kelihatan, arahan `adb`) dan [`tools/screenshots.sh`](tools/screenshots.sh) merakamnya ke `docs/images/`. Tiada PNG dimasukkan lagi: persekitaran bina tiada head unit ARM32 dan emulator tidak boleh berjalan tanpa KVM.
+
 ### Dibetulkan
 - **Butang petak Drive tidak menghentikan split-screen:** butang segi empat pada bar kini menamatkan pasangan split-screen dan membiarkan app fokus skrin penuh, satu hala (tekan lagi tidak mendok semula). `Keluar` tidak lagi menghantar togol yang akan mendok semula app selepas split dihentikan.
 - **Bar terapung kekal selepas keluar split:** apabila launcher iDash3 kembali ke hadapan (tekan Home atau app split ditutup sistem), bar Drive ditutup dan sesi Drive ditamatkan, jadi pil itu tidak lagi terapung di atas skrin Home.
