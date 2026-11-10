@@ -139,10 +139,16 @@ public class DriveBarService extends Service {
         View icon = new Glyph(this, Glyph.RECENTS);
         FrameLayout.LayoutParams ip = new FrameLayout.LayoutParams(-1, -1); ip.setMargins(dp(10), dp(10), dp(10), dp(10));
         holder.addView(icon, ip);
-        holder.setContentDescription("Hentikan split-screen");
+        holder.setContentDescription("Hentikan split-screen (tekan lama: keluar Drive)");
         holder.setOnClickListener(v -> {
             boolean stopped = DriveController.endSplit(this);
             Toast.makeText(this, stopped ? "Split-screen dihentikan" : "Split-screen tidak dapat dihentikan (aksesibiliti iDash3 mati?)", Toast.LENGTH_SHORT).show();
+        });
+        // Escape hatch that never needs the accessibility service: end the whole Drive session.
+        holder.setOnLongClickListener(v -> {
+            Toast.makeText(this, "Keluar Drive", Toast.LENGTH_SHORT).show();
+            DriveController.stop(this);
+            return true;
         });
         return holder;
     }
@@ -257,11 +263,26 @@ public class DriveBarService extends Service {
         for (String component : new String[]{prefs.getString(DriveController.PREF_MAP, null), prefs.getString(DriveController.PREF_MEDIA, null)})
             for (App app : apps) if (app.component.equals(component) && !cells.contains(app)) cells.add(app);
         for (App app : apps) if (!cells.contains(app)) cells.add(app);
+        final int columns = gridColumns();
         LinearLayout row = null;
         for (int i = 0; i < cells.size(); i++) {
-            if (i % 4 == 0) { row = new LinearLayout(this); row.setOrientation(LinearLayout.HORIZONTAL); row.setGravity(Gravity.CENTER); grid.addView(row, new LinearLayout.LayoutParams(-1, -2)); }
+            if (i % columns == 0) {
+                row = new LinearLayout(this); row.setOrientation(LinearLayout.HORIZONTAL); row.setGravity(Gravity.TOP);
+                LinearLayout.LayoutParams rp = new LinearLayout.LayoutParams(-1, -2); rp.topMargin = dp(2); grid.addView(row, rp);
+            }
             row.addView(cell(cells.get(i)), new LinearLayout.LayoutParams(0, -2, 1));
         }
+        // A short last row must not stretch its cells across the panel: fill the gap with spacers so
+        // every icon sits in the same column as the rows above it.
+        if (row != null && cells.size() % columns != 0)
+            for (int i = cells.size() % columns; i < columns; i++) row.addView(new View(this), new LinearLayout.LayoutParams(0, -2, 1));
+    }
+
+    /** Fixed 4–6 equal columns sized for the panel: 1024x600 and 800x480 both line up. */
+    private int gridColumns() {
+        android.util.DisplayMetrics dm = getResources().getDisplayMetrics();
+        int widthDp = Math.round(dm.widthPixels / dm.density);
+        return Math.max(4, Math.min(6, widthDp / 180));
     }
 
     private View cell(final App app) {

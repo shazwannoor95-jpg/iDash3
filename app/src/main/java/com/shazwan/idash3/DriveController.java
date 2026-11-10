@@ -21,7 +21,7 @@ final class DriveController {
     private static final Handler MAIN = new Handler(Looper.getMainLooper());
     /** Every delayed step of a Drive start, so leaving Drive can cancel the rest of the sequence. */
     private static final java.util.ArrayList<Runnable> PENDING = new java.util.ArrayList<>();
-    private static volatile boolean active, fullscreen;
+    private static volatile boolean active, splitDocked;
     private static String lastMap, lastMedia;
     private static boolean lastMapLeft, lastBar;
 
@@ -29,7 +29,13 @@ final class DriveController {
 
     static boolean isActive() { return active; }
 
-    private static void post(long delay, Runnable task) { PENDING.add(task); MAIN.postDelayed(task, delay); }
+    /** Queues a step and forgets it once it has run, so an empty queue means "no Drive start in flight". */
+    private static void post(long delay, Runnable task) {
+        final Runnable[] handle = new Runnable[1];
+        handle[0] = () -> { PENDING.remove(handle[0]); task.run(); };
+        PENDING.add(handle[0]);
+        MAIN.postDelayed(handle[0], delay);
+    }
 
     /** Drops the pending dock/second-app/bar steps; a no-op when nothing is queued. */
     private static void cancelPending() {
@@ -51,18 +57,26 @@ final class DriveController {
 
     static boolean mapLeft(SharedPreferences p) { return DrivePlan.mapLeft(layout(p), driverOnLeft(p)); }
 
-    static boolean isFullscreen() { return fullscreen; }
-
     /**
-     * Square button: ends the split pair once and leaves the focused app full screen. It never re-docks
-     * (tapping it again does nothing), so the button always means "stop split-screen".
+     * Square button: ends the split pair and leaves the focused app full screen. It never re-docks, and
+     * it does not trust a remembered flag: the ROM can drop or re-create the pair behind our back, so
+     * every tap asks the system again instead of returning early.
      */
     static boolean endSplit(Context app) {
-        if (fullscreen) return true;
         if (!SplitService.isRunning()) return false;
         if (!SplitService.toggleSplit()) return false;
-        fullscreen = true;
+        splitDocked = false;
         return true;
+    }
+
+    /**
+     * The iDash launcher is in front again, so the Drive session is over: hides the floating bar. A
+     * Drive start that is still queued is left alone, and so is any step that has not run yet.
+     */
+    static void launcherResumed(Context app) {
+        if (!active || !PENDING.isEmpty()) return;
+        DriveBarService.stop(app.getApplicationContext());
+        active = false; splitDocked = false;
     }
 
     static boolean launch(Context c, String component, boolean adjacent) {
@@ -79,12 +93,13 @@ final class DriveController {
         if (!SplitService.isRunning()) return "Hidupkan perkhidmatan aksesibiliti iDash3 dahulu (untuk butang split-screen).";
         final Context c = app.getApplicationContext();
         cancelPending();
-        lastMap = map; lastMedia = media; lastMapLeft = mapLeft; lastBar = bar; fullscreen = false;
+        lastMap = map; lastMedia = media; lastMapLeft = mapLeft; lastBar = bar; splitDocked = false;
         String[] order = DrivePlan.launchOrder(map, media, mapLeft);
         active = true;
         if (!launch(c, order[0], false)) { active = false; return "App pertama tidak dapat dibuka."; }
         post(DOCK_DELAY_MS, () -> {
             if (!SplitService.toggleSplit()) { active = false; Toast.makeText(c, "Split-screen gagal: perkhidmatan aksesibiliti terhenti.", Toast.LENGTH_LONG).show(); return; }
+            splitDocked = true;
             post(SECOND_DELAY_MS, () -> {
                 if (!launch(c, order[1], adjacent)) Toast.makeText(c, "App kedua tidak dapat dibuka.", Toast.LENGTH_LONG).show();
                 if (bar && overlayAllowed(c)) post(BAR_DELAY_MS, () -> DriveBarService.start(c));
@@ -98,8 +113,8 @@ final class DriveController {
         Context c = app.getApplicationContext();
         cancelPending();
         DriveBarService.stop(c);
-        if (active && !fullscreen) SplitService.toggleSplit();
-        active = false; fullscreen = false;
+        if (active && splitDocked) SplitService.toggleSplit();
+        active = false; splitDocked = false;
         MAIN.postDelayed(() -> c.startActivity(new Intent(c, LauncherActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)), 600);
     }
 }
