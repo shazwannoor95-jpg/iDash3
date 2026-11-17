@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -45,11 +46,17 @@ public class DriveBarService extends Service {
     private WindowManager windows;
     private View bar, launcher;
     private final List<App> apps = new ArrayList<>();
+    private final android.os.Handler main = new android.os.Handler(android.os.Looper.getMainLooper());
+    private final java.util.concurrent.ExecutorService loader = java.util.concurrent.Executors.newSingleThreadExecutor();
+    private volatile int loadGeneration;
+    private volatile boolean destroyed;
+    private boolean launcherLoading;
+    private final java.util.Map<String,Bitmap> shortcutIcons=new java.util.HashMap<>();
 
     /** One launchable app: label, flattened component and its icon. */
     private static final class App {
-        final String label, component; final Drawable icon;
-        App(String label, String component, Drawable icon) { this.label = label; this.component = component; this.icon = icon; }
+        final String label, component; final Bitmap icon, shortcut;
+        App(String label, String component, Bitmap icon, Bitmap shortcut) { this.label = label; this.component = component; this.icon = icon; this.shortcut = shortcut; }
     }
 
     static void start(Context c) {
@@ -67,7 +74,7 @@ public class DriveBarService extends Service {
         return START_NOT_STICKY;
     }
 
-    @Override public void onDestroy() { removeBar(); super.onDestroy(); }
+    @Override public void onDestroy() { destroyed=true;loadGeneration++;loader.shutdownNow();main.removeCallbacksAndMessages(null);removeBar();apps.clear();shortcutIcons.clear();super.onDestroy(); }
 
     private void removeBar() {
         hideLauncher();
@@ -83,16 +90,35 @@ public class DriveBarService extends Service {
         return g;
     }
 
-    private void loadApps() {
-        apps.clear();
-        PackageManager pm = getPackageManager();
-        for (ResolveInfo ri : pm.queryIntentActivities(new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER), 0)) {
-            if (ri.activityInfo == null || getPackageName().equals(ri.activityInfo.packageName)) continue;
-            String label = String.valueOf(ri.loadLabel(pm));
-            if (TextUtils.isEmpty(label)) label = ri.activityInfo.packageName;
-            apps.add(new App(label, new ComponentName(ri.activityInfo.packageName, ri.activityInfo.name).flattenToString(), ri.loadIcon(pm)));
-            if (apps.size() >= 60) break;
-        }
+    private void loadApps(Runnable ready) {
+        final int request=++loadGeneration;
+        loader.execute(()->{
+            ArrayList<App> found=new ArrayList<>();java.util.Map<String,Bitmap> shortcuts=new java.util.HashMap<>();boolean failed=false;
+            try{
+                PackageManager pm=getPackageManager();
+                for(ResolveInfo ri:pm.queryIntentActivities(new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER),0)){
+                    if(destroyed||request!=loadGeneration||Thread.currentThread().isInterrupted())return;
+                    if(ri.activityInfo==null||getPackageName().equals(ri.activityInfo.packageName))continue;
+                    try{
+                        String label=String.valueOf(ri.loadLabel(pm));if(TextUtils.isEmpty(label))label=ri.activityInfo.packageName;
+                        String component=new ComponentName(ri.activityInfo.packageName,ri.activityInfo.name).flattenToString();
+                        Drawable raw=ri.loadIcon(pm);int glyph=IosGlyphs.match(ri.activityInfo.packageName,ri.activityInfo.packageName);
+                        Bitmap icon=IconStyler.render(raw,dp(44),IconStyler.DEFAULT,0xff6f8fc8,getResources().getDisplayMetrics().density,false,glyph);
+                        Bitmap shortcut=IconStyler.render(raw,dp(21),IconStyler.DEFAULT,0xff6f8fc8,getResources().getDisplayMetrics().density,false,glyph);
+                        found.add(new App(label,component,icon,shortcut));shortcuts.put(component,shortcut);
+                    }catch(RuntimeException removed){/* Keep the remaining packages usable. */}
+                    if(found.size()>=60)break;
+                }
+                SharedPreferences prefs=getSharedPreferences("idash",MODE_PRIVATE);
+                for(String value:new String[]{prefs.getString(DriveController.PREF_MAP,null),prefs.getString(DriveController.PREF_MEDIA,null),"com.android.settings/.Settings"}){
+                    ComponentName name=value==null?null:ComponentName.unflattenFromString(value);
+                    if(name==null||shortcuts.containsKey(name.flattenToString()))continue;
+                    try{shortcuts.put(name.flattenToString(),IconStyler.render(pm.getActivityIcon(name),dp(21),IconStyler.DEFAULT,0xff6f8fc8,getResources().getDisplayMetrics().density,false,IosGlyphs.match(name.getPackageName(),name.getPackageName())));}catch(PackageManager.NameNotFoundException|RuntimeException absent){}
+                }
+            }catch(RuntimeException|OutOfMemoryError unavailable){failed=true;}
+            final boolean keepPrevious=failed;
+            main.post(()->{if(destroyed||request!=loadGeneration)return;if(!keepPrevious){apps.clear();apps.addAll(found);shortcutIcons.clear();shortcutIcons.putAll(shortcuts);}ready.run();});
+        });
     }
 
     private static String packageOf(String component) {
@@ -101,9 +127,11 @@ public class DriveBarService extends Service {
         return slash > 0 ? component.substring(0, slash) : component;
     }
 
-    private void addBar() {
+    private void addBar() { loadApps(this::buildBar); }
+
+    private void buildBar() {
+        if(destroyed||bar!=null)return;
         windows = (WindowManager) getSystemService(WINDOW_SERVICE);
-        loadApps();
         FrameLayout root = new FrameLayout(this); root.setPadding(dp(10), 0, dp(10), dp(6));
         LinearLayout row = new LinearLayout(this); row.setOrientation(LinearLayout.HORIZONTAL); row.setGravity(Gravity.CENTER_VERTICAL);
         row.setPadding(dp(5), dp(4), dp(5), dp(4)); row.setBackground(round(0xf2101218, 22, 0x33ffffff));
@@ -188,15 +216,15 @@ public class DriveBarService extends Service {
     private View appIcon(String component, int sizeDp) {
         ComponentName name = component == null ? null : ComponentName.unflattenFromString(component);
         if (name == null) return null;
-        Drawable icon;
-        try { icon = getPackageManager().getActivityIcon(name); } catch (PackageManager.NameNotFoundException | RuntimeException missing) { return null; }
+        Bitmap icon=shortcutIcons.get(name.flattenToString());
+        if(icon==null)return null;
         ImageView view = new ImageView(this);
-        view.setImageBitmap(IconStyler.render(icon, dp(sizeDp), IconStyler.DEFAULT, 0xff6f8fc8, getResources().getDisplayMetrics().density, false, IosGlyphs.match(name.getPackageName(), name.getPackageName())));
+        view.setImageBitmap(icon);
         int pad = dp(sizeDp <= 30 ? 6 : 8); view.setPadding(pad, pad, pad, pad);
         return view;
     }
 
-    private void toggleLauncher() { if (launcher != null) hideLauncher(); else showLauncher(); }
+    private void toggleLauncher() { if (launcher != null || launcherLoading) hideLauncher(); else showLauncher(); }
 
     /**
      * Android-Auto-style app sheet: a decided panel at the bottom over a light scrim, never a
@@ -205,7 +233,11 @@ public class DriveBarService extends Service {
      */
     private void showLauncher() {
         if (windows == null || launcher != null) return;
-        loadApps(); // fresh list each time: an app installed after the bar started must still appear
+        launcherLoading=true;loadApps(()->{launcherLoading=false;buildLauncher();});
+    }
+
+    private void buildLauncher() {
+        if(destroyed||windows==null||launcher!=null)return;
         FrameLayout root = new FrameLayout(this);
         root.setBackgroundColor(0x66000000);
         root.setOnClickListener(v -> hideLauncher());
@@ -246,6 +278,7 @@ public class DriveBarService extends Service {
     }
 
     private void hideLauncher() {
+        if(launcherLoading){launcherLoading=false;loadGeneration++;}
         if (launcher != null && windows != null) { try { windows.removeView(launcher); } catch (RuntimeException ignored) { } }
         launcher = null;
     }
@@ -296,8 +329,7 @@ public class DriveBarService extends Service {
             cell.setOnClickListener(v -> DriveController.stop(this));
         } else {
             ImageView view = new ImageView(this);
-            Drawable drawable = app.icon;
-            view.setImageBitmap(IconStyler.render(drawable, dp(44), IconStyler.DEFAULT, 0xff6f8fc8, getResources().getDisplayMetrics().density, false, IosGlyphs.match(packageOf(app.component), packageOf(app.component))));
+            view.setImageBitmap(app.icon);
             icon = view;
             cell.setOnClickListener(v -> { DriveController.launch(this, app.component, false); hideLauncher(); });
         }

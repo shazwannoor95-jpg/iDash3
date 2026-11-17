@@ -1,5 +1,13 @@
 # iDash3 — APK ujian (debug QA)
 
+## 0.2.1-rc1 — calon pembetulan crash/lag (branch berasingan)
+
+[Download APK debug](iDash3-0.2.1-rc1-debug.apk?raw=true) · versionCode 2 · SHA256 `7c604b4380bf0bc4d4927fe703608d1282aa64f159b2ecd2ebe708f2f892e42d`.
+
+Pembetulan wallpaper/ikon OOM, worker JAKIM berasingan, dan imbasan/ikon Drive di latar. Liquid Glass tidak diubah. Butiran dan had ujian: [laporan pembetulan](../docs/CRASH-LAG-FIX-0.2.1-rc1.md). Belum disahkan pada head unit fizikal.
+
+Kunci debug binaan ini berbeza daripada QA lama; kemas kini terus mungkin ditolak. Sandarkan tetapan sebelum menggantikan pemasangan. Jangan buang launcher asal kereta.
+
 | Fail | Versi | Pakej | SHA256 |
 |---|---|---|---|
 | `iDash3-Debloat-1.0.apk` | 1.0 (code 1) | `com.shazwan.idash3.debloat` | `576f237a05793f521d14512220bfebd549c1f656a9f1aa5688a533a9bb9d8fcb` |

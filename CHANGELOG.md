@@ -2,6 +2,16 @@
 
 Format ringkas berasaskan [Keep a Changelog](https://keepachangelog.com/). Tarikh dalam UTC.
 
+## [0.2.1-rc1] — 2026-11-17 (debug candidate, branch pembetulan)
+
+- Kegagalan memori/decode wallpaper dikendalikan; wallpaper lama dikekalkan apabila pemuatan gagal.
+- Discovery ikon mengendalikan kegagalan pakej/memori tanpa fallback peruntukan bitmap kedua; senarai lama dikekalkan jika discovery gagal.
+- Refresh app bertindih digabungkan; selesai discovery tidak membina semula halaman Settings/Drive.
+- Worker JAKIM diasingkan daripada ikon, wallpaper dan kawalan radio.
+- Imbasan pakej dan pemprosesan ikon Drive dijalankan di latar; callback lapuk dibatalkan ketika servis ditutup.
+- **Tiada perubahan kepada Liquid Glass:** material, bake/cache, polisi prestasi, shader, animasi, ikon dan tetapan kaca dikekalkan. Isu audit berkaitan kaca kekal terbuka.
+- Tambah ujian OOM decode dan instrumentation pengasingan worker/lifecycle Drive. Pengesahan fizikal head unit masih diperlukan.
+
 ## [0.2.0-dev] — 2026-11-07 (belum dikeluarkan sebagai release)
 
 ### Ditambah

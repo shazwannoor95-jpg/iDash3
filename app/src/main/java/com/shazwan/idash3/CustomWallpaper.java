@@ -10,11 +10,17 @@ final class CustomWallpaper {
  static final int MAX_BYTES=16*1024*1024;
  static File file(Context context){return new File(context.getFilesDir(),NAME);}
  static Bitmap decode(File image,int maxEdge)throws IOException{
-  BitmapFactory.Options bounds=new BitmapFactory.Options();bounds.inJustDecodeBounds=true;BitmapFactory.decodeFile(image.getPath(),bounds);
+  return decode(image,maxEdge,BitmapFactory::decodeFile);
+ }
+ interface Decoder { Bitmap decode(String path,BitmapFactory.Options options); }
+ static Bitmap decode(File image,int maxEdge,Decoder decoder)throws IOException{
+  try {
+  BitmapFactory.Options bounds=new BitmapFactory.Options();bounds.inJustDecodeBounds=true;decoder.decode(image.getPath(),bounds);
   if(bounds.outWidth<=0||bounds.outHeight<=0||maxEdge<1)throw new IOException("Not a supported image");
   BitmapFactory.Options options=new BitmapFactory.Options();options.inSampleSize=1;
   while(Math.max(bounds.outWidth,bounds.outHeight)/options.inSampleSize>maxEdge)options.inSampleSize*=2;
-  Bitmap bitmap=BitmapFactory.decodeFile(image.getPath(),options);if(bitmap==null)throw new IOException("Image unavailable");return bitmap;
+  Bitmap bitmap=decoder.decode(image.getPath(),options);if(bitmap==null)throw new IOException("Image unavailable");return bitmap;
+  }catch(OutOfMemoryError oom){throw new IOException("Image unavailable: insufficient memory",oom);}
  }
  static void save(Context context,InputStream input)throws IOException{
   File temporary=File.createTempFile("wallpaper-",".tmp",context.getFilesDir());

@@ -20,6 +20,8 @@ import java.util.concurrent.*;
 public class LauncherActivity extends Activity {
     final Handler main = new Handler(Looper.getMainLooper());
     final ExecutorService worker = Executors.newSingleThreadExecutor();
+    final ExecutorService networkWorker = Executors.newSingleThreadExecutor();
+    boolean appsLoading, appsReloadRequested;
     final ArrayList<App> apps = new ArrayList<>();
     final String[] slots = {"Bluetooth", "Files", "YouTube"};
     final int[] colors = {0xff007aff,0xff168cff,0xffff163d};
@@ -55,7 +57,7 @@ public class LauncherActivity extends Activity {
     @Override protected void onStop(){foregroundVisible=false;if(quickControls!=null)quickControls.pause();if(webPanel!=null)webPanel.pause();if(fmPanel!=null)fmPanel.pause();if(carPanel!=null)carPanel.pause();main.removeCallbacks(ticker);super.onStop();}
     @Override protected void onResume() { super.onResume(); DriveController.launcherResumed(this); resumed=true;if(appearanceEditor!=null)appearanceEditor.resume();if(quickControls!=null)quickControls.resume(); main.removeCallbacks(ticker); ticker.run(); immersive();if(webPanel!=null)webPanel.resume();if(fmPanel!=null)fmPanel.resume();if(carPanel!=null)carPanel.resume(); startFrameWatch(); }
     @Override protected void onPause() { resumed=false;stopFrameWatch();if(appearanceEditor!=null)appearanceEditor.pause();if(quickControls!=null)quickControls.pause();main.removeCallbacks(ticker);if(webPanel!=null)webPanel.pause();if(fmPanel!=null)fmPanel.pause();if(carPanel!=null)carPanel.pause(); super.onPause(); }
-    @Override protected void onDestroy() { destroyed=true;if(settingsNavigation!=null)settingsNavigation.close();if(settingsScreen!=null)settingsScreen.close();if(appearanceEditor!=null)appearanceEditor.close();IosStyle.releaseGlass(this);if(quickControls!=null){quickControls.close();}if(wallpaperDialog!=null)wallpaperDialog.dismiss();disposePanel(); main.removeCallbacksAndMessages(null); worker.shutdownNow(); super.onDestroy(); }
+    @Override protected void onDestroy() { destroyed=true;if(settingsNavigation!=null)settingsNavigation.close();if(settingsScreen!=null)settingsScreen.close();if(appearanceEditor!=null)appearanceEditor.close();IosStyle.releaseGlass(this);if(quickControls!=null){quickControls.close();}if(wallpaperDialog!=null)wallpaperDialog.dismiss();disposePanel(); main.removeCallbacksAndMessages(null); worker.shutdownNow(); networkWorker.shutdownNow(); super.onDestroy(); }
     @Override protected void onSaveInstanceState(Bundle out) { out.putBoolean("panel",panelVisible);out.putString("page",page);out.putString("settings_section",settingsSection); out.putString("query",query); super.onSaveInstanceState(out); }
     @Override public void onConfigurationChanged(Configuration config) { super.onConfigurationChanged(config); render(); }
     @Override protected void onNewIntent(Intent intent) { super.onNewIntent(intent); page="home"; query=""; render(); }
@@ -188,17 +190,30 @@ public class LauncherActivity extends Activity {
     }
     void launch(App a) {try{startActivity(new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER).setComponent(ComponentName.unflattenFromString(a.component)).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED));if(IosStyle.motion(this))overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);}catch(RuntimeException e){Toast.makeText(this,"App unavailable. Hold the favorite to choose another.",Toast.LENGTH_LONG).show();loadApps();}}
     void loadApps() {
-        if(worker.isShutdown())return;
+        if(destroyed||worker.isShutdown())return;
+        if(appsLoading){appsReloadRequested=true;return;}
+        appsLoading=true;
         worker.execute(()->{
-            PackageManager pm=getPackageManager();ArrayList<App> found=new ArrayList<>();final int iconVariant=IconStyler.variant(prefs);final boolean iosIcons=prefs.getBoolean("ios_icons",true);final int iconTint=prefs.getInt("icon_tint",0xff6f8fc8);Set<String> seen=new HashSet<>();
-            for(ResolveInfo info:pm.queryIntentActivities(new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER),0)) {
-                if(Thread.currentThread().isInterrupted())return;if(info.activityInfo.packageName.equals(getPackageName()))continue;
-                String key=new ComponentName(info.activityInfo.packageName,info.activityInfo.name).flattenToString();if(!seen.add(key))continue;
-                try{Drawable d=info.loadIcon(pm);Bitmap bitmap;try{String appLabel=info.loadLabel(pm).toString();bitmap=IconStyler.render(d,dp(56),iconVariant,iconTint,getResources().getDisplayMetrics().density,!GlassPerf.low(),iosIcons?IosGlyphs.match(info.activityInfo.packageName,appLabel):IosGlyphs.NONE);}catch(OutOfMemoryError oom){bitmap=Bitmap.createBitmap(dp(48),dp(48),Bitmap.Config.ARGB_8888);d.setBounds(0,0,bitmap.getWidth(),bitmap.getHeight());d.draw(new Canvas(bitmap));}
-                    found.add(new App(info.loadLabel(pm).toString(),key,bitmap));}catch(RuntimeException unavailable){/* Removed packages are skipped. */}
-            }
-            found.sort((a,b)->a.label.compareToIgnoreCase(b.label));
-            main.post(()->{if(destroyed)return;apps.clear();apps.addAll(found);loaded=true;seedFavorites();if("apps".equals(page))filter();else if(!panelVisible&&appearanceEditor==null)render();});
+            ArrayList<App> found=new ArrayList<>();boolean failed=false;
+            try{
+                PackageManager pm=getPackageManager();final int iconVariant=IconStyler.variant(prefs);final boolean iosIcons=prefs.getBoolean("ios_icons",true);final int iconTint=prefs.getInt("icon_tint",0xff6f8fc8);Set<String> seen=new HashSet<>();
+                for(ResolveInfo info:pm.queryIntentActivities(new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER),0)) {
+                    if(Thread.currentThread().isInterrupted())return;
+                    if(info.activityInfo==null||info.activityInfo.packageName.equals(getPackageName()))continue;
+                    String key=new ComponentName(info.activityInfo.packageName,info.activityInfo.name).flattenToString();if(!seen.add(key))continue;
+                    try{Drawable d=info.loadIcon(pm);String label=info.loadLabel(pm).toString();
+                        Bitmap bitmap=IconStyler.render(d,dp(56),iconVariant,iconTint,getResources().getDisplayMetrics().density,!GlassPerf.low(),iosIcons?IosGlyphs.match(info.activityInfo.packageName,label):IosGlyphs.NONE);
+                        found.add(new App(label,key,bitmap));
+                    }catch(RuntimeException unavailable){/* Package removed during discovery. */}
+                }
+                found.sort((x,y)->x.label.compareToIgnoreCase(y.label));
+            }catch(OutOfMemoryError|RuntimeException unavailable){failed=true;}
+            final boolean unavailable=failed;
+            main.post(()->{if(destroyed)return;appsLoading=false;
+                if(!unavailable){apps.clear();apps.addAll(found);loaded=true;seedFavorites();if("apps".equals(page))filter();else if("home".equals(page)&&!panelVisible&&appearanceEditor==null)render();}
+                else Toast.makeText(this,"App list unavailable. Existing list kept; try Refresh later.",Toast.LENGTH_LONG).show();
+                if(appsReloadRequested){appsReloadRequested=false;loadApps();}
+            });
         });
     }
     void migrateFavorites() {
@@ -265,7 +280,7 @@ public class LauncherActivity extends Activity {
     @Override protected void onActivityResult(int request,int result,Intent data){
         super.onActivityResult(request,result,data);if(request!=WALLPAPER_REQUEST||result!=RESULT_OK||data==null||data.getData()==null)return;
         final android.net.Uri uri=data.getData();Toast.makeText(this,"Loading wallpaper…",Toast.LENGTH_SHORT).show();
-        worker.execute(()->{boolean saved=false;try(java.io.InputStream input=getContentResolver().openInputStream(uri)){if(input==null)throw new java.io.IOException();CustomWallpaper.save(this,input);saved=true;}catch(java.io.IOException|RuntimeException unavailable){}final boolean success=saved;
+        worker.execute(()->{boolean saved=false;try(java.io.InputStream input=getContentResolver().openInputStream(uri)){if(input==null)throw new java.io.IOException();CustomWallpaper.save(this,input);saved=true;}catch(java.io.IOException|RuntimeException|OutOfMemoryError unavailable){}final boolean success=saved;
             main.post(()->{if(destroyed)return;if(success){requestedWallpaper=null;selectWallpaper(CustomWallpaper.PATH);}else Toast.makeText(this,"Image unavailable. Choose a JPG, PNG or WebP under16MiB.",Toast.LENGTH_LONG).show();});});
     }
     void updateBackdrop(){if(wallpaperView!=null){wallpaperView.setImageBitmap(wallpaperBitmap);wallpaperView.setVisibility(wallpaperBitmap==null?View.GONE:View.VISIBLE);}if(wallpaperShade!=null)wallpaperShade.setVisibility(wallpaperBitmap==null?View.GONE:View.VISIBLE);}
@@ -274,7 +289,7 @@ public class LauncherActivity extends Activity {
         if(path.isEmpty()){wallpaperBitmap=null;IosStyle.publishGlass(this,new GlassBackdrop.Frame(null,0xff526783));updateBackdrop();return;}
         if(worker.isShutdown())return;
         final int glassQuality=IosStyle.quality(this);
-        worker.execute(()->{Bitmap image=null;try{image=CustomWallpaper.PATH.equals(path)?CustomWallpaper.decode(CustomWallpaper.file(this),1280):Wallpapers.decode(getAssets(),path,1280);}catch(java.io.IOException ignored){}final Bitmap decoded=image;GlassBackdrop.Frame prepared;try{prepared=GlassBackdrop.prepare(decoded,glassQuality);}catch(OutOfMemoryError unavailable){prepared=new GlassBackdrop.Frame(null,0xff526783);}final GlassBackdrop.Frame glassFrame=prepared;
+        worker.execute(()->{Bitmap image=null;try{image=CustomWallpaper.PATH.equals(path)?CustomWallpaper.decode(CustomWallpaper.file(this),1280):Wallpapers.decode(getAssets(),path,1280);}catch(java.io.IOException|RuntimeException|OutOfMemoryError unavailable){main.post(()->{if(!destroyed&&generation==wallpaperGeneration){requestedWallpaper=null;Toast.makeText(this,"Wallpaper unavailable. Previous image kept.",Toast.LENGTH_LONG).show();}});return;}final Bitmap decoded=image;GlassBackdrop.Frame prepared;try{prepared=GlassBackdrop.prepare(decoded,glassQuality);}catch(OutOfMemoryError unavailable){prepared=new GlassBackdrop.Frame(null,0xff526783);}final GlassBackdrop.Frame glassFrame=prepared;
             main.post(()->{if(destroyed||generation!=wallpaperGeneration)return;wallpaperBitmap=decoded;IosStyle.publishGlass(this,glassFrame);updateBackdrop();});});
     }
     void showCalendar() {Calendar c=Calendar.getInstance();DatePickerDialog dialog=new DatePickerDialog(this,(v,y,m,d)->{},c.get(Calendar.YEAR),c.get(Calendar.MONTH),c.get(Calendar.DAY_OF_MONTH));dialog.setTitle("Calendar");dialog.show();}
@@ -291,7 +306,7 @@ public class LauncherActivity extends Activity {
     }
     void loadJakim(boolean refresh) {
         String zone=prefs.getString("jakim_zone","");if(zone.isEmpty()||jakimLoading||(!refresh&&zone.equals(loadedZone)))return;jakimLoading=true;
-        worker.execute(()->{String error="";Map<String,JakimCalendar.Day> days=Collections.emptyMap();try{if(refresh)JakimCalendar.refresh(this,zone);days=JakimCalendar.load(this,zone);}catch(Exception failed){error="Muat turun gagal; cache sedia ada dikekalkan";try{days=JakimCalendar.load(this,zone);}catch(Exception ignored){}}
+        networkWorker.execute(()->{String error="";Map<String,JakimCalendar.Day> days=Collections.emptyMap();try{if(refresh)JakimCalendar.refresh(this,zone);days=JakimCalendar.load(this,zone);}catch(Exception failed){error="Muat turun gagal; cache sedia ada dikekalkan";try{days=JakimCalendar.load(this,zone);}catch(Exception ignored){}}
             final Map<String,JakimCalendar.Day> result=days;final String message=error;
             main.post(()->{if(destroyed)return;jakimLoading=false;if(!zone.equals(prefs.getString("jakim_zone",""))){loadJakim(false);return;}loadedZone=zone;jakimDays=result;updateJakim();if(!message.isEmpty())Toast.makeText(this,message,Toast.LENGTH_LONG).show();});});
     }
