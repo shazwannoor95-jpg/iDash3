@@ -131,7 +131,7 @@ final class DashWebPlayer extends LinearLayout implements AutoCloseable {
         View decor=activity.getWindow().getDecorView();
         if(!(decor instanceof ViewGroup)){notifyHidden(callback);return;}
         savedSystemUi=decor.getSystemUiVisibility();savedWindowFlags=activity.getWindow().getAttributes().flags&FULLSCREEN_WINDOW_FLAGS;
-        customView=view;fullscreenCallback=callback;fullscreenParent=(ViewGroup)decor;
+        customView=view;fullscreenCallback=callback;fullscreenParent=body;
         FrameLayout overlay=new FrameLayout(activity);fullscreenOverlay=overlay;overlay.setBackgroundColor(Color.BLACK);
         overlay.setClickable(true);overlay.setFocusableInTouchMode(true);overlay.setContentDescription("YouTube web fullscreen video");
         overlay.setOnKeyListener((v,key,event)->{if(key!=KeyEvent.KEYCODE_BACK)return false;if(event.getAction()==KeyEvent.ACTION_UP)exitFullscreen();return true;});
@@ -139,13 +139,28 @@ final class DashWebPlayer extends LinearLayout implements AutoCloseable {
             overlay.addView(view,new FrameLayout.LayoutParams(-1,-1));
             TextView exit=button("Exit fullscreen",this::exitFullscreen);exit.setContentDescription("Exit fullscreen and return to dashboard panel");
             FrameLayout.LayoutParams exitBounds=new FrameLayout.LayoutParams(dp(124),dp(44),Gravity.TOP|Gravity.END);exitBounds.setMargins(dp(12),dp(12),dp(12),dp(12));overlay.addView(exit,exitBounds);
+            TextView expand=button("Full screen",this::expandFullscreen);
+            expand.setContentDescription("Expand video to whole screen");
+            FrameLayout.LayoutParams expandBounds=new FrameLayout.LayoutParams(dp(100),dp(44),Gravity.TOP|Gravity.START);expandBounds.setMargins(dp(8),dp(12),dp(8),dp(12));overlay.addView(expand,expandBounds);
             fullscreenParent.addView(overlay,new ViewGroup.LayoutParams(-1,-1));
-            activity.getWindow().setFlags(FULLSCREEN_WINDOW_FLAGS,FULLSCREEN_WINDOW_FLAGS);
-            decor.setSystemUiVisibility(savedSystemUi|View.SYSTEM_UI_FLAG_FULLSCREEN|View.SYSTEM_UI_FLAG_HIDE_NAVIGATION|View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+            activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
             overlay.requestFocus();
         }catch(RuntimeException unavailable){
             exitFullscreen();status.setVisibility(VISIBLE);status.setText("Fullscreen unavailable. Video remains in the panel.");
         }
+    }
+    /** Expand the same video surface only on request; normal website fullscreen fills its panel. */
+    void expandFullscreen(){
+        if(customView==null||fullscreenOverlay==null||fullscreenParent!=body)return;
+        View decor=activity.getWindow().getDecorView();if(!(decor instanceof ViewGroup)||!active||closed)return;
+        FrameLayout overlay=fullscreenOverlay;
+        try{
+            body.removeView(overlay);
+            fullscreenParent=(ViewGroup)decor;fullscreenParent.addView(overlay,new ViewGroup.LayoutParams(-1,-1));
+            activity.getWindow().setFlags(FULLSCREEN_WINDOW_FLAGS,FULLSCREEN_WINDOW_FLAGS);
+            decor.setSystemUiVisibility(savedSystemUi|View.SYSTEM_UI_FLAG_FULLSCREEN|View.SYSTEM_UI_FLAG_HIDE_NAVIGATION|View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+            overlay.requestFocus();
+        }catch(RuntimeException unavailable){exitFullscreen();status.setVisibility(VISIBLE);status.setText("Fullscreen unavailable. Video remains in the panel.");}
     }
     /** Clear state before callbacks because the provider may synchronously call onHideCustomView. */
     boolean exitFullscreen(){

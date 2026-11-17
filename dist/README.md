@@ -1,5 +1,13 @@
 # iDash3 — APK ujian (debug QA)
 
+## 0.2.1-rc2 — App Library 4×2 dan video isi panel
+
+[Download APK debug](iDash3-0.2.1-rc2-debug.apk?raw=true) · versionCode 3 · SHA256 `6337cd8efc81291bc45b59c92514fea869a2d2a9ed861c47b0cc9b13b59a5372`.
+
+App Library berhalaman dengan ikon lebih besar. Fullscreen video WebView mengisi ruang pemain dalam panel dahulu; butang Full screen membesarkan video yang sama ke Activity. Glass panel tidak diubah. [Butiran ujian dan Google Maps tersekat](../docs/PANEL-AND-APP-LIBRARY-0.2.1-rc2.md).
+
+Google Maps sendiri belum dibaiki/diganti oleh APK ini. Uji carian tanpa YouTube/Drive dan bandingkan Waze yang serasi dengan Android 8.1 ARM32. Streaming YouTube pada head unit fizikal masih perlu diuji. Kunci debug sama dengan rc1, berbeza daripada QA asal.
+
 ## 0.2.1-rc1 — calon pembetulan crash/lag (branch berasingan)
 
 [Download APK debug](iDash3-0.2.1-rc1-debug.apk?raw=true) · versionCode 2 · SHA256 `7c604b4380bf0bc4d4927fe703608d1282aa64f159b2ecd2ebe708f2f892e42d`.

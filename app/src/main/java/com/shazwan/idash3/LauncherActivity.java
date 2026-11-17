@@ -168,18 +168,18 @@ public class LauncherActivity extends Activity {
     }
     void showApps() {page="apps";render();}
     void buildDrawer() {
-        LinearLayout header=row();LinearLayout words=column();title(words,"App Library","Everything, in one place.");header.addView(words,new LinearLayout.LayoutParams(0,-2,1));header.addView(button("Refresh",this::loadApps));header.addView(button("Done",()-> {page="home";query="";hideKeyboard();render();}));body.addView(header);
-        search=new EditText(this);search.setSingleLine();search.setTextSize(16);search.setTextColor(Color.WHITE);search.setHintTextColor(0xffd0d8ec);search.setHint("Search apps");search.setContentDescription("Search apps");search.setPadding(dp(20),0,dp(20),0);search.setBackground(glass(0x55ffffff,18));search.setText(query);body.addView(search,new LinearLayout.LayoutParams(-1,dp(48)));
-        drawerCount=text("",11,0xcce6eaff);drawerCount.setPadding(dp(6),dp(6),0,0);body.addView(drawerCount,new LinearLayout.LayoutParams(-1,dp(26)));
-        ScrollView scroll=new ScrollView(this);scroll.setFillViewport(false);grid=column();scroll.addView(grid);body.addView(scroll,new LinearLayout.LayoutParams(-1,0,1));
+        LinearLayout header=row();LinearLayout words=column();words.addView(text("App Library",22,Color.WHITE));header.addView(words,new LinearLayout.LayoutParams(0,-2,1));header.addView(button("Search",()->{boolean show=search.getVisibility()!=View.VISIBLE;search.setVisibility(show?View.VISIBLE:View.GONE);drawerCount.setVisibility(show?View.VISIBLE:View.GONE);if(show){search.requestFocus();((android.view.inputmethod.InputMethodManager)getSystemService(INPUT_METHOD_SERVICE)).showSoftInput(search,android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT);}else{search.setText("");hideKeyboard();}}));header.addView(button("Refresh",this::loadApps));header.addView(button("Done",()-> {page="home";query="";hideKeyboard();render();}));body.addView(header);
+        search=new EditText(this);search.setSingleLine();search.setTextSize(16);search.setTextColor(Color.WHITE);search.setHintTextColor(0xffd0d8ec);search.setHint("Search apps");search.setContentDescription("Search apps");search.setPadding(dp(20),0,dp(20),0);search.setBackground(glass(0x55ffffff,18));search.setText(query);search.setVisibility(query.isEmpty()?View.GONE:View.VISIBLE);body.addView(search,new LinearLayout.LayoutParams(-1,dp(48)));
+        drawerCount=text("",11,0xcce6eaff);drawerCount.setPadding(dp(6),dp(6),0,0);drawerCount.setVisibility(query.isEmpty()?View.GONE:View.VISIBLE);body.addView(drawerCount,new LinearLayout.LayoutParams(-1,dp(26)));
+        grid=new AppLibraryGrid(this);body.addView(grid,new LinearLayout.LayoutParams(-1,0,1));
         search.addTextChangedListener(new TextWatcher(){public void beforeTextChanged(CharSequence s,int st,int c,int a){}public void onTextChanged(CharSequence s,int st,int b,int c){query=s.toString();filter();}public void afterTextChanged(Editable e){}});filter();
     }
     void filter() {
-        if(grid==null)return; grid.removeAllViews();String q=query.toLowerCase(Locale.ROOT).trim();ArrayList<App> filtered=new ArrayList<>();for(App a:apps)if(a.label.toLowerCase(Locale.ROOT).contains(q))filtered.add(a);
+        if(!(grid instanceof AppLibraryGrid))return;
+        String q=query.toLowerCase(Locale.ROOT).trim();ArrayList<App> filtered=new ArrayList<>();
+        for(App app:apps)if(app.label.toLowerCase(Locale.ROOT).contains(q))filtered.add(app);
         drawerCount.setText(!loaded?"Loading installed apps…":filtered.size()+" apps");
-        if(loaded&&filtered.isEmpty()){TextView empty=text("No apps found. Try another search.",17,Color.WHITE);empty.setPadding(dp(16),dp(24),0,0);grid.addView(empty);return;}
-        int columns=Math.max(3,Math.min(8,(getResources().getDisplayMetrics().widthPixels/dp(1)-56)/115));
-        for(int offset=0;offset<filtered.size();offset+=columns){LinearLayout r=row();r.setGravity(Gravity.TOP);grid.addView(r,new LinearLayout.LayoutParams(-1,dp(98)));for(int j=0;j<columns;j++){int index=offset+j;if(index>=filtered.size()){r.addView(new View(this),new LinearLayout.LayoutParams(0,1,1));continue;}App app=filtered.get(index);LinearLayout tile=column();tile.setGravity(Gravity.CENTER);ImageView icon=new ImageView(this);icon.setImageBitmap(app.icon);tile.addView(icon,new LinearLayout.LayoutParams(dp(52),dp(52)));TextView name=text(app.label,12,Color.WHITE);name.setMaxLines(1);name.setEllipsize(TextUtils.TruncateAt.END);name.setGravity(Gravity.CENTER);tile.addView(name,new LinearLayout.LayoutParams(-1,dp(30)));tile.setContentDescription("Open "+app.label);tile.setOnClickListener(v->launch(app));tile.setOnLongClickListener(v->{new AlertDialog.Builder(this).setTitle("Add "+app.label+" to favorites").setItems(slots,(d,which)->assign(which,app)).show();return true;});r.addView(tile,new LinearLayout.LayoutParams(0,-1,1));}}
+        ((AppLibraryGrid)grid).setApps(filtered);
     }
     App assigned(int slot) {String saved=prefs.getString("favorite_"+slots[slot],null);for(App a:apps)if(a.component.equals(saved))return a;return null;}
     void assign(int slot,App app) {prefs.edit().putString("favorite_"+slots[slot],app.component).apply();hideKeyboard();render();}

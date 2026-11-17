@@ -2,6 +2,13 @@
 
 Format ringkas berasaskan [Keep a Changelog](https://keepachangelog.com/). Tarikh dalam UTC.
 
+## [0.2.1-rc2] — 2026-11-17 (debug candidate, branch berasingan)
+
+- App Library: grid 4×2 berhalaman, ikon lebih besar, label di bawah, titik halaman dan Search boleh dibuka/tutup.
+- Fullscreen YouTube WebView mengisi ruang video dalam panel dahulu; pilihan Full screen membesarkan surface sama ke Activity.
+- Material, bentuk dan animasi glass panel dikekalkan; tiada perubahan kod Liquid Glass.
+- Google Maps yang tersekat semasa search belum direproduksi pada head unit; tiada versi APK Maps diganti secara andaian. Lihat `docs/PANEL-AND-APP-LIBRARY-0.2.1-rc2.md` untuk ujian perbandingan Waze/Maps.
+
 ## [0.2.1-rc1] — 2026-11-17 (debug candidate, branch pembetulan)
 
 - Kegagalan memori/decode wallpaper dikendalikan; wallpaper lama dikekalkan apabila pemuatan gagal.
