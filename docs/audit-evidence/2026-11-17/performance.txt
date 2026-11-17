@@ -1,0 +1,114 @@
+INSTRUMENTATION_RESULT: stream=PASS: 10 performance protocol checks
+{
+  "phase": "audit",
+  "protocol": "API27x86_64 TCG; motionOff BALANCED45%; synthetic60 updateClock calls and actual10s idle; timings include instrumentation",
+  "activity_to_worker_ready_ms": 24177,
+  "memory_start": {
+    "pss_kib": 28918,
+    "java_used_bytes": 3457544,
+    "gc_count": 4,
+    "allocated_bytes": 10369584,
+    "elapsed_cpu_ms": 37085
+  },
+  "clock_bursts": [
+    {
+      "same_minute": true,
+      "ui_thread_cpu_ns": 12341785,
+      "wall_ns": 12598083,
+      "text_change_events": 0,
+      "allocated_bytes_delta": 0,
+      "gc_count_delta": 0
+    },
+    {
+      "same_minute": true,
+      "ui_thread_cpu_ns": 5516181,
+      "wall_ns": 5562097,
+      "text_change_events": 0,
+      "allocated_bytes_delta": 0,
+      "gc_count_delta": 0
+    },
+    {
+      "same_minute": true,
+      "ui_thread_cpu_ns": 5214447,
+      "wall_ns": 5256677,
+      "text_change_events": 0,
+      "allocated_bytes_delta": 0,
+      "gc_count_delta": 0
+    },
+    {
+      "same_minute": true,
+      "ui_thread_cpu_ns": 13913105,
+      "wall_ns": 14416259,
+      "text_change_events": 0,
+      "allocated_bytes_delta": 16384,
+      "gc_count_delta": 0
+    },
+    {
+      "same_minute": true,
+      "ui_thread_cpu_ns": 7345638,
+      "wall_ns": 7626826,
+      "text_change_events": 0,
+      "allocated_bytes_delta": 0,
+      "gc_count_delta": 0
+    }
+  ],
+  "idle10s": {
+    "elapsed_ms": 10002,
+    "text_change_events": 2,
+    "draw_callbacks": 1,
+    "layout_callbacks": 0
+  },
+  "control_center_open": [
+    {
+      "construction_ns": 883448853,
+      "first_draw_start_ns": 1416433409
+    },
+    {
+      "construction_ns": 622595928,
+      "first_draw_start_ns": 903608530
+    },
+    {
+      "construction_ns": 596031298,
+      "first_draw_start_ns": 977801868
+    },
+    {
+      "construction_ns": 496406950,
+      "first_draw_start_ns": 911653186
+    },
+    {
+      "construction_ns": 537309997,
+      "first_draw_start_ns": 825453666
+    }
+  ],
+  "appearance_editor_ready_ns": 2602551635,
+  "appearance_edits": [
+    {
+      "transparency": 35,
+      "first_draw_start_ns": 67121433
+    },
+    {
+      "transparency": 55,
+      "first_draw_start_ns": 185617794
+    },
+    {
+      "transparency": 45,
+      "first_draw_start_ns": 50882242
+    }
+  ],
+  "memory_end": {
+    "pss_kib": 39146,
+    "java_used_bytes": 2700496,
+    "gc_count": 8,
+    "allocated_bytes": 12194304,
+    "elapsed_cpu_ms": 55466
+  },
+  "memory_after_gc_request": {
+    "pss_kib": 36206,
+    "java_used_bytes": 2880008,
+    "gc_count": 9,
+    "allocated_bytes": 13021696,
+    "elapsed_cpu_ms": 56421
+  }
+}
+
+INSTRUMENTATION_CODE: -1
