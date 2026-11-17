@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Public instrumentation entries let one test APK run the complete regression suite. -->
     <instrumentation android:name="com.shazwan.idash3.SmokeChecks" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.DrivingWorkspaceChecks" android:targetPackage="com.shazwan.idash3"/>
     <instrumentation android:name="com.shazwan.idash3.AppLibraryChecks" android:targetPackage="com.shazwan.idash3"/>
     <instrumentation android:name="com.shazwan.idash3.PanelFullscreenChecks" android:targetPackage="com.shazwan.idash3"/>
     <instrumentation android:name="com.shazwan.idash3.CrashSafetyChecks" android:targetPackage="com.shazwan.idash3"/>

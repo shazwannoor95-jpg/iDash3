@@ -1,5 +1,13 @@
 # iDash3 — APK ujian (debug QA)
 
+## 0.2.1-rc3 — workspace Ringkas (template native Android)
+
+[Download APK debug](iDash3-0.2.1-rc3-debug.apk?raw=true) · versionCode 4 · SHA256 `8e1ae0ee2d3ea2157fb4bcc19ad366c6052f36e513733939d5bd8ee16b592909`.
+
+Apps → **App Library · Ringkas ›**: tiga tab Apps / Now Playing / Tindakan, rail peta/media/telefon/Home, kawalan MediaSession dan sokongan fokus D-pad. Home, dock dan glass panel sedia ada tidak diubah. [Audit branch dan butiran adaptasi](../docs/CARPLAY-TEMPLATE-ADAPTATION-2026-11-17.md).
+
+Ini workspace pilihan iDash3, bukan Apple CarPlay. Ujian head unit fizikal dan isu Google Maps search masih terbuka. Ditandatangani kunci debug sama dengan rc1/rc2; QA asal mungkin tidak menerima kemas kini terus.
+
 ## 0.2.1-rc2 — App Library 4×2 dan video isi panel
 
 [Download APK debug](iDash3-0.2.1-rc2-debug.apk?raw=true) · versionCode 3 · SHA256 `6337cd8efc81291bc45b59c92514fea869a2d2a9ed861c47b0cc9b13b59a5372`.

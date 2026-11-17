@@ -1,0 +1,30 @@
+{
+  "baseline": "5ed2085",
+  "unchanged_sha256": {
+    "GlassBake.java": "98921357192afdbc6cf1588959d3efd8f56882455d0d1ae6d7769b6ca8414263",
+    "GlassSurface.java": "5dc80ea2a738a8186df0a862b54a38f0802749fa3048842d28c8e11dec893606",
+    "GlassPerf.java": "214da55aa2c2dd627bde3ce22c7e681b3892436d691edea3e1d5aab04aca811c",
+    "GlassAppearance.java": "b8541b7af924e7a5f5377efde51e74bbd134d949202e40739e0bf9509a11695c",
+    "GlassBackdrop.java": "a72df8bf16d897552582a3e272f40f7f3594ddde10d5edcc8647f274e373c010",
+    "IosStyle.java": "8ae426e7dfa9d2f62c06024f19b6d60f20b434b1bf75fe5b4faecddc32f9c693",
+    "IconStyler.java": "1314288ab8e50f2cb74466b94cd51c8e76c32a25c7647e383b7e8199f94d523b",
+    "IosGlyphs.java": "73d81a9cadb979c460a54ccd4574c3765ef4708ea17979e8d51f901ea82b067a",
+    "AppearanceEditor.java": "0553f5cded2069cfdd5eb304c88957eecff61b3feb41da9147d0ca1385187540",
+    "ControlMedia.java": "93059def17f2fe9c45c8cbfb5f008f35a43224ab00fa34b8a591ae9aa8813b0b",
+    "QuickControls.java": "7691ea52508fc94b568bf0cfad2c3c2ad3045162c1fa8be7ee8b2c108e645fa3",
+    "Spring.java": "e7bc88b91a13d53119390c3e8d00579c03e6753a6f3c6ddd4eff7020be6c2e3c",
+    "SpringDriver.java": "da30db33a349947d0317143be399fd9890beb11eec851a7d5e6fc60b98ca0e3d",
+    "Elastic.java": "662d779a99705c92c0cb5806c52fe0ce0e8202c98f34cd00cd6674a44944466c",
+    "MorphOverlay.java": "8387d4e21049f050999b31e060bcc82c5533e75d30a3cd0abdd86fdd1ef677f4",
+    "Squircle.java": "333124aead05d13982e32a7d578f4ad422986d8c8573273f43e2457705489da9",
+    "HomeGrid.java": "a93c253545afebb1bb401b3fcbe37e315755e6c616cdec4afe3323316b8ef8eb",
+    "DashWebPlayer.java": "fe26bcac3f0de5970a3944f2b9b9d2512d649541386fc4415fa5e672b42e82b9",
+    "DriveBarService.java": "5530bcc4007bfb25e4cec42acd9158fcc51aa5c3c6479a98757447241ac15319",
+    "DriveController.java": "d380c4e29bd1b14aead62cd3edead6e51eca8a0a8fd9cae0304517def08ed2f4",
+    "DrivePage.java": "6b67c20c8cb7038e56102fbd2fd92683dc3528af50677e87dbf609ecfc5af16a",
+    "MediaAccessService.java": "a46176cd93aacb51933fa59174fb04b7fdac10c5b1a417c05f5623e9f42e6852",
+    "void buildHome()": "4ce241bcfd5364dcfb144f3460db3029a0147bac17eddff7b83c3473f0780ee9",
+    "void buildPanel()": "d84d137329cd691a613ef7e84af8fe517bed0168cc9d87196db25d0d6626a60c",
+    "void buildDock()": "fe670c2e2086ffcbe0135798a5cadd6f08ecd3ac412d8f67c10b3f75f598a851"
+  }
+}

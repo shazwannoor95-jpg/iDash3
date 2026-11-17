@@ -8,6 +8,7 @@ public class PanelFullscreenChecks extends Instrumentation {
  public void onCreate(Bundle b){super.onCreate(b);start();}
  public void onStart(){Bundle out=new Bundle();int code=Activity.RESULT_CANCELED;try{
   a=(LauncherActivity)startActivitySync(new Intent(getTargetContext(),LauncherActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+  java.util.concurrent.CountDownLatch catalog=new java.util.concurrent.CountDownLatch(1);a.worker.execute(()->a.main.post(catalog::countDown));check(catalog.await(45,java.util.concurrent.TimeUnit.SECONDS),"initial catalog ready before mounting fixture");waitForIdleSync();
   ui(()->{player=new DashWebPlayer(a);a.body.removeAllViews();a.body.addView(player,new android.widget.LinearLayout.LayoutParams(-1,-1));player.resume();check(player.ensureWeb()!=null,"offline WebView available");});
   int[] hidden={0};WebChromeClient.CustomViewCallback callback=()->hidden[0]++;View[] video={null};int[] flags={0},systemUi={0};
   ui(()->{flags[0]=a.getWindow().getAttributes().flags;systemUi[0]=a.getWindow().getDecorView().getSystemUiVisibility();video[0]=new android.widget.FrameLayout(a);player.showFullscreen(video[0],callback);check(player.isFullscreen(),"custom video active");check(video[0].getParent().getParent()==player.body,"video belongs to panel body");});

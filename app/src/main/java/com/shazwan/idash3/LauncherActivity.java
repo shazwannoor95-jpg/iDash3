@@ -36,6 +36,7 @@ public class LauncherActivity extends Activity {
     boolean loaded, destroyed, resumed, foregroundVisible; ImageView wallpaperView; View wallpaperShade;
     int theme;
     boolean panelVisible; LinearLayout panelBox; DashWebPlayer webPanel; DashFmPanel fmPanel; SagaAngleView carPanel;
+    DrivingWorkspace drivingWorkspace;int drivingTab;
     int homePage; HomeGrid homeGrid; private final GlassPerf.Watcher frameWatcher=new GlassPerf.Watcher(); private boolean watching;
     AlertDialog wallpaperDialog; Bitmap wallpaperBitmap; String requestedWallpaper; int wallpaperGeneration;
     final Runnable ticker = new Runnable() { public void run() { updateClock(); if (foregroundVisible) main.postDelayed(this, 1000); } };
@@ -48,17 +49,17 @@ public class LauncherActivity extends Activity {
     @Override public void onCreate(Bundle state) {
         super.onCreate(state); prefs=getSharedPreferences("idash",MODE_PRIVATE); GlassPerf.load(this); theme=prefs.getInt("theme",0); migrateFavorites(); migratePanelPreferences();if(!prefs.getBoolean("prayer_visibility_v2",false))prefs.edit().putBoolean("jakim",true).putBoolean("prayer_visibility_v2",true).apply();
         if(!prefs.contains("wallpaper"))prefs.edit().putString("wallpaper",theme==1?"":Wallpapers.DEFAULT).apply();
-        if(state!=null) { panelVisible=state.getBoolean("panel",false); page=state.getString("page","home"); query=state.getString("query","");settingsSection=state.getString("settings_section",""); }
+        if(state!=null) { panelVisible=state.getBoolean("panel",false); page=state.getString("page","home"); query=state.getString("query","");settingsSection=state.getString("settings_section","");drivingTab=DrivingTemplates.tab(state.getInt("driving_tab",0)); }
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         immersive(); render(); loadApps();
     }
     void immersive() { getWindow().getDecorView().setSystemUiVisibility(5894); }
     @Override protected void onStart(){super.onStart();foregroundVisible=true;}
-    @Override protected void onStop(){foregroundVisible=false;if(quickControls!=null)quickControls.pause();if(webPanel!=null)webPanel.pause();if(fmPanel!=null)fmPanel.pause();if(carPanel!=null)carPanel.pause();main.removeCallbacks(ticker);super.onStop();}
-    @Override protected void onResume() { super.onResume(); DriveController.launcherResumed(this); resumed=true;if(appearanceEditor!=null)appearanceEditor.resume();if(quickControls!=null)quickControls.resume(); main.removeCallbacks(ticker); ticker.run(); immersive();if(webPanel!=null)webPanel.resume();if(fmPanel!=null)fmPanel.resume();if(carPanel!=null)carPanel.resume(); startFrameWatch(); }
-    @Override protected void onPause() { resumed=false;stopFrameWatch();if(appearanceEditor!=null)appearanceEditor.pause();if(quickControls!=null)quickControls.pause();main.removeCallbacks(ticker);if(webPanel!=null)webPanel.pause();if(fmPanel!=null)fmPanel.pause();if(carPanel!=null)carPanel.pause(); super.onPause(); }
-    @Override protected void onDestroy() { destroyed=true;if(settingsNavigation!=null)settingsNavigation.close();if(settingsScreen!=null)settingsScreen.close();if(appearanceEditor!=null)appearanceEditor.close();IosStyle.releaseGlass(this);if(quickControls!=null){quickControls.close();}if(wallpaperDialog!=null)wallpaperDialog.dismiss();disposePanel(); main.removeCallbacksAndMessages(null); worker.shutdownNow(); networkWorker.shutdownNow(); super.onDestroy(); }
-    @Override protected void onSaveInstanceState(Bundle out) { out.putBoolean("panel",panelVisible);out.putString("page",page);out.putString("settings_section",settingsSection); out.putString("query",query); super.onSaveInstanceState(out); }
+    @Override protected void onStop(){foregroundVisible=false;if(drivingWorkspace!=null)drivingWorkspace.pause();if(quickControls!=null)quickControls.pause();if(webPanel!=null)webPanel.pause();if(fmPanel!=null)fmPanel.pause();if(carPanel!=null)carPanel.pause();main.removeCallbacks(ticker);super.onStop();}
+    @Override protected void onResume() { super.onResume(); DriveController.launcherResumed(this); resumed=true;if(drivingWorkspace!=null)drivingWorkspace.resume();if(appearanceEditor!=null)appearanceEditor.resume();if(quickControls!=null)quickControls.resume(); main.removeCallbacks(ticker); ticker.run(); immersive();if(webPanel!=null)webPanel.resume();if(fmPanel!=null)fmPanel.resume();if(carPanel!=null)carPanel.resume(); startFrameWatch(); }
+    @Override protected void onPause() { resumed=false;if(drivingWorkspace!=null)drivingWorkspace.pause();stopFrameWatch();if(appearanceEditor!=null)appearanceEditor.pause();if(quickControls!=null)quickControls.pause();main.removeCallbacks(ticker);if(webPanel!=null)webPanel.pause();if(fmPanel!=null)fmPanel.pause();if(carPanel!=null)carPanel.pause(); super.onPause(); }
+    @Override protected void onDestroy() { destroyed=true;if(drivingWorkspace!=null)drivingWorkspace.close();if(settingsNavigation!=null)settingsNavigation.close();if(settingsScreen!=null)settingsScreen.close();if(appearanceEditor!=null)appearanceEditor.close();IosStyle.releaseGlass(this);if(quickControls!=null){quickControls.close();}if(wallpaperDialog!=null)wallpaperDialog.dismiss();disposePanel(); main.removeCallbacksAndMessages(null); worker.shutdownNow(); networkWorker.shutdownNow(); super.onDestroy(); }
+    @Override protected void onSaveInstanceState(Bundle out) { out.putInt("driving_tab",drivingTab);out.putBoolean("panel",panelVisible);out.putString("page",page);out.putString("settings_section",settingsSection); out.putString("query",query); super.onSaveInstanceState(out); }
     @Override public void onConfigurationChanged(Configuration config) { super.onConfigurationChanged(config); render(); }
     @Override protected void onNewIntent(Intent intent) { super.onNewIntent(intent); page="home"; query=""; render(); }
     /** Real frame durations feed the low-performance policy; nothing runs while no frames are drawn. */
@@ -88,6 +89,7 @@ public class LauncherActivity extends Activity {
         if(settingsNavigation.defer())return;
         if(settingsScreen!=null){settingsScreen.close();settingsScreen=null;}
         if(appearanceEditor!=null)appearanceEditor.close();
+        if(drivingWorkspace!=null){drivingWorkspace.close();drivingWorkspace=null;}
         disposePanel();homeGrid=null;clock=null;date=null;calendarDay=null;clockMinute=Long.MIN_VALUE;jakimText=null;jakimNext=null;search=null;grid=null;
         stage=new FrameLayout(this); stage.addView(new Wallpaper(this),new FrameLayout.LayoutParams(-1,-1));
         wallpaperView=new ImageView(this);wallpaperView.setScaleType(ImageView.ScaleType.CENTER_CROP);stage.addView(wallpaperView,new FrameLayout.LayoutParams(-1,-1));wallpaperShade=new View(this);wallpaperShade.setBackgroundColor(0x35000000);stage.addView(wallpaperShade,new FrameLayout.LayoutParams(-1,-1));updateBackdrop();
@@ -95,6 +97,11 @@ public class LauncherActivity extends Activity {
         final boolean home="home".equals(page);final int edge=home?20:28,top=home?8:12,bottom=home?8:10;
         shell=column(); shell.setPadding(dp(edge),dp(top),dp(edge),dp(bottom));
         stage.addView(shell,new FrameLayout.LayoutParams(-1,-1)); setContentView(stage);
+        // Dedicated workspace has its own rail/tabs; Home's glass chrome stays on Home.
+        if("road".equals(page)){
+            statusTime=null;body=column();shell.setPadding(dp(8),dp(8),dp(8),dp(8));shell.addView(body,new LinearLayout.LayoutParams(-1,-1));
+            drivingWorkspace=new DrivingWorkspace(this);body.addView(drivingWorkspace,new LinearLayout.LayoutParams(-1,-1));updateClock();return;
+        }
         // API35 edge-to-edge insets, also works on older devices with immersive bars.
         if(home){
             final FrameLayout homeStage=stage;final LinearLayout homeShell=shell;final int[] bars=new int[4],at=new int[2];
@@ -168,7 +175,7 @@ public class LauncherActivity extends Activity {
     }
     void showApps() {page="apps";render();}
     void buildDrawer() {
-        LinearLayout header=row();LinearLayout words=column();words.addView(text("App Library",22,Color.WHITE));header.addView(words,new LinearLayout.LayoutParams(0,-2,1));header.addView(button("Search",()->{boolean show=search.getVisibility()!=View.VISIBLE;search.setVisibility(show?View.VISIBLE:View.GONE);drawerCount.setVisibility(show?View.VISIBLE:View.GONE);if(show){search.requestFocus();((android.view.inputmethod.InputMethodManager)getSystemService(INPUT_METHOD_SERVICE)).showSoftInput(search,android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT);}else{search.setText("");hideKeyboard();}}));header.addView(button("Refresh",this::loadApps));header.addView(button("Done",()-> {page="home";query="";hideKeyboard();render();}));body.addView(header);
+        LinearLayout header=row();LinearLayout words=column();TextView compact=text("App Library · Ringkas ›",18,Color.WHITE);compact.setContentDescription("Open driving workspace");compact.setMinHeight(dp(56));compact.setGravity(Gravity.CENTER_VERTICAL);compact.setOnClickListener(v->{page="road";render();});words.addView(compact);header.addView(words,new LinearLayout.LayoutParams(0,-2,1));header.addView(button("Search",()->{boolean show=search.getVisibility()!=View.VISIBLE;search.setVisibility(show?View.VISIBLE:View.GONE);drawerCount.setVisibility(show?View.VISIBLE:View.GONE);if(show){search.requestFocus();((android.view.inputmethod.InputMethodManager)getSystemService(INPUT_METHOD_SERVICE)).showSoftInput(search,android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT);}else{search.setText("");hideKeyboard();}}));header.addView(button("Refresh",this::loadApps));header.addView(button("Done",()-> {page="home";query="";hideKeyboard();render();}));body.addView(header);
         search=new EditText(this);search.setSingleLine();search.setTextSize(16);search.setTextColor(Color.WHITE);search.setHintTextColor(0xffd0d8ec);search.setHint("Search apps");search.setContentDescription("Search apps");search.setPadding(dp(20),0,dp(20),0);search.setBackground(glass(0x55ffffff,18));search.setText(query);search.setVisibility(query.isEmpty()?View.GONE:View.VISIBLE);body.addView(search,new LinearLayout.LayoutParams(-1,dp(48)));
         drawerCount=text("",11,0xcce6eaff);drawerCount.setPadding(dp(6),dp(6),0,0);drawerCount.setVisibility(query.isEmpty()?View.GONE:View.VISIBLE);body.addView(drawerCount,new LinearLayout.LayoutParams(-1,dp(26)));
         grid=new AppLibraryGrid(this);body.addView(grid,new LinearLayout.LayoutParams(-1,0,1));
@@ -210,7 +217,7 @@ public class LauncherActivity extends Activity {
             }catch(OutOfMemoryError|RuntimeException unavailable){failed=true;}
             final boolean unavailable=failed;
             main.post(()->{if(destroyed)return;appsLoading=false;
-                if(!unavailable){apps.clear();apps.addAll(found);loaded=true;seedFavorites();if("apps".equals(page))filter();else if("home".equals(page)&&!panelVisible&&appearanceEditor==null)render();}
+                if(!unavailable){apps.clear();apps.addAll(found);loaded=true;seedFavorites();if("apps".equals(page))filter();else if("road".equals(page)&&drivingWorkspace!=null)drivingWorkspace.appsChanged();else if("home".equals(page)&&!panelVisible&&appearanceEditor==null)render();}
                 else Toast.makeText(this,"App list unavailable. Existing list kept; try Refresh later.",Toast.LENGTH_LONG).show();
                 if(appsReloadRequested){appsReloadRequested=false;loadApps();}
             });

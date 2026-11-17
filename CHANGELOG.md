@@ -2,6 +2,14 @@
 
 Format ringkas berasaskan [Keep a Changelog](https://keepachangelog.com/). Tarikh dalam UTC.
 
+## [0.2.1-rc3] — 2026-11-17 (workspace Ringkas pilihan)
+
+- Audit main dan semua branch remote; rc2 dikekalkan sebagai asas, bukan branch lama.
+- Apps → Ringkas: tiga template root Apps, Now Playing dan Tindakan; rail jam/peta/media/telefon/Home.
+- Now Playing menggunakan bridge MediaSession sedia ada, action mask sebenar dan cleanup ketika tab/lifecycle berubah; tiada WebView/artwork baharu.
+- Tindakan terhad kepada empat baris, sasaran sentuhan 56 dp, dan alert app tidak tersedia dengan dua tindakan.
+- Glass panel, dock, bahan/animasi kaca dan aset tidak diubah. Ini adaptasi native Android, bukan integrasi Apple CarPlay.
+
 ## [0.2.1-rc2] — 2026-11-17 (debug candidate, branch berasingan)
 
 - App Library: grid 4×2 berhalaman, ikon lebih besar, label di bawah, titik halaman dan Search boleh dibuka/tutup.
