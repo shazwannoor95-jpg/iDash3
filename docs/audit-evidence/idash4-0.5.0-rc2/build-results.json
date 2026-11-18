@@ -1,0 +1,36 @@
+{
+  "unit": {
+    "tests": 56,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "lint": {
+    "Error": 0,
+    "Warning": 88
+  },
+  "apk_sha256": "ab20c121475bf500d5d4df7e3b959fe39052d622cab1ff37d9fd97f55928bdf0",
+  "runtime": {
+    "DriveDashboardChecks": {
+      "assertions": 24,
+      "status": "PASS",
+      "evidence": "DriveDashboardChecks.txt"
+    },
+    "FmPanelChecks": {
+      "assertions": 36,
+      "status": "PASS",
+      "evidence": "FmPanelChecks.txt"
+    },
+    "SettingsChecks": {
+      "assertions": 27,
+      "status": "PASS",
+      "evidence": "SettingsChecks.txt"
+    },
+    "PremiumFmChecks": {
+      "assertions": 35,
+      "status": "PASS",
+      "evidence": "final-followup/PremiumFmChecks.txt"
+    }
+  },
+  "runtime_assertions_unique": 122
+}

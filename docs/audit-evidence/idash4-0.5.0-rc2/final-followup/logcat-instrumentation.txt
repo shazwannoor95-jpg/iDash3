@@ -1,0 +1,262 @@
+--------- beginning of main
+11-18 08:13:39.876 12037 12037 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-18 08:13:40.369 12037 12037 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-18 08:13:40.394 12037 12037 I app_process: The ClassLoaderContext is a special shared library.
+11-18 08:13:40.595 12037 12037 D AndroidRuntime: Calling main entry com.android.commands.wm.Wm
+--------- beginning of system
+11-18 08:13:40.611  1631  1812 I WindowManager: Using new display size: 640x600
+11-18 08:13:40.661  1395  1419 D hwcomposer: hw_composer sent 131 syncs in 100s
+11-18 08:13:40.727 12037 12037 D AndroidRuntime: Shutting down VM
+11-18 08:13:42.027 12047 12047 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-18 08:13:42.425 12047 12047 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-18 08:13:42.447 12047 12047 I app_process: The ClassLoaderContext is a special shared library.
+11-18 08:13:42.602 12047 12047 D AndroidRuntime: Calling main entry com.android.commands.wm.Wm
+11-18 08:13:42.648 12047 12047 D AndroidRuntime: Shutting down VM
+11-18 08:13:43.491  1631  1664 D AutofillManagerService: Close system dialogs
+11-18 08:13:44.701 12068 12068 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-18 08:13:45.035 12068 12068 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-18 08:13:45.055 12068 12068 I app_process: The ClassLoaderContext is a special shared library.
+11-18 08:13:45.191 12068 12068 D AndroidRuntime: Calling main entry com.android.commands.am.Am
+11-18 08:13:45.219  1631  4195 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: start instr
+11-18 08:13:45.274  1631  4195 I ActivityManager: Start proc 12078:com.shazwan.idash3/u0a59 for added application com.shazwan.idash3
+11-18 08:13:45.290 12078 12078 I zygote64: Late-enabling -Xcheck:jni
+11-18 08:13:45.338 12078 12078 W zygote64: Unexpected CPU variant for X86 using defaults: x86_64
+11-18 08:13:45.488 12078 12078 I zygote64: The ClassLoaderContext is a special shared library.
+11-18 08:13:45.497 12078 12078 I zygote64: The ClassLoaderContext is a special shared library.
+11-18 08:13:45.504 12078 12078 W zygote64: ClassLoaderContext classpath element mismatch for position 0. expected=/system/framework/android.test.mock.jar, found=/system/framework/android.test.runner.jar (PCL[/system/framework/android.test.mock.jar*1065265343:/system/framework/android.test.runner.jar*1742119008] | PCL[/system/framework/android.test.runner.jar*1742119008:/system/framework/android.test.mock.jar*1065265343])
+11-18 08:13:45.511 12078 12078 W zygote64: ClassLoaderContext classpath size mismatch for position 0. expected=0, found=5 (PCL[] | PCL[/system/framework/android.test.runner.jar*1742119008:/system/framework/android.test.mock.jar*1065265343:/data/app/com.shazwan.idash3.test-Lb4CcWB_gMDf9ZDTVpH5Xg==/base.apk*4289975998:/data/app/com.shazwan.idash3.test-Lb4CcWB_gMDf9ZDTVpH5Xg==/base.apk!classes2.dex*1003452078:/data/app/com.shazwan.idash3.test-Lb4CcWB_gMDf9ZDTVpH5Xg==/base.apk!classes3.dex*4171577632])
+11-18 08:13:45.562 12078 12078 W System  : ClassLoader referenced unknown path: 
+11-18 08:13:45.668  1631  4195 I ActivityManager: START u0 {flg=0x10000000 cmp=com.shazwan.idash3/.LauncherActivity} from uid 10059
+11-18 08:13:45.894  1394  3514 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 08:13:46.207  1631  1657 W ActivityManager: Activity pause timeout for ActivityRecord{c99867a u0 android/com.android.internal.app.ResolverActivity t4}
+11-18 08:13:46.332  1404  2282 E SurfaceFlinger: size mismatch (640, 600) > (320, 640)
+11-18 08:13:46.346  1394  3514 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 08:13:46.361  1404  1404 E SurfaceFlinger: Invalid crop rect: r = 640 (> 320)
+11-18 08:13:46.407  1631  1666 W zygote64: Long monitor contention with owner ActivityManager (1657) at void com.android.server.am.ActivityStack$ActivityStackHandler.handleMessage(android.os.Message)(ActivityStack.java:392) waiters=2 in void com.android.server.am.ActivityRecord.onStartingWindowDrawn(long) for 139ms
+11-18 08:13:46.414  1631  1658 W Looper  : Dispatch took 195ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {490daac} cb=null msg=31
+11-18 08:13:47.803 12078 12078 D OpenGLRenderer: HWUI GL Pipeline
+11-18 08:13:48.880  1404  1917 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-18 08:13:50.025  1394  3514 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 08:13:50.058 12078 12101 D         : HostConnection::get() New Host Connection established 0x7c5a3de600a0, tid 12101
+11-18 08:13:50.071  1394  3514 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 08:13:50.076  1394  1394 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 08:13:50.234 12078 12101 I zygote64: android::hardware::configstore::V1_0::ISurfaceFlingerConfigs::hasWideColorDisplay retrieved: 0
+11-18 08:13:50.235 12078 12101 I OpenGLRenderer: Initialized EGL, version 1.4
+11-18 08:13:50.243 12078 12101 D OpenGLRenderer: Swap behavior 1
+11-18 08:13:50.273 12078 12101 D EGL_emulation: eglCreateContext: 0x7c5a33293560: maj 3 min 0 rcv 3
+11-18 08:13:50.303 12078 12101 D EGL_emulation: eglMakeCurrent: 0x7c5a33293560: ver 3 0 (tinfo 0x7c5a3df8e5a0)
+11-18 08:13:50.394  1404  1673 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-18 08:13:50.668  1394  1394 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 08:13:50.724 12078 12078 I Choreographer: Skipped 101 frames!  The application may be doing too much work on its main thread.
+11-18 08:13:50.778  1394  1394 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 08:13:51.730 12078 12101 D EGL_emulation: eglMakeCurrent: 0x7c5a33293560: ver 3 0 (tinfo 0x7c5a3df8e5a0)
+11-18 08:13:51.786 12078 12089 I zygote64: Background concurrent copying GC freed 18472(961KB) AllocSpace objects, 11(592KB) LOS objects, 50% free, 2015KB/3MB, paused 4.496ms total 980.287ms
+11-18 08:13:52.843 12078 12083 I zygote64: Do partial code cache collection, code=2464B, data=28KB
+11-18 08:13:52.903 12078 12083 I zygote64: After code cache collection, code=2464B, data=28KB
+11-18 08:13:52.920 12078 12083 I zygote64: Increasing code cache capacity to 128KB
+11-18 08:13:53.094 12078 12083 I zygote64: Do partial code cache collection, code=2464B, data=46KB
+11-18 08:13:53.214 12078 12083 I zygote64: After code cache collection, code=2464B, data=46KB
+11-18 08:13:53.322 12078 12083 I zygote64: Increasing code cache capacity to 256KB
+11-18 08:13:53.355 12078 12083 I zygote64: JIT allocated 71KB for compiled code of void android.widget.TextView.<init>(android.content.Context, android.util.AttributeSet, int, int)
+11-18 08:13:53.355 12078 12083 I zygote64: Compiler allocated 7MB to compile void android.widget.TextView.<init>(android.content.Context, android.util.AttributeSet, int, int)
+11-18 08:13:55.716  1631  1657 W ActivityManager: Launch timeout has expired, giving up wake lock!
+11-18 08:13:55.955 12078 12078 I Choreographer: Skipped 313 frames!  The application may be doing too much work on its main thread.
+11-18 08:13:56.026  1631  1666 I ActivityManager: Displayed com.shazwan.idash3/.LauncherActivity: +9s634ms
+11-18 08:13:56.281  1631  1656 E memtrack: Couldn't load memtrack module
+11-18 08:13:56.281  1631  1656 W android.os.Debug: failed to get memory consumption info: -1
+11-18 08:13:57.144 12078 12078 I Choreographer: Skipped 69 frames!  The application may be doing too much work on its main thread.
+11-18 08:13:59.717 12078 12078 I Choreographer: Skipped 104 frames!  The application may be doing too much work on its main thread.
+11-18 08:14:02.056 12078 12089 I zygote64: Background concurrent copying GC freed 29374(1442KB) AllocSpace objects, 3(244KB) LOS objects, 49% free, 2MB/5MB, paused 171us total 1.641s
+11-18 08:14:02.233 12078 12083 I zygote64: Do full code cache collection, code=125KB, data=94KB
+11-18 08:14:02.403 12078 12078 I Choreographer: Skipped 34 frames!  The application may be doing too much work on its main thread.
+11-18 08:14:03.137 12078 12083 I zygote64: After code cache collection, code=118KB, data=60KB
+11-18 08:14:03.369 12078 12083 I zygote64: Do partial code cache collection, code=120KB, data=65KB
+11-18 08:14:03.513 12078 12083 I zygote64: After code cache collection, code=119KB, data=65KB
+11-18 08:14:03.513 12078 12083 I zygote64: Increasing code cache capacity to 512KB
+11-18 08:14:03.855 12078 12078 I Choreographer: Skipped 86 frames!  The application may be doing too much work on its main thread.
+11-18 08:14:04.436 12078 12078 I Choreographer: Skipped 30 frames!  The application may be doing too much work on its main thread.
+11-18 08:14:06.274  1631  1657 W ActivityManager: Activity stop timeout for ActivityRecord{c99867a u0 android/com.android.internal.app.ResolverActivity t4}
+11-18 08:14:06.636  1631  1660 E BatteryExternalStatsWorker: modem info is invalid: ModemActivityInfo{ mTimestamp=0 mSleepTimeMs=0 mIdleTimeMs=0 mTxTimeMs[]=[0, 0, 0, 0, 0] mRxTimeMs=0 mEnergyUsed=0}
+11-18 08:14:07.421  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7839084 , only wrote 7837920
+11-18 08:14:07.449  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7839345 , only wrote 7838640
+11-18 08:14:07.452  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7838821 , only wrote 7838640
+11-18 08:14:07.505  1387  2846 W audio_hw_generic: Hardware backing HAL too slow, could only write 0 of 720 frames
+11-18 08:14:07.522  1387  2846 W audio_hw_generic: Hardware backing HAL too slow, could only write 0 of 720 frames
+11-18 08:14:07.543  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7842962 , only wrote 7842960
+11-18 08:14:07.562  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7843909 , only wrote 7843680
+11-18 08:14:07.580  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7844517 , only wrote 7844400
+11-18 08:14:07.640  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7847304 , only wrote 7846560
+11-18 08:14:07.662  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7847617 , only wrote 7847280
+11-18 08:14:07.680  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7848154 , only wrote 7848000
+11-18 08:14:07.701  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7848964 , only wrote 7848720
+11-18 08:14:07.719  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7849627 , only wrote 7849440
+11-18 08:14:07.812  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7853891 , only wrote 7853760
+11-18 08:14:07.819  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7854068 , only wrote 7853760
+11-18 08:14:07.882  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7856782 , only wrote 7855920
+11-18 08:14:08.004  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7861807 , only wrote 7861680
+11-18 08:14:08.007  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7861815 , only wrote 7861680
+11-18 08:14:08.112  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7866727 , only wrote 7866720
+11-18 08:14:08.143  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7868184 , only wrote 7868160
+11-18 08:14:08.263  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7873953 , only wrote 7873920
+11-18 08:14:08.282  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7874823 , only wrote 7874640
+11-18 08:14:08.314  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7876084 , only wrote 7876080
+11-18 08:14:08.322  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7876548 , only wrote 7876080
+11-18 08:14:08.344  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7877150 , only wrote 7876800
+11-18 08:14:08.420  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7880448 , only wrote 7880400
+11-18 08:14:08.532  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7885763 , only wrote 7885440
+11-18 08:14:08.535  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7885597 , only wrote 7885440
+11-18 08:14:08.552  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7886243 , only wrote 7886160
+11-18 08:14:08.622  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7889523 , only wrote 7889040
+11-18 08:14:08.639  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7889856 , only wrote 7889760
+11-18 08:14:08.703  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7892259 , only wrote 7891920
+11-18 08:14:08.719  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7893233 , only wrote 7891920
+11-18 08:14:08.863  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7898865 , only wrote 7898400
+11-18 08:14:08.944  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7902262 , only wrote 7902000
+11-18 08:14:08.945  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7902072 , only wrote 7902000
+11-18 08:14:09.096  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7909213 , only wrote 7909200
+11-18 08:14:09.132  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7910950 , only wrote 7910640
+11-18 08:14:09.163  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7912118 , only wrote 7912080
+11-18 08:14:09.180  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7912881 , only wrote 7912800
+11-18 08:14:09.282  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7917725 , only wrote 7917120
+11-18 08:14:09.334  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7919580 , only wrote 7919280
+11-18 08:14:09.351  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7920137 , only wrote 7920000
+11-18 08:14:09.367  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7920741 , only wrote 7920720
+11-18 08:14:09.402  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7922418 , only wrote 7922160
+11-18 08:14:09.441  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7924009 , only wrote 7923600
+11-18 08:14:09.444 12078 12089 I zygote64: Background concurrent copying GC freed 34452(1727KB) AllocSpace objects, 14(812KB) LOS objects, 50% free, 3MB/6MB, paused 129us total 1.522s
+11-18 08:14:09.562  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7929433 , only wrote 7929360
+11-18 08:14:09.567  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7929580 , only wrote 7929360
+11-18 08:14:09.594  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7930642 , only wrote 7930080
+11-18 08:14:09.610  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7930854 , only wrote 7930800
+11-18 08:14:09.705  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7935370 , only wrote 7934400
+11-18 08:14:09.732  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7935709 , only wrote 7935120
+11-18 08:14:09.794  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7938093 , only wrote 7938000
+11-18 08:14:09.811  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7938742 , only wrote 7938720
+11-18 08:14:09.960  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7945947 , only wrote 7945920
+11-18 08:14:09.977  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7946742 , only wrote 7946640
+11-18 08:14:10.012  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7948316 , only wrote 7948080
+11-18 08:14:10.054  1631  1631 W WindowManager: removeWindowToken: Attempted to remove non-existing token: android.os.Binder@22c6767
+11-18 08:14:10.056  1631  1656 E memtrack: Couldn't load memtrack module
+11-18 08:14:10.056  1631  1656 W android.os.Debug: failed to get memory consumption info: -1
+11-18 08:14:10.062  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7950486 , only wrote 7950240
+11-18 08:14:10.080  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7951099 , only wrote 7950960
+11-18 08:14:10.229  1631  1656 E memtrack: Couldn't load memtrack module
+11-18 08:14:10.229  1631  1656 W android.os.Debug: failed to get memory consumption info: -1
+11-18 08:14:10.246  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7958903 , only wrote 7958880
+11-18 08:14:10.352  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7963993 , only wrote 7963920
+11-18 08:14:10.392  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7965698 , only wrote 7965360
+11-18 08:14:10.412  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7966461 , only wrote 7966080
+11-18 08:14:10.460  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7968383 , only wrote 7968240
+11-18 08:14:10.497  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7969998 , only wrote 7969680
+11-18 08:14:10.512  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7970412 , only wrote 7970400
+11-18 08:14:10.528  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7971160 , only wrote 7971120
+11-18 08:14:10.546  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7971996 , only wrote 7971840
+11-18 08:14:10.660  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7977306 , only wrote 7976880
+11-18 08:14:10.692  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7978418 , only wrote 7978320
+11-18 08:14:10.723  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7979775 , only wrote 7979760
+11-18 08:14:10.787  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7982833 , only wrote 7982640
+11-18 08:14:10.928  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7989417 , only wrote 7989120
+11-18 08:14:10.930  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7989217 , only wrote 7989120
+11-18 08:14:10.947  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7989952 , only wrote 7989840
+11-18 08:14:11.044  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7994464 , only wrote 7994160
+11-18 08:14:11.082  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7995987 , only wrote 7995600
+11-18 08:14:11.087 12078 12078 I Choreographer: Skipped 346 frames!  The application may be doing too much work on its main thread.
+11-18 08:14:11.098  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7996372 , only wrote 7996320
+11-18 08:14:11.101  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7996469 , only wrote 7996320
+11-18 08:14:11.121  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7997288 , only wrote 7997040
+11-18 08:14:11.132  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 7997580 , only wrote 7997040
+11-18 08:14:11.254  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8002905 , only wrote 8002800
+11-18 08:14:11.332  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8006540 , only wrote 8006400
+11-18 08:14:11.381  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8008723 , only wrote 8008560
+11-18 08:14:11.402  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8009599 , only wrote 8009280
+11-18 08:14:11.496  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8013782 , only wrote 8013600
+11-18 08:14:11.714  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8024063 , only wrote 8023680
+11-18 08:14:11.777  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8026710 , only wrote 8026560
+11-18 08:14:11.829  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8029014 , only wrote 8028720
+11-18 08:14:11.853  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8029902 , only wrote 8029440
+11-18 08:14:11.861  1387  2846 W audio_hw_generic: Hardware backing HAL too slow, could only write 0 of 720 frames
+11-18 08:14:11.878  1387  2846 W audio_hw_generic: Hardware backing HAL too slow, could only write 0 of 720 frames
+11-18 08:14:11.960  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8034547 , only wrote 8034480
+11-18 08:14:12.037  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8038217 , only wrote 8038080
+11-18 08:14:12.102  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8041197 , only wrote 8040960
+11-18 08:14:12.122  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8041913 , only wrote 8041680
+11-18 08:14:12.142  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8042641 , only wrote 8042400
+11-18 08:14:12.192  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8044809 , only wrote 8044560
+11-18 08:14:12.242  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8046951 , only wrote 8046720
+11-18 08:14:12.312  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8050080 , only wrote 8049600
+11-18 08:14:12.316  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8049757 , only wrote 8049600
+11-18 08:14:12.337  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8050625 , only wrote 8050320
+11-18 08:14:12.352  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8051052 , only wrote 8051040
+11-18 08:14:12.372  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8052000 , only wrote 8051760
+11-18 08:14:12.392  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8052724 , only wrote 8052480
+11-18 08:14:12.442  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8054882 , only wrote 8053920
+11-18 08:14:12.482  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8055836 , only wrote 8055360
+11-18 08:14:12.516  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8056958 , only wrote 8056080
+11-18 08:14:12.592  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8059755 , only wrote 8059680
+11-18 08:14:12.654  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8062653 , only wrote 8062560
+11-18 08:14:12.762  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8067748 , only wrote 8067600
+11-18 08:14:12.843  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8071500 , only wrote 8071200
+11-18 08:14:12.862  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8072080 , only wrote 8071920
+11-18 08:14:12.880  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8072792 , only wrote 8072640
+11-18 08:14:12.912  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 8074182 , only wrote 8074080
+11-18 08:14:12.946  1387  1611 W audio_hw_generic: Not supplying enough data to HAL, expected position 8075713 , only wrote 8075520
+11-18 08:14:13.283 12078 12078 I Choreographer: Skipped 128 frames!  The application may be doing too much work on its main thread.
+11-18 08:14:13.834  1631  1666 W zygote64: Long monitor contention with owner Binder:1631_14 (4195) at int com.android.server.wm.WindowManagerService.relayoutWindow(com.android.server.wm.Session, android.view.IWindow, int, android.view.WindowManager$LayoutParams, int, int, int, int, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.util.MergedConfiguration, android.view.Surface)(WindowManagerService.java:1930) waiters=0 in void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message) for 171ms
+11-18 08:14:14.220 12078 12078 I Choreographer: Skipped 55 frames!  The application may be doing too much work on its main thread.
+11-18 08:14:16.216  1631  4195 D WificondControl: Scan result ready event
+11-18 08:14:18.084 12078 12083 I zygote64: Do full code cache collection, code=204KB, data=169KB
+11-18 08:14:18.128 12078 12083 I zygote64: After code cache collection, code=190KB, data=108KB
+11-18 08:14:18.968  1404  1917 E SurfaceFlinger: size mismatch (640, 600) > (320, 640)
+11-18 08:14:19.106  1394  1394 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 08:14:19.116 12068 12077 D         : HostConnection::get() New Host Connection established 0x7e1961e31a60, tid 12077
+11-18 08:14:21.834 12078 12089 I zygote64: NativeAlloc concurrent copying GC freed 44499(2MB) AllocSpace objects, 11(624KB) LOS objects, 49% free, 4MB/8MB, paused 13.622ms total 2.439s
+11-18 08:14:22.211 12078 12078 I OsmDroid: Using tile source: Mapnik
+11-18 08:14:22.219 12078 12078 I OsmDroid: Tile cache increased from 0 to 32
+11-18 08:14:23.105 12078 12078 I Choreographer: Skipped 155 frames!  The application may be doing too much work on its main thread.
+11-18 08:14:23.613 12078 12078 W StaticLayout: maxLineHeight should not be -1.  maxLines:1 lineCount:1
+11-18 08:14:24.127 12078 12078 I chatty  : uid=10059(com.shazwan.idash3) identical 6 lines
+11-18 08:14:24.127 12078 12078 W StaticLayout: maxLineHeight should not be -1.  maxLines:1 lineCount:1
+11-18 08:14:24.363 12078 12083 I zygote64: Do partial code cache collection, code=245KB, data=168KB
+11-18 08:14:24.427 12078 12083 I zygote64: After code cache collection, code=245KB, data=168KB
+11-18 08:14:24.427 12078 12083 I zygote64: Increasing code cache capacity to 1024KB
+11-18 08:14:24.968 12078 12078 I Choreographer: Skipped 33 frames!  The application may be doing too much work on its main thread.
+11-18 08:14:25.661  1404  1673 E SurfaceFlinger: size mismatch (640, 600) > (320, 640)
+11-18 08:14:25.667  1394  1394 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 08:14:25.701  1404  1404 E SurfaceFlinger: Invalid crop rect: r = 640 (> 320)
+11-18 08:14:25.783  1631  1716 W zygote64: Long monitor contention with owner Binder:1631_2 (1649) at void com.android.server.wm.WindowManagerService.continueSurfaceLayout()(WindowManagerService.java:2951) waiters=0 in void com.android.server.wm.WindowAnimator.lambda$-com_android_server_wm_WindowAnimator_3951(long) for 209ms
+11-18 08:14:25.785  1631  1962 W zygote64: Long monitor contention with owner Binder:1631_2 (1649) at void com.android.server.wm.WindowManagerService.continueSurfaceLayout()(WindowManagerService.java:2951) waiters=1 in void com.android.server.wm.WindowManagerService.getStableInsets(int, android.graphics.Rect) for 207ms
+11-18 08:14:25.794  1631  1658 W Looper  : Dispatch took 228ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {490daac} cb=null msg=31
+11-18 08:14:25.798  1631  1666 W zygote64: Long monitor contention with owner Binder:1631_2 (1649) at void com.android.server.am.ActivityManagerService.activityPaused(android.os.IBinder)(ActivityManagerService.java:7438) waiters=2 in void com.android.server.am.ActivityManagerService.notifyActivityDrawn(android.os.IBinder) for 227ms
+11-18 08:14:25.800  1631  9011 W zygote64: Long monitor contention with owner Binder:1631_2 (1649) at void com.android.server.am.ActivityManagerService.activityPaused(android.os.IBinder)(ActivityManagerService.java:7438) waiters=4 in int com.android.server.am.ActivityManagerService.getLastResumedActivityUserId() for 156ms
+11-18 08:14:25.806  1631  1656 E memtrack: Couldn't load memtrack module
+11-18 08:14:25.806  1631  1656 W android.os.Debug: failed to get memory consumption info: -1
+11-18 08:14:26.013  1631  2887 I zygote64: android::hardware::configstore::V1_0::ISurfaceFlingerConfigs::hasWideColorDisplay retrieved: 0
+11-18 08:14:26.013  1631  2887 I OpenGLRenderer: Initialized EGL, version 1.4
+11-18 08:14:26.013  1631  2887 D OpenGLRenderer: Swap behavior 1
+11-18 08:14:26.044  1631  2887 D EGL_emulation: eglCreateContext: 0x7c5a25ace520: maj 3 min 0 rcv 3
+11-18 08:14:26.052  1631  2887 D EGL_emulation: eglMakeCurrent: 0x7c5a25ace520: ver 3 0 (tinfo 0x7c5a25ac7d20)
+11-18 08:14:26.130 12078 12101 D EGL_emulation: eglMakeCurrent: 0x7c5a33293560: ver 3 0 (tinfo 0x7c5a3df8e5a0)
+11-18 08:14:26.569 12078 12094 W zygote64: Verification of void com.shazwan.idash3.AppearanceChecks.onStart() took 226.346ms
+11-18 08:14:26.710  1631  4195 W WindowManager: removeWindowToken: Attempted to remove non-existing token: android.os.Binder@464ccfe
+11-18 08:14:26.791  1631  4195 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: finished inst
+11-18 08:14:26.832  1631  4195 I ActivityManager: Killing 12078:com.shazwan.idash3/u0a59 (adj 0): stop com.shazwan.idash3
+11-18 08:14:26.841  1631  1659 W zygote64: kill(-12078, 9) failed: No such process
+11-18 08:14:26.879  1631 12112 W Binder  : Outgoing transactions from this process must be FLAG_ONEWAY
+11-18 08:14:26.879  1631 12112 W Binder  : java.lang.Throwable
+11-18 08:14:26.879  1631 12112 W Binder  : 	at android.os.BinderProxy.transact(Binder.java:752)
+11-18 08:14:26.879  1631 12112 W Binder  : 	at android.app.IInstrumentationWatcher$Stub$Proxy.instrumentationFinished(IInstrumentationWatcher.java:160)
+11-18 08:14:26.879  1631 12112 W Binder  : 	at com.android.server.am.InstrumentationReporter$MyThread.run(InstrumentationReporter.java:86)
+11-18 08:14:26.893  1631  1659 W zygote64: kill(-12078, 9) failed: No such process
+11-18 08:14:26.911 12068 12068 D AndroidRuntime: Shutting down VM
+11-18 08:14:26.930  1631  1641 I zygote64: NativeAlloc concurrent copying GC freed 22363(1624KB) AllocSpace objects, 16(640KB) LOS objects, 42% free, 8MB/14MB, paused 134us total 298.307ms
+11-18 08:14:26.945  1631  1659 W zygote64: kill(-12078, 9) failed: No such process
+11-18 08:14:26.986  1631  1659 W zygote64: kill(-12078, 9) failed: No such process
+11-18 08:14:27.056  1631  1658 W zygote64: Long monitor contention with owner Binder:1631_14 (4195) at void com.android.server.am.ActivityManagerService.finishInstrumentation(android.app.IApplicationThread, int, android.os.Bundle)(ActivityManagerService.java:20136) waiters=0 in void com.android.server.am.ActivityManagerService.dispatchUidsChanged() for 207ms
+11-18 08:14:27.060  1631  1658 W Looper  : Dispatch took 212ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {490daac} cb=null msg=53
+11-18 08:14:27.075  1631  1659 W zygote64: kill(-12078, 9) failed: No such process
+11-18 08:14:27.229  1631  1666 W ActivityManager: setHasOverlayUi called on unknown pid: 12078
+11-18 08:14:27.221  1631  1659 I chatty  : uid=1000(system) ActivityManager identical 3 lines
+11-18 08:14:27.263  1631  1659 W zygote64: kill(-12078, 9) failed: No such process
+11-18 08:14:27.263  1631  1659 I zygote64: Successfully killed process cgroup uid 10059 pid 12078 in 424ms
+11-18 08:14:27.516  1631  4195 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: from pid 12115
+11-18 08:14:27.565  1879  1879 D CarrierSvcBindHelper: No carrier app for: 0

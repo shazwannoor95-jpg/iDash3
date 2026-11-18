@@ -1,0 +1,28 @@
+package com.shazwan.idash3;
+import android.app.*;import android.content.*;import android.os.*;import android.view.*;import android.widget.*;import java.util.*;
+/** Real preset/editor/fallback/lifecycle checks; no claim of RF audio on the emulator. */
+public class PremiumFmChecks extends Instrumentation {
+ LauncherActivity a;FmPanelHost host;int n;android.content.SharedPreferences prefs,fm;Map<String,?> saved,savedFm;
+ void check(boolean b,String why){if(!b)throw new AssertionError(why);n++;}
+ void ui(Runnable r){Throwable[] error={null};runOnMainSync(()->{try{r.run();}catch(Throwable t){error[0]=t;}});waitForIdleSync();if(error[0]!=null)throw new AssertionError(error[0]);}
+ View find(View v,String desc){if(desc.contentEquals(v.getContentDescription()==null?"":v.getContentDescription()))return v;if(v instanceof ViewGroup)for(int i=0;i<((ViewGroup)v).getChildCount();i++){View hit=find(((ViewGroup)v).getChildAt(i),desc);if(hit!=null)return hit;}return null;}
+ View channel(View v,int i){String desc=String.valueOf(v.getContentDescription());if(desc.startsWith("FM channel "+i+";"))return v;if(v instanceof ViewGroup)for(int j=0;j<((ViewGroup)v).getChildCount();j++){View hit=channel(((ViewGroup)v).getChildAt(j),i);if(hit!=null)return hit;}return null;}
+ EditText input(View v){if(v instanceof EditText)return (EditText)v;if(v instanceof ViewGroup)for(int i=0;i<((ViewGroup)v).getChildCount();i++){EditText hit=input(((ViewGroup)v).getChildAt(i));if(hit!=null)return hit;}return null;}
+ AlertDialog dialog(){try{java.lang.reflect.Field f=DashFmPanelPremium.class.getDeclaredField("dialog");f.setAccessible(true);return (AlertDialog)f.get(host.premium);}catch(Exception e){throw new AssertionError(e);}}
+ public void onCreate(Bundle b){super.onCreate(b);start();}
+ public void onStart(){Bundle out=new Bundle();int result=Activity.RESULT_CANCELED;try{
+  prefs=getTargetContext().getSharedPreferences("idash",0);fm=getTargetContext().getSharedPreferences(DashFmController.PREFS,0);saved=new HashMap<>(prefs.getAll());savedFm=new HashMap<>(fm.getAll());prefs.edit().remove("fm_premium").apply();fm.edit().putInt("preset_0",90500).apply();
+  a=(LauncherActivity)startActivitySync(new Intent(getTargetContext(),LauncherActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));java.util.concurrent.CountDownLatch ready=new java.util.concurrent.CountDownLatch(1);a.worker.execute(()->a.main.post(ready::countDown));check(ready.await(45,java.util.concurrent.TimeUnit.SECONDS),"catalog ready");waitForIdleSync();
+  ui(()->{a.page="home";a.panelVisible=true;a.prefs.edit().putInt("panel_mode",1).apply();a.render();host=a.fmPanel;check(host.premium!=null&&host.classic==null,"Home FM defaults to premium");
+   for(int[] size:new int[][]{{560,330},{440,260}}){host.measure(View.MeasureSpec.makeMeasureSpec(size[0],View.MeasureSpec.EXACTLY),View.MeasureSpec.makeMeasureSpec(size[1],View.MeasureSpec.EXACTLY));host.layout(0,0,size[0],size[1]);for(int i=1;i<=10;i++){View v=channel(host,i);check(v!=null&&v.getWidth()>=48&&v.getHeight()>=48&&v.getVisibility()==View.VISIBLE,"preset target "+i);}
+    View power=find(host,"Start FM"),tune=find(host,"Enter FM frequency");check(power.getParent()==tune.getParent()&&power.getWidth()>=48&&power.getHeight()>=48,"header icon targets");check(find(host,"Frequency tuner scale")!=null,"static tuning ruler present");}
+   channel(host,1).performClick();check(host.controller.frequency==90500,"legacy preset retained");host.controller.frequency(101100);channel(host,10).performLongClick();host.controller.frequency(87500);channel(host,10).performClick();check(host.controller.frequency==101100&&channel(host,10).isSelected(),"save and recall channel ten");
+   find(host,"Enter FM frequency").performClick();AlertDialog edit=dialog();input(edit.getWindow().getDecorView()).setText("999");edit.getButton(AlertDialog.BUTTON_POSITIVE).performClick();check(edit.isShowing()&&host.controller.frequency==101100,"invalid tune keeps dialog and frequency");input(edit.getWindow().getDecorView()).setText("99.50");edit.getButton(AlertDialog.BUTTON_POSITIVE).performClick();check(!edit.isShowing()&&host.controller.frequency==99500,"valid tune accepted");
+   find(host,"Choose FM source").performClick();AlertDialog source=dialog();source.getListView().performItemClick(null,1,1);check("internal".equals(host.controller.sourceMode),"OEM source selection retained");host.pause();check(!host.controller.owned,"pause releases owned tuner");host.resume();
+  });
+  ui(()->{a.fmPanel.requestLayout();a.stage.requestLayout();});
+  android.graphics.Bitmap shot=getUiAutomation().takeScreenshot();if(shot!=null){try(java.io.OutputStream file=new java.io.FileOutputStream(new java.io.File(a.getFilesDir(),"premium-fm.png"))){shot.compress(android.graphics.Bitmap.CompressFormat.PNG,100,file);}shot.recycle();}
+  ui(()->{prefs.edit().putBoolean("fm_premium",false).apply();a.rebuildPanel();check(a.fmPanel.classic!=null&&a.fmPanel.premium==null,"Classic fallback via shared host");prefs.edit().putBoolean("fm_premium",true).apply();a.page="drive";a.render();a.driveDashboard.setMode(2);check(a.driveDashboard.fm.premium!=null,"Dashboard also uses premium");check(channel(a.driveDashboard.fm,10)!=null&&fm.getInt("preset_9",0)==101100,"preset survives both hosts and fallback");});
+  out.putString("stream","PASS: "+n+" premium FM assertions\n");result=Activity.RESULT_OK;
+ }catch(Throwable t){out.putString("stream","FAIL after "+n+": "+t+"\n");}finally{if(a!=null)ui(a::finish);if(prefs!=null&&saved!=null)AppearanceChecks.restore(prefs,saved);if(fm!=null&&savedFm!=null)AppearanceChecks.restore(fm,savedFm);}finish(result,out);}
+}

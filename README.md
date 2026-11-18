@@ -1,6 +1,6 @@
 # iDash4 — iDash3 integration
 
-**Current candidate: iDash4 0.5.0-rc1** — native Drive Dashboard replaces Android split. Main region switches between OSM map, audio controls, FM and YouTube; live JAKIM/media/date widgets remain on the right. [Download debug APK](dist/iDash4-0.5.0-rc1-debug.apk?raw=true) · [Dashboard scope, audit and limitations](docs/DRIVE-DASHBOARD-0.5.0-RC1.md). No turn-by-turn routing yet. `main` and glass renderer remain unchanged.
+**Current candidate: iDash4 0.5.0-rc2** — Premium FM skin on Home and Drive Dashboard, with Classic fallback in Settings → Panel. [Download debug APK](dist/iDash4-0.5.0-rc2-debug.apk?raw=true) · [Premium FM integration and audit](docs/PREMIUM-FM-0.5.0-RC2.md). Shared glass and `main` remain unchanged. [Dashboard scope](docs/DRIVE-DASHBOARD-0.5.0-RC1.md).
 
 **Revert panel appearance:** Settings → Home & Dock → Liquid Glass → Material panel → **Classic iDash3**. The new iOS26 panel material and the icon-pack switch are independent.
 

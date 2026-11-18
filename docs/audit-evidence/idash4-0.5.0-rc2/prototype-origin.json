@@ -1,0 +1,9 @@
+{
+  "archive": "iDash3_Premium_FM_UI_Java_Kit.zip",
+  "origin": "user attachment",
+  "original_java_sha256": "2d939a1d6635e103b3462bfdc65c0a06f3b0d3bb146ac9bfba3dd5ffff65c148",
+  "adapted_file": "app/src/main/java/com/shazwan/idash3/DashFmPanelPremium.java",
+  "controller_unchanged": true,
+  "band_unchanged": true,
+  "classic_unchanged": true
+}
