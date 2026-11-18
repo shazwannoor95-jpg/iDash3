@@ -30,3 +30,10 @@ Provenance
 - The optional iOS26 panel treatment is an Android adaptation of the visual
   concepts in the pinned pack fetch_icons.py (_liquid_glass_transform); it
   reuses iDash cached frost and does not import an Apple/iOS panel renderer.
+
+Drive Dashboard map
+- osmdroid-android 6.1.20, Apache License 2.0, https://github.com/osmdroid/osmdroid.
+  License and attribution are bundled in app/src/main/assets/licenses/.
+- Map data © OpenStreetMap contributors (ODbL), https://www.openstreetmap.org/copyright.
+  OSM standard tiles are used for visible map areas with attribution, an application User-Agent,
+  HTTP caching and a bounded cache; no offline region/bulk download feature is provided.

@@ -1,0 +1,9 @@
+osmdroid-android 6.1.20
+Copyright osmdroid contributors
+https://github.com/osmdroid/osmdroid
+Apache License 2.0; see osmdroid-Apache-2.0.txt
+
+Map data © OpenStreetMap contributors, ODbL.
+https://www.openstreetmap.org/copyright
+Tiles: https://tile.openstreetmap.org/
+https://operations.osmfoundation.org/policies/tiles/

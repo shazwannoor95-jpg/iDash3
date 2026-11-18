@@ -23,8 +23,8 @@ final class DrivingWorkspace extends LinearLayout {
   LinearLayout rail=new LinearLayout(a);rail.setOrientation(VERTICAL);rail.setGravity(Gravity.CENTER);rail.setBackgroundColor(0xe61a2233);
   addView(rail,new LayoutParams(a.dp(88),-1));
   TextClock clock=new TextClock(a);clock.setFormat24Hour("HH:mm");clock.setFormat12Hour("h:mm a");clock.setTextColor(Color.WHITE);clock.setTextSize(18);clock.setGravity(Gravity.CENTER);clock.setSingleLine(true);rail.addView(clock,new LayoutParams(-1,a.dp(40)));
-  rail.addView(railIcon("Peta","maps",()->launch(DriveController.PREF_MAP,DrivePlan.MAP_PREFS)),new LayoutParams(-1,a.dp(DrivingTemplates.TOUCH_DP)));
-  rail.addView(railIcon("Media","music",()->launch(DriveController.PREF_MEDIA,DrivePlan.MEDIA_PREFS)),new LayoutParams(-1,a.dp(DrivingTemplates.TOUCH_DP)));
+  rail.addView(railIcon("Peta","maps",()->launch("drive_map",DrivePlan.MAP_PREFS)),new LayoutParams(-1,a.dp(DrivingTemplates.TOUCH_DP)));
+  rail.addView(railIcon("Media","music",()->launch("drive_media",DrivePlan.MEDIA_PREFS)),new LayoutParams(-1,a.dp(DrivingTemplates.TOUCH_DP)));
   rail.addView(railIcon("Telefon","phone",()->launch("",PHONE)),new LayoutParams(-1,a.dp(DrivingTemplates.TOUCH_DP)));
   rail.addView(railIcon("Home",null,()->{a.page="home";a.query="";a.render();}),new LayoutParams(-1,a.dp(DrivingTemplates.TOUCH_DP)));
   LinearLayout main=new LinearLayout(a);main.setOrientation(VERTICAL);main.setPadding(a.dp(8),0,0,0);addView(main,new LayoutParams(0,-1,1));
@@ -64,20 +64,20 @@ final class DrivingWorkspace extends LinearLayout {
    if(action==6)controls.previous=control;else if(action==7){controls.play=control;controls.playGlyph=glyph;}else controls.next=control;
   }
   content.addView(button("Akses media",()->controls.explain()),new LayoutParams(-1,a.dp(DrivingTemplates.TOUCH_DP)));
-  content.addView(button("Buka app media",()->launch(DriveController.PREF_MEDIA,DrivePlan.MEDIA_PREFS)),new LayoutParams(-1,a.dp(DrivingTemplates.TOUCH_DP)));
+  content.addView(button("Buka app media",()->launch("drive_media",DrivePlan.MEDIA_PREFS)),new LayoutParams(-1,a.dp(DrivingTemplates.TOUCH_DP)));
   controls.render();if(a.resumed)resume();
  }
  void actions(){
-  content.addView(button("Buka peta",()->launch(DriveController.PREF_MAP,DrivePlan.MAP_PREFS)),new LayoutParams(-1,a.dp(DrivingTemplates.TOUCH_DP)));
-  content.addView(button("Buka media",()->launch(DriveController.PREF_MEDIA,DrivePlan.MEDIA_PREFS)),new LayoutParams(-1,a.dp(DrivingTemplates.TOUCH_DP)));
+  content.addView(button("Buka peta",()->launch("drive_map",DrivePlan.MAP_PREFS)),new LayoutParams(-1,a.dp(DrivingTemplates.TOUCH_DP)));
+  content.addView(button("Buka media",()->launch("drive_media",DrivePlan.MEDIA_PREFS)),new LayoutParams(-1,a.dp(DrivingTemplates.TOUCH_DP)));
   content.addView(button("Telefon / Bluetooth",()->launch("",PHONE)),new LayoutParams(-1,a.dp(DrivingTemplates.TOUCH_DP)));
-  content.addView(button("Setup split-screen",()->{a.page="drive";a.render();}),new LayoutParams(-1,a.dp(DrivingTemplates.TOUCH_DP)));
+  content.addView(button("Drive Dashboard",()->{a.page="drive";a.render();}),new LayoutParams(-1,a.dp(DrivingTemplates.TOUCH_DP)));
  }
  void launch(String pref,String[] preferred){
   ArrayList<String> installed=new ArrayList<>();for(LauncherActivity.App app:a.apps)installed.add(app.component);
   String component=DrivingTemplates.choose(pref.isEmpty()?null:a.prefs.getString(pref,null),installed,preferred);
   if(component!=null){for(LauncherActivity.App app:a.apps)if(component.equals(app.component)){a.launch(app);return;}}
-  if(alert!=null)alert.dismiss();alert=new AlertDialog.Builder(a).setTitle(a.loaded?"App belum tersedia":"App masih dimuatkan").setMessage("Pilih atau pasang app yang sesuai melalui App Library. Tetapan peta/media ada pada halaman Drive.").setNegativeButton("Tutup",null).setPositiveButton("App Library",(d,w)->{a.page="apps";a.query="";a.render();}).create();alert.show();
+  if(alert!=null)alert.dismiss();alert=new AlertDialog.Builder(a).setTitle(a.loaded?"App belum tersedia":"App masih dimuatkan").setMessage("Pilih atau pasang app yang sesuai melalui App Library. Kawalan peta dan widget ada pada Drive Dashboard.").setNegativeButton("Tutup",null).setPositiveButton("App Library",(d,w)->{a.page="apps";a.query="";a.render();}).create();alert.show();
  }
  void appsChanged(){if(!closed&&appGrid!=null)appGrid.setApps(a.apps);}
  void resume(){if(!closed&&media!=null)media.resume();}

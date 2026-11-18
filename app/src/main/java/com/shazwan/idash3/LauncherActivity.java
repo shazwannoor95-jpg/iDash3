@@ -36,7 +36,7 @@ public class LauncherActivity extends Activity {
     boolean loaded, destroyed, resumed, foregroundVisible; ImageView wallpaperView; View wallpaperShade;
     int theme;
     boolean panelVisible; LinearLayout panelBox; DashWebPlayer webPanel; DashFmPanel fmPanel; SagaAngleView carPanel;
-    DrivingWorkspace drivingWorkspace;int drivingTab;
+    DriveDashboard driveDashboard;DrivingWorkspace drivingWorkspace;int drivingTab;
     int libraryPage; int homePage; HomeGrid homeGrid; private final GlassPerf.Watcher frameWatcher=new GlassPerf.Watcher(); private boolean watching;
     AlertDialog wallpaperDialog; Bitmap wallpaperBitmap; String requestedWallpaper; int wallpaperGeneration;
     final Runnable ticker = new Runnable() { public void run() { updateClock(); if (foregroundVisible) main.postDelayed(this, 1000); } };
@@ -56,10 +56,10 @@ public class LauncherActivity extends Activity {
     }
     void immersive() { getWindow().getDecorView().setSystemUiVisibility(5894); }
     @Override protected void onStart(){super.onStart();foregroundVisible=true;}
-    @Override protected void onStop(){foregroundVisible=false;if(drivingWorkspace!=null)drivingWorkspace.pause();if(quickControls!=null)quickControls.pause();if(webPanel!=null)webPanel.pause();if(fmPanel!=null)fmPanel.pause();if(carPanel!=null)carPanel.pause();main.removeCallbacks(ticker);super.onStop();}
-    @Override protected void onResume() { super.onResume(); DriveController.launcherResumed(this); resumed=true;if(drivingWorkspace!=null)drivingWorkspace.resume();if(appearanceEditor!=null)appearanceEditor.resume();if(quickControls!=null)quickControls.resume(); main.removeCallbacks(ticker); ticker.run(); immersive();if(webPanel!=null)webPanel.resume();if(fmPanel!=null)fmPanel.resume();if(carPanel!=null)carPanel.resume(); startFrameWatch(); }
-    @Override protected void onPause() { resumed=false;if(drivingWorkspace!=null)drivingWorkspace.pause();stopFrameWatch();if(appearanceEditor!=null)appearanceEditor.pause();if(quickControls!=null)quickControls.pause();main.removeCallbacks(ticker);if(webPanel!=null)webPanel.pause();if(fmPanel!=null)fmPanel.pause();if(carPanel!=null)carPanel.pause(); super.onPause(); }
-    @Override protected void onDestroy() { destroyed=true;if(drivingWorkspace!=null)drivingWorkspace.close();if(settingsNavigation!=null)settingsNavigation.close();if(settingsScreen!=null)settingsScreen.close();if(appearanceEditor!=null)appearanceEditor.close();IosStyle.releaseGlass(this);if(quickControls!=null){quickControls.close();}if(wallpaperDialog!=null)wallpaperDialog.dismiss();disposePanel(); main.removeCallbacksAndMessages(null); worker.shutdownNow(); networkWorker.shutdownNow(); super.onDestroy(); }
+    @Override protected void onStop(){foregroundVisible=false;if(driveDashboard!=null)driveDashboard.pause();if(drivingWorkspace!=null)drivingWorkspace.pause();if(quickControls!=null)quickControls.pause();if(webPanel!=null)webPanel.pause();if(fmPanel!=null)fmPanel.pause();if(carPanel!=null)carPanel.pause();main.removeCallbacks(ticker);super.onStop();}
+    @Override protected void onResume() { super.onResume(); resumed=true;if(driveDashboard!=null)driveDashboard.resume();if(drivingWorkspace!=null)drivingWorkspace.resume();if(appearanceEditor!=null)appearanceEditor.resume();if(quickControls!=null)quickControls.resume(); main.removeCallbacks(ticker); ticker.run(); immersive();if(webPanel!=null)webPanel.resume();if(fmPanel!=null)fmPanel.resume();if(carPanel!=null)carPanel.resume(); startFrameWatch(); }
+    @Override protected void onPause() { resumed=false;if(driveDashboard!=null)driveDashboard.pause();if(drivingWorkspace!=null)drivingWorkspace.pause();stopFrameWatch();if(appearanceEditor!=null)appearanceEditor.pause();if(quickControls!=null)quickControls.pause();main.removeCallbacks(ticker);if(webPanel!=null)webPanel.pause();if(fmPanel!=null)fmPanel.pause();if(carPanel!=null)carPanel.pause(); super.onPause(); }
+    @Override protected void onDestroy() { destroyed=true;if(driveDashboard!=null)driveDashboard.close();if(drivingWorkspace!=null)drivingWorkspace.close();if(settingsNavigation!=null)settingsNavigation.close();if(settingsScreen!=null)settingsScreen.close();if(appearanceEditor!=null)appearanceEditor.close();IosStyle.releaseGlass(this);if(quickControls!=null){quickControls.close();}if(wallpaperDialog!=null)wallpaperDialog.dismiss();disposePanel(); main.removeCallbacksAndMessages(null); worker.shutdownNow(); networkWorker.shutdownNow(); super.onDestroy(); }
     @Override public void onTrimMemory(int level){super.onTrimMemory(level);if(level>=android.content.ComponentCallbacks2.TRIM_MEMORY_RUNNING_LOW){Ios26Icons.clear();GlassBake.trim();}}
     @Override protected void onSaveInstanceState(Bundle out) { out.putInt("library_page",libraryPage);out.putInt("home_page",homePage);out.putInt("driving_tab",drivingTab);out.putBoolean("panel",panelVisible);out.putString("page",page);out.putString("settings_section",settingsSection); out.putString("query",query); super.onSaveInstanceState(out); }
     @Override public void onConfigurationChanged(Configuration config) { super.onConfigurationChanged(config); render(); }
@@ -91,7 +91,7 @@ public class LauncherActivity extends Activity {
         if(settingsNavigation.defer())return;
         if(settingsScreen!=null){settingsScreen.close();settingsScreen=null;}
         if(appearanceEditor!=null)appearanceEditor.close();
-        if(drivingWorkspace!=null){drivingWorkspace.close();drivingWorkspace=null;}
+        if(driveDashboard!=null){driveDashboard.close();driveDashboard=null;}if(drivingWorkspace!=null){drivingWorkspace.close();drivingWorkspace=null;}
         disposePanel();homeGrid=null;clock=null;date=null;calendarDay=null;clockMinute=Long.MIN_VALUE;jakimText=null;jakimNext=null;search=null;grid=null;
         stage=new FrameLayout(this); stage.addView(new Wallpaper(this),new FrameLayout.LayoutParams(-1,-1));
         wallpaperView=new ImageView(this);wallpaperView.setScaleType(ImageView.ScaleType.CENTER_CROP);stage.addView(wallpaperView,new FrameLayout.LayoutParams(-1,-1));wallpaperShade=new View(this);wallpaperShade.setBackgroundColor(0x35000000);stage.addView(wallpaperShade,new FrameLayout.LayoutParams(-1,-1));updateBackdrop();
@@ -99,6 +99,11 @@ public class LauncherActivity extends Activity {
         final boolean home="home".equals(page);final int edge=home?20:28,top=home?8:12,bottom=home?8:10;
         shell=column(); shell.setPadding(dp(edge),dp(top),dp(edge),dp(bottom));
         stage.addView(shell,new FrameLayout.LayoutParams(-1,-1)); setContentView(stage);
+        if("drive".equals(page)){
+            statusTime=null;body=column();shell.setPadding(dp(8),dp(8),dp(8),dp(8));shell.addView(body,new LinearLayout.LayoutParams(-1,-1));
+            stage.setOnApplyWindowInsetsListener((v,insets)->{shell.setPadding(dp(8)+insets.getSystemWindowInsetLeft(),dp(8)+insets.getSystemWindowInsetTop(),dp(8)+insets.getSystemWindowInsetRight(),dp(8)+insets.getSystemWindowInsetBottom());return insets;});
+            driveDashboard=new DriveDashboard(this);body.addView(driveDashboard,new LinearLayout.LayoutParams(-1,-1));updateClock();return;
+        }
         // Dedicated workspace has its own rail/tabs; Home's glass chrome stays on Home.
         if("road".equals(page)){
             statusTime=null;body=column();shell.setPadding(dp(8),dp(8),dp(8),dp(8));shell.addView(body,new LinearLayout.LayoutParams(-1,-1));
@@ -122,7 +127,7 @@ public class LauncherActivity extends Activity {
         status.addView(headerAction("Customize",5,this::customize));
         status.addView(headerAction("Control Center",6,this::controlCenter)); shell.addView(status);
         body=column(); shell.addView(body,new LinearLayout.LayoutParams(-1,0,1));
-        if("apps".equals(page)) buildDrawer();else if("drive".equals(page))DrivePage.build(this,body);else if("settings".equals(page)){settingsScreen=new DashSettings(this);settingsScreen.build(body);}else buildHome();
+        if("apps".equals(page)) buildDrawer();else if("settings".equals(page)){settingsScreen=new DashSettings(this);settingsScreen.build(body);}else buildHome();
         buildDock(); updateClock();IosStyle.enter(body);
     }
     void buildHome() {
@@ -311,11 +316,13 @@ public class LauncherActivity extends Activity {
         worker.execute(()->{Bitmap image=null;try{image=CustomWallpaper.PATH.equals(path)?CustomWallpaper.decode(CustomWallpaper.file(this),1280):Wallpapers.decode(getAssets(),path,1280);}catch(java.io.IOException|RuntimeException|OutOfMemoryError unavailable){main.post(()->{if(!destroyed&&generation==wallpaperGeneration){requestedWallpaper=null;Toast.makeText(this,"Wallpaper unavailable. Previous image kept.",Toast.LENGTH_LONG).show();}});return;}final Bitmap decoded=image;GlassBackdrop.Frame prepared;try{prepared=GlassBackdrop.prepare(decoded,glassQuality);}catch(OutOfMemoryError unavailable){prepared=new GlassBackdrop.Frame(null,0xff526783);}final GlassBackdrop.Frame glassFrame=prepared;
             main.post(()->{if(destroyed||generation!=wallpaperGeneration)return;wallpaperBitmap=decoded;IosStyle.publishGlass(this,glassFrame);updateBackdrop();});});
     }
+    @Override public void onRequestPermissionsResult(int request,String[] permissions,int[] results){super.onRequestPermissionsResult(request,permissions,results);if(request==DriveDashboard.LOCATION_REQUEST&&driveDashboard!=null)driveDashboard.permissionResult();}
     void showCalendar() {Calendar c=Calendar.getInstance();DatePickerDialog dialog=new DatePickerDialog(this,(v,y,m,d)->{},c.get(Calendar.YEAR),c.get(Calendar.MONTH),c.get(Calendar.DAY_OF_MONTH));dialog.setTitle("Calendar");dialog.show();}
     private static void label(TextView view,String value){if(view!=null&&!TextUtils.equals(view.getText(),value))view.setText(value);}
     void updateClock(){updateClock(System.currentTimeMillis());}
     // The argument makes day/time-zone boundaries testable without changing the device clock.
     void updateClock(long now){
+        if(driveDashboard!=null)driveDashboard.tick(now);
         long minute=now/60000;if(minute!=jakimMinute)updateJakim(now);
         boolean h24=prefs.getBoolean("24h",true);Locale locale=Locale.getDefault();TimeZone zone=TimeZone.getDefault();
         boolean changed=clockFormat==null||clock24!=h24||!locale.equals(clockLocale)||!zone.getID().equals(clockZone.getID())||!zone.hasSameRules(clockZone);

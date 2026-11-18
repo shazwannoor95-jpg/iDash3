@@ -1,6 +1,6 @@
 # iDash4 — iDash3 integration
 
-**Current candidate: iDash4 0.4.0-rc7** — FM header icons, ten inline presets and stronger app icon colors. [Download debug APK](dist/iDash4-0.4.0-rc7-debug.apk?raw=true) · [rc7 audit](docs/IDASH4-RC7-AUDIT.md). `main` and glass panel renderer remain unchanged.
+**Current candidate: iDash4 0.5.0-rc1** — native Drive Dashboard replaces Android split. Main region switches between OSM map, audio controls, FM and YouTube; live JAKIM/media/date widgets remain on the right. [Download debug APK](dist/iDash4-0.5.0-rc1-debug.apk?raw=true) · [Dashboard scope, audit and limitations](docs/DRIVE-DASHBOARD-0.5.0-RC1.md). No turn-by-turn routing yet. `main` and glass renderer remain unchanged.
 
 **Revert panel appearance:** Settings → Home & Dock → Liquid Glass → Material panel → **Classic iDash3**. The new iOS26 panel material and the icon-pack switch are independent.
 
@@ -41,7 +41,7 @@ Already captured? Drop the PNGs into `docs/images/` with the documented names an
 - Left: large clock, calendar, **JAKIM prayer times** (your own zone; the official 2026 timetable for SGR01–03 & WLY01 is bundled, other zones are downloaded).
 - Right: empty by default (wallpaper visible) — or the **media panel** (YouTube web, OEM FM radio, Saga 8-angle car view) or a **paged app grid** with folders (optional).
 - Floating dock: 3 favourites (Bluetooth, Files, YouTube — long-press to change), Settings, Apps.
-- **Drive:** an Android Auto-style screen — map on one side, SmartTube/NewPipe/YouTube/music on the other (Android split-screen), with an Android Auto-style bar: app launcher, map/media/phone/Settings shortcuts, battery and clock (**no microphone**). See [`docs/DRIVE-MODE.md`](docs/DRIVE-MODE.md).
+- **Drive Dashboard:** native map/audio/FM/YouTube modes with persistent media, live JAKIM countdown and date cards. No Android split-screen, overlay bar or accessibility service. See [Dashboard audit](docs/DRIVE-DASHBOARD-0.5.0-RC1.md).
 - App Library with search, Control Center (Wi-Fi, Bluetooth, brightness, volume, media) and a complete Settings screen.
 
 **Liquid Glass (built for Android 8.1)**
@@ -64,7 +64,7 @@ Settings: **Settings → Home & Dock → Liquid Glass** (icon style, performance
 - Debug APK: updating between debug builds signed with different debug keys requires uninstalling first.
 - The FM panel depends on the OEM radio service (`com.android.fmradio` / `com.acloud.stub.extradio`); it does not ship a radio driver.
 - The YouTube web panel depends on the device WebView — on Android 8.1 set **Developer options → WebView implementation → Chrome**.
-- **Full-screen video in split-screen:** Android does not allow an app to take the whole screen while it is in multi-window, so no player (YouTube, SmartTube, VLC, …) can be truly full-screen *inside* Drive's split. End the split first (square button on the Drive bar) and the focused app gets the whole screen.
+- **Dashboard video:** website fullscreen fills the main player region; Expand requests the whole app window. Fit/Fill and disappearing controls remain available.
 
 ### Build
 JDK 17+, Android SDK 35, Gradle wrapper 8.9:
@@ -79,7 +79,7 @@ APK: `app/build/outputs/apk/debug/app-debug.apk`. GitHub Actions CI (`.github/wo
 | [`CHANGELOG.md`](CHANGELOG.md) | Change history |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | How to contribute & report head-unit issues |
 | [`docs/DESIGN.md`](docs/DESIGN.md) | Liquid Glass & Home design |
-| [`docs/DRIVE-MODE.md`](docs/DRIVE-MODE.md) | Drive screen (split-screen), permissions, ADB |
+| [`docs/DRIVE-DASHBOARD-0.5.0-RC1.md`](docs/DRIVE-DASHBOARD-0.5.0-RC1.md) | Native Dashboard, widgets, permissions and remaining device tests |
 | [`docs/SCREENSHOTS.md`](docs/SCREENSHOTS.md) | Which screenshots to capture, filenames and commands |
 | [`docs/VALIDATION.md`](docs/VALIDATION.md) | Real test results (PASS/FAIL/NOT RUN) |
 | [`docs/HEADUNIT-APPS.md`](docs/HEADUNIT-APPS.md) | Saga head-unit apps, compatibility audit, Waze/YouTube/debloat advice |
@@ -103,7 +103,7 @@ Code: MIT ([`LICENSE`](LICENSE)). Inter font: SIL OFL 1.1. Other attribution (JA
 - Kiri: jam besar, kalendar, **waktu solat JAKIM** (zon dipilih sendiri; jadual rasmi 2026 untuk SGR01–03 & WLY01 dibundel, zon lain dimuat turun).
 - Kanan: kosong secara lalai (wallpaper kelihatan) — atau **panel media** (YouTube web, Radio FM OEM, paparan kereta Saga 8 sudut) atau **grid app berhalaman** dengan folder (pilihan).
 - Dock terapung: 3 kegemaran (Bluetooth, Files, YouTube — tekan lama untuk tukar), Settings, Apps.
-- **Drive:** skrin gaya Android Auto — peta di satu sisi, SmartTube/NewPipe/YouTube/muzik di sisi lain (split-screen Android), dengan bar gaya Android Auto: launcher app, pintasan peta/media/telefon/Settings dan status bateri + jam (**tiada mikrofon**). Lihat [`docs/DRIVE-MODE.md`](docs/DRIVE-MODE.md).
+- **Drive Dashboard:** mod peta/audio/FM/YouTube dengan kad media, countdown JAKIM dan tarikh. Split-screen, floating bar dan servis aksesibiliti lama telah dibuang.
 - App Library dengan carian, Control Center (Wi-Fi, Bluetooth, kecerahan, kelantangan, media), Settings lengkap.
 
 **Liquid Glass (dibina khas untuk Android 8.1)**
@@ -126,7 +126,7 @@ Tetapan: **Settings → Home & Dock → Liquid Glass** (gaya ikon, mod prestasi,
 - APK debug: kemas kini antara binaan debug yang ditandatangani kunci berbeza memerlukan nyahpasang dahulu.
 - Panel FM bergantung pada perkhidmatan radio OEM (`com.android.fmradio` / `com.acloud.stub.extradio`); ia tidak membekalkan pemacu radio.
 - Panel YouTube web bergantung pada WebView peranti — pada Android 8.1, tetapkan **Developer options → WebView implementation → Chrome**.
-- **Video penuh skrin dalam split-screen:** Android tidak membenarkan app mengambil seluruh skrin semasa ia berada dalam multi-window, jadi tiada pemain (YouTube, SmartTube, VLC, …) boleh benar-benar penuh skrin *di dalam* split Drive. Tamatkan split dahulu (butang petak pada bar Drive) dan app fokus akan mengambil seluruh skrin.
+- **Video dashboard:** fullscreen laman memenuhi ruang pemain; Expand menggunakan tetingkap app penuh. Pilihan Muat/Isi dan kawalan auto-hide dikekalkan.
 
 ### Bina sendiri
 JDK 17+, Android SDK 35, Gradle wrapper 8.9:
@@ -141,7 +141,7 @@ APK: `app/build/outputs/apk/debug/app-debug.apk`. CI GitHub Actions (`.github/wo
 | [`CHANGELOG.md`](CHANGELOG.md) | Sejarah perubahan |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Cara menyumbang & melapor isu head unit |
 | [`docs/DESIGN.md`](docs/DESIGN.md) | Reka bentuk Liquid Glass & Home |
-| [`docs/DRIVE-MODE.md`](docs/DRIVE-MODE.md) | Skrin Drive (split-screen), kebenaran, ADB |
+| [`docs/DRIVE-DASHBOARD-0.5.0-RC1.md`](docs/DRIVE-DASHBOARD-0.5.0-RC1.md) | Native Dashboard, widgets, permissions and remaining device tests |
 | [`docs/SCREENSHOTS.md`](docs/SCREENSHOTS.md) | Skrin mana yang dirakam, nama fail dan arahan |
 | [`docs/VALIDATION.md`](docs/VALIDATION.md) | Keputusan ujian sebenar (PASS/FAIL/NOT RUN) |
 | [`docs/HEADUNIT-APPS.md`](docs/HEADUNIT-APPS.md) | App head unit Saga, audit keserasian, cadangan Waze/YouTube/debloat |

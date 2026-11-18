@@ -1,0 +1,10 @@
+### Instrumentation (emulator API27 x86_64, benar-benar dijalankan)
+
+| Kelas | Jenis | Keputusan | Butiran |
+|---|---|---|---|
+| DriveDashboardChecks | gate | LULUS | stream=PASS: 24 D |
+| DrivingWorkspaceChecks | gate | LULUS | stream=PASS: 33 d |
+| CrashSafetyChecks | gate | LULUS | stream=PASS: 5 c |
+| MaterialSwitchChecks | gate | LULUS | stream=PASS: 13  |
+| PanelFullscreenChecks | gate | LULUS | stream=PASS: 30 panel fullsc |
+| QualityChecks | gate | LULUS | stream=PASS: 50 clock/cache/lifecycle checks |

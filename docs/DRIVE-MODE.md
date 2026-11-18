@@ -1,3 +1,5 @@
+> Historical split-screen documentation. Superseded in iDash4 0.5.0-rc1 by [Drive Dashboard](DRIVE-DASHBOARD-0.5.0-RC1.md). The old accessibility/overlay setup below does not apply to this version.
+
 # Drive — skrin gaya Android Auto (split-screen)
 
 Peta di satu sisi, media (SmartTube/NewPipe/YouTube/muzik/radio) di sisi lain, dengan bar kawalan terapung berjam di bawah.

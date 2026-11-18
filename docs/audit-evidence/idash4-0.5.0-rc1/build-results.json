@@ -1,0 +1,46 @@
+{
+  "unit": {
+    "tests": 56,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "lint": {
+    "Error": 0,
+    "Warning": 83
+  },
+  "apk_sha256": "84274426e41c935ab4d12bf9e444fb75b71148525feab1961007cb00d5a98568",
+  "runtime": {
+    "QualityChecks": {
+      "assertions": 50,
+      "status": "PASS",
+      "evidence": "QualityChecks.txt"
+    },
+    "DriveDashboardChecks": {
+      "assertions": 24,
+      "status": "PASS",
+      "evidence": "final-followup/DriveDashboardChecks.txt"
+    },
+    "MaterialSwitchChecks": {
+      "assertions": 13,
+      "status": "PASS",
+      "evidence": "MaterialSwitchChecks.txt"
+    },
+    "PanelFullscreenChecks": {
+      "assertions": 30,
+      "status": "PASS",
+      "evidence": "PanelFullscreenChecks.txt"
+    },
+    "DrivingWorkspaceChecks": {
+      "assertions": 33,
+      "status": "PASS",
+      "evidence": "DrivingWorkspaceChecks.txt"
+    },
+    "CrashSafetyChecks": {
+      "assertions": 5,
+      "status": "PASS",
+      "evidence": "CrashSafetyChecks.txt"
+    }
+  },
+  "runtime_assertions_unique": 155
+}
