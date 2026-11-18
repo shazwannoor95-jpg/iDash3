@@ -1,6 +1,6 @@
 # iDash4 — iDash3 integration
 
-**Current candidate: iDash4 0.6.0-rc1** — native JAKIM prayer journey with six MYT phases, time-based arc, controlled motion and static low-performance mode. [Download debug APK](dist/iDash4-0.6.0-rc1-debug.apk?raw=true) · [Journey scope and audit](docs/PRAYER-JOURNEY-0.6.0-RC1.md). Shared glass renderer and `main` remain unchanged.
+**Current candidate: iDash4 0.6.0-rc2** — reference-image Liquid Glass prayer artwork with live JAKIM text, animated native arc and image-icon overlays. [Download debug APK](dist/iDash4-0.6.0-rc2-debug.apk?raw=true) · [Artwork audit](docs/PRAYER-ARTWORK-0.6.0-RC2.md). Shared glass renderer and `main` remain unchanged.
 
 **Revert panel appearance:** Settings → Home & Dock → Liquid Glass → Material panel → **Classic iDash3**. The new iOS26 panel material and the icon-pack switch are independent.
 

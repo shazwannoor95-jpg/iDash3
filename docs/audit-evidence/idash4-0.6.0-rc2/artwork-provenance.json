@@ -1,0 +1,37 @@
+{
+  "dawn": {
+    "source": "image_gen clean-plate edit of user inline reference",
+    "clean_plate_png_sha256": "b66d71e591e6f95d1a9b93decd6edd6ef2d3afb993318e80d6928268bab8887b",
+    "asset_sha256": "50240459b87b5ffffc1cfed55fccfec46dd0fb1193b9f407128f1f996eb6dcfa",
+    "bytes": 118946,
+    "encoding": "WebP quality 93; original pixel dimensions retained"
+  },
+  "noon": {
+    "source": "image_gen clean-plate edit of user inline reference",
+    "clean_plate_png_sha256": "d24d53b97e887a76ddc5caf5a0ec95032b45dd94bd06a18d4737795056d1d17e",
+    "asset_sha256": "7947ebb1b1abf4ebc887f244c7ba5287fb24ffaeee5db120aebc86c30d77a825",
+    "bytes": 136656,
+    "encoding": "WebP quality 93; original pixel dimensions retained"
+  },
+  "afternoon": {
+    "source": "image_gen clean-plate edit of user inline reference",
+    "clean_plate_png_sha256": "0e695f3836c23d3f8d09f5f295c17274fb5a9748828e411533aaf7b0c2c6f6f2",
+    "asset_sha256": "180c1fff988feeb92e697268123df01aceb87e50f7de75b87cae6b844ef488da",
+    "bytes": 140764,
+    "encoding": "WebP quality 93; original pixel dimensions retained"
+  },
+  "sunset": {
+    "source": "image_gen clean-plate edit of user inline reference",
+    "clean_plate_png_sha256": "2ced77fad79dcf672019cfbf834d2534d74bb4d7b160c0a17be8b72322d42d4d",
+    "asset_sha256": "314e984022da49c97eaf85d41a40161aa3d3255dd68b074b0be05a904b729813",
+    "bytes": 134540,
+    "encoding": "WebP quality 93; original pixel dimensions retained"
+  },
+  "night": {
+    "source": "image_gen clean-plate edit of user inline reference",
+    "clean_plate_png_sha256": "429eb53757a33a55f60e21aac6cf1e5a29488dc184c254a11e5025304884d6e2",
+    "asset_sha256": "288460509e012bfb089757912d59c7867ca1b3864a2644d2d76433d066f7ae51",
+    "bytes": 119960,
+    "encoding": "WebP quality 93; original pixel dimensions retained"
+  }
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shazwan.idash3.PrayerArtLayoutTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-18T15:45:22" hostname="bb8898bc0593" time="0.0">
+  <properties/>
+  <testcase name="sixPhasesUseFiveOriginalScenes" classname="com.shazwan.idash3.PrayerArtLayoutTest" time="0.0"/>
+  <testcase name="syurukIsMiddleNode" classname="com.shazwan.idash3.PrayerArtLayoutTest" time="0.0"/>
+  <testcase name="progressIsBoundedAndContinuous" classname="com.shazwan.idash3.PrayerArtLayoutTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
