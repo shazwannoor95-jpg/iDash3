@@ -29,6 +29,7 @@ final class DashWebPlayer extends LinearLayout implements AutoCloseable {
     private final Handler main=new Handler(Looper.getMainLooper());
     private boolean active,closed;private String lastAddress="";
     private View customView;
+    private LinearLayout controls;private int searchVisibility,statusVisibility;
     private FrameLayout fullscreenOverlay;
     private ViewGroup fullscreenParent;
     private WebChromeClient.CustomViewCallback fullscreenCallback;
@@ -57,10 +58,10 @@ final class DashWebPlayer extends LinearLayout implements AutoCloseable {
         query.setHint("YouTube link or search");query.setImeOptions(EditorInfo.IME_ACTION_GO);
         query.setOnEditorActionListener((v,action,event)->{if(action==EditorInfo.IME_ACTION_GO){open(query.getText().toString());return true;}return false;});
         search.addView(query,new LayoutParams(0,dp(48),1));search.addView(button("Go",()->open(query.getText().toString())),new LayoutParams(dp(48),dp(48)));addView(search);
-        body=new FrameLayout(activity);body.setBackgroundColor(Color.BLACK);addView(body,new LayoutParams(-1,0,1));viewportWidth=designW;stage=new ResolutionStage(activity,0,0);body.addView(stage,new FrameLayout.LayoutParams(-1,-1));
+        body=new FrameLayout(activity);body.setBackgroundColor(Color.BLACK);addView(body,new LayoutParams(-1,0,1));viewportWidth=designW;stage=new ResolutionStage(activity,designW,designH);body.addView(stage,new FrameLayout.LayoutParams(-1,-1));
         start=button("Start YouTube web\nPlays here · Internet required",()->open(lastAddress.isEmpty()?query.getText().toString():lastAddress));start.setTextSize(14);body.addView(start,new FrameLayout.LayoutParams(-1,-1));
         status=new TextView(activity);status.setTextSize(11);status.setTextColor(0xffbdcce5);status.setText("Website player · tap video to play");status.setMaxLines(2);addView(status,new LayoutParams(-1,-2));
-        LinearLayout controls=new LinearLayout(activity);
+        controls=new LinearLayout(activity);
         controls.addView(button("Back",()->{if(!exitFullscreen()&&web!=null&&web.canGoBack())web.goBack();}),new LayoutParams(0,dp(48),1));
         controls.addView(button("Search",()->{boolean show=searchRow.getVisibility()!=VISIBLE;searchRow.setVisibility(show?VISIBLE:GONE);status.setVisibility(show?VISIBLE:GONE);}),new LayoutParams(0,dp(48),1));
         controls.addView(button("Home",()->open("")),new LayoutParams(0,dp(48),1));
@@ -132,6 +133,8 @@ final class DashWebPlayer extends LinearLayout implements AutoCloseable {
         if(!(decor instanceof ViewGroup)){notifyHidden(callback);return;}
         savedSystemUi=decor.getSystemUiVisibility();savedWindowFlags=activity.getWindow().getAttributes().flags&FULLSCREEN_WINDOW_FLAGS;
         customView=view;fullscreenCallback=callback;fullscreenParent=body;
+        searchVisibility=searchRow.getVisibility();statusVisibility=status.getVisibility();
+        searchRow.setVisibility(GONE);status.setVisibility(GONE);controls.setVisibility(GONE);stage.setVisibility(GONE);
         FrameLayout overlay=new FrameLayout(activity);fullscreenOverlay=overlay;overlay.setBackgroundColor(Color.BLACK);
         overlay.setClickable(true);overlay.setFocusableInTouchMode(true);overlay.setContentDescription("YouTube web fullscreen video");
         overlay.setOnKeyListener((v,key,event)->{if(key!=KeyEvent.KEYCODE_BACK)return false;if(event.getAction()==KeyEvent.ACTION_UP)exitFullscreen();return true;});
@@ -170,6 +173,7 @@ final class DashWebPlayer extends LinearLayout implements AutoCloseable {
         if(customView==null)return false;
         View oldView=customView;FrameLayout overlay=fullscreenOverlay;ViewGroup parent=fullscreenParent;WebChromeClient.CustomViewCallback callback=fullscreenCallback;
         customView=null;fullscreenOverlay=null;fullscreenParent=null;fullscreenCallback=null;
+        controls.setVisibility(VISIBLE);stage.setVisibility(VISIBLE);searchRow.setVisibility(searchVisibility);status.setVisibility(statusVisibility);
         if(overlay!=null){overlay.setOnKeyListener(null);overlay.removeView(oldView);if(parent!=null)parent.removeView(overlay);}
         activity.getWindow().setFlags(savedWindowFlags,FULLSCREEN_WINDOW_FLAGS);
         activity.getWindow().getDecorView().setSystemUiVisibility(savedSystemUi);

@@ -41,8 +41,8 @@ final class AppLibraryGrid extends LinearLayout {
     if(index>=apps.size()){line.addView(new View(a),new LayoutParams(0,-1,1));continue;}
     LauncherActivity.App app=apps.get(index);LinearLayout tile=new LinearLayout(a);tile.setOrientation(VERTICAL);tile.setGravity(Gravity.CENTER);tile.setContentDescription("Open "+app.label);focusable(tile);tile.setOnFocusChangeListener((v,has)->{if(has)focusedComponent=app.component;});
     ImageView icon=new ImageView(a);icon.setImageBitmap(app.icon);icon.setScaleType(ImageView.ScaleType.FIT_CENTER);tile.addView(icon,new LayoutParams(a.dp(88),a.dp(88)));
-    TextView label=a.text(app.label,17,Color.WHITE);label.setMaxLines(getResources().getConfiguration().fontScale>1.2f?2:1);label.setIncludeFontPadding(false);label.setEllipsize(TextUtils.TruncateAt.END);label.setGravity(Gravity.CENTER);label.setShadowLayer(a.dp(2),0,a.dp(1),0x88000000);
-    LayoutParams lp=new LayoutParams(-1,labelHeight());lp.topMargin=a.dp(6);tile.addView(label,lp);
+    TextView label=a.text(app.label,15,Color.WHITE);label.setMaxLines(getResources().getConfiguration().fontScale>1.2f?2:1);label.setIncludeFontPadding(false);label.setEllipsize(TextUtils.TruncateAt.END);label.setGravity(Gravity.CENTER);label.setShadowLayer(a.dp(2),0,a.dp(1),0x88000000);
+    LayoutParams lp=new LayoutParams(-1,labelHeight());lp.topMargin=a.dp(4);tile.addView(label,lp);
     tile.setOnClickListener(v->a.launch(app));tile.setOnLongClickListener(v->{new android.app.AlertDialog.Builder(a).setTitle("Add "+app.label+" to favorites").setItems(a.slots,(d,which)->a.assign(which,app)).show();return true;});
     final int column=col;final int rowIndex=row;
     tile.setOnKeyListener((v,key,event)->{
@@ -64,7 +64,7 @@ final class AppLibraryGrid extends LinearLayout {
   GradientDrawable selected=new GradientDrawable();selected.setColor(0x553b83d5);selected.setCornerRadius(a.dp(12));selected.setStroke(a.dp(3),Color.WHITE);
   states.addState(new int[]{android.R.attr.state_focused},selected);states.addState(new int[]{android.R.attr.state_pressed},selected);states.addState(new int[]{},new android.graphics.drawable.ColorDrawable(Color.TRANSPARENT));v.setBackground(states);
  }
- private int labelHeight(){return Math.max(a.dp(28),(int)Math.ceil(17*getResources().getDisplayMetrics().scaledDensity*1.35f)*(getResources().getConfiguration().fontScale>1.2f?2:1));}
+ private int labelHeight(){return Math.max(a.dp(24),(int)Math.ceil(15*getResources().getDisplayMetrics().scaledDensity*1.35f)*(getResources().getConfiguration().fontScale>1.2f?2:1));}
  private void focusIndex(int index){int r=index/COLUMNS,c=index%COLUMNS;if(index>=0&&r<cells.getChildCount()&&cells.getChildAt(r) instanceof LinearLayout){ViewGroup row=(ViewGroup)cells.getChildAt(r);if(c<row.getChildCount()){View target=row.getChildAt(c);if(target.isLaidOut())target.requestFocus();else target.addOnLayoutChangeListener(new View.OnLayoutChangeListener(){public void onLayoutChange(View v,int l,int t,int right,int b,int ol,int ot,int or,int ob){if(right>l&&b>t){v.removeOnLayoutChangeListener(this);v.requestFocus();}}});}}}
  private void sizeIcons(){
   int size=Math.max(a.dp(24),Math.min(a.dp(120),Math.min(viewport.getWidth()/COLUMNS-a.dp(24),viewport.getHeight()/ROWS-labelHeight()-a.dp(10))));

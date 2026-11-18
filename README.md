@@ -1,6 +1,6 @@
 # iDash4 — iDash3 integration
 
-**Current candidate: iDash4 0.4.0-rc2** — panel lifecycle, App Library focus/pagination and opt-in readability improvements. [Download debug APK](dist/iDash4-0.4.0-rc2-debug.apk?raw=true) · [rc2 audit and remaining device checks](docs/IDASH4-RC2-AUDIT.md). Maps search and live YouTube playback still require physical head-unit validation. `main` is unchanged. [Previous rc1 integration audit](docs/IDASH4-INTEGRATION-AUDIT.md).
+**Current candidate: iDash4 0.4.0-rc3** — proportionally fitted panel layouts, clearer layout labels and fullscreen toolbar cleanup. [Download debug APK](dist/iDash4-0.4.0-rc3-debug.apk?raw=true) · [rc3 audit and device checks](docs/IDASH4-RC3-AUDIT.md). Maps update-required and native YouTube error 400 still need app compatibility investigation. `main` remains unchanged.
 
 **Revert panel appearance:** Settings → Home & Dock → Liquid Glass → Material panel → **Classic iDash3**. The new iOS26 panel material and the icon-pack switch are independent.
 

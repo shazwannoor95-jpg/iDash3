@@ -12,9 +12,9 @@ import android.widget.FrameLayout;
  */
 final class ResolutionStage extends FrameLayout {
     static final String PREF = "panel_resolution";
-    static final String[] NAMES = {"Isi panel", "360p (640×360)", "480p (854×480)", "540p (960×540)", "720p (1280×720)"};
+    static final String[] NAMES = {"Auto (ikut panel)", "Layout 640×360", "Layout 854×480", "Layout 960×540", "Layout 1280×720"};
     static final int[][] SIZES = {{0, 0}, {640, 360}, {854, 480}, {960, 540}, {1280, 720}};
-    static final int DEFAULT = 2;
+    static final int DEFAULT = 1;
 
     private int designW, designH;
     private final float density;

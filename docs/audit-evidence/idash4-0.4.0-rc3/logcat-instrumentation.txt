@@ -1,0 +1,552 @@
+--------- beginning of main
+11-18 06:34:58.142  9932  9932 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-18 06:34:58.525  9932  9932 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-18 06:34:58.548  9932  9932 I app_process: The ClassLoaderContext is a special shared library.
+11-18 06:34:58.695  9932  9932 D AndroidRuntime: Calling main entry com.android.commands.wm.Wm
+--------- beginning of system
+11-18 06:34:58.707  1631  2647 I WindowManager: Using new display size: 640x600
+11-18 06:34:58.776  9932  9932 D AndroidRuntime: Shutting down VM
+11-18 06:34:58.875  9932  9932 W app_process: Suspending all threads took: 12.521ms
+11-18 06:35:00.066  1631  1656 E memtrack: Couldn't load memtrack module
+11-18 06:35:00.066  1631  1656 W android.os.Debug: failed to get memory consumption info: -1
+11-18 06:35:00.204  1395  1419 D hwcomposer: hw_composer sent 12 syncs in 60s
+11-18 06:35:00.211  9942  9942 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-18 06:35:00.693  9942  9942 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-18 06:35:00.711  9942  9942 I app_process: The ClassLoaderContext is a special shared library.
+11-18 06:35:00.862  9942  9942 D AndroidRuntime: Calling main entry com.android.commands.wm.Wm
+11-18 06:35:00.913  9942  9942 D AndroidRuntime: Shutting down VM
+11-18 06:35:01.857  1631  1664 D AutofillManagerService: Close system dialogs
+11-18 06:35:02.911  9963  9963 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-18 06:35:03.238  9963  9963 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-18 06:35:03.258  9963  9963 I app_process: The ClassLoaderContext is a special shared library.
+11-18 06:35:03.390  9963  9963 D AndroidRuntime: Calling main entry com.android.commands.am.Am
+11-18 06:35:03.416  1631  2647 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: start instr
+11-18 06:35:03.556  1631  2647 W ActivityManager: Slow operation: 133ms so far, now at startProcess: returned from zygote!
+11-18 06:35:03.557  1631  2647 W ActivityManager: Slow operation: 134ms so far, now at startProcess: done updating battery stats
+11-18 06:35:03.558  1631  2647 W ActivityManager: Slow operation: 136ms so far, now at startProcess: building log message
+11-18 06:35:03.558  1631  2647 I ActivityManager: Start proc 9973:com.shazwan.idash3/u0a59 for added application com.shazwan.idash3
+11-18 06:35:03.558  1631  2647 W ActivityManager: Slow operation: 136ms so far, now at startProcess: starting to update pids map
+11-18 06:35:03.562  1631  2647 W ActivityManager: Slow operation: 140ms so far, now at startProcess: done updating pids map
+11-18 06:35:03.579  1631  1657 W zygote64: Long monitor contention with owner Binder:1631_E (2647) at boolean com.android.server.am.ActivityManagerService.startInstrumentation(android.content.ComponentName, java.lang.String, int, android.os.Bundle, android.app.IInstrumentationWatcher, android.app.IUiAutomationConnection, int, java.lang.String)(ActivityManagerService.java:19963) waiters=0 in void com.android.server.am.ActivityStackSupervisor$ActivityStackSupervisorHandler.activityIdleInternal(com.android.server.am.ActivityRecord, boolean) for 158ms
+11-18 06:35:03.607  9973  9973 I zygote64: Late-enabling -Xcheck:jni
+11-18 06:35:03.634  1631  1658 W zygote64: Long monitor contention with owner Binder:1631_E (2647) at boolean com.android.server.am.ActivityManagerService.startInstrumentation(android.content.ComponentName, java.lang.String, int, android.os.Bundle, android.app.IInstrumentationWatcher, android.app.IUiAutomationConnection, int, java.lang.String)(ActivityManagerService.java:19963) waiters=1 in void com.android.server.am.ActivityManagerService.dispatchUidsChanged() for 212ms
+11-18 06:35:03.636  1631  1658 W Looper  : Dispatch took 215ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {490daac} cb=null msg=53
+11-18 06:35:03.697  9973  9973 W zygote64: Unexpected CPU variant for X86 using defaults: x86_64
+11-18 06:35:03.893  9973  9973 I zygote64: The ClassLoaderContext is a special shared library.
+11-18 06:35:03.920  9973  9973 I zygote64: The ClassLoaderContext is a special shared library.
+11-18 06:35:03.931  9973  9973 W zygote64: ClassLoaderContext classpath element mismatch for position 0. expected=/system/framework/android.test.mock.jar, found=/system/framework/android.test.runner.jar (PCL[/system/framework/android.test.mock.jar*1065265343:/system/framework/android.test.runner.jar*1742119008] | PCL[/system/framework/android.test.runner.jar*1742119008:/system/framework/android.test.mock.jar*1065265343])
+11-18 06:35:03.945  9973  9973 W zygote64: ClassLoaderContext classpath size mismatch for position 0. expected=0, found=5 (PCL[] | PCL[/system/framework/android.test.runner.jar*1742119008:/system/framework/android.test.mock.jar*1065265343:/data/app/com.shazwan.idash3.test-_LqExtY3xRS3iFjKw53Dyw==/base.apk*4289975998:/data/app/com.shazwan.idash3.test-_LqExtY3xRS3iFjKw53Dyw==/base.apk!classes2.dex*244078000:/data/app/com.shazwan.idash3.test-_LqExtY3xRS3iFjKw53Dyw==/base.apk!classes3.dex*4171577632])
+11-18 06:35:04.030  9973  9973 W System  : ClassLoader referenced unknown path: 
+11-18 06:35:04.111  1631  4195 I ActivityManager: START u0 {flg=0x10000000 cmp=com.shazwan.idash3/.LauncherActivity} from uid 10059
+11-18 06:35:04.350  1394  1394 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 06:35:04.700  1631  1657 W ActivityManager: Activity pause timeout for ActivityRecord{c99867a u0 android/com.android.internal.app.ResolverActivity t4}
+11-18 06:35:04.817  1404  1430 E SurfaceFlinger: size mismatch (640, 600) > (320, 640)
+11-18 06:35:04.837  1394  1394 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 06:35:04.859  1404  1404 E SurfaceFlinger: Invalid crop rect: r = 640 (> 320)
+11-18 06:35:04.913  1631  6883 W zygote64: Long monitor contention with owner ActivityManager (1657) at void com.android.server.am.ActivityStack$ActivityStackHandler.handleMessage(android.os.Message)(ActivityStack.java:392) waiters=1 in int com.android.server.am.ActivityManagerService.getActivityDisplayId(android.os.IBinder) for 175ms
+11-18 06:35:04.933  1631  1658 W zygote64: Long monitor contention with owner ActivityManager (1657) at void com.android.server.am.ActivityStack$ActivityStackHandler.handleMessage(android.os.Message)(ActivityStack.java:392) waiters=0 in void com.android.server.am.ActivityManagerService.dispatchProcessesChanged() for 197ms
+11-18 06:35:04.998  1631  1658 W Looper  : Dispatch took 283ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {490daac} cb=null msg=31
+11-18 06:35:06.653  1404  1430 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-18 06:35:06.679  9973  9994 D OpenGLRenderer: HWUI GL Pipeline
+11-18 06:35:07.360  9973  9984 I zygote64: Background concurrent copying GC freed 13464(1844KB) AllocSpace objects, 5(164KB) LOS objects, 49% free, 1774KB/3MB, paused 16.733ms total 1.070s
+11-18 06:35:07.933  1394  1394 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 06:35:07.943  1631  1716 W zygote64: Long monitor contention with owner Binder:1631_11 (2650) at int com.android.server.wm.WindowManagerService.relayoutWindow(com.android.server.wm.Session, android.view.IWindow, int, android.view.WindowManager$LayoutParams, int, int, int, int, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.util.MergedConfiguration, android.view.Surface)(WindowManagerService.java:1930) waiters=1 in void com.android.server.wm.WindowAnimator.lambda$-com_android_server_wm_WindowAnimator_3951(long) for 423ms
+11-18 06:35:07.956  1394  1394 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 06:35:07.963  1394  1394 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 06:35:08.075  9973  9994 D         : HostConnection::get() New Host Connection established 0x7c5a35e244e0, tid 9994
+11-18 06:35:08.237  9973  9994 I zygote64: android::hardware::configstore::V1_0::ISurfaceFlingerConfigs::hasWideColorDisplay retrieved: 0
+11-18 06:35:08.238  9973  9994 I OpenGLRenderer: Initialized EGL, version 1.4
+11-18 06:35:08.238  9973  9994 D OpenGLRenderer: Swap behavior 1
+11-18 06:35:08.254  9973  9994 D EGL_emulation: eglCreateContext: 0x7c5a35e3ea80: maj 3 min 0 rcv 3
+11-18 06:35:08.268  9973  9994 D EGL_emulation: eglMakeCurrent: 0x7c5a35e3ea80: ver 3 0 (tinfo 0x7c5a35e0d7a0)
+11-18 06:35:08.372  1404  1430 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-18 06:35:08.438  1394  1394 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 06:35:08.500  1394  1394 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 06:35:08.568  9973  9973 I Choreographer: Skipped 104 frames!  The application may be doing too much work on its main thread.
+11-18 06:35:09.230  9973  9994 D EGL_emulation: eglMakeCurrent: 0x7c5a35e3ea80: ver 3 0 (tinfo 0x7c5a35e0d7a0)
+11-18 06:35:12.383  9973  9978 I zygote64: Do partial code cache collection, code=2464B, data=29KB
+11-18 06:35:12.592  9973  9978 I zygote64: After code cache collection, code=2464B, data=29KB
+11-18 06:35:12.593  9973  9978 I zygote64: Increasing code cache capacity to 128KB
+11-18 06:35:12.807  9973  9978 I zygote64: Do partial code cache collection, code=2464B, data=47KB
+11-18 06:35:12.843  9973  9978 I zygote64: After code cache collection, code=2464B, data=47KB
+11-18 06:35:12.844  9973  9978 I zygote64: Increasing code cache capacity to 256KB
+11-18 06:35:12.966  9973  9978 I zygote64: JIT allocated 71KB for compiled code of void android.widget.TextView.<init>(android.content.Context, android.util.AttributeSet, int, int)
+11-18 06:35:12.974  9973  9978 I zygote64: Compiler allocated 7MB to compile void android.widget.TextView.<init>(android.content.Context, android.util.AttributeSet, int, int)
+11-18 06:35:13.263  1631  1666 W zygote64: Long monitor contention with owner android.anim (1716) at void com.android.server.wm.WindowSurfacePlacer.lambda$-com_android_server_wm_WindowSurfacePlacer_5337()(WindowSurfacePlacer.java:107) waiters=0 in void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message) for 145ms
+11-18 06:35:13.263  1631  2650 W zygote64: Long monitor contention with owner android.anim (1716) at void com.android.server.wm.WindowSurfacePlacer.lambda$-com_android_server_wm_WindowSurfacePlacer_5337()(WindowSurfacePlacer.java:107) waiters=1 in boolean com.android.server.wm.WindowManagerService.inputMethodClientHasFocus(com.android.internal.view.IInputMethodClient) for 129ms
+11-18 06:35:13.413  1631  2650 W zygote64: Long monitor contention with owner android.anim (1716) at void com.android.server.wm.WindowManagerService.removeWindow(com.android.server.wm.Session, android.view.IWindow)(WindowManagerService.java:1714) waiters=1 in boolean com.android.server.wm.WindowManagerService.inputMethodClientHasFocus(com.android.internal.view.IInputMethodClient) for 149ms
+11-18 06:35:13.500  9973  9973 I Choreographer: Skipped 294 frames!  The application may be doing too much work on its main thread.
+11-18 06:35:13.623  1631  1666 I ActivityManager: Displayed com.shazwan.idash3/.LauncherActivity: +8s490ms
+11-18 06:35:13.944  9973  9984 I zygote64: Background concurrent copying GC freed 25767(927KB) AllocSpace objects, 2(284KB) LOS objects, 49% free, 2033KB/3MB, paused 979us total 880.632ms
+11-18 06:35:14.190  1631  1657 W ActivityManager: Launch timeout has expired, giving up wake lock!
+11-18 06:35:14.801  1631  1656 E memtrack: Couldn't load memtrack module
+11-18 06:35:14.801  1631  1656 W android.os.Debug: failed to get memory consumption info: -1
+11-18 06:35:14.851  9973  9973 I Choreographer: Skipped 80 frames!  The application may be doing too much work on its main thread.
+11-18 06:35:15.007  1631  1658 W Looper  : Dispatch took 204ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {490daac} cb=null msg=53
+11-18 06:35:21.610  9973  9973 I Choreographer: Skipped 35 frames!  The application may be doing too much work on its main thread.
+11-18 06:35:22.500  9973  9978 I zygote64: Do full code cache collection, code=123KB, data=92KB
+11-18 06:35:22.674  9973  9978 I zygote64: After code cache collection, code=115KB, data=55KB
+11-18 06:35:23.030  9973  9984 I zygote64: Background concurrent copying GC freed 34474(1641KB) AllocSpace objects, 2(224KB) LOS objects, 50% free, 2MB/4MB, paused 1.728ms total 1.287s
+11-18 06:35:24.143  9973  9978 I zygote64: Do partial code cache collection, code=118KB, data=81KB
+11-18 06:35:24.738  9973  9978 I zygote64: After code cache collection, code=117KB, data=86KB
+11-18 06:35:24.738  9973  9978 I zygote64: Increasing code cache capacity to 512KB
+11-18 06:35:24.807  1631  1657 W ActivityManager: Activity stop timeout for ActivityRecord{c99867a u0 android/com.android.internal.app.ResolverActivity t4}
+11-18 06:35:24.972  9973  9973 I Choreographer: Skipped 88 frames!  The application may be doing too much work on its main thread.
+11-18 06:35:27.011  1631  4195 D AutofillManagerServiceImpl: Reset component for user 0
+11-18 06:35:27.083  9973  9973 I WebViewFactory: Loading com.android.webview version 61.0.3163.98 (code 316409860)
+11-18 06:35:27.216  9973  9973 I zygote64: The ClassLoaderContext is a special shared library.
+11-18 06:35:28.397  1402  1402 I boot-pipe: done populating /dev/random
+11-18 06:35:28.727  9973  9973 I cr_LibraryLoader: Time to load native libraries: 211 ms (timestamps 3281-3492)
+11-18 06:35:29.508  9973  9973 I chromium: [INFO:library_loader_hooks.cc(136)] Chromium logging enabled: level = 0, default verbosity = 0
+11-18 06:35:29.511  9973  9973 I cr_LibraryLoader: Expected native library version number "61.0.3163.98", actual native library version number "61.0.3163.98"
+11-18 06:35:29.822  9973  9973 I cr_BrowserStartup: Initializing chromium process, singleProcess=false
+11-18 06:35:29.888  9973 10002 W cr_ChildProcLH: Create a new ChildConnectionAllocator with package name = com.android.webview, sandboxed = true
+11-18 06:35:30.028  9973  9984 I zygote64: Background concurrent copying GC freed 22900(1187KB) AllocSpace objects, 10(640KB) LOS objects, 49% free, 3MB/7MB, paused 72us total 1.330s
+11-18 06:35:30.410  1631  2650 W ActivityManager: Slow operation: 270ms so far, now at startProcess: returned from zygote!
+11-18 06:35:30.410  1631  2650 W ActivityManager: Slow operation: 270ms so far, now at startProcess: done updating battery stats
+11-18 06:35:30.411  1631  2650 W ActivityManager: Slow operation: 270ms so far, now at startProcess: building log message
+11-18 06:35:30.411  1631  2650 I ActivityManager: Start proc 10003:com.android.webview:sandboxed_process0/u0i11 for webview_service com.shazwan.idash3/org.chromium.content.app.SandboxedProcessService0
+11-18 06:35:30.411  1631  2650 W ActivityManager: Slow operation: 271ms so far, now at startProcess: starting to update pids map
+11-18 06:35:30.411  1631  2650 W ActivityManager: Slow operation: 271ms so far, now at startProcess: done updating pids map
+11-18 06:35:30.411  1631  2650 W ActivityManager: Slow operation: 272ms so far, now at startProcess: done starting proc!
+11-18 06:35:30.454 10003 10003 E /system/bin/webview_zygote32: Failed to make and chown /acct/uid_99011: Permission denied
+11-18 06:35:30.456 10003 10003 E Zygote  : createProcessGroup(99011, 0) failed: Permission denied
+11-18 06:35:30.505 10003 10003 W /system/bin/webview_zygote32: Unexpected CPU variant for X86 using defaults: x86_64
+11-18 06:35:31.102  1631  2650 W ActivityManager: Slow operation: 70ms so far, now at attachApplicationLocked: after mServices.attachApplicationLocked
+11-18 06:35:31.114  1631  1656 E memtrack: Couldn't load memtrack module
+11-18 06:35:31.114  1631  1656 W android.os.Debug: failed to get memory consumption info: -1
+11-18 06:35:31.214  1631  1658 W Looper  : Dispatch took 116ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {490daac} cb=null msg=53
+11-18 06:35:31.359 10018 10018 E asset   : setgid: Operation not permitted
+11-18 06:35:31.433  9973  9973 W .shazwan.idash3: type=1400 audit(0.0:21): avc: denied { read } for name="vmstat" dev="proc" ino=4026532039 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:object_r:proc:s0 tclass=file permissive=0
+11-18 06:35:31.472  9973  9973 D         : HostConnection::get() New Host Connection established 0x7c5a3338e760, tid 9973
+11-18 06:35:31.488  9973  9973 D EGL_emulation: eglCreateContext: 0x7c5a29c7c740: maj 3 min 0 rcv 3
+11-18 06:35:31.502  9973  9973 D EGL_emulation: eglMakeCurrent: 0x7c5a29c7c740: ver 3 0 (tinfo 0x7c5a28e6e760)
+11-18 06:35:31.585 10003 10003 I LoadedApk: No resource references to update in package com.android.webview
+11-18 06:35:31.609 10003 10003 I cr_ChildProcessService: Creating new ChildProcessService pid=10003
+11-18 06:35:31.724  1631  1656 E memtrack: Couldn't load memtrack module
+11-18 06:35:31.724  1631  1656 W android.os.Debug: failed to get memory consumption info: -1
+11-18 06:35:32.552  9973 10000 W cr_CrashFileManager: /data/user/0/com.shazwan.idash3/cache/WebView/Crash Reports does not exist or is not a directory
+11-18 06:35:33.165  9973  9973 I Choreographer: Skipped 375 frames!  The application may be doing too much work on its main thread.
+11-18 06:35:33.562  9973  9973 W zygote64: Attempt to remove non-JNI local reference, dumping thread
+11-18 06:35:35.183  9973  9973 W zygote64: Attempt to remove non-JNI local reference, dumping thread
+11-18 06:35:36.084  9973  9984 I zygote64: NativeAlloc concurrent copying GC freed 27127(1568KB) AllocSpace objects, 15(1116KB) LOS objects, 50% free, 2MB/5MB, paused 26.791ms total 892.298ms
+11-18 06:35:36.487  1404  1431 E SurfaceFlinger: size mismatch (640, 600) > (320, 640)
+11-18 06:35:36.511  1394  1394 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 06:35:36.586  1404  1404 E SurfaceFlinger: Invalid crop rect: r = 640 (> 320)
+11-18 06:35:36.695  1631  2650 W zygote64: Long monitor contention with owner Binder:1631_14 (4195) at void com.android.server.am.ActivityManagerService.activityPaused(android.os.IBinder)(ActivityManagerService.java:7438) waiters=0 in android.app.ActivityManager$StackInfo com.android.server.am.ActivityManagerService.getStackInfo(int) for 411ms
+11-18 06:35:36.703  1631  2647 W zygote64: Long monitor contention with owner Binder:1631_14 (4195) at void com.android.server.wm.WindowManagerService.continueSurfaceLayout()(WindowManagerService.java:2951) waiters=0 in void com.android.server.wm.WindowManagerService.statusBarVisibilityChanged(int) for 350ms
+11-18 06:35:36.722  1631  1657 W zygote64: Long monitor contention with owner Binder:1631_14 (4195) at void com.android.server.am.ActivityManagerService.activityPaused(android.os.IBinder)(ActivityManagerService.java:7438) waiters=1 in boolean com.android.server.am.VrController.onVrModeChanged(com.android.server.am.ActivityRecord) for 408ms
+11-18 06:35:36.723  1631  1658 W zygote64: Long monitor contention with owner Binder:1631_14 (4195) at void com.android.server.am.ActivityManagerService.activityPaused(android.os.IBinder)(ActivityManagerService.java:7438) waiters=2 in void com.android.server.am.ActivityManagerService.dispatchProcessesChanged() for 402ms
+11-18 06:35:36.724  1631  1658 W Looper  : Dispatch took 403ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {490daac} cb=null msg=31
+11-18 06:35:36.728  1631  1812 W zygote64: Long monitor contention with owner Binder:1631_14 (4195) at void com.android.server.am.ActivityManagerService.activityPaused(android.os.IBinder)(ActivityManagerService.java:7438) waiters=4 in int com.android.server.am.ActivityManagerService.getLastResumedActivityUserId() for 246ms
+11-18 06:35:36.736  1631  1656 E memtrack: Couldn't load memtrack module
+11-18 06:35:36.736  1631  1656 W android.os.Debug: failed to get memory consumption info: -1
+11-18 06:35:36.763  1631  1666 W zygote64: Long monitor contention with owner Binder:1631_14 (4195) at void com.android.server.wm.WindowManagerService.continueSurfaceLayout()(WindowManagerService.java:2951) waiters=1 in void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message) for 406ms
+11-18 06:35:36.765  1631  1716 W zygote64: Long monitor contention with owner Binder:1631_14 (4195) at void com.android.server.wm.WindowManagerService.continueSurfaceLayout()(WindowManagerService.java:2951) waiters=2 in void com.android.server.wm.WindowAnimator.lambda$-com_android_server_wm_WindowAnimator_3951(long) for 403ms
+11-18 06:35:36.826  9973  9994 D EGL_emulation: eglMakeCurrent: 0x7c5a35e3ea80: ver 3 0 (tinfo 0x7c5a35e0d7a0)
+11-18 06:35:36.979  1631  1744 W zygote64: Long monitor contention with owner Binder:1631_4 (1812) at android.app.ActivityManager$StackInfo com.android.server.am.ActivityManagerService.getStackInfo(int)(ActivityManagerService.java:10885) waiters=1 in void com.android.server.am.ActivityManagerService$LocalService.notifyNetworkPolicyRulesUpdated(int, long) for 200ms
+11-18 06:35:36.993  1631  1658 W zygote64: Long monitor contention with owner Binder:1631_4 (1812) at android.app.ActivityManager$StackInfo com.android.server.am.ActivityManagerService.getStackInfo(int)(ActivityManagerService.java:10885) waiters=4 in void com.android.server.am.ActivityManagerService.dispatchUidsChanged() for 179ms
+11-18 06:35:36.993  1631  1658 W Looper  : Dispatch took 269ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {490daac} cb=null msg=53
+11-18 06:35:37.271  1631  4195 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: finished inst
+11-18 06:35:37.278  1631  4195 I ActivityManager: Killing 9973:com.shazwan.idash3/u0a59 (adj 0): stop com.shazwan.idash3
+11-18 06:35:37.345 10003 10003 I cr_ChildProcessService: Destroying ChildProcessService pid=10003
+11-18 06:35:37.355  1631  1659 W zygote64: kill(-9973, 9) failed: No such process
+11-18 06:35:37.382  1631 10033 W Binder  : Outgoing transactions from this process must be FLAG_ONEWAY
+11-18 06:35:37.382  1631 10033 W Binder  : java.lang.Throwable
+11-18 06:35:37.382  1631 10033 W Binder  : 	at android.os.BinderProxy.transact(Binder.java:752)
+11-18 06:35:37.382  1631 10033 W Binder  : 	at android.app.IInstrumentationWatcher$Stub$Proxy.instrumentationFinished(IInstrumentationWatcher.java:160)
+11-18 06:35:37.382  1631 10033 W Binder  : 	at com.android.server.am.InstrumentationReporter$MyThread.run(InstrumentationReporter.java:86)
+11-18 06:35:37.385 10003 10003 I /system/bin/webview_zygote32: System.exit called, status: 0
+11-18 06:35:37.385 10003 10003 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-18 06:35:37.394  1631  1659 W zygote64: kill(-9973, 9) failed: No such process
+11-18 06:35:37.434  1631  1659 W zygote64: kill(-9973, 9) failed: No such process
+11-18 06:35:37.453  1631  1666 W zygote64: Long monitor contention with owner android.anim (1716) at void com.android.server.wm.WindowSurfacePlacer.lambda$-com_android_server_wm_WindowSurfacePlacer_5337()(WindowSurfacePlacer.java:107) waiters=0 in void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message) for 141ms
+11-18 06:35:37.516  1631  1659 W zygote64: kill(-9973, 9) failed: No such process
+11-18 06:35:37.549  1631  4195 I ActivityManager: Killing 10003:com.android.webview:sandboxed_process0/u0a59i11 (adj 0): isolated not needed
+11-18 06:35:37.563  1631  1659 W zygote64: kill(-9973, 9) failed: No such process
+11-18 06:35:37.564  1631  1659 I zygote64: Successfully killed process cgroup uid 10059 pid 9973 in 269ms
+11-18 06:35:37.566  1631  1659 W zygote64: Failed to open process cgroup uid 99011 pid 10003: No such file or directory
+11-18 06:35:37.566  1631  1659 E zygote64: Error encountered killing process cgroup uid 99011 pid 10003: No such file or directory
+11-18 06:35:37.588  1631  2650 W zygote64: Long monitor contention with owner Binder:1631_14 (4195) at void com.android.server.am.ActivityManagerService.finishInstrumentation(android.app.IApplicationThread, int, android.os.Bundle)(ActivityManagerService.java:20136) waiters=2 in void com.android.server.am.ActivityManagerService.serviceDoneExecuting(android.os.IBinder, int, int, int) for 226ms
+11-18 06:35:37.589  1631  1658 W Looper  : Dispatch took 297ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {490daac} cb=null msg=53
+11-18 06:35:37.593  1631  2649 W zygote64: Long monitor contention with owner Binder:1631_14 (4195) at void com.android.server.am.ActivityManagerService.finishInstrumentation(android.app.IApplicationThread, int, android.os.Bundle)(ActivityManagerService.java:20136) waiters=3 in void com.android.server.am.ActivityManagerService$AppDeathRecipient.binderDied() for 152ms
+11-18 06:35:37.625  1631  1666 W ActivityManager: setHasOverlayUi called on unknown pid: 9973
+11-18 06:35:37.661  9963  9963 D AndroidRuntime: Shutting down VM
+11-18 06:35:37.679  1631  1660 E KernelCpuSpeedReader: Failed to read cpu-freq: /sys/devices/system/cpu/cpu0/cpufreq/stats/time_in_state (No such file or directory)
+11-18 06:35:37.684  1631  1660 D KernelUidCpuTimeReader: Removing uids 99011-99011
+11-18 06:35:37.861  1631  2887 I zygote64: android::hardware::configstore::V1_0::ISurfaceFlingerConfigs::hasWideColorDisplay retrieved: 0
+11-18 06:35:37.866  1631  2887 I OpenGLRenderer: Initialized EGL, version 1.4
+11-18 06:35:37.867  1631  2887 D OpenGLRenderer: Swap behavior 1
+11-18 06:35:37.877  1631  2887 D EGL_emulation: eglCreateContext: 0x7c5a1f823260: maj 3 min 0 rcv 3
+11-18 06:35:37.889  1631  2887 D EGL_emulation: eglMakeCurrent: 0x7c5a1f823260: ver 3 0 (tinfo 0x7c5a25ac7d20)
+11-18 06:35:37.895  1631 10033 I ActivityManager: Failure reporting to instrumentation watcher: comp=ComponentInfo{com.shazwan.idash3.test/com.shazwan.idash3.PanelFullscreenChecks} results=Bundle[mParcelledData.dataSize=108]
+11-18 06:35:38.169  1631  6883 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: from pid 10038
+11-18 06:35:38.257  1879  1879 D CarrierSvcBindHelper: No carrier app for: 0
+11-18 06:35:38.540  1631  1641 I zygote64: NativeAlloc concurrent copying GC freed 23833(1901KB) AllocSpace objects, 20(800KB) LOS objects, 42% free, 7MB/13MB, paused 310us total 320.954ms
+11-18 06:35:38.818  1631  1664 D AutofillManagerService: Close system dialogs
+11-18 06:35:39.902 10046 10046 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-18 06:35:40.294 10046 10046 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-18 06:35:40.316 10046 10046 I app_process: The ClassLoaderContext is a special shared library.
+11-18 06:35:40.466 10046 10046 D AndroidRuntime: Calling main entry com.android.commands.am.Am
+11-18 06:35:40.494  1631  6883 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: start instr
+11-18 06:35:40.534  1631  6883 I ActivityManager: Start proc 10056:com.shazwan.idash3/u0a59 for added application com.shazwan.idash3
+11-18 06:35:40.572 10056 10056 I zygote64: Late-enabling -Xcheck:jni
+11-18 06:35:40.627 10056 10056 W zygote64: Unexpected CPU variant for X86 using defaults: x86_64
+11-18 06:35:40.776 10056 10056 I zygote64: The ClassLoaderContext is a special shared library.
+11-18 06:35:40.786 10056 10056 I zygote64: The ClassLoaderContext is a special shared library.
+11-18 06:35:40.797 10056 10056 W zygote64: ClassLoaderContext classpath element mismatch for position 0. expected=/system/framework/android.test.mock.jar, found=/system/framework/android.test.runner.jar (PCL[/system/framework/android.test.mock.jar*1065265343:/system/framework/android.test.runner.jar*1742119008] | PCL[/system/framework/android.test.runner.jar*1742119008:/system/framework/android.test.mock.jar*1065265343])
+11-18 06:35:40.809 10056 10056 W zygote64: ClassLoaderContext classpath size mismatch for position 0. expected=0, found=5 (PCL[] | PCL[/system/framework/android.test.runner.jar*1742119008:/system/framework/android.test.mock.jar*1065265343:/data/app/com.shazwan.idash3.test-_LqExtY3xRS3iFjKw53Dyw==/base.apk*4289975998:/data/app/com.shazwan.idash3.test-_LqExtY3xRS3iFjKw53Dyw==/base.apk!classes2.dex*244078000:/data/app/com.shazwan.idash3.test-_LqExtY3xRS3iFjKw53Dyw==/base.apk!classes3.dex*4171577632])
+11-18 06:35:40.866 10056 10056 W System  : ClassLoader referenced unknown path: 
+11-18 06:35:40.935  1631  6883 I ActivityManager: START u0 {flg=0x10000000 cmp=com.shazwan.idash3/.LauncherActivity} from uid 10059
+11-18 06:35:41.147  1394  1394 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 06:35:41.467  1631  1657 W ActivityManager: Activity pause timeout for ActivityRecord{c99867a u0 android/com.android.internal.app.ResolverActivity t4}
+11-18 06:35:41.554  1404  1917 E SurfaceFlinger: size mismatch (640, 600) > (320, 640)
+11-18 06:35:41.573  1394  1394 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 06:35:41.585  1404  1404 E SurfaceFlinger: Invalid crop rect: r = 640 (> 320)
+11-18 06:35:41.627  1631  1658 W Looper  : Dispatch took 136ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {490daac} cb=null msg=31
+11-18 06:35:43.663  1404  1431 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-18 06:35:43.678 10056 10077 D OpenGLRenderer: HWUI GL Pipeline
+11-18 06:35:43.700 10056 10067 I zygote64: Background concurrent copying GC freed 13738(1865KB) AllocSpace objects, 7(448KB) LOS objects, 52% free, 1407KB/2MB, paused 692us total 755.364ms
+11-18 06:35:43.745 10056 10056 I Choreographer: Skipped 34 frames!  The application may be doing too much work on its main thread.
+11-18 06:35:44.608 10056 10077 D         : HostConnection::get() New Host Connection established 0x7c5a35e24360, tid 10077
+11-18 06:35:44.609  1631  2647 W zygote64: Long monitor contention with owner Binder:1631_15 (4309) at int com.android.server.wm.WindowManagerService.relayoutWindow(com.android.server.wm.Session, android.view.IWindow, int, android.view.WindowManager$LayoutParams, int, int, int, int, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.util.MergedConfiguration, android.view.Surface)(WindowManagerService.java:1930) waiters=2 in void com.android.server.wm.WindowManagerService.statusBarVisibilityChanged(int) for 176ms
+11-18 06:35:44.613  1631  1716 W zygote64: Long monitor contention with owner Binder:1631_15 (4309) at int com.android.server.wm.WindowManagerService.relayoutWindow(com.android.server.wm.Session, android.view.IWindow, int, android.view.WindowManager$LayoutParams, int, int, int, int, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.util.MergedConfiguration, android.view.Surface)(WindowManagerService.java:1930) waiters=1 in void com.android.server.wm.WindowAnimator.lambda$-com_android_server_wm_WindowAnimator_3951(long) for 363ms
+11-18 06:35:44.666  1394  1394 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 06:35:44.684  1394  1394 I chatty  : uid=1000(system) allocator@2.0-s identical 1 line
+11-18 06:35:44.741  1394  1394 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 06:35:44.856 10056 10077 I zygote64: android::hardware::configstore::V1_0::ISurfaceFlingerConfigs::hasWideColorDisplay retrieved: 0
+11-18 06:35:44.857 10056 10077 I OpenGLRenderer: Initialized EGL, version 1.4
+11-18 06:35:44.857 10056 10077 D OpenGLRenderer: Swap behavior 1
+11-18 06:35:44.884 10056 10077 D EGL_emulation: eglCreateContext: 0x7c5a35e3d680: maj 3 min 0 rcv 3
+11-18 06:35:44.900 10056 10077 D EGL_emulation: eglMakeCurrent: 0x7c5a35e3d680: ver 3 0 (tinfo 0x7c5a35e0d740)
+11-18 06:35:44.998  1394  1394 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 06:35:45.016  1404  1673 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-18 06:35:45.055  1394  1394 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 06:35:45.197  1631  1631 W zygote64: Long monitor contention with owner android.ui (1658) at boolean android.os.MessageQueue.enqueueMessage(android.os.Message, long)(MessageQueue.java:543) waiters=0 in android.os.Message android.os.MessageQueue.next() for 442ms
+11-18 06:35:45.200  1631  6883 W zygote64: Long monitor contention with owner android.ui (1658) at boolean android.os.MessageQueue.enqueueMessage(android.os.Message, long)(MessageQueue.java:543) waiters=1 in boolean android.os.MessageQueue.enqueueMessage(android.os.Message, long) for 401ms
+11-18 06:35:45.213  1631  1658 W Looper  : Dispatch took 463ms on android.ui, h=Handler (com.android.server.policy.PhoneWindowManager$PolicyHandler) {6688aec} cb=com.android.server.policy.PhoneWindowManager$21@7dd1ccd msg=0
+11-18 06:35:45.449 10056 10056 I Choreographer: Skipped 101 frames!  The application may be doing too much work on its main thread.
+11-18 06:35:46.182  1631  1657 W ActivityManager: Launch timeout has expired, giving up wake lock!
+11-18 06:35:46.202 10056 10077 D EGL_emulation: eglMakeCurrent: 0x7c5a35e3d680: ver 3 0 (tinfo 0x7c5a35e0d740)
+11-18 06:35:46.350  1631  1656 E memtrack: Couldn't load memtrack module
+11-18 06:35:46.350  1631  1656 W android.os.Debug: failed to get memory consumption info: -1
+11-18 06:35:47.174  1631  1656 E memtrack: Couldn't load memtrack module
+11-18 06:35:47.174  1631  1656 W android.os.Debug: failed to get memory consumption info: -1
+11-18 06:35:47.642 10056 10061 I zygote64: Do partial code cache collection, code=2464B, data=29KB
+11-18 06:35:47.791 10056 10067 I zygote64: Background concurrent copying GC freed 24102(855KB) AllocSpace objects, 0(0B) LOS objects, 49% free, 1981KB/3MB, paused 9.889ms total 315.094ms
+11-18 06:35:47.814 10056 10061 I zygote64: After code cache collection, code=2464B, data=29KB
+11-18 06:35:47.814 10056 10061 I zygote64: Increasing code cache capacity to 128KB
+11-18 06:35:47.821 10056 10061 I zygote64: Do partial code cache collection, code=2464B, data=47KB
+11-18 06:35:47.950 10056 10061 I zygote64: After code cache collection, code=2464B, data=47KB
+11-18 06:35:47.950 10056 10061 I zygote64: Increasing code cache capacity to 256KB
+11-18 06:35:47.974 10056 10061 I zygote64: JIT allocated 71KB for compiled code of void android.widget.TextView.<init>(android.content.Context, android.util.AttributeSet, int, int)
+11-18 06:35:47.975 10056 10061 I zygote64: Compiler allocated 7MB to compile void android.widget.TextView.<init>(android.content.Context, android.util.AttributeSet, int, int)
+11-18 06:35:49.571  1631  1666 I ActivityManager: Displayed com.shazwan.idash3/.LauncherActivity: +7s995ms
+11-18 06:35:49.658 10056 10056 I Choreographer: Skipped 250 frames!  The application may be doing too much work on its main thread.
+11-18 06:35:50.802 10056 10056 I Choreographer: Skipped 66 frames!  The application may be doing too much work on its main thread.
+11-18 06:35:53.421 10056 10056 I Choreographer: Skipped 90 frames!  The application may be doing too much work on its main thread.
+11-18 06:35:55.319 10056 10056 I Choreographer: Skipped 40 frames!  The application may be doing too much work on its main thread.
+11-18 06:35:55.460 10056 10061 I zygote64: Do full code cache collection, code=125KB, data=93KB
+11-18 06:35:56.503 10056 10061 I zygote64: After code cache collection, code=117KB, data=63KB
+11-18 06:35:56.552 10056 10061 I zygote64: Do partial code cache collection, code=123KB, data=75KB
+11-18 06:35:56.684 10056 10061 I zygote64: After code cache collection, code=121KB, data=75KB
+11-18 06:35:56.684 10056 10061 I zygote64: Increasing code cache capacity to 512KB
+11-18 06:35:56.873 10056 10067 I zygote64: Background concurrent copying GC freed 30307(1488KB) AllocSpace objects, 5(372KB) LOS objects, 49% free, 2MB/5MB, paused 2.156ms total 2.249s
+11-18 06:35:57.168 10056 10056 I Choreographer: Skipped 107 frames!  The application may be doing too much work on its main thread.
+11-18 06:36:00.022  1631  1656 E memtrack: Couldn't load memtrack module
+11-18 06:36:00.022  1631  1656 W android.os.Debug: failed to get memory consumption info: -1
+11-18 06:36:00.063 10056 10056 I Choreographer: Skipped 65 frames!  The application may be doing too much work on its main thread.
+11-18 06:36:00.104  1395  1419 D hwcomposer: hw_composer sent 115 syncs in 60s
+11-18 06:36:00.574 10056 10056 W View    : requestLayout() improperly called by android.widget.ImageView{f88c9cb V.ED..... ......ID 61,63-85,87} during layout: running second layout pass
+11-18 06:36:00.575 10056 10056 W View    : requestLayout() improperly called by android.widget.ImageView{8bbf5a8 V.ED..... ......ID 61,63-85,87} during layout: running second layout pass
+11-18 06:36:00.575 10056 10056 W View    : requestLayout() improperly called by android.widget.ImageView{4d0f8c1 V.ED..... ......ID 61,63-85,87} during layout: running second layout pass
+11-18 06:36:00.576 10056 10056 W View    : requestLayout() improperly called by android.widget.ImageView{f0ae866 V.ED..... ......ID 61,63-85,87} during layout: running second layout pass
+11-18 06:36:00.576 10056 10056 W View    : requestLayout() improperly called by android.widget.ImageView{f5837a7 V.ED..... ......ID 61,63-85,87} during layout: running second layout pass
+11-18 06:36:00.577 10056 10056 W View    : requestLayout() improperly called by android.widget.ImageView{baec454 V.ED..... ......ID 61,63-85,87} during layout: running second layout pass
+11-18 06:36:00.577 10056 10056 W View    : requestLayout() improperly called by android.widget.ImageView{6335ffd V.ED..... ......ID 61,63-85,87} during layout: running second layout pass
+11-18 06:36:00.578 10056 10056 W View    : requestLayout() improperly called by android.widget.ImageView{5cd24f2 V.ED..... ......ID 61,63-85,87} during layout: running second layout pass
+11-18 06:36:01.208  1631  1657 W ActivityManager: Activity stop timeout for ActivityRecord{c99867a u0 android/com.android.internal.app.ResolverActivity t4}
+11-18 06:36:01.421 10056 10056 I Choreographer: Skipped 79 frames!  The application may be doing too much work on its main thread.
+11-18 06:36:04.003 10056 10067 I zygote64: Background concurrent copying GC freed 31979(1609KB) AllocSpace objects, 11(884KB) LOS objects, 49% free, 3MB/6MB, paused 11.701ms total 1.784s
+11-18 06:36:05.435  1404  1673 E SurfaceFlinger: size mismatch (640, 600) > (320, 640)
+11-18 06:36:05.453  1394  1394 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 06:36:05.542  1404  1404 E SurfaceFlinger: Invalid crop rect: r = 640 (> 320)
+11-18 06:36:05.623  1631  1657 W zygote64: Long monitor contention with owner Binder:1631_10 (2649) at void com.android.server.am.ActivityManagerService.activityPaused(android.os.IBinder)(ActivityManagerService.java:7438) waiters=0 in void com.android.server.am.TaskChangeNotificationController.forAllRemoteListeners(com.android.server.am.TaskChangeNotificationController$TaskStackConsumer, android.os.Message) for 364ms
+11-18 06:36:05.628  1631  6883 W zygote64: Long monitor contention with owner Binder:1631_10 (2649) at void com.android.server.am.ActivityManagerService.activityPaused(android.os.IBinder)(ActivityManagerService.java:7438) waiters=2 in int com.android.server.am.ActivityManagerService.broadcastIntent(android.app.IApplicationThread, android.content.Intent, java.lang.String, android.content.IIntentReceiver, int, java.lang.String, android.os.Bundle, java.lang.String[], int, android.os.Bundle, boolean, boolean, int) for 344ms
+11-18 06:36:05.629  1631  4466 W zygote64: Long monitor contention with owner Binder:1631_10 (2649) at void com.android.server.am.ActivityManagerService.activityPaused(android.os.IBinder)(ActivityManagerService.java:7438) waiters=3 in int com.android.server.am.ActivityManagerService.getLastResumedActivityUserId() for 246ms
+11-18 06:36:05.644  1631  1666 W zygote64: Long monitor contention with owner Binder:1631_10 (2649) at void com.android.server.wm.WindowManagerService.continueSurfaceLayout()(WindowManagerService.java:2951) waiters=2 in void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message) for 329ms
+11-18 06:36:05.654  1631  2647 W zygote64: Long monitor contention with owner Binder:1631_10 (2649) at void com.android.server.wm.WindowManagerService.continueSurfaceLayout()(WindowManagerService.java:2951) waiters=2 in void com.android.server.wm.WindowManagerService.statusBarVisibilityChanged(int) for 341ms
+11-18 06:36:05.655  1631  1658 W Looper  : Dispatch took 376ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {490daac} cb=null msg=31
+11-18 06:36:05.785 10056 10077 D EGL_emulation: eglMakeCurrent: 0x7c5a35e3d680: ver 3 0 (tinfo 0x7c5a35e0d740)
+11-18 06:36:05.789  1631  1658 W Looper  : Dispatch took 133ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {490daac} cb=null msg=53
+11-18 06:36:05.971  1793  1807 I zygote64: NativeAlloc concurrent copying GC freed 4357(281KB) AllocSpace objects, 0(0B) LOS objects, 49% free, 4MB/9MB, paused 75us total 121.095ms
+11-18 06:36:06.273  1631  2887 I zygote64: android::hardware::configstore::V1_0::ISurfaceFlingerConfigs::hasWideColorDisplay retrieved: 0
+11-18 06:36:06.273  1631  2887 I OpenGLRenderer: Initialized EGL, version 1.4
+11-18 06:36:06.273  1631  2887 D OpenGLRenderer: Swap behavior 1
+11-18 06:36:06.321  1631  2887 D EGL_emulation: eglCreateContext: 0x7c5a25b13f60: maj 3 min 0 rcv 3
+11-18 06:36:06.346  1631  1666 W zygote64: Long monitor contention with owner Binder:1631_1A (6883) at android.app.ActivityManager$StackInfo com.android.server.am.ActivityManagerService.getStackInfo(int)(ActivityManagerService.java:10885) waiters=0 in void com.android.server.am.ActivityManagerService$LocalService.notifyAppTransitionFinished() for 224ms
+11-18 06:36:06.354  1631  2887 D EGL_emulation: eglMakeCurrent: 0x7c5a25b13f60: ver 3 0 (tinfo 0x7c5a25ac7d20)
+11-18 06:36:06.483  1631  2649 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: finished inst
+11-18 06:36:06.484  1631  2649 I ActivityManager: Killing 10056:com.shazwan.idash3/u0a59 (adj 0): stop com.shazwan.idash3
+11-18 06:36:06.495  1631 10084 W Binder  : Outgoing transactions from this process must be FLAG_ONEWAY
+11-18 06:36:06.495  1631 10084 W Binder  : java.lang.Throwable
+11-18 06:36:06.495  1631 10084 W Binder  : 	at android.os.BinderProxy.transact(Binder.java:752)
+11-18 06:36:06.495  1631 10084 W Binder  : 	at android.app.IInstrumentationWatcher$Stub$Proxy.instrumentationFinished(IInstrumentationWatcher.java:160)
+11-18 06:36:06.495  1631 10084 W Binder  : 	at com.android.server.am.InstrumentationReporter$MyThread.run(InstrumentationReporter.java:86)
+11-18 06:36:06.492  1631  1659 W zygote64: kill(-10056, 9) failed: No such process
+11-18 06:36:06.543  1631  1659 W zygote64: kill(-10056, 9) failed: No such process
+11-18 06:36:06.558 10046 10046 D AndroidRuntime: Shutting down VM
+11-18 06:36:06.627  1631  1659 W zygote64: kill(-10056, 9) failed: No such process
+11-18 06:36:06.711  1631  1666 W ActivityManager: setHasOverlayUi called on unknown pid: 10056
+11-18 06:36:06.743  1631  1659 I chatty  : uid=1000(system) ActivityManager identical 3 lines
+11-18 06:36:06.794  1631  1659 W zygote64: kill(-10056, 9) failed: No such process
+11-18 06:36:06.794  1631  1659 I zygote64: Successfully killed process cgroup uid 10059 pid 10056 in 303ms
+11-18 06:36:07.112  1631  1641 I zygote64: NativeAlloc concurrent copying GC freed 11635(949KB) AllocSpace objects, 11(476KB) LOS objects, 42% free, 7MB/13MB, paused 117us total 211.770ms
+11-18 06:36:07.142  1631  2649 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: from pid 10087
+11-18 06:36:07.219  1879  1879 D CarrierSvcBindHelper: No carrier app for: 0
+11-18 06:36:07.801  1631  1664 D AutofillManagerService: Close system dialogs
+11-18 06:36:08.942 10095 10095 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-18 06:36:09.296 10095 10095 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-18 06:36:09.320 10095 10095 I app_process: The ClassLoaderContext is a special shared library.
+11-18 06:36:09.477 10095 10095 D AndroidRuntime: Calling main entry com.android.commands.am.Am
+11-18 06:36:09.508  1631  2649 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: start instr
+11-18 06:36:09.564  1631  2649 I ActivityManager: Start proc 10105:com.shazwan.idash3/u0a59 for added application com.shazwan.idash3
+11-18 06:36:09.635 10105 10105 I zygote64: Late-enabling -Xcheck:jni
+11-18 06:36:09.720 10105 10105 W zygote64: Unexpected CPU variant for X86 using defaults: x86_64
+11-18 06:36:09.884 10105 10105 I zygote64: The ClassLoaderContext is a special shared library.
+11-18 06:36:09.891 10105 10105 I zygote64: The ClassLoaderContext is a special shared library.
+11-18 06:36:09.905 10105 10105 W zygote64: ClassLoaderContext classpath element mismatch for position 0. expected=/system/framework/android.test.mock.jar, found=/system/framework/android.test.runner.jar (PCL[/system/framework/android.test.mock.jar*1065265343:/system/framework/android.test.runner.jar*1742119008] | PCL[/system/framework/android.test.runner.jar*1742119008:/system/framework/android.test.mock.jar*1065265343])
+11-18 06:36:09.913 10105 10105 W zygote64: ClassLoaderContext classpath size mismatch for position 0. expected=0, found=5 (PCL[] | PCL[/system/framework/android.test.runner.jar*1742119008:/system/framework/android.test.mock.jar*1065265343:/data/app/com.shazwan.idash3.test-_LqExtY3xRS3iFjKw53Dyw==/base.apk*4289975998:/data/app/com.shazwan.idash3.test-_LqExtY3xRS3iFjKw53Dyw==/base.apk!classes2.dex*244078000:/data/app/com.shazwan.idash3.test-_LqExtY3xRS3iFjKw53Dyw==/base.apk!classes3.dex*4171577632])
+11-18 06:36:09.987 10105 10105 W System  : ClassLoader referenced unknown path: 
+11-18 06:36:10.057  1631  3528 I ActivityManager: START u0 {flg=0x10000000 cmp=com.shazwan.idash3/.LauncherActivity} from uid 10059
+11-18 06:36:10.387  1394  1394 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 06:36:10.633  1631  1657 W ActivityManager: Activity pause timeout for ActivityRecord{c99867a u0 android/com.android.internal.app.ResolverActivity t4}
+11-18 06:36:10.747  1404  1673 E SurfaceFlinger: size mismatch (640, 600) > (320, 640)
+11-18 06:36:10.757  1394  1394 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 06:36:10.778  1404  1404 E SurfaceFlinger: Invalid crop rect: r = 640 (> 320)
+11-18 06:36:10.833  1631  1658 W Looper  : Dispatch took 183ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {490daac} cb=null msg=31
+11-18 06:36:10.853  1631  3528 W zygote64: Long monitor contention with owner ActivityManager (1657) at void com.android.server.am.ActivityStack$ActivityStackHandler.handleMessage(android.os.Message)(ActivityStack.java:392) waiters=3 in int com.android.server.am.ActivityManagerService.getLastResumedActivityUserId() for 105ms
+11-18 06:36:12.784  1404  1430 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-18 06:36:12.796 10105 10126 D OpenGLRenderer: HWUI GL Pipeline
+11-18 06:36:13.773 10105 10116 I zygote64: Background concurrent copying GC freed 13477(1949KB) AllocSpace objects, 5(164KB) LOS objects, 50% free, 2MB/4MB, paused 19.068ms total 1.614s
+11-18 06:36:13.917  1631  1666 W zygote64: Long monitor contention with owner Binder:1631_19 (6746) at int com.android.server.wm.WindowManagerService.relayoutWindow(com.android.server.wm.Session, android.view.IWindow, int, android.view.WindowManager$LayoutParams, int, int, int, int, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.util.MergedConfiguration, android.view.Surface)(WindowManagerService.java:1930) waiters=0 in void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message) for 290ms
+11-18 06:36:14.005 10105 10126 D         : HostConnection::get() New Host Connection established 0x7c5a35e24360, tid 10126
+11-18 06:36:14.024  1394  1394 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 06:36:14.046  1394  1394 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 06:36:14.053  1394  1442 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 06:36:14.276 10105 10126 I zygote64: android::hardware::configstore::V1_0::ISurfaceFlingerConfigs::hasWideColorDisplay retrieved: 0
+11-18 06:36:14.286 10105 10126 I OpenGLRenderer: Initialized EGL, version 1.4
+11-18 06:36:14.290 10105 10126 D OpenGLRenderer: Swap behavior 1
+11-18 06:36:14.328 10105 10126 D EGL_emulation: eglCreateContext: 0x7c5a35e3d680: maj 3 min 0 rcv 3
+11-18 06:36:14.353 10105 10126 D EGL_emulation: eglMakeCurrent: 0x7c5a35e3d680: ver 3 0 (tinfo 0x7c5a35e0d760)
+11-18 06:36:14.450  1631  1666 W zygote64: Long monitor contention with owner android.anim (1716) at int com.android.server.wm.WindowManagerService.relayoutWindow(com.android.server.wm.Session, android.view.IWindow, int, android.view.WindowManager$LayoutParams, int, int, int, int, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.util.MergedConfiguration, android.view.Surface)(WindowManagerService.java:1930) waiters=0 in void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message) for 142ms
+11-18 06:36:14.466  1394  1394 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 06:36:14.492  1404  1431 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-18 06:36:14.563  1394  1394 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 06:36:14.667 10105 10105 I Choreographer: Skipped 103 frames!  The application may be doing too much work on its main thread.
+11-18 06:36:15.180  1631  1657 W ActivityManager: Launch timeout has expired, giving up wake lock!
+11-18 06:36:15.314  1631  1656 E memtrack: Couldn't load memtrack module
+11-18 06:36:15.315  1631  1656 W android.os.Debug: failed to get memory consumption info: -1
+11-18 06:36:15.528 10105 10126 D EGL_emulation: eglMakeCurrent: 0x7c5a35e3d680: ver 3 0 (tinfo 0x7c5a35e0d760)
+11-18 06:36:15.981  1631  2649 D WificondControl: Scan result ready event
+11-18 06:36:16.801  1631  1656 E memtrack: Couldn't load memtrack module
+11-18 06:36:16.801  1631  1656 W android.os.Debug: failed to get memory consumption info: -1
+11-18 06:36:17.406 10105 10110 I zygote64: Do partial code cache collection, code=2464B, data=23KB
+11-18 06:36:17.512 10105 10110 I zygote64: After code cache collection, code=2464B, data=23KB
+11-18 06:36:17.520 10105 10110 I zygote64: Increasing code cache capacity to 128KB
+11-18 06:36:17.673 10105 10110 I zygote64: Do partial code cache collection, code=2464B, data=42KB
+11-18 06:36:17.742 10105 10110 I zygote64: After code cache collection, code=2464B, data=42KB
+11-18 06:36:17.743 10105 10110 I zygote64: Increasing code cache capacity to 256KB
+11-18 06:36:17.789 10105 10110 I zygote64: JIT allocated 71KB for compiled code of void android.widget.TextView.<init>(android.content.Context, android.util.AttributeSet, int, int)
+11-18 06:36:17.789 10105 10110 I zygote64: Compiler allocated 7MB to compile void android.widget.TextView.<init>(android.content.Context, android.util.AttributeSet, int, int)
+11-18 06:36:19.414 10105 10105 I Choreographer: Skipped 283 frames!  The application may be doing too much work on its main thread.
+11-18 06:36:19.423  1631  1666 W zygote64: Long monitor contention with owner android.anim (1716) at void com.android.server.wm.WindowSurfacePlacer.lambda$-com_android_server_wm_WindowSurfacePlacer_5337()(WindowSurfacePlacer.java:107) waiters=0 in void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message) for 201ms
+11-18 06:36:19.485  1631  1666 I ActivityManager: Displayed com.shazwan.idash3/.LauncherActivity: +8s682ms
+11-18 06:36:20.720  1631  1656 E memtrack: Couldn't load memtrack module
+11-18 06:36:20.720  1631  1656 W android.os.Debug: failed to get memory consumption info: -1
+11-18 06:36:20.844 10105 10105 I Choreographer: Skipped 83 frames!  The application may be doing too much work on its main thread.
+11-18 06:36:23.764 10105 10116 I zygote64: Background concurrent copying GC freed 37697(1494KB) AllocSpace objects, 2(284KB) LOS objects, 49% free, 2MB/4MB, paused 877us total 695.868ms
+11-18 06:36:25.625 10105 10105 I Choreographer: Skipped 89 frames!  The application may be doing too much work on its main thread.
+11-18 06:36:27.456 10105 10105 I Choreographer: Skipped 35 frames!  The application may be doing too much work on its main thread.
+11-18 06:36:28.400  1402  1402 I boot-pipe: done populating /dev/random
+11-18 06:36:28.547 10105 10110 I zygote64: Do full code cache collection, code=123KB, data=111KB
+11-18 06:36:28.696 10105 10105 I Choreographer: Skipped 72 frames!  The application may be doing too much work on its main thread.
+11-18 06:36:28.730 10105 10110 I zygote64: After code cache collection, code=116KB, data=56KB
+11-18 06:36:29.589 10105 10110 I zygote64: Do partial code cache collection, code=117KB, data=61KB
+11-18 06:36:29.623 10105 10110 I zygote64: After code cache collection, code=116KB, data=61KB
+11-18 06:36:29.623 10105 10110 I zygote64: Increasing code cache capacity to 512KB
+11-18 06:36:30.703  1631  1657 W ActivityManager: Activity stop timeout for ActivityRecord{c99867a u0 android/com.android.internal.app.ResolverActivity t4}
+11-18 06:36:31.269 10105 10116 I zygote64: Background concurrent copying GC freed 30553(1448KB) AllocSpace objects, 5(372KB) LOS objects, 49% free, 2MB/5MB, paused 6.547ms total 1.673s
+11-18 06:36:32.958  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5594793 , only wrote 5593680
+11-18 06:36:32.974  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5594511 , only wrote 5594400
+11-18 06:36:33.096  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5600262 , only wrote 5600160
+11-18 06:36:33.118  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5601209 , only wrote 5600880
+11-18 06:36:33.149  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5602379 , only wrote 5602320
+11-18 06:36:33.155  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5602618 , only wrote 5602320
+11-18 06:36:33.182  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5603594 , only wrote 5603040
+11-18 06:36:33.203  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5604052 , only wrote 5603760
+11-18 06:36:33.224  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5604755 , only wrote 5604480
+11-18 06:36:33.255  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5605970 , only wrote 5605920
+11-18 06:36:33.316  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5608853 , only wrote 5608800
+11-18 06:36:33.347  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5610287 , only wrote 5610240
+11-18 06:36:33.407  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5613137 , only wrote 5613120
+11-18 06:36:33.422  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5613841 , only wrote 5613840
+11-18 06:36:33.482  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5616724 , only wrote 5616720
+11-18 06:36:33.492  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5617192 , only wrote 5616720
+11-18 06:36:33.528 10105 10105 I Choreographer: Skipped 194 frames!  The application may be doing too much work on its main thread.
+11-18 06:36:33.538  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5618947 , only wrote 5618880
+11-18 06:36:33.616  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5622618 , only wrote 5622480
+11-18 06:36:33.702  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5626599 , only wrote 5626080
+11-18 06:36:33.739  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5627862 , only wrote 5627520
+11-18 06:36:33.802  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5630538 , only wrote 5630400
+11-18 06:36:33.840  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5632215 , only wrote 5631840
+11-18 06:36:33.961  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5637615 , only wrote 5637600
+11-18 06:36:33.982  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5638648 , only wrote 5638320
+11-18 06:36:33.992  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5638798 , only wrote 5638320
+11-18 06:36:34.021  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5639720 , only wrote 5639040
+11-18 06:36:34.028  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5639346 , only wrote 5639040
+11-18 06:36:34.060  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5640567 , only wrote 5639760
+11-18 06:36:34.090  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5641205 , only wrote 5641200
+11-18 06:36:34.107  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5642035 , only wrote 5641920
+11-18 06:36:34.167  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5644809 , only wrote 5644800
+11-18 06:36:34.183  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5645553 , only wrote 5645520
+11-18 06:36:34.192  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5645960 , only wrote 5645520
+11-18 06:36:34.215  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5646588 , only wrote 5646240
+11-18 06:36:34.230  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5646982 , only wrote 5646960
+11-18 06:36:34.241 10105 10105 W View    : requestLayout() improperly called by android.widget.ImageView{f88c9cb V.ED..... ......ID 61,63-85,87} during layout: running second layout pass
+11-18 06:36:34.246  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5647712 , only wrote 5647680
+11-18 06:36:34.247 10105 10105 W View    : requestLayout() improperly called by android.widget.ImageView{8bbf5a8 V.ED..... ......ID 61,63-85,87} during layout: running second layout pass
+11-18 06:36:34.247 10105 10105 W View    : requestLayout() improperly called by android.widget.ImageView{4d0f8c1 V.ED..... ......ID 61,63-85,87} during layout: running second layout pass
+11-18 06:36:34.248 10105 10105 W View    : requestLayout() improperly called by android.widget.ImageView{f0ae866 V.ED..... ......ID 61,63-85,87} during layout: running second layout pass
+11-18 06:36:34.248 10105 10105 W View    : requestLayout() improperly called by android.widget.ImageView{f5837a7 V.ED..... ......ID 61,63-85,87} during layout: running second layout pass
+11-18 06:36:34.249 10105 10105 W View    : requestLayout() improperly called by android.widget.ImageView{baec454 V.ED..... ......ID 61,63-85,87} during layout: running second layout pass
+11-18 06:36:34.249 10105 10105 W View    : requestLayout() improperly called by android.widget.ImageView{6335ffd V.ED..... ......ID 61,63-85,87} during layout: running second layout pass
+11-18 06:36:34.250 10105 10105 W View    : requestLayout() improperly called by android.widget.ImageView{5cd24f2 V.ED..... ......ID 61,63-85,87} during layout: running second layout pass
+11-18 06:36:34.263  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5648498 , only wrote 5648400
+11-18 06:36:34.301  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5650224 , only wrote 5649840
+11-18 06:36:34.334  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5651456 , only wrote 5651280
+11-18 06:36:34.354  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5652203 , only wrote 5652000
+11-18 06:36:34.377  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5653122 , only wrote 5652720
+11-18 06:36:34.392  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5653449 , only wrote 5653440
+11-18 06:36:34.419  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5654745 , only wrote 5654160
+11-18 06:36:34.484  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5657268 , only wrote 5657040
+11-18 06:36:34.635  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5664277 , only wrote 5664240
+11-18 06:36:34.652  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5665076 , only wrote 5664960
+11-18 06:36:34.672  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5665923 , only wrote 5665680
+11-18 06:36:34.780  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5670842 , only wrote 5670720
+11-18 06:36:34.804  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5671875 , only wrote 5671440
+11-18 06:36:34.868  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5674501 , only wrote 5674320
+11-18 06:36:34.930  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5677316 , only wrote 5677200
+11-18 06:36:35.012  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5681140 , only wrote 5680800
+11-18 06:36:35.018  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5681092 , only wrote 5680800
+11-18 06:36:35.109  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5685144 , only wrote 5685120
+11-18 06:36:35.120 10105 10105 I Choreographer: Skipped 93 frames!  The application may be doing too much work on its main thread.
+11-18 06:36:35.202  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5689608 , only wrote 5689440
+11-18 06:36:35.332  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5695665 , only wrote 5695200
+11-18 06:36:35.337  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5695435 , only wrote 5695200
+11-18 06:36:35.352  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5695935 , only wrote 5695920
+11-18 06:36:35.401  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5698250 , only wrote 5698080
+11-18 06:36:35.417  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5698845 , only wrote 5698800
+11-18 06:36:35.586  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5706915 , only wrote 5706720
+11-18 06:36:35.586  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5706749 , only wrote 5706720
+11-18 06:36:35.603  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5707509 , only wrote 5707440
+11-18 06:36:35.637  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5709069 , only wrote 5708880
+11-18 06:36:35.672  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5710576 , only wrote 5710320
+11-18 06:36:35.693  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5711293 , only wrote 5711040
+11-18 06:36:35.697  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5711260 , only wrote 5711040
+11-18 06:36:35.772  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5714650 , only wrote 5714640
+11-18 06:36:35.779  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5714956 , only wrote 5714640
+11-18 06:36:35.873  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5719171 , only wrote 5718960
+11-18 06:36:35.893  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5719922 , only wrote 5719680
+11-18 06:36:35.955  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5722646 , only wrote 5722560
+11-18 06:36:36.091  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5729093 , only wrote 5729040
+11-18 06:36:36.109  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5729888 , only wrote 5729760
+11-18 06:36:36.188  1387  2846 W audio_hw_generic: Not supplying enough data to HAL, expected position 5733532 , only wrote 5733360
+11-18 06:36:36.257  1387  1580 W audio_hw_generic: Not supplying enough data to HAL, expected position 5736675 , only wrote 5736240
+11-18 06:36:37.048 10105 10105 I Choreographer: Skipped 30 frames!  The application may be doing too much work on its main thread.
+11-18 06:36:39.091 10105 10105 I WebViewFactory: Loading com.android.webview version 61.0.3163.98 (code 316409860)
+11-18 06:36:39.164 10105 10116 I zygote64: Background concurrent copying GC freed 35174(1898KB) AllocSpace objects, 14(1032KB) LOS objects, 50% free, 3MB/6MB, paused 753us total 1.303s
+11-18 06:36:39.331 10105 10105 I zygote64: The ClassLoaderContext is a special shared library.
+11-18 06:36:40.154 10105 10105 I cr_LibraryLoader: Time to load native libraries: 107 ms (timestamps 4792-4899)
+11-18 06:36:40.384 10105 10105 I chromium: [INFO:library_loader_hooks.cc(136)] Chromium logging enabled: level = 0, default verbosity = 0
+11-18 06:36:40.386 10105 10105 I cr_LibraryLoader: Expected native library version number "61.0.3163.98", actual native library version number "61.0.3163.98"
+11-18 06:36:40.486 10105 10105 I cr_BrowserStartup: Initializing chromium process, singleProcess=false
+11-18 06:36:40.508 10105 10134 W cr_ChildProcLH: Create a new ChildConnectionAllocator with package name = com.android.webview, sandboxed = true
+11-18 06:36:40.756  1631  2649 W ActivityManager: Slow operation: 135ms so far, now at startProcess: returned from zygote!
+11-18 06:36:40.756  1631  2649 W ActivityManager: Slow operation: 136ms so far, now at startProcess: done updating battery stats
+11-18 06:36:40.756  1631  2649 W ActivityManager: Slow operation: 136ms so far, now at startProcess: building log message
+11-18 06:36:40.756  1631  2649 I ActivityManager: Start proc 10135:com.android.webview:sandboxed_process0/u0i12 for webview_service com.shazwan.idash3/org.chromium.content.app.SandboxedProcessService0
+11-18 06:36:40.756  1631  2649 W ActivityManager: Slow operation: 136ms so far, now at startProcess: starting to update pids map
+11-18 06:36:40.757  1631  2649 W ActivityManager: Slow operation: 136ms so far, now at startProcess: done updating pids map
+11-18 06:36:40.757  1631  2649 W ActivityManager: Slow operation: 137ms so far, now at startProcess: done starting proc!
+11-18 06:36:40.759 10135 10135 E /system/bin/webview_zygote32: Failed to make and chown /acct/uid_99012: Permission denied
+11-18 06:36:40.760 10135 10135 E Zygote  : createProcessGroup(99012, 0) failed: Permission denied
+11-18 06:36:40.811 10135 10135 W /system/bin/webview_zygote32: Unexpected CPU variant for X86 using defaults: x86_64
+11-18 06:36:40.943 10105 10105 W .shazwan.idash3: type=1400 audit(0.0:22): avc: denied { read } for name="vmstat" dev="proc" ino=4026532039 scontext=u:r:untrusted_app:s0:c512,c768 tcontext=u:object_r:proc:s0 tclass=file permissive=0
+11-18 06:36:40.975 10105 10105 D         : HostConnection::get() New Host Connection established 0x7c5a28f2baa0, tid 10105
+11-18 06:36:40.990 10105 10105 D EGL_emulation: eglCreateContext: 0x7c5a28fb65c0: maj 3 min 0 rcv 3
+11-18 06:36:41.008 10105 10105 D EGL_emulation: eglMakeCurrent: 0x7c5a28fb65c0: ver 3 0 (tinfo 0x7c5a28fa3a20)
+11-18 06:36:41.311 10161 10161 E asset   : setgid: Operation not permitted
+11-18 06:36:41.521 10135 10135 I LoadedApk: No resource references to update in package com.android.webview
+11-18 06:36:41.570 10135 10135 I cr_ChildProcessService: Creating new ChildProcessService pid=10135
+11-18 06:36:41.753 10105 10131 W cr_CrashFileManager: /data/user/0/com.shazwan.idash3/cache/WebView/Crash Reports does not exist or is not a directory
+11-18 06:36:42.013 10105 10110 I zygote64: JIT allocated 53KB for compiled code of void android.view.View.<init>(android.content.Context, android.util.AttributeSet, int, int)
+11-18 06:36:42.014 10105 10110 I zygote64: Compiler allocated 4MB to compile void android.view.View.<init>(android.content.Context, android.util.AttributeSet, int, int)
+11-18 06:36:42.450 10105 10105 I Choreographer: Skipped 278 frames!  The application may be doing too much work on its main thread.
+11-18 06:36:42.721 10105 10110 I zygote64: Do full code cache collection, code=252KB, data=168KB
+11-18 06:36:42.755 10105 10110 I zygote64: After code cache collection, code=236KB, data=105KB
+11-18 06:36:43.083 10105 10110 I zygote64: Do partial code cache collection, code=239KB, data=120KB
+11-18 06:36:43.103 10105 10110 I zygote64: After code cache collection, code=239KB, data=120KB
+11-18 06:36:43.103 10105 10110 I zygote64: Increasing code cache capacity to 1024KB
+11-18 06:36:44.063 10105 10105 I Choreographer: Skipped 94 frames!  The application may be doing too much work on its main thread.
+11-18 06:36:44.625 10105 10105 I Choreographer: Skipped 32 frames!  The application may be doing too much work on its main thread.
+11-18 06:36:45.519 10105 10116 I zygote64: Background concurrent copying GC freed 38372(1954KB) AllocSpace objects, 18(1340KB) LOS objects, 49% free, 3MB/6MB, paused 2.016ms total 957.557ms
+11-18 06:36:47.523  1404  1431 E SurfaceFlinger: size mismatch (640, 600) > (320, 640)
+11-18 06:36:47.538  1394  1394 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1540096
+11-18 06:36:47.572  1404  1404 E SurfaceFlinger: Invalid crop rect: r = 640 (> 320)
+11-18 06:36:47.654  1631  1658 W Looper  : Dispatch took 274ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {490daac} cb=null msg=31
+11-18 06:36:47.656  1631  1716 W zygote64: Long monitor contention with owner Binder:1631_10 (2649) at void com.android.server.wm.WindowManagerService.continueSurfaceLayout()(WindowManagerService.java:2951) waiters=1 in void com.android.server.wm.WindowAnimator.lambda$-com_android_server_wm_WindowAnimator_3951(long) for 260ms
+11-18 06:36:47.757 10105 10126 D EGL_emulation: eglMakeCurrent: 0x7c5a35e3d680: ver 3 0 (tinfo 0x7c5a35e0d760)
+11-18 06:36:47.788  1631  2887 I zygote64: android::hardware::configstore::V1_0::ISurfaceFlingerConfigs::hasWideColorDisplay retrieved: 0
+11-18 06:36:47.788  1631  2887 I OpenGLRenderer: Initialized EGL, version 1.4
+11-18 06:36:47.788  1631  2887 D OpenGLRenderer: Swap behavior 1
+11-18 06:36:47.793  1631  2887 D EGL_emulation: eglCreateContext: 0x7c5a1f822c20: maj 3 min 0 rcv 3
+11-18 06:36:47.821  1631  2887 D EGL_emulation: eglMakeCurrent: 0x7c5a1f822c20: ver 3 0 (tinfo 0x7c5a25ac7d20)
+11-18 06:36:47.965  1631  6746 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: finished inst
+11-18 06:36:47.966  1631  6746 I ActivityManager: Killing 10105:com.shazwan.idash3/u0a59 (adj 0): stop com.shazwan.idash3
+11-18 06:36:47.975  1631  1659 W zygote64: kill(-10105, 9) failed: No such process
+11-18 06:36:48.012 10135 10135 I cr_ChildProcessService: Destroying ChildProcessService pid=10135
+11-18 06:36:48.041  1631  6746 I ActivityManager: Killing 10135:com.android.webview:sandboxed_process0/u0a59i12 (adj 0): isolated not needed
+11-18 06:36:48.027  1631 10167 W Binder  : Outgoing transactions from this process must be FLAG_ONEWAY
+11-18 06:36:48.027  1631 10167 W Binder  : java.lang.Throwable
+11-18 06:36:48.027  1631 10167 W Binder  : 	at android.os.BinderProxy.transact(Binder.java:752)
+11-18 06:36:48.027  1631 10167 W Binder  : 	at android.app.IInstrumentationWatcher$Stub$Proxy.instrumentationFinished(IInstrumentationWatcher.java:160)
+11-18 06:36:48.027  1631 10167 W Binder  : 	at com.android.server.am.InstrumentationReporter$MyThread.run(InstrumentationReporter.java:86)
+11-18 06:36:48.098  1631  1659 W zygote64: kill(-10105, 9) failed: No such process
+11-18 06:36:48.135  1631  1658 W Looper  : Dispatch took 165ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {490daac} cb=null msg=53
+11-18 06:36:48.171 10095 10095 D AndroidRuntime: Shutting down VM
+11-18 06:36:48.206  1631  1660 E KernelCpuSpeedReader: Failed to read cpu-freq: /sys/devices/system/cpu/cpu0/cpufreq/stats/time_in_state (No such file or directory)
+11-18 06:36:48.209  1631  1660 D KernelUidCpuTimeReader: Removing uids 99012-99012
+11-18 06:36:48.211  1631  1659 W zygote64: kill(-10105, 9) failed: No such process
+11-18 06:36:48.253  1631  1659 W zygote64: kill(-10105, 9) failed: No such process
+11-18 06:36:48.289  1631  1923 W zygote64: Long monitor contention with owner android.anim (1716) at void com.android.server.wm.WindowSurfacePlacer.lambda$-com_android_server_wm_WindowSurfacePlacer_5337()(WindowSurfacePlacer.java:107) waiters=0 in void com.android.server.wm.WindowManagerService.deferSurfaceLayout() for 101ms
+11-18 06:36:48.297  1631  1659 W zygote64: kill(-10105, 9) failed: No such process
+11-18 06:36:48.343  1631  1659 I chatty  : uid=1000(system) ActivityManager identical 1 line
+11-18 06:36:48.414  1631  1659 W zygote64: kill(-10105, 9) failed: No such process
+11-18 06:36:48.441  1631  1666 W zygote64: Long monitor contention with owner ActivityManager (1657) at void com.android.server.am.ActivityStackSupervisor$ActivityStackSupervisorHandler.activityIdleInternal(com.android.server.am.ActivityRecord, boolean)(ActivityStackSupervisor.java:4479) waiters=3 in void com.android.server.am.ActivityManagerService$LocalService.notifyAppTransitionFinished() for 316ms
+11-18 06:36:48.444  1631  1658 W zygote64: Long monitor contention with owner Binder:1631_8 (1923) at void com.android.server.am.ActivityManagerService$AppDeathRecipient.binderDied()(ActivityManagerService.java:1625) waiters=3 in void com.android.server.am.ActivityManagerService.dispatchUidsChanged() for 278ms
+11-18 06:36:48.445  1631  1658 W Looper  : Dispatch took 280ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {490daac} cb=null msg=53
+11-18 06:36:48.446  1631  1657 W zygote64: Long monitor contention with owner Binder:1631_8 (1923) at void com.android.server.am.ActivityManagerService$AppDeathRecipient.binderDied()(ActivityManagerService.java:1625) waiters=4 in void com.android.server.am.ActivityManagerService$MainHandler.handleMessage(android.os.Message) for 157ms
+11-18 06:36:48.453  1631  2649 W zygote64: Long monitor contention with owner Binder:1631_8 (1923) at void com.android.server.am.ActivityManagerService$AppDeathRecipient.binderDied()(ActivityManagerService.java:1625) waiters=2 in android.app.ActivityManager$TaskSnapshot com.android.server.am.ActivityManagerService.getTaskSnapshot(int, boolean) for 313ms
+11-18 06:36:48.454  1631  1659 W zygote64: kill(-10105, 9) failed: No such process
+11-18 06:36:48.693  1631  1659 I chatty  : uid=1000(system) ActivityManager identical 5 lines
+11-18 06:36:48.733  1631  1659 W zygote64: kill(-10105, 9) failed: No such process
+11-18 06:36:48.745  1631  1641 I zygote64: NativeAlloc concurrent copying GC freed 19876(1510KB) AllocSpace objects, 16(656KB) LOS objects, 42% free, 7MB/13MB, paused 105us total 399.348ms
+11-18 06:36:48.776  1631  1659 W zygote64: kill(-10105, 9) failed: No such process
+11-18 06:36:48.875  1631  1666 W ActivityManager: setHasOverlayUi called on unknown pid: 10105
+11-18 06:36:48.895  1631  1659 I chatty  : uid=1000(system) ActivityManager identical 3 lines
+11-18 06:36:48.934  1631  1659 W zygote64: kill(-10105, 9) failed: No such process
+11-18 06:36:48.934  1631  1659 I zygote64: Successfully killed process cgroup uid 10059 pid 10105 in 959ms
+11-18 06:36:48.935  1631  1659 W zygote64: Failed to open process cgroup uid 99012 pid 10135: No such file or directory
+11-18 06:36:48.935  1631  1659 E zygote64: Error encountered killing process cgroup uid 99012 pid 10135: No such file or directory
+11-18 06:36:48.940  1631  1923 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: from pid 10171

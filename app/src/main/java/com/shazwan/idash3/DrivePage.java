@@ -103,7 +103,7 @@ final class DrivePage {
         LinearLayout.LayoutParams ip = new LinearLayout.LayoutParams(a.dp(64), 0, 1); ip.topMargin = a.dp(2); ip.gravity = Gravity.CENTER_HORIZONTAL; card.addView(icon, ip);
         TextView name = a.text(app == null ? "Belum dipilih" : app.label, 17, Color.WHITE); name.setTypeface(IosStyle.font(a, true)); name.setGravity(Gravity.CENTER); name.setMaxLines(1); name.setEllipsize(android.text.TextUtils.TruncateAt.END); name.setIncludeFontPadding(false);
         card.addView(name, new LinearLayout.LayoutParams(-1, -2));
-        final TextView change = a.text("Tekan untuk tukar", 12, 0xb3ffffff); change.setGravity(Gravity.CENTER); change.setMaxLines(1); change.setIncludeFontPadding(false);
+        final TextView change = a.text("Tekan: tukar · tahan: versi", 12, 0xb3ffffff); change.setGravity(Gravity.CENTER); change.setMaxLines(1); change.setIncludeFontPadding(false);
         card.addView(change, new LinearLayout.LayoutParams(-1, -2));
         // Short cards drop the tap hint rather than letting the three text rows overflow the card.
         final int hintMinHeight = a.dp(120);
@@ -114,6 +114,12 @@ final class DrivePage {
         card.setContentDescription(role + ": " + (app == null ? "belum dipilih" : app.label));
         card.setMinimumHeight(a.dp(48));
         card.setOnClickListener(v -> choose(a, role, prefs, prefKey));
+        if(app!=null)card.setOnLongClickListener(v->{
+            ComponentName componentName=ComponentName.unflattenFromString(app.component);if(componentName==null)return true;
+            String version="Tidak diketahui";try{version=a.getPackageManager().getPackageInfo(componentName.getPackageName(),0).versionName;}catch(android.content.pm.PackageManager.NameNotFoundException ignored){}
+            new AlertDialog.Builder(a).setTitle(app.label).setMessage("Versi: "+version+"\nAndroid API: "+android.os.Build.VERSION.SDK_INT+"\n\nJika Maps meminta update atau YouTube menunjukkan error 400, semak kemas kini yang serasi dengan peranti. Split-screen tidak membaiki keserasian servis app.")
+              .setPositiveButton("App info",(d,w)->{try{a.startActivity(new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,Uri.parse("package:"+componentName.getPackageName())));}catch(RuntimeException unavailable){Toast.makeText(a,"App info tidak tersedia",Toast.LENGTH_SHORT).show();}}).setNegativeButton("Tutup",null).show();return true;
+        });
         return card;
     }
 
