@@ -1,0 +1,16 @@
+{
+  "unit": {
+    "tests": 56,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "lint": {
+    "Error": 0,
+    "Warning": 63
+  },
+  "apk_sha256": "c1c0e244edf0ac597ee7bffc67fe2395aeeae5529c75ddac0372421fbc3f3814",
+  "runtime": "See results.tsv; API27 x86_64 offline emulator checks",
+  "runtime_assertions": 30,
+  "runtime_status": "PASS"
+}

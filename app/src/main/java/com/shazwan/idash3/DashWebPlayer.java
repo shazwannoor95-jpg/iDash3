@@ -32,10 +32,17 @@ final class DashWebPlayer extends LinearLayout implements AutoCloseable {
     private LinearLayout controls;private int searchVisibility,statusVisibility;
     private FrameLayout fullscreenOverlay,videoHost;
     private LinearLayout videoToolbar;private TextView videoMenu;private boolean fillVideo;private float videoAspect=16f/9f;
-    private final Runnable hideVideoControls=()->{if(videoToolbar!=null&&!videoToolbar.hasFocus())videoToolbar.setVisibility(GONE);};
+    private final Runnable hideVideoControls=this::hideVideoControlsNow;
+    private void hideVideoControlsNow(){
+        if(videoToolbar==null||videoMenu==null)return;
+        if(videoToolbar.hasFocus()||videoMenu.hasFocus()||videoMenu.isAccessibilityFocused()){
+            main.postDelayed(hideVideoControls,3000);return;
+        }
+        videoToolbar.setVisibility(GONE);videoMenu.setVisibility(GONE);
+    }
     static float fillScale(int w,int h,float aspect){if(w<=0||h<=0||!(aspect>0)||Float.isInfinite(aspect))return 1f;float ratio=w/(float)h/aspect;return Math.min(4f,Math.max(ratio,1f/ratio));}
     private void fitVideo(){if(videoHost==null)return;float scale=fillVideo?fillScale(videoHost.getWidth(),videoHost.getHeight(),videoAspect):1f;videoHost.setScaleX(scale);videoHost.setScaleY(scale);}
-    private void showVideoControls(){if(videoToolbar==null)return;videoToolbar.setVisibility(VISIBLE);main.removeCallbacks(hideVideoControls);main.postDelayed(hideVideoControls,3000);}
+    private void showVideoControls(){if(videoToolbar==null)return;videoToolbar.setVisibility(VISIBLE);if(videoMenu!=null)videoMenu.setVisibility(VISIBLE);main.removeCallbacks(hideVideoControls);main.postDelayed(hideVideoControls,3000);}
     private ViewGroup fullscreenParent;
     private WebChromeClient.CustomViewCallback fullscreenCallback;
     private int savedSystemUi,savedWindowFlags;
@@ -140,7 +147,9 @@ final class DashWebPlayer extends LinearLayout implements AutoCloseable {
         customView=view;fullscreenCallback=callback;fullscreenParent=body;
         searchVisibility=searchRow.getVisibility();statusVisibility=status.getVisibility();
         searchRow.setVisibility(GONE);status.setVisibility(GONE);controls.setVisibility(GONE);stage.setVisibility(GONE);
-        FrameLayout overlay=new FrameLayout(activity){@Override public boolean dispatchTouchEvent(android.view.MotionEvent e){if(e.getActionMasked()==android.view.MotionEvent.ACTION_DOWN)showVideoControls();return super.dispatchTouchEvent(e);}};fullscreenOverlay=overlay;overlay.setClipChildren(true);overlay.setBackgroundColor(Color.BLACK);
+        FrameLayout overlay=new FrameLayout(activity){
+            @Override public boolean dispatchKeyEvent(KeyEvent e){int key=e.getKeyCode();if(e.getAction()==KeyEvent.ACTION_DOWN&&(key==KeyEvent.KEYCODE_DPAD_UP||key==KeyEvent.KEYCODE_DPAD_DOWN||key==KeyEvent.KEYCODE_DPAD_LEFT||key==KeyEvent.KEYCODE_DPAD_RIGHT||key==KeyEvent.KEYCODE_DPAD_CENTER||key==KeyEvent.KEYCODE_ENTER))showVideoControls();return super.dispatchKeyEvent(e);}
+            @Override public boolean dispatchTouchEvent(android.view.MotionEvent e){if(e.getActionMasked()==android.view.MotionEvent.ACTION_DOWN)showVideoControls();return super.dispatchTouchEvent(e);}};fullscreenOverlay=overlay;overlay.setClipChildren(true);overlay.setBackgroundColor(Color.BLACK);
         overlay.setClickable(true);overlay.setFocusableInTouchMode(true);overlay.setContentDescription("YouTube web fullscreen video");
         overlay.setOnKeyListener((v,key,event)->{if(key!=KeyEvent.KEYCODE_BACK)return false;if(event.getAction()==KeyEvent.ACTION_UP)exitFullscreen();return true;});
         try{
@@ -154,7 +163,7 @@ final class DashWebPlayer extends LinearLayout implements AutoCloseable {
             toolbar.addView(expand,new LinearLayout.LayoutParams(0,dp(48),1));
             TextView sizing=button("Isi · potong tepi",()->{fillVideo=!fillVideo;fitVideo();if(videoToolbar!=null)((TextView)videoToolbar.getChildAt(2)).setText(fillVideo?"Isi · potong tepi":"Muat");showVideoControls();});sizing.setContentDescription("Toggle fit or fill video; fill crops edges");toolbar.addView(sizing,new LinearLayout.LayoutParams(0,dp(48),1));
             FrameLayout.LayoutParams toolbarBounds=new FrameLayout.LayoutParams(-1,dp(48),Gravity.BOTTOM);toolbarBounds.rightMargin=dp(48);overlay.addView(toolbar,toolbarBounds);
-            videoMenu=button("⋯",this::showVideoControls);videoMenu.setContentDescription("Show video controls");overlay.addView(videoMenu,new FrameLayout.LayoutParams(dp(48),dp(48),Gravity.BOTTOM|Gravity.END));showVideoControls();
+            videoMenu=button("⋯",this::showVideoControls);videoMenu.setTextSize(16);videoMenu.setBackground(new android.graphics.drawable.InsetDrawable(videoMenu.getBackground(),dp(8)));videoMenu.setContentDescription("Show video controls");overlay.addView(videoMenu,new FrameLayout.LayoutParams(dp(48),dp(48),Gravity.BOTTOM|Gravity.END));showVideoControls();
             fullscreenParent.addView(overlay,new ViewGroup.LayoutParams(-1,-1));
             activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
             overlay.requestFocus();
