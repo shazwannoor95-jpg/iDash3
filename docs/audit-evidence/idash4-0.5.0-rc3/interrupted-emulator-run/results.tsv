@@ -1,0 +1,4 @@
+DashboardLayoutChecks	gate	LULUS	stream=PASS: 37 dashboa
+DriveDashboardChecks	gate	INFRA_EMULATOR_MATI
+QualityChecks	gate	INFRA_EMULATOR_MATI
+PanelFullscreenChecks	gate	INFRA_EMULATOR_MATI

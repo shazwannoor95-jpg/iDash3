@@ -7,7 +7,7 @@ set -u
 APP_APK="$1"; TEST_APK="$2"; OUT="${3:-qa-out}"
 PKG=com.shazwan.idash3; TEST_PKG=$PKG.test
 mkdir -p "$OUT"; : > "$OUT/results.tsv"
-GATE="${GATE:-DriveDashboardChecks PremiumFmChecks Idash3Checks SmokeChecks Rc2Checks CrashSafetyChecks AppLibraryChecks DrivingWorkspaceChecks Ios26IconChecks MaterialSwitchChecks MaterialContrastChecks BakeQueueChecks PanelFullscreenChecks QualityChecks StabilityChecks WallpaperChecks GlassRenderChecks GlassMaterialChecks SettingsChecks PanelMigrationChecks}"
+GATE="${GATE:-DashboardLayoutChecks DriveDashboardChecks PremiumFmChecks Idash3Checks SmokeChecks Rc2Checks CrashSafetyChecks AppLibraryChecks DrivingWorkspaceChecks Ios26IconChecks MaterialSwitchChecks MaterialContrastChecks BakeQueueChecks PanelFullscreenChecks QualityChecks StabilityChecks WallpaperChecks GlassRenderChecks GlassMaterialChecks SettingsChecks PanelMigrationChecks}"
 INFO="${INFO:-DeviceReadinessChecks SettingsCompleteChecks SettingsAccessChecks SettingsResetChecks MediaUtilitiesChecks ControlLayoutChecks ControlGlassChecks AppearanceChecks AppearanceRenderChecks AppearanceGradientChecks CompactChecks Glass6aChecks ControlVisualChecks PerformanceAuditChecks SystemControlsChecks}"
 adb install -r -t "$APP_APK" > "$OUT/install-app.txt" 2>&1 || { cat "$OUT/install-app.txt"; exit 2; }
 adb install -r -t "$TEST_APK" > "$OUT/install-test.txt" 2>&1 || { cat "$OUT/install-test.txt"; exit 2; }

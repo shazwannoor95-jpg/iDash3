@@ -1,0 +1,22 @@
+{
+  "unit": {
+    "tests": 56,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "lint": {
+    "Error": 0,
+    "Warning": 88
+  },
+  "apk_sha256": "f20e75f102308f7bcdf39e5b93a9b8e03a7093f2c528ac1909541ffaf69c5d15",
+  "runtime": {
+    "DashboardLayoutChecks": 37,
+    "DriveDashboardChecks": 24,
+    "QualityChecks": 50,
+    "PanelFullscreenChecks": 30,
+    "unique_assertions": 141,
+    "native_display_layout_repeat": 37
+  },
+  "runtime_notes": "All four runners passed in complete run; DashboardLayoutChecks repeated successfully on native 1024x600 emulator. Repeat not added to unique assertion count. Infrastructure-interrupted attempts retained separately."
+}
