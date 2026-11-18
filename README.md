@@ -1,6 +1,6 @@
 # iDash4 — iDash3 integration
 
-**Current candidate: iDash4 0.6.0-rc2** — reference-image Liquid Glass prayer artwork with live JAKIM text, animated native arc and image-icon overlays. [Download debug APK](dist/iDash4-0.6.0-rc2-debug.apk?raw=true) · [Artwork audit](docs/PRAYER-ARTWORK-0.6.0-RC2.md). Shared glass renderer and `main` remain unchanged.
+**Current candidate: iDash4 0.6.0-rc3** — transparent prayer-card exterior, extra bounded motion, unclipped compact clock/date, and NeonGlassRim from the supplied Java kit. [Download debug APK](dist/iDash4-0.6.0-rc3-debug.apk?raw=true) · [Clock/glass/motion audit](docs/GLASS-CLOCK-MOTION-0.6.0-RC3.md). Shared glass engine and prayer timetable remain unchanged.
 
 **Revert panel appearance:** Settings → Home & Dock → Liquid Glass → Material panel → **Classic iDash3**. The new iOS26 panel material and the icon-pack switch are independent.
 

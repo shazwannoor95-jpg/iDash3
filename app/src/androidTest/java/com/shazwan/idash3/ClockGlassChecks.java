@@ -1,0 +1,21 @@
+package com.shazwan.idash3;
+import android.app.*;import android.content.*;import android.content.res.Configuration;import android.os.*;import android.view.*;import android.widget.*;import android.graphics.*;import android.util.DisplayMetrics;import java.util.*;
+/** Actual clock/card geometry at compact sizes and larger fonts; native rim integration only. */
+public class ClockGlassChecks extends Instrumentation {
+ LauncherActivity a;int n;android.content.SharedPreferences prefs;Map<String,?> before;Configuration original;DisplayMetrics metrics;
+ void check(boolean b,String why){if(!b)throw new AssertionError(why);n++;}
+ void ui(Runnable r){Throwable[] e={null};runOnMainSync(()->{try{r.run();}catch(Throwable t){e[0]=t;}});waitForIdleSync();if(e[0]!=null)throw new AssertionError(e[0]);}
+ View find(View v,String label){if(label.contentEquals(v.getContentDescription()==null?"":v.getContentDescription()))return v;if(v instanceof ViewGroup)for(int i=0;i<((ViewGroup)v).getChildCount();i++){View x=find(((ViewGroup)v).getChildAt(i),label);if(x!=null)return x;}return null;}
+ public void onCreate(Bundle b){super.onCreate(b);start();}
+ public void onStart(){Bundle out=new Bundle();int code=Activity.RESULT_CANCELED;try{
+ prefs=getTargetContext().getSharedPreferences("idash",0);before=new HashMap<>(prefs.getAll());prefs.edit().putBoolean("calendar",true).putBoolean("jakim",true).putBoolean("motion",false).putInt("dock_size",0).apply();a=(LauncherActivity)startActivitySync(new Intent(getTargetContext(),LauncherActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));java.util.concurrent.CountDownLatch wait=new java.util.concurrent.CountDownLatch(1);a.worker.execute(()->a.main.post(wait::countDown));check(wait.await(45,java.util.concurrent.TimeUnit.SECONDS),"catalog ready");waitForIdleSync();
+ original=new Configuration(a.getResources().getConfiguration());metrics=new DisplayMetrics();metrics.setTo(a.getResources().getDisplayMetrics());
+ ui(()->{for(float font:new float[]{1f,1.3f})for(int[] size:new int[][]{{1024,600},{800,480},{800,400}}){Configuration c=new Configuration(original);c.fontScale=font;DisplayMetrics dm=new DisplayMetrics();dm.setTo(metrics);dm.scaledDensity=dm.density*font;a.getResources().updateConfiguration(c,dm);a.page="home";a.panelVisible=false;a.render();a.stage.measure(View.MeasureSpec.makeMeasureSpec(size[0],View.MeasureSpec.EXACTLY),View.MeasureSpec.makeMeasureSpec(size[1],View.MeasureSpec.EXACTLY));a.stage.layout(0,0,size[0],size[1]);
+ ViewGroup clock=(ViewGroup)find(a.stage,"Clock widget");View prayers=find(a.stage,"JAKIM calendar widget");ViewGroup column=(ViewGroup)clock.getParent();check(clock.getTop()>=0&&prayers.getBottom()<=column.getHeight(),"both left cards inside widget column "+font+" "+size[1]);check(clock.getBottom()<=prayers.getTop(),"cards do not overlap");check(clock.getForeground() instanceof NeonGlassRim,"ZIP rim only applied to clock");
+ for(int i=0;i<clock.getChildCount();i++){View v=clock.getChildAt(i);if(v.getVisibility()==View.VISIBLE&&v instanceof TextView){TextView label=(TextView)v;check(v.getTop()>=clock.getPaddingTop()&&v.getBottom()<=clock.getHeight()-clock.getPaddingBottom(),"clock label fully within padded card "+label.getText());android.text.Layout l=label.getLayout();check(l!=null&&l.getLineBottom(l.getLineCount()-1)<=label.getHeight()-label.getExtendedPaddingTop()-label.getExtendedPaddingBottom()+1,"clock label ink not clipped");}}
+ check(a.prayerJourney.getHeight()>=a.dp(96),"responsive artwork remains usable");}
+ a.getResources().updateConfiguration(original,metrics);a.render();});
+ android.graphics.Bitmap image=getUiAutomation().takeScreenshot();if(image!=null){try(java.io.OutputStream f=new java.io.FileOutputStream(new java.io.File(a.getFilesDir(),"clock-glass.png"))){image.compress(android.graphics.Bitmap.CompressFormat.PNG,100,f);}image.recycle();}
+ out.putString("stream","PASS: "+n+" clock/glass geometry assertions\n");code=Activity.RESULT_OK;
+ }catch(Throwable t){out.putString("stream","FAIL after "+n+": "+t+"\n");}finally{if(a!=null)ui(()->{if(original!=null)a.getResources().updateConfiguration(original,metrics);a.finish();});if(prefs!=null&&before!=null)AppearanceChecks.restore(prefs,before);}finish(code,out);}
+}

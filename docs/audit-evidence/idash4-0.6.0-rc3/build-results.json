@@ -1,0 +1,20 @@
+{
+  "unit": {
+    "tests": 76,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "lint": {
+    "Error": 0,
+    "Warning": 89
+  },
+  "apk_sha256": "45b48497cf04abb12d8390df878877073c44b27e545a512b5d0f378ab841c744",
+  "runtime": {
+    "ClockGlassChecks": 61,
+    "PrayerJourneyChecks": 59,
+    "PanelLayoutChecks": 88,
+    "QualityChecks": 50,
+    "unique_assertions": 258
+  }
+}
