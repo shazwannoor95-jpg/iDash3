@@ -22,7 +22,12 @@ final class GlassBake {
         @Override protected int sizeOf(Integer k, Bitmap v) { return v.getByteCount(); }
     };
     private static final java.util.HashSet<Integer> pending = new java.util.HashSet<>();
-    private static final ExecutorService worker = Executors.newSingleThreadExecutor(r -> { Thread t = new Thread(r, "glass-bake"); t.setPriority(Thread.MIN_PRIORITY); return t; });
+    static final int MAX_QUEUED=16;
+    private static final java.util.concurrent.ThreadPoolExecutor worker = new java.util.concurrent.ThreadPoolExecutor(1,1,0,java.util.concurrent.TimeUnit.MILLISECONDS,new java.util.concurrent.ArrayBlockingQueue<Runnable>(MAX_QUEUED),r -> {Thread t=new Thread(r,"glass-bake");t.setPriority(Thread.MIN_PRIORITY);return t;},new java.util.concurrent.ThreadPoolExecutor.AbortPolicy());
+    static int queued(){return worker.getQueue().size();}
+    static int pendingCount(){return pending.size();}
+    static void retry(Runnable task){main.postDelayed(task,120);}
+    static void trim(){cache.evictAll();}
     private static final Handler main = new Handler(Looper.getMainLooper());
 
     interface Done { void baked(Bitmap result, int key); }
@@ -41,14 +46,21 @@ final class GlassBake {
     static void request(final Bitmap src, final float scale, final float ox, final float oy, final float left, final float top,
                         final float pw, final float ph, final float radius, final float density, final float depth,
                         final int outW, final int outH, final int key, final Done done) {
-        if (src == null || outW < 2 || outH < 2) return;
-        worker.execute(() -> {
-            Bitmap out = null;
-            try { out = bake(src, scale, ox, oy, left, top, pw, ph, radius, density, depth, outW, outH); }
-            catch (OutOfMemoryError | RuntimeException ignored) { /* stays on the frost fallback */ }
-            final Bitmap result = out;
-            main.post(() -> { pending.remove(key); if (result != null) cache.put(key, result); done.baked(result, key); });
-        });
+        schedule(src,scale,ox,oy,left,top,pw,ph,radius,density,depth,outW,outH,key,()->true,done);
+    }
+
+    /** Main thread admission; stale jobs are skipped before allocating pixel arrays. */
+    static boolean schedule(final Bitmap src, final float scale, final float ox, final float oy, final float left, final float top,
+                            final float pw, final float ph, final float radius, final float density, final float depth,
+                            final int outW, final int outH, final int key, final java.util.function.BooleanSupplier current, final Done done){
+        if(src==null||outW<2||outH<2){pending.remove(key);return false;}
+        try{worker.execute(()->{
+            Bitmap out=null;
+            try{if(current.getAsBoolean())out=bake(src,scale,ox,oy,left,top,pw,ph,radius,density,depth,outW,outH);}
+            catch(OutOfMemoryError|RuntimeException ignored){}
+            final Bitmap result=out;
+            main.post(()->{pending.remove(key);if(result!=null&&current.getAsBoolean())cache.put(key,result);done.baked(result,key);});
+        });return true;}catch(java.util.concurrent.RejectedExecutionException full){pending.remove(key);return false;}
     }
 
     static Bitmap bake(Bitmap src, float scale, float ox, float oy, float left, float top, float pw, float ph,

@@ -124,8 +124,8 @@ final class DrivePage {
     }
 
     static void accessibilityHelp(final LauncherActivity a) {
-        new AlertDialog.Builder(a).setTitle("Hidupkan split-screen iDash3")
-            .setMessage("1. Tekan \"Buka tetapan\" → Aksesibiliti → iDash3 Drive → Hidupkan.\n\nPerkhidmatan ini hanya menekan butang split-screen / Back / Home dan tidak membaca skrin.\n\nVia PC (ADB):\nadb shell settings put secure enabled_accessibility_services com.shazwan.idash3/com.shazwan.idash3.SplitService\nadb shell settings put secure accessibility_enabled 1")
+        new AlertDialog.Builder(a).setTitle("Hidupkan split-screen iDash4")
+            .setMessage("1. Tekan \"Buka tetapan\" → Aksesibiliti → iDash4 Drive → Hidupkan.\n\nPerkhidmatan ini hanya menekan butang split-screen / Back / Home dan tidak membaca skrin.\n\nVia PC (ADB):\nadb shell settings put secure enabled_accessibility_services com.shazwan.idash3/com.shazwan.idash3.SplitService\nadb shell settings put secure accessibility_enabled 1")
             .setPositiveButton("Buka tetapan", (d, w) -> { try { a.startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)); } catch (RuntimeException e) { Toast.makeText(a, "Tetapan aksesibiliti tidak tersedia pada peranti ini.", Toast.LENGTH_LONG).show(); } })
             .setNegativeButton("Tutup", null).show();
     }

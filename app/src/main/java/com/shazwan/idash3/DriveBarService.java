@@ -36,7 +36,7 @@ import java.util.List;
 /**
  * Android-Auto-style bottom bar shown over the system split-screen apps (needs the "display over
  * other apps" permission): the app launcher, shortcuts to the chosen map/media apps plus phone and
- * Settings, and a status area with battery and clock. There is deliberately no microphone: iDash3
+ * Settings, and a status area with battery and clock. There is deliberately no microphone: iDash4
  * never opens a voice assistant. Tapping the launcher opens a grid of installed apps with Exit and
  * a dashboard button that returns to the split-screen.
  */
@@ -68,8 +68,8 @@ public class DriveBarService extends Service {
 
     @Override public int onStartCommand(Intent intent, int flags, int startId) {
         NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        if (nm != null) nm.createNotificationChannel(new NotificationChannel(CHANNEL, "iDash3 Drive", NotificationManager.IMPORTANCE_MIN));
-        startForeground(7, new Notification.Builder(this, CHANNEL).setSmallIcon(R.drawable.ic_launcher).setContentTitle("iDash3 Drive").setContentText("Bar Android Auto terapung aktif").build());
+        if (nm != null) nm.createNotificationChannel(new NotificationChannel(CHANNEL, "iDash4 Drive", NotificationManager.IMPORTANCE_MIN));
+        startForeground(7, new Notification.Builder(this, CHANNEL).setSmallIcon(R.drawable.ic_launcher).setContentTitle("iDash4 Drive").setContentText("Bar Android Auto terapung aktif").build());
         if (bar == null && DriveController.overlayAllowed(this)) addBar();
         return START_NOT_STICKY;
     }
@@ -115,7 +115,7 @@ public class DriveBarService extends Service {
                 for(String value:new String[]{prefs.getString(DriveController.PREF_MAP,null),prefs.getString(DriveController.PREF_MEDIA,null),"com.android.settings/.Settings"}){
                     ComponentName name=value==null?null:ComponentName.unflattenFromString(value);
                     if(name==null||shortcuts.containsKey(name.flattenToString()))continue;
-                    try{Bitmap packed=prefs.getBoolean("ios_icons",true)?Ios26Icons.app(this,name.flattenToString(),name.getPackageName()):null;shortcuts.put(name.flattenToString(),packed!=null?packed:IconStyler.render(pm.getActivityIcon(name),dp(21),IconStyler.DEFAULT,0xff6f8fc8,getResources().getDisplayMetrics().density,false,IosGlyphs.match(name.getPackageName(),name.getPackageName())));}catch(PackageManager.NameNotFoundException|RuntimeException absent){}
+                    try{android.content.pm.ActivityInfo target=pm.getActivityInfo(name,0);if(!target.enabled||!target.applicationInfo.enabled||!target.exported)continue;Bitmap packed=prefs.getBoolean("ios_icons",true)?Ios26Icons.app(this,name.flattenToString(),name.getPackageName()):null;shortcuts.put(name.flattenToString(),packed!=null?packed:IconStyler.render(pm.getActivityIcon(name),dp(21),IconStyler.DEFAULT,0xff6f8fc8,getResources().getDisplayMetrics().density,false,IosGlyphs.match(name.getPackageName(),name.getPackageName())));}catch(PackageManager.NameNotFoundException|RuntimeException absent){}
                 }
             }catch(RuntimeException|OutOfMemoryError unavailable){failed=true;}
             final boolean keepPrevious=failed;
@@ -172,7 +172,7 @@ public class DriveBarService extends Service {
         holder.setContentDescription("Hentikan split-screen (tekan lama: keluar Drive)");
         holder.setOnClickListener(v -> {
             boolean stopped = DriveController.endSplit(this);
-            Toast.makeText(this, stopped ? "Split-screen dihentikan" : "Split-screen tidak dapat dihentikan (aksesibiliti iDash3 mati?)", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, stopped ? "Split-screen dihentikan" : "Split-screen tidak dapat dihentikan (aksesibiliti iDash4 mati?)", Toast.LENGTH_SHORT).show();
         });
         // Escape hatch that never needs the accessibility service: end the whole Drive session.
         holder.setOnLongClickListener(v -> {

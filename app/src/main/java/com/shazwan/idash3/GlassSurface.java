@@ -7,12 +7,15 @@ final class GlassSurface extends Drawable {
  private float radius;private final float density;private final int tint,style,tone;private final int baseQuality;private int quality;private GlassAppearance appearance;private final boolean sheet,premium;private final GlassBackdrop backdrop;
  private final java.util.ArrayList<Protection> protections=new java.util.ArrayList<>();private int protectionCount;private int protectionGeometry;private boolean protectionDirty=true;private int bodyRgb,bodyAlpha;
  private final Path specular=new Path();private final RectF inner=new RectF();private Shader bevel,specularFade;private boolean light,contrastQueued;
+ private int material=GlassMaterial.CLASSIC;private Shader materialGloss,materialShadow;
+ GlassSurface material(int value){int next=value==GlassMaterial.IOS26?GlassMaterial.IOS26:GlassMaterial.CLASSIC;if(material!=next){material=next;if(!box.isEmpty())rebuild();invalidateSelf();}return this;}
+ int material(){return material;}
  private Shader body,sheen,edge,reflection;private ColorFilter externalFilter;private BitmapShader frost;private int opacity=255,revision=-1;
  // Liquid Glass v2 state: region tint, edge lensing, touch specular, depth and reveal (blur/lens transition).
  private BitmapShader frostLens,frostSoft;private final Matrix lensMatrix=new Matrix(),softMatrix=new Matrix(),touchMatrix=new Matrix();private final Path ring=new Path();private final RectF ringInner=new RectF();
  private int regionTint,adaptKey=Integer.MIN_VALUE,fxGen=-1;private float reveal=1f,depth,lensK,touchX,touchY,touchA;private boolean lens,dynSpec,touching;private long touchStamp;private Shader touchShader;private final Paint fxPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
  // Baked refraction (GlassBake): replaces frost + lens ring when ready; frost stays the fallback.
- private Bitmap baked;private BitmapShader bakedShader;private final Matrix bakedMatrix=new Matrix();private int bakeKey=Integer.MIN_VALUE;private boolean bakeEnabled=true;
+ private Bitmap baked;private BitmapShader bakedShader;private final Matrix bakedMatrix=new Matrix();private volatile int bakeKey=Integer.MIN_VALUE;private volatile boolean bakeEnabled=true;private boolean bakeRetryQueued;
  static final ColorFilter BAKED_DARK_FILTER=new LightingColorFilter(0xffd2d2d2,0);static final int BAKED_DARK_MULTIPLIER=0xd2;static final float BAKED_BODY=.55f;
  /** Transient shapes (morph) change every frame and must not bake. */
  GlassSurface bakeEnabled(boolean on){bakeEnabled=on;if(!on){baked=null;bakedShader=null;}return this;}
@@ -33,6 +36,7 @@ final class GlassSurface extends Drawable {
   light=selectedTone==IosStyle.LIGHT||(selectedTone==IosStyle.AUTO&&Color.luminance(sampled)>.35);
   int chosen=appearance==null?sampled:appearance.tintColor(sampled);
   bodyRgb=mix(chosen,light?IosStyle.LIGHT_BASE:IosStyle.DARK_BASE,IosStyle.GLASS_WALLPAPER_WEIGHT);
+  if(material==GlassMaterial.IOS26&&style!=2)bodyRgb=mix(0xffd2f0ff,bodyRgb,light?.35f:.18f);
   // Existing percentages keep their absolute meaning. Only absent/reset defaults change.
   bodyAlpha=style==2?255:appearance!=null?Math.round(255*(1-appearance.transparency/100f)):style==1?65:IosStyle.GLASS_BODY_ALPHA;
   int bottom=style==2?255:style==1&&appearance==null?108:Math.min(245,bodyAlpha+8);
@@ -49,6 +53,8 @@ final class GlassSurface extends Drawable {
   specular.lineTo(box.left+Math.max(radius,box.width()*.46f),box.top+density*2);
   protectionDirty=true;contrastQueued=false;
   frost=frame==null||frame.bitmap==null||style==2?null:new BitmapShader(frame.bitmap,Shader.TileMode.CLAMP,Shader.TileMode.CLAMP);
+  materialGloss=material==GlassMaterial.IOS26&&style!=2?new LinearGradient(box.left,box.top,box.right,box.bottom,new int[]{0x00ffffff,0x2effffff,0x00ffffff},new float[]{.12f,.48f,.83f},Shader.TileMode.CLAMP):null;
+  materialShadow=materialGloss==null?null:new LinearGradient(0,box.top,0,box.bottom,new int[]{0x00102a40,0x3a102a40},null,Shader.TileMode.CLAMP);
   buildFx(frame);
  }
  /** Depth, lens ring and touch shader. Cheap objects, rebuilt only with the material. */
@@ -90,10 +96,12 @@ final class GlassSurface extends Drawable {
   Bitmap hit=GlassBake.cache.get(key);
   if(hit!=null){applyBake(hit);return;}
   baked=null;bakedShader=null;
-  if(!GlassBake.begin(key))return;
+  if(!GlassBake.begin(key)){retryBake();return;}
   float s=Math.min(1f,360f/Math.max(pw,ph));int ow=Math.max(2,Math.round(pw*s)),oh=Math.max(2,Math.round(ph*s));
-  GlassBake.request(f.bitmap,scale,ox,oy,left,top,pw,ph,radius,density,depth,ow,oh,key,(result,k)->{if(k==bakeKey&&result!=null&&bakeEnabled){applyBake(result);invalidateSelf();}});
+  final WeakReference<GlassSurface> reference=new WeakReference<>(this);final int requestKey=key;
+  if(!GlassBake.schedule(f.bitmap,scale,ox,oy,left,top,pw,ph,radius,density,depth,ow,oh,key,()->{GlassSurface target=reference.get();return target!=null&&target.bakeKey==requestKey&&target.bakeEnabled;},(result,k)->{GlassSurface target=reference.get();if(target!=null&&k==target.bakeKey&&result!=null&&target.bakeEnabled){target.applyBake(result);target.invalidateSelf();}}))retryBake();
  }
+ private void retryBake(){if(bakeRetryQueued)return;bakeRetryQueued=true;final WeakReference<GlassSurface> reference=new WeakReference<>(this);GlassBake.retry(()->{GlassSurface s=reference.get();if(s!=null){s.bakeRetryQueued=false;s.adaptKey=Integer.MIN_VALUE;s.invalidateSelf();}});}
  private void applyBake(Bitmap b){baked=b;bakedShader=new BitmapShader(b,Shader.TileMode.CLAMP,Shader.TileMode.CLAMP);protectionDirty=true;contrastQueued=false;}
  /** Drives the appear/disappear transition: 0 = strong lens and heavy blur, 1 = settled. */
  void setReveal(float value){float next=Math.max(0f,Math.min(1f,value));if(next!=reveal){reveal=next;invalidateSelf();}}
@@ -119,6 +127,7 @@ final class GlassSurface extends Drawable {
    paint.setStyle(Paint.Style.STROKE);paint.setShader(bevel);paint.setStrokeWidth((style==0?2:IosStyle.BEVEL_DP)*density);canvas.drawRoundRect(inner,Math.max(0,radius-2*density),Math.max(0,radius-2*density),paint);
    paint.setShader(specularFade);paint.setStrokeWidth((style==0?(quality==2?1.8f:1.2f):(quality==2?5.5f:3.5f))*density);paint.setStrokeCap(Paint.Cap.ROUND);canvas.drawPath(specular,paint);paint.setStrokeCap(Paint.Cap.BUTT);
   }
+  if(materialGloss!=null){paint.setStyle(Paint.Style.FILL);paint.setAlpha(opacity);paint.setShader(materialGloss);canvas.drawRect(box,paint);paint.setShader(materialShadow);canvas.drawRect(box,paint);paint.setShader(null);paint.setColor(Color.WHITE);paint.setAlpha(opacity*118/255);paint.setStyle(Paint.Style.STROKE);paint.setStrokeWidth(Math.max(1,density));canvas.drawRoundRect(inner,Math.max(0,radius-2*density),Math.max(0,radius-2*density),paint);}
   if(style!=2){paint.setStyle(Paint.Style.FILL);paint.setAlpha(opacity);for(int i=0;i<protectionCount;i++){Protection p=protections.get(i);paint.setShader(p.shader);canvas.drawOval(p.bounds,paint);}}
   drawTouchWash(canvas);
   canvas.restoreToCount(save);
@@ -185,7 +194,7 @@ final class GlassSurface extends Drawable {
  private static double contrast(int fg,int bg){float a=Color.alpha(fg)/255f;int ink=mix(fg,bg,a);double l1=Color.luminance(ink),l2=Color.luminance(bg);return (Math.max(l1,l2)+.05)/(Math.min(l1,l2)+.05);}
  private int protectionAlpha(float x,float y,int w,int h,int foreground,double target){
   int maximum=0,scrim=Color.luminance(foreground)>.4?0xff07101c:Color.WHITE;
-  if(backdrop==null||backdrop.frame.bitmap==null){int worst=Color.luminance(foreground)>.4?Color.WHITE:Color.BLACK;return requiredAlpha(foreground,mix(bodyRgb,worst,bodyAlpha/255f),scrim,target);}
+  if(backdrop==null||backdrop.frame.bitmap==null){int worst=Color.luminance(foreground)>.4?Color.WHITE:Color.BLACK;return materialAlpha(foreground,mix(bodyRgb,worst,bodyAlpha/255f),scrim,target);}
   // Baked glass shows its own (brighter, vibrancy-lifted) bitmap with a thinner body: estimate
   // contrast against exactly that, otherwise the scrim is sized for a darker backdrop than is drawn.
   Bitmap bk=bakedShader!=null?baked:null;
@@ -195,7 +204,7 @@ final class GlassSurface extends Drawable {
     int px=Math.max(0,Math.min(bk.getWidth()-1,(int)((sx-box.left)/box.width()*bk.getWidth())));
     int py=Math.max(0,Math.min(bk.getHeight()-1,(int)((sy-box.top)/box.height()*bk.getHeight())));
     int substrate=bk.getPixel(px,py);if(!light){float tr=BAKED_DARK_MULTIPLIER/255f;substrate=Color.rgb(Math.round(Color.red(substrate)*tr),Math.round(Color.green(substrate)*tr),Math.round(Color.blue(substrate)*tr));}
-    maximum=Math.max(maximum,requiredAlpha(foreground,mix(bodyRgb,substrate,effective),scrim,target));
+    maximum=Math.max(maximum,materialAlpha(foreground,mix(bodyRgb,substrate,effective),scrim,target));
    }return maximum;}
   Bitmap image=backdrop.frame.bitmap;Drawable.Callback owner=getCallback();while(owner instanceof Drawable)owner=((Drawable)owner).getCallback();
   int screenW=Math.max(1,(int)box.width()),screenH=Math.max(1,(int)box.height());
@@ -205,9 +214,10 @@ final class GlassSurface extends Drawable {
    int px=Math.max(0,Math.min(image.getWidth()-1,(int)((position[0]+x+w*((col-1)*.4f+.1f)-(screenW-image.getWidth()*scale)/2)/scale)));
    int py=Math.max(0,Math.min(image.getHeight()-1,(int)((position[1]+y+h*((row-1)*.4f+.1f)-(screenH-image.getHeight()*scale)/2)/scale)));
    int substrate=image.getPixel(px,py);if(!light){float transmission=IosStyle.DARK_FROST_MULTIPLIER/255f;substrate=Color.rgb(Math.round(Color.red(substrate)*transmission),Math.round(Color.green(substrate)*transmission),Math.round(Color.blue(substrate)*transmission));}int bg=mix(bodyRgb,substrate,bodyAlpha/255f);
-   maximum=Math.max(maximum,requiredAlpha(foreground,bg,scrim,target));
+   maximum=Math.max(maximum,materialAlpha(foreground,bg,scrim,target));
   }return maximum;
  }
+ private int materialAlpha(int foreground,int bg,int scrim,double target){if(material!=GlassMaterial.IOS26||style==2)return requiredAlpha(foreground,bg,scrim,target);return Math.max(requiredAlpha(foreground,mix(Color.WHITE,bg,.28f),scrim,target),requiredAlpha(foreground,mix(0xff102a40,bg,.23f),scrim,target));}
  private static int requiredAlpha(int foreground,int bg,int scrim,double target){if(Color.luminance(foreground)>.4)bg=mix(Color.WHITE,bg,.08f);if(contrast(foreground,bg)>=target)return 0;int lo=0,hi=160;while(hi-lo>4){int mid=(lo+hi)/2;if(contrast(foreground,mix(scrim,bg,mid/255f))>=target)hi=mid;else lo=mid;}return hi;}
  @Override public void getOutline(Outline outline){outline.setRoundRect((int)box.left,(int)box.top,(int)box.right,(int)box.bottom,radius);outline.setAlpha(style==2?1:.45f);}
  @Override public void setAlpha(int alpha){opacity=Math.max(0,Math.min(255,alpha));invalidateSelf();}

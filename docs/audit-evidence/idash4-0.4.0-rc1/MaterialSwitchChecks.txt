@@ -1,0 +1,3 @@
+INSTRUMENTATION_RESULT: stream=PASS: 13 reversible material assertions
+
+INSTRUMENTATION_CODE: -1

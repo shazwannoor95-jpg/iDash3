@@ -59,7 +59,7 @@ public class LauncherActivity extends Activity {
     @Override protected void onResume() { super.onResume(); DriveController.launcherResumed(this); resumed=true;if(drivingWorkspace!=null)drivingWorkspace.resume();if(appearanceEditor!=null)appearanceEditor.resume();if(quickControls!=null)quickControls.resume(); main.removeCallbacks(ticker); ticker.run(); immersive();if(webPanel!=null)webPanel.resume();if(fmPanel!=null)fmPanel.resume();if(carPanel!=null)carPanel.resume(); startFrameWatch(); }
     @Override protected void onPause() { resumed=false;if(drivingWorkspace!=null)drivingWorkspace.pause();stopFrameWatch();if(appearanceEditor!=null)appearanceEditor.pause();if(quickControls!=null)quickControls.pause();main.removeCallbacks(ticker);if(webPanel!=null)webPanel.pause();if(fmPanel!=null)fmPanel.pause();if(carPanel!=null)carPanel.pause(); super.onPause(); }
     @Override protected void onDestroy() { destroyed=true;if(drivingWorkspace!=null)drivingWorkspace.close();if(settingsNavigation!=null)settingsNavigation.close();if(settingsScreen!=null)settingsScreen.close();if(appearanceEditor!=null)appearanceEditor.close();IosStyle.releaseGlass(this);if(quickControls!=null){quickControls.close();}if(wallpaperDialog!=null)wallpaperDialog.dismiss();disposePanel(); main.removeCallbacksAndMessages(null); worker.shutdownNow(); networkWorker.shutdownNow(); super.onDestroy(); }
-    @Override public void onTrimMemory(int level){super.onTrimMemory(level);if(level>=android.content.ComponentCallbacks2.TRIM_MEMORY_RUNNING_LOW)Ios26Icons.clear();}
+    @Override public void onTrimMemory(int level){super.onTrimMemory(level);if(level>=android.content.ComponentCallbacks2.TRIM_MEMORY_RUNNING_LOW){Ios26Icons.clear();GlassBake.trim();}}
     @Override protected void onSaveInstanceState(Bundle out) { out.putInt("driving_tab",drivingTab);out.putBoolean("panel",panelVisible);out.putString("page",page);out.putString("settings_section",settingsSection); out.putString("query",query); super.onSaveInstanceState(out); }
     @Override public void onConfigurationChanged(Configuration config) { super.onConfigurationChanged(config); render(); }
     @Override protected void onNewIntent(Intent intent) { super.onNewIntent(intent); page="home"; query=""; render(); }
@@ -116,7 +116,7 @@ public class LauncherActivity extends Activity {
             homeStage.addOnLayoutChangeListener((v,l,t,r,b,oldL,oldT,oldR,oldB)->fitInsets.run());
         }else stage.setOnApplyWindowInsetsListener((v,insets)-> { shell.setPadding(dp(edge)+insets.getSystemWindowInsetLeft(),dp(top)+insets.getSystemWindowInsetTop(),dp(edge)+insets.getSystemWindowInsetRight(),dp(bottom)+insets.getSystemWindowInsetBottom()); return insets; });
         LinearLayout status=row(); statusTime=text("",13,Color.WHITE); statusTime.setTypeface(IosStyle.font(this,true)); status.addView(statusTime,new LinearLayout.LayoutParams(0,dp(48),1)); statusTime.setGravity(Gravity.CENTER_VERTICAL);
-        TextView brand=text("iDash3",13,0xcce6eaff); brand.setGravity(Gravity.CENTER); status.addView(brand,new LinearLayout.LayoutParams(dp(90),dp(48)));
+        TextView brand=text("iDash4",13,0xcce6eaff); brand.setGravity(Gravity.CENTER); status.addView(brand,new LinearLayout.LayoutParams(dp(90),dp(48)));
         status.addView(headerAction("Panel",4,()->{panelVisible=!panelVisible;page="home";render();}));
         status.addView(headerAction("Customize",5,this::customize));
         status.addView(headerAction("Control Center",6,this::controlCenter)); shell.addView(status);

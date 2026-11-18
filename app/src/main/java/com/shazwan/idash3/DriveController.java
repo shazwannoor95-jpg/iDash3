@@ -90,7 +90,7 @@ final class DriveController {
     /** @return null when started, otherwise a short Malay reason the user can act on. */
     static String start(Context app, String map, String media, boolean mapLeft, boolean bar, boolean adjacent) {
         if (map == null || media == null) return "Pilih app peta dan app media dahulu.";
-        if (!SplitService.isRunning()) return "Hidupkan perkhidmatan aksesibiliti iDash3 dahulu (untuk butang split-screen).";
+        if (!SplitService.isRunning()) return "Hidupkan perkhidmatan aksesibiliti iDash4 dahulu (untuk butang split-screen).";
         final Context c = app.getApplicationContext();
         cancelPending();
         lastMap = map; lastMedia = media; lastMapLeft = mapLeft; lastBar = bar; splitDocked = false;

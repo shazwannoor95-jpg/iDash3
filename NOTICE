@@ -1,4 +1,4 @@
-iDash3 source code is MIT licensed (see LICENSE).
+iDash4 / iDash3 source code is MIT licensed (see LICENSE).
 
 Provenance
 - Application source is derived from iDash 0.1.8 (Phase 6C) as stabilised in iDash2
@@ -26,3 +26,7 @@ Provenance
   app icons/trademarks remain with their respective owners. See provenance.json
   in that directory for each source, original path, transform and SHA256.
   The artwork is copied byte-for-byte; it is not claimed as original iDash art.
+
+- The optional iOS26 panel treatment is an Android adaptation of the visual
+  concepts in the pinned pack fetch_icons.py (_liquid_glass_transform); it
+  reuses iDash cached frost and does not import an Apple/iOS panel renderer.

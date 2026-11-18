@@ -1,0 +1,11 @@
+{
+  "tests": 47,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "lint_errors": 0,
+  "lint_warnings": 63,
+  "instrumentation_checks": 595,
+  "classic_profiles": 54,
+  "functional_assertions": 541
+}

@@ -2,6 +2,15 @@
 
 Format ringkas berasaskan [Keep a Changelog](https://keepachangelog.com/). Tarikh dalam UTC.
 
+## [0.4.0-rc1] — 2026-11-18 (iDash4 integration)
+
+- Gabungkan feature stream rc2/rc3/rc4 melalui ancestry; package dan data asal dikekalkan.
+- Material panel iOS26 dengan pilihan Classic iDash3 untuk revert tanpa reset Appearance.
+- Queue bake terhad kepada 16 kerja menunggu, semakan kerja lapuk, callback weak dan retry selepas tekanan queue/pending.
+- Trim cache kaca/ikon tanpa recycle bitmap yang masih dirujuk view.
+- Validasi aktiviti shortcut sebelum artwork pack dipaparkan; app yang tiada tidak dihidupkan semula sebagai ikon hantu.
+- Branding iDash4, versionCode 6. Ujian perbandingan Classic menggunakan 54 profil render daripada APK rc4 sebenar.
+
 ## [0.2.1-rc4] — 2026-11-18 (ikon pack pilihan pengguna)
 
 - Import 57 ikon ios26_lg SysAdminDoc/iOSIconPack dengan hash/provenance dan lesen upstream.

@@ -1,0 +1,8 @@
+{
+  "upstream_tips_inherited": {
+    "origin/fix/maps-panel-app-layout": "5ed20854c2055e3ec1f84a0f7a104a8135c2abe5",
+    "origin/feat/drive-templates-rc3": "fca2930a8837920dd6f7b8bf47d359a4d1e054c9",
+    "origin/feat/ios26-icons-rc4": "00111f9f45b09049687fc991bc620bd4f736188e"
+  },
+  "conflicts": []
+}

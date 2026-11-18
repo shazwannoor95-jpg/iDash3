@@ -1,5 +1,13 @@
 # iDash3 — APK ujian (debug QA)
 
+## iDash4 0.4.0-rc1 — integration candidate
+
+[Download APK debug](iDash4-0.4.0-rc1-debug.apk?raw=true) · versionCode 6 · package `com.shazwan.idash3` · SHA256 `3ede3e4cdd92158a92b6b994679412be51d260617882ad6a7ca912b3a2413200`.
+
+Gabungan rc2/rc3/rc4, ikon iOS26, workspace Ringkas dan material panel iOS26 yang boleh ditukar ke **Classic iDash3** melalui Settings → Home & Dock → Liquid Glass → Material panel. Tiada reset data/package atau merge main. [Audit dan screenshot](../docs/IDASH4-INTEGRATION-AUDIT.md).
+
+47 ujian unit, 541 assertion fungsi dan 54 profil Classic lulus pada emulator; head unit fizikal dan Google Maps masih memerlukan pengesahan. Ditandatangani kunci debug yang sama dengan rc1–rc4; QA asal mungkin mempunyai sijil berbeza.
+
 ## 0.2.1-rc4 — ikon iOS26 Liquid Glass
 
 [Download APK debug](iDash3-0.2.1-rc4-debug.apk?raw=true) · versionCode 5 · SHA256 `abc6f2e0ddd1a8ab5041989adafbbaa0383a6748e7e4aac6aaf718558170c97a`.

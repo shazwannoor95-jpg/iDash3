@@ -1,0 +1,3 @@
+INSTRUMENTATION_RESULT: stream=PASS: 54 Classic render profiles (current)
+
+INSTRUMENTATION_CODE: -1

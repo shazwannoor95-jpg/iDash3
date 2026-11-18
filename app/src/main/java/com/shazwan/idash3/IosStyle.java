@@ -12,7 +12,7 @@ final class IosStyle {
  static final int CC_TITLE_SP=22,CC_PRIMARY_SP=20,CC_BODY_SP=14,CC_LABEL_SP=12,CC_VALUE_SP=13;
  static final int CC_TEXT=0xfffbfdff,CC_SECONDARY=0xffe1eaf6,CC_BASE=0xff283c54;
  static final float CC_DISABLED_ALPHA=.70f,CC_ICON_SCALE=.60f;
- static Drawable controlGlass(Context c,int radius,boolean sheet){return new GlassSurface(c.getResources().getDisplayMetrics().density,CC_BASE,radius,0,sheet,backdrop(c),quality(c),GlassAppearance.read(c).tone,true).appearance(GlassAppearance.active(c));}
+ static Drawable controlGlass(Context c,int radius,boolean sheet){return new GlassSurface(c.getResources().getDisplayMetrics().density,CC_BASE,radius,0,sheet,backdrop(c),quality(c),GlassAppearance.read(c).tone,true).material(GlassMaterial.read(c)).appearance(GlassAppearance.active(c));}
  static final int INK=0xff172238,PAPER=0xfff2f5fa;
  static final int LIGHT_BASE=0xffe9eff7,DARK_BASE=0xff202832;
  static final int LOW=0,BALANCED=1,HIGH=2,AUTO=0,LIGHT=1,DARK=2;
@@ -46,7 +46,7 @@ final class IosStyle {
   for(GlassSurface g:glass)g.setReveal(0f);v.setAlpha(.55f);holder[0].start();}
  private static void collectGlass(View v,java.util.ArrayList<GlassSurface> out,int depth){if(depth>12||out.size()>48)return;if(v.getBackground() instanceof GlassSurface)out.add((GlassSurface)v.getBackground());if(v instanceof ViewGroup){ViewGroup g=(ViewGroup)v;for(int i=0;i<g.getChildCount();i++)collectGlass(g.getChildAt(i),out,depth+1);}}
  static Drawable glass(Context c,int tint,int radius){return glass(c,tint,radius,false);}
- static Drawable glass(Context c,int tint,int radius,boolean sheet){return new GlassSurface(c.getResources().getDisplayMetrics().density,tint,radius,GlassAppearance.clamp(GlassAppearance.integer(c.getSharedPreferences("idash",0),"glass_style",0),0,2),sheet,backdrop(c),quality(c),GlassAppearance.read(c).tone).appearance(GlassAppearance.active(c));}
+ static Drawable glass(Context c,int tint,int radius,boolean sheet){return new GlassSurface(c.getResources().getDisplayMetrics().density,tint,radius,GlassAppearance.clamp(GlassAppearance.integer(c.getSharedPreferences("idash",0),"glass_style",0),0,2),sheet,backdrop(c),quality(c),GlassAppearance.read(c).tone).material(GlassMaterial.read(c)).appearance(GlassAppearance.active(c));}
 
  static final class Icon extends View {
   int foreground=Color.WHITE;final int type;final Paint p=new Paint(3);final Path path=new Path();
