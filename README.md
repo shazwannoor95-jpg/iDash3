@@ -1,6 +1,6 @@
 # iDash4 — iDash3 integration
 
-**Current candidate: iDash4 0.5.0-rc3** — edge-to-edge Dashboard content, aligned icon rail, compact media and prayer/date cards inspired by the provided CarPlay reference. [Download debug APK](dist/iDash4-0.5.0-rc3-debug.apk?raw=true) · [Layout audit](docs/DASHBOARD-LAYOUT-0.5.0-RC3.md). Premium/Classic FM remains available. Shared glass and `main` remain unchanged.
+**Current candidate: iDash4 0.5.0-rc4** — FM fills its panel; compact top-row panel controls; direct Drive rail icons and widgets beside the left rail. [Download debug APK](dist/iDash4-0.5.0-rc4-debug.apk?raw=true) · [Panel/rail audit](docs/PANEL-RAIL-0.5.0-RC4.md). Premium/Classic FM remains available. Shared glass and `main` remain unchanged.
 
 **Revert panel appearance:** Settings → Home & Dock → Liquid Glass → Material panel → **Classic iDash3**. The new iOS26 panel material and the icon-pack switch are independent.
 
