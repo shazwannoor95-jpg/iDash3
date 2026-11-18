@@ -102,9 +102,11 @@ public class DriveBarService extends Service {
                     try{
                         String label=String.valueOf(ri.loadLabel(pm));if(TextUtils.isEmpty(label))label=ri.activityInfo.packageName;
                         String component=new ComponentName(ri.activityInfo.packageName,ri.activityInfo.name).flattenToString();
-                        Drawable raw=ri.loadIcon(pm);int glyph=IosGlyphs.match(ri.activityInfo.packageName,ri.activityInfo.packageName);
-                        Bitmap icon=IconStyler.render(raw,dp(44),IconStyler.DEFAULT,0xff6f8fc8,getResources().getDisplayMetrics().density,false,glyph);
-                        Bitmap shortcut=IconStyler.render(raw,dp(21),IconStyler.DEFAULT,0xff6f8fc8,getResources().getDisplayMetrics().density,false,glyph);
+                        int glyph=IosGlyphs.match(ri.activityInfo.packageName,ri.activityInfo.packageName);
+                        Bitmap packed=getSharedPreferences("idash",MODE_PRIVATE).getBoolean("ios_icons",true)?Ios26Icons.app(this,component,label):null;
+                        Drawable raw=packed==null?ri.loadIcon(pm):null;
+                        Bitmap icon=packed!=null?packed:IconStyler.render(raw,dp(44),IconStyler.DEFAULT,0xff6f8fc8,getResources().getDisplayMetrics().density,false,glyph);
+                        Bitmap shortcut=packed!=null?packed:IconStyler.render(raw,dp(21),IconStyler.DEFAULT,0xff6f8fc8,getResources().getDisplayMetrics().density,false,glyph);
                         found.add(new App(label,component,icon,shortcut));shortcuts.put(component,shortcut);
                     }catch(RuntimeException removed){/* Keep the remaining packages usable. */}
                     if(found.size()>=60)break;
@@ -113,7 +115,7 @@ public class DriveBarService extends Service {
                 for(String value:new String[]{prefs.getString(DriveController.PREF_MAP,null),prefs.getString(DriveController.PREF_MEDIA,null),"com.android.settings/.Settings"}){
                     ComponentName name=value==null?null:ComponentName.unflattenFromString(value);
                     if(name==null||shortcuts.containsKey(name.flattenToString()))continue;
-                    try{shortcuts.put(name.flattenToString(),IconStyler.render(pm.getActivityIcon(name),dp(21),IconStyler.DEFAULT,0xff6f8fc8,getResources().getDisplayMetrics().density,false,IosGlyphs.match(name.getPackageName(),name.getPackageName())));}catch(PackageManager.NameNotFoundException|RuntimeException absent){}
+                    try{Bitmap packed=prefs.getBoolean("ios_icons",true)?Ios26Icons.app(this,name.flattenToString(),name.getPackageName()):null;shortcuts.put(name.flattenToString(),packed!=null?packed:IconStyler.render(pm.getActivityIcon(name),dp(21),IconStyler.DEFAULT,0xff6f8fc8,getResources().getDisplayMetrics().density,false,IosGlyphs.match(name.getPackageName(),name.getPackageName())));}catch(PackageManager.NameNotFoundException|RuntimeException absent){}
                 }
             }catch(RuntimeException|OutOfMemoryError unavailable){failed=true;}
             final boolean keepPrevious=failed;

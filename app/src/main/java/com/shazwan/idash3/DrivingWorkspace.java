@@ -23,14 +23,20 @@ final class DrivingWorkspace extends LinearLayout {
   LinearLayout rail=new LinearLayout(a);rail.setOrientation(VERTICAL);rail.setGravity(Gravity.CENTER);rail.setBackgroundColor(0xe61a2233);
   addView(rail,new LayoutParams(a.dp(88),-1));
   TextClock clock=new TextClock(a);clock.setFormat24Hour("HH:mm");clock.setFormat12Hour("h:mm a");clock.setTextColor(Color.WHITE);clock.setTextSize(18);clock.setGravity(Gravity.CENTER);clock.setSingleLine(true);rail.addView(clock,new LayoutParams(-1,a.dp(40)));
-  rail.addView(button("Peta",()->launch(DriveController.PREF_MAP,DrivePlan.MAP_PREFS)),new LayoutParams(-1,a.dp(DrivingTemplates.TOUCH_DP)));
-  rail.addView(button("Media",()->launch(DriveController.PREF_MEDIA,DrivePlan.MEDIA_PREFS)),new LayoutParams(-1,a.dp(DrivingTemplates.TOUCH_DP)));
-  rail.addView(button("Telefon",()->launch("",PHONE)),new LayoutParams(-1,a.dp(DrivingTemplates.TOUCH_DP)));
-  rail.addView(button("Home",()->{a.page="home";a.query="";a.render();}),new LayoutParams(-1,a.dp(DrivingTemplates.TOUCH_DP)));
+  rail.addView(railIcon("Peta","maps",()->launch(DriveController.PREF_MAP,DrivePlan.MAP_PREFS)),new LayoutParams(-1,a.dp(DrivingTemplates.TOUCH_DP)));
+  rail.addView(railIcon("Media","music",()->launch(DriveController.PREF_MEDIA,DrivePlan.MEDIA_PREFS)),new LayoutParams(-1,a.dp(DrivingTemplates.TOUCH_DP)));
+  rail.addView(railIcon("Telefon","phone",()->launch("",PHONE)),new LayoutParams(-1,a.dp(DrivingTemplates.TOUCH_DP)));
+  rail.addView(railIcon("Home",null,()->{a.page="home";a.query="";a.render();}),new LayoutParams(-1,a.dp(DrivingTemplates.TOUCH_DP)));
   LinearLayout main=new LinearLayout(a);main.setOrientation(VERTICAL);main.setPadding(a.dp(8),0,0,0);addView(main,new LayoutParams(0,-1,1));
   tabs=new LinearLayout(a);main.addView(tabs,new LayoutParams(-1,a.dp(DrivingTemplates.TOUCH_DP)));
   String[] names={"Apps","Now Playing","Tindakan"};for(int i=0;i<names.length;i++){final int selected=i;tabButtons[i]=button(names[i],()->select(selected));tabButtons[i].setContentDescription("Driving tab "+names[i]);tabs.addView(tabButtons[i],new LayoutParams(0,-1,1));}
   content=new LinearLayout(a);content.setOrientation(VERTICAL);main.addView(content,new LayoutParams(-1,0,1));select(a.drivingTab);
+ }
+ View railIcon(String label,String icon,Runnable action){
+  android.widget.FrameLayout hit=new android.widget.FrameLayout(a);hit.setContentDescription("Driving "+label);hit.setFocusable(true);hit.setBackground(buttonBackground());hit.setOnClickListener(v->action.run());hit.setTooltipText(label);
+  android.graphics.Bitmap bitmap=Ios26Icons.named(a,icon);
+  View image;if(bitmap!=null){ImageView v=new ImageView(a);v.setImageBitmap(bitmap);v.setScaleType(ImageView.ScaleType.FIT_CENTER);image=v;}else image=new DockGlyph(a,DockGlyph.APPS);
+  image.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);hit.addView(image,new android.widget.FrameLayout.LayoutParams(a.dp(40),a.dp(40),Gravity.CENTER));return hit;
  }
  TextView text(String value,int size){TextView v=new TextView(a);v.setText(value);v.setTextColor(Color.WHITE);v.setTextSize(size);v.setGravity(Gravity.CENTER);v.setSingleLine(true);v.setEllipsize(TextUtils.TruncateAt.END);return v;}
  TextView button(String label,Runnable action){TextView v=text(label,16);v.setMinHeight(a.dp(DrivingTemplates.TOUCH_DP));v.setPadding(a.dp(6),0,a.dp(6),0);v.setFocusable(true);v.setBackground(buttonBackground());v.setContentDescription("Driving "+label);v.setOnClickListener(w->action.run());return v;}

@@ -44,7 +44,7 @@ Already captured? Drop the PNGs into `docs/images/` with the documented names an
 - **Baked refraction glass:** edge refraction, vibrancy and bevel are computed **once** per panel on a background thread (not every frame) — the iOS glass look without shaders that API 27 does not have.
 - Adaptive tint and text colour **per panel**, with contrast protection (≥4.9:1).
 - Touch-driven specular highlight, size-aware shadow, reveal transition (lens + blur), spring and **liquid morph** (folders), elastic press.
-- **iOS-style icons**: squircle tiles + original glyphs for common head-unit apps (Radio, Music, Bluetooth, Backcar, CAN, Car Settings, Maps/Navi, Files, Gallery, Video, …), 5 variants (Default, Dark, Clear, Tinted light/dark). Icons are drawn in-app — **no Apple assets**.
+- **iOS-style icons**: squircle tiles + original glyphs for common head-unit apps (Radio, Music, Bluetooth, Backcar, CAN, Car Settings, Maps/Navi, Files, Gallery, Video, …), 5 variants (Default, Dark, Clear, Tinted light/dark). Matched app icons now use the requested **iOS 26 Liquid Glass set from [SysAdminDoc/iOSIconPack](https://github.com/SysAdminDoc/iOSIconPack)**; unmatched apps keep the original renderer. Artwork provenance and upstream license notes are bundled.
 - **Inter / Inter Display** font (SIL OFL) — the closest legal stand-in for SF Pro.
 - **Performance mode**: Auto (real frame time & RAM) / Low / Full.
 
@@ -106,7 +106,7 @@ Code: MIT ([`LICENSE`](LICENSE)). Inter font: SIL OFL 1.1. Other attribution (JA
 - **Kaca refraksi "baked":** refraksi tepi, vibrancy dan bevel dikira **sekali** per panel di thread latar (bukan setiap bingkai) — rupa kaca iOS tanpa shader moden yang tiada pada API 27.
 - Tint dan warna teks **adaptif per panel** dengan perlindungan kontras teks (≥4.9:1).
 - Specular ikut sentuhan, bayang ikut saiz panel, peralihan reveal (lens + blur), spring dan **morph cecair** (folder), tekan anjal.
-- **Ikon gaya iOS**: jubin squircle + glyph asli untuk app head unit biasa (Radio, Music, Bluetooth, Backcar, CAN, Car Settings, Maps/Navi, Files, Gallery, Video, dll.), 5 varian (Default, Dark, Clear, Tinted terang/gelap). Ikon dilukis sendiri — **tiada aset Apple**.
+- **Ikon gaya iOS**: jubin squircle + glyph asli untuk app head unit biasa (Radio, Music, Bluetooth, Backcar, CAN, Car Settings, Maps/Navi, Files, Gallery, Video, dll.), 5 varian (Default, Dark, Clear, Tinted terang/gelap). Ikon sepadan menggunakan artwork **iOS 26 Liquid Glass SysAdminDoc/iOSIconPack**; renderer asal kekal untuk app tanpa padanan. Sumber dan nota lesen disertakan.
 - Font **Inter / Inter Display** (SIL OFL) — paling hampir dengan SF Pro yang boleh diedarkan secara sah.
 - **Mod prestasi**: Auto (ikut masa bingkai sebenar & RAM) / Rendah / Penuh.
 

@@ -59,6 +59,7 @@ public class LauncherActivity extends Activity {
     @Override protected void onResume() { super.onResume(); DriveController.launcherResumed(this); resumed=true;if(drivingWorkspace!=null)drivingWorkspace.resume();if(appearanceEditor!=null)appearanceEditor.resume();if(quickControls!=null)quickControls.resume(); main.removeCallbacks(ticker); ticker.run(); immersive();if(webPanel!=null)webPanel.resume();if(fmPanel!=null)fmPanel.resume();if(carPanel!=null)carPanel.resume(); startFrameWatch(); }
     @Override protected void onPause() { resumed=false;if(drivingWorkspace!=null)drivingWorkspace.pause();stopFrameWatch();if(appearanceEditor!=null)appearanceEditor.pause();if(quickControls!=null)quickControls.pause();main.removeCallbacks(ticker);if(webPanel!=null)webPanel.pause();if(fmPanel!=null)fmPanel.pause();if(carPanel!=null)carPanel.pause(); super.onPause(); }
     @Override protected void onDestroy() { destroyed=true;if(drivingWorkspace!=null)drivingWorkspace.close();if(settingsNavigation!=null)settingsNavigation.close();if(settingsScreen!=null)settingsScreen.close();if(appearanceEditor!=null)appearanceEditor.close();IosStyle.releaseGlass(this);if(quickControls!=null){quickControls.close();}if(wallpaperDialog!=null)wallpaperDialog.dismiss();disposePanel(); main.removeCallbacksAndMessages(null); worker.shutdownNow(); networkWorker.shutdownNow(); super.onDestroy(); }
+    @Override public void onTrimMemory(int level){super.onTrimMemory(level);if(level>=android.content.ComponentCallbacks2.TRIM_MEMORY_RUNNING_LOW)Ios26Icons.clear();}
     @Override protected void onSaveInstanceState(Bundle out) { out.putInt("driving_tab",drivingTab);out.putBoolean("panel",panelVisible);out.putString("page",page);out.putString("settings_section",settingsSection); out.putString("query",query); super.onSaveInstanceState(out); }
     @Override public void onConfigurationChanged(Configuration config) { super.onConfigurationChanged(config); render(); }
     @Override protected void onNewIntent(Intent intent) { super.onNewIntent(intent); page="home"; query=""; render(); }
@@ -153,6 +154,8 @@ public class LauncherActivity extends Activity {
         icon.setBackground(new Squircle.Tile(tops[slot],bottoms[slot],getResources().getDisplayMetrics().density));icon.setElevation(dp(dock?3:5));
         if(slot==1){ImageView files=new ImageView(this);files.setImageResource(R.drawable.ic_dock_files);files.setScaleType(ImageView.ScaleType.FIT_CENTER);icon.addView(files,new FrameLayout.LayoutParams(-1,-1));}
         else icon.addView(new FavoriteGlyph(this,slot),new FrameLayout.LayoutParams(-1,-1));
+        Bitmap packed=prefs.getBoolean("ios_icons",true)?(app==null?Ios26Icons.named(this,slot==0?"phone":slot==1?"files":"youtube"):Ios26Icons.app(this,app.component,app.label)):null;
+        if(packed!=null){icon.removeAllViews();icon.setBackground(null);ImageView image=new ImageView(this);image.setImageBitmap(packed);icon.addView(image,new FrameLayout.LayoutParams(-1,-1));}
         tile.addView(icon,new LinearLayout.LayoutParams(dp(size),dp(size)));
         TextView label=text(slots[slot],dock?10:12,Color.WHITE); label.setMaxLines(1);label.setEllipsize(TextUtils.TruncateAt.END);label.setGravity(Gravity.CENTER);LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(-1,dp(dock?15:22));lp.topMargin=dp(dock?1:3);tile.addView(label,lp);
         Elastic.attach(tile);tile.setContentDescription("Favorite "+slots[slot]);tile.setOnClickListener(v->{App current=assigned(slot);if(current==null)pick(slot);else launch(current);});tile.setOnLongClickListener(v->{pick(slot);return true;});return tile;
@@ -171,6 +174,7 @@ public class LauncherActivity extends Activity {
         FrameLayout tile=new FrameLayout(this);boolean settings="Settings".equals(label),drive="Drive".equals(label);float density=getResources().getDisplayMetrics().density;
         tile.setBackground(settings?new Squircle.Tile(0xffa3abb8,0xff69717f,density):drive?new Squircle.Tile(0xff34c759,0xff1f9d40,density):new Squircle.Tile(0xff7f8ba3,0xff4b5468,density));tile.setElevation(dp(3));
         tile.addView(new DockGlyph(this,settings?DockGlyph.SETTINGS:drive?DockGlyph.DRIVE:DockGlyph.APPS),new FrameLayout.LayoutParams(-1,-1));icon=tile;
+        if(settings&&prefs.getBoolean("ios_icons",true)){Bitmap packed=Ios26Icons.named(this,"settings");if(packed!=null){tile.removeAllViews();tile.setBackground(null);ImageView image=new ImageView(this);image.setImageBitmap(packed);tile.addView(image,new FrameLayout.LayoutParams(-1,-1));}}
         l.addView(icon,new LinearLayout.LayoutParams(dp(prefs.getInt("dock_size",0)==0?34:42),dp(prefs.getInt("dock_size",0)==0?34:42)));TextView name=text(label,10,Color.WHITE);name.setGravity(Gravity.CENTER);l.addView(name,new LinearLayout.LayoutParams(-1,dp(15)));l.setContentDescription(label);l.setOnClickListener(v->action.run());Elastic.attach(l);return l;
     }
     void showApps() {page="apps";render();}
@@ -208,8 +212,9 @@ public class LauncherActivity extends Activity {
                     if(Thread.currentThread().isInterrupted())return;
                     if(info.activityInfo==null||info.activityInfo.packageName.equals(getPackageName()))continue;
                     String key=new ComponentName(info.activityInfo.packageName,info.activityInfo.name).flattenToString();if(!seen.add(key))continue;
-                    try{Drawable d=info.loadIcon(pm);String label=info.loadLabel(pm).toString();
-                        Bitmap bitmap=IconStyler.render(d,dp(56),iconVariant,iconTint,getResources().getDisplayMetrics().density,!GlassPerf.low(),iosIcons?IosGlyphs.match(info.activityInfo.packageName,label):IosGlyphs.NONE);
+                    try{String label=info.loadLabel(pm).toString();
+                        Bitmap bitmap=iosIcons?Ios26Icons.app(this,key,label):null;
+                        if(bitmap==null)bitmap=IconStyler.render(info.loadIcon(pm),dp(56),iconVariant,iconTint,getResources().getDisplayMetrics().density,!GlassPerf.low(),iosIcons?IosGlyphs.match(info.activityInfo.packageName,label):IosGlyphs.NONE);
                         found.add(new App(label,key,bitmap));
                     }catch(RuntimeException unavailable){/* Package removed during discovery. */}
                 }

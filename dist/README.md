@@ -1,5 +1,11 @@
 # iDash3 — APK ujian (debug QA)
 
+## 0.2.1-rc4 — ikon iOS26 Liquid Glass
+
+[Download APK debug](iDash3-0.2.1-rc4-debug.apk?raw=true) · versionCode 5 · SHA256 `abc6f2e0ddd1a8ab5041989adafbbaa0383a6748e7e4aac6aaf718558170c97a`.
+
+57 ikon `ios26_lg` daripada SysAdminDoc/iOSIconPack; rail Peta/Media/Telefon menjadi ikon, app sepadan menggunakan artwork pack. Home dan OEM tanpa padanan menggunakan ikon asal. Glass panel rc3 tidak diubah dalam versi ini. [Sumber dan ujian](../docs/IOS26-ICONS-RC4.md).
+
 ## 0.2.1-rc3 — workspace Ringkas (template native Android)
 
 [Download APK debug](iDash3-0.2.1-rc3-debug.apk?raw=true) · versionCode 4 · SHA256 `8e1ae0ee2d3ea2157fb4bcc19ad366c6052f36e513733939d5bd8ee16b592909`.

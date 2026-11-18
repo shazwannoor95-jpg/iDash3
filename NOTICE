@@ -11,8 +11,18 @@ Provenance
   (plate-bearing Saga angle atlas) was reused at the project owner's request; its
   original rights holder has not been independently verified. Replace before any public release.
 - Wallpapers are generated procedurally in code (Wallpapers.java); icons shown for installed
-  apps come from those apps (shaped by IconStyler).
+  apps use the SysAdminDoc iOS26 pack when matched, otherwise the existing
+  in-app/installed artwork renderer.
 - Typeface: Inter and Inter Display (c) The Inter Project Authors, SIL Open Font License 1.1
   (docs/licenses/Inter-OFL.txt); converted from the inter-ui 4.1.1 web fonts (latin subset) to TTF.
   SF Pro is NOT included: Apple's licence does not allow redistribution in an Android app.
 - Gradle wrapper: Apache License 2.0 (gradle/wrapper/LICENSE).
+
+- iOS26 icon artwork requested by the project owner: SysAdminDoc/iOSIconPack,
+  commit db0ccf25ff695a076eee16833fd868a1a454cda6, set ios26_lg (57 PNGs).
+  The upstream repository code is MIT licensed (c) 2026 SysAdminDoc; its LICENSE
+  is included in app/src/main/assets/icons/ios26/LICENSE.txt. Upstream artwork
+  provenance explicitly states that source URLs are not a license grant and
+  app icons/trademarks remain with their respective owners. See provenance.json
+  in that directory for each source, original path, transform and SHA256.
+  The artwork is copied byte-for-byte; it is not claimed as original iDash art.

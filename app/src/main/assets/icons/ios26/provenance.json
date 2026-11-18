@@ -1,0 +1,1260 @@
+{
+  "repository": "https://github.com/SysAdminDoc/iOSIconPack",
+  "commit": "db0ccf25ff695a076eee16833fd868a1a454cda6",
+  "entries": {
+    "ios26_lg_amazon": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_amazon.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/amazon_1024.png",
+      "sha256": "f24962466dc03c1cd8e64a817f5536b2564b013defca70d8f1ba789ecde2f1e0",
+      "source_name": "amazon",
+      "source_query": "Amazon Shopping",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Amazon+Shopping&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_appstore": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_appstore.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Lookup API",
+      "raw_artifact": "icons_raw/appstore_1024.png",
+      "sha256": "6eb5050c48b56479c214ef3344536eb3c5797584f274796d379b400fe083dd87",
+      "source_name": "appstore",
+      "source_query": "1108187803",
+      "source_role": "apple_stock_era_variant",
+      "source_url": "https://itunes.apple.com/lookup?id=1108187803&country=us",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_calculator": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_calculator.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Lookup API",
+      "raw_artifact": "icons_raw/calculator_1024.png",
+      "sha256": "ff9484242ba1bc8b9efa1c89f8cb8f4156ddb482fd6debdcb8374b0a5e69fb78",
+      "source_name": "calculator",
+      "source_query": "1069511488",
+      "source_role": "apple_stock_era_variant",
+      "source_url": "https://itunes.apple.com/lookup?id=1069511488&country=us",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_calendar": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_calendar.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Lookup API",
+      "raw_artifact": "icons_raw/calendar_1024.png",
+      "sha256": "f604c1dd93c28b8d1b2bbc20f54a1132374c8bdec3ccbf0620e583397702197c",
+      "source_name": "calendar",
+      "source_query": "1108185179",
+      "source_role": "apple_stock_era_variant",
+      "source_url": "https://itunes.apple.com/lookup?id=1108185179&country=us",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_camera": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_camera.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Lookup API",
+      "raw_artifact": "icons_raw/camera_1024.png",
+      "sha256": "d8ad74a1af644bf30e0fdfdeecf8668b985044027868bcde2b99a023a70c4590",
+      "source_name": "camera",
+      "source_query": "1584216193",
+      "source_role": "apple_stock_era_variant",
+      "source_url": "https://itunes.apple.com/lookup?id=1584216193&country=us",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_chrome": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_chrome.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/chrome_1024.png",
+      "sha256": "975cb077832b7f0df53986235e0772d236875d90334ff3bca0738f681b5d11ec",
+      "source_name": "chrome",
+      "source_query": "Google Chrome",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Google+Chrome&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_clock": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_clock.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Lookup API",
+      "raw_artifact": "icons_raw/clock_1024.png",
+      "sha256": "43d0bee9a3939cd1cdaed3ff2bfa5cc3544ce4c576d4df7654597bc59796112d",
+      "source_name": "clock",
+      "source_query": "1584215688",
+      "source_role": "apple_stock_era_variant",
+      "source_url": "https://itunes.apple.com/lookup?id=1584215688&country=us",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_compass": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_compass.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Lookup API",
+      "raw_artifact": "icons_raw/compass_1024.png",
+      "sha256": "84f3de535a06991461420c0e80567a2c71731bf7b28bd9b8e3bf2bfef7622e1c",
+      "source_name": "compass",
+      "source_query": "1067456176",
+      "source_role": "apple_stock_era_variant",
+      "source_url": "https://itunes.apple.com/lookup?id=1067456176&country=us",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_discord": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_discord.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/discord_1024.png",
+      "sha256": "d8d156a036cf13a86798ae36a06b81ac3081e3ae94dae361ec6fc41d08db9180",
+      "source_name": "discord",
+      "source_query": "Discord",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Discord&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_facebook": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_facebook.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/facebook_1024.png",
+      "sha256": "f4e8a74c402c4413140f7b3b265f5d2778af4e722110a3ef4ded826d710391b5",
+      "source_name": "facebook",
+      "source_query": "Facebook",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Facebook&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_facetime": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_facetime.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Lookup API",
+      "raw_artifact": "icons_raw/facetime_1024.png",
+      "sha256": "dcdc569aee5206f6f6e0b151d4e9beb9d20bc7f9b48c2b9d2fe84d23e8192368",
+      "source_name": "facetime",
+      "source_query": "1110145091",
+      "source_role": "apple_stock_era_variant",
+      "source_url": "https://itunes.apple.com/lookup?id=1110145091&country=us",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_files": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_files.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Lookup API",
+      "raw_artifact": "icons_raw/files_1024.png",
+      "sha256": "a8658c6b472d0a049a4464fe656a2ee8541f35971443e1af92f3034a7488668c",
+      "source_name": "files",
+      "source_query": "1232058109",
+      "source_role": "apple_stock_era_variant",
+      "source_url": "https://itunes.apple.com/lookup?id=1232058109&country=us",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_gmail": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_gmail.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/gmail_1024.png",
+      "sha256": "8ccbe05c64279cba7eced0647d6f2d35b62ddca50a5f02845f4a567934496f6d",
+      "source_name": "gmail",
+      "source_query": "Gmail Google",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Gmail+Google&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_google_calendar": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_google_calendar.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/google_calendar_1024.png",
+      "sha256": "f604c1dd93c28b8d1b2bbc20f54a1132374c8bdec3ccbf0620e583397702197c",
+      "source_name": "google_calendar",
+      "source_query": "Google Calendar",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Google+Calendar&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_google_classroom": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_google_classroom.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/google_classroom_1024.png",
+      "sha256": "6d79dfcb936976547bf07815246cd54196aab5da369cbf315e58be75d665acc3",
+      "source_name": "google_classroom",
+      "source_query": "Google Classroom",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Google+Classroom&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_google_docs": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_google_docs.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/google_docs_1024.png",
+      "sha256": "f9a538deae5b1ca1c4bd2665d8c520a5680a3f8be6da7c06eba5f9dcdc740197",
+      "source_name": "google_docs",
+      "source_query": "Google Docs",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Google+Docs&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_google_drive": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_google_drive.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/google_drive_1024.png",
+      "sha256": "05241fea8fcc1f092d51910a9bc4b3c3de4d6583190984f34f683e0c200a0b24",
+      "source_name": "google_drive",
+      "source_query": "Google Drive",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Google+Drive&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_google_keep": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_google_keep.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/google_keep_1024.png",
+      "sha256": "5ae998abfcfedaa5d0d0c238af995c66dd3e74e21ef5b45841bbcad128473171",
+      "source_name": "google_keep",
+      "source_query": "Google Keep",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Google+Keep&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_google_maps": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_google_maps.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/google_maps_1024.png",
+      "sha256": "76724032e79f822e940f64e066575eb02fd583191c8f7dd7421cfa84cc4e5e48",
+      "source_name": "google_maps",
+      "source_query": "Google Maps",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Google+Maps&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_google_meet": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_google_meet.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/google_meet_1024.png",
+      "sha256": "26db8594615d6ea90f7d6cde29ba34e5470fb751a1e3778159fa6bbd93052734",
+      "source_name": "google_meet",
+      "source_query": "Google Meet",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Google+Meet&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_google_one": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_google_one.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/google_one_1024.png",
+      "sha256": "6d71f15e8c6ac42d2049199673b050255c1f9a61508009c367fed3eff4742038",
+      "source_name": "google_one",
+      "source_query": "Google One",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Google+One&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_google_photos": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_google_photos.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/google_photos_1024.png",
+      "sha256": "b95b631b5a77aaa87cf01de19f24b1b7d54d1c6cf2a64c6f2944b3c1013d759b",
+      "source_name": "google_photos",
+      "source_query": "Google Photos",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Google+Photos&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_google_search": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_google_search.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/google_search_1024.png",
+      "sha256": "3f57294e3b538fbc8b9b0fb4648ab085f576c459da7eef4b9fe2cd8316a779f9",
+      "source_name": "google_search",
+      "source_query": "Google Search",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Google+Search&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_google_sheets": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_google_sheets.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/google_sheets_1024.png",
+      "sha256": "025acb748b0d8a11232738f44c7576b8fbef6491198a7904b6ffe8cabc3005bf",
+      "source_name": "google_sheets",
+      "source_query": "Google Sheets",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Google+Sheets&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_google_slides": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_google_slides.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/google_slides_1024.png",
+      "sha256": "5d0dc5652c8149406ddcf33a07c9ff2c559cd1bf1479cc5728b656f472d01c0c",
+      "source_name": "google_slides",
+      "source_query": "Google Slides",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Google+Slides&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_google_translate": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_google_translate.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/google_translate_1024.png",
+      "sha256": "69d3c0fed0c6f0259869deffab2054d2c867a21653c6d7cc362cb1b59729fe84",
+      "source_name": "google_translate",
+      "source_query": "Google Translate",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Google+Translate&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_health": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_health.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Lookup API",
+      "raw_artifact": "icons_raw/health_1024.png",
+      "sha256": "94dbaaae7490605ef32c9dfdcac8603b38f9e4050670dca1be57baccd745eee4",
+      "source_name": "health",
+      "source_query": "1242545199",
+      "source_role": "apple_stock_era_variant",
+      "source_url": "https://itunes.apple.com/lookup?id=1242545199&country=us",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_instagram": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_instagram.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/instagram_1024.png",
+      "sha256": "57a7af40265937e8fd2fb0316bd48187cc9b83b5caf22de5ecb89b2e95c903b4",
+      "source_name": "instagram",
+      "source_query": "Instagram",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Instagram&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_mail": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_mail.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Lookup API",
+      "raw_artifact": "icons_raw/mail_1024.png",
+      "sha256": "8ccbe05c64279cba7eced0647d6f2d35b62ddca50a5f02845f4a567934496f6d",
+      "source_name": "mail",
+      "source_query": "1108187098",
+      "source_role": "apple_stock_era_variant",
+      "source_url": "https://itunes.apple.com/lookup?id=1108187098&country=us",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_maps": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_maps.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Lookup API",
+      "raw_artifact": "icons_raw/maps_1024.png",
+      "sha256": "76724032e79f822e940f64e066575eb02fd583191c8f7dd7421cfa84cc4e5e48",
+      "source_name": "maps",
+      "source_query": "915056765",
+      "source_role": "apple_stock_era_variant",
+      "source_url": "https://itunes.apple.com/lookup?id=915056765&country=us",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_messages": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_messages.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Lookup API",
+      "raw_artifact": "icons_raw/messages_1024.png",
+      "sha256": "e89933c34fcb1ccabe6ff3fa55226a20b3b63b95ca637d53659ea3975fc5260d",
+      "source_name": "messages",
+      "source_query": "1146560473",
+      "source_role": "apple_stock_era_variant",
+      "source_url": "https://itunes.apple.com/lookup?id=1146560473&country=us",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_music": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_music.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Lookup API",
+      "raw_artifact": "icons_raw/music_1024.png",
+      "sha256": "e9dd086048bc563fab9d790ac6238c6f30ec8e219c610d24aa9333f6e71ddbfe",
+      "source_name": "music",
+      "source_query": "1108187390",
+      "source_role": "apple_stock_era_variant",
+      "source_url": "https://itunes.apple.com/lookup?id=1108187390&country=us",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_netflix": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_netflix.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/netflix_1024.png",
+      "sha256": "daa2dd3ca5c777b9f77c712587a54506fe554b8bba1a2010f334d853d8673091",
+      "source_name": "netflix",
+      "source_query": "Netflix",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Netflix&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_notes": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_notes.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Lookup API",
+      "raw_artifact": "icons_raw/notes_1024.png",
+      "sha256": "05995d18842029766c439fb962429db41791578dfdc6d6a80c2e312d948bb48c",
+      "source_name": "notes",
+      "source_query": "1110145109",
+      "source_role": "apple_stock_era_variant",
+      "source_url": "https://itunes.apple.com/lookup?id=1110145109&country=us",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_paypal": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_paypal.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/paypal_1024.png",
+      "sha256": "77c2ad76c1e2d4480c2806f3c0f5d4f408c02182e34f9a43a0bef9dbf7a5af61",
+      "source_name": "paypal",
+      "source_query": "PayPal",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=PayPal&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_phone": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_phone.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Lookup API",
+      "raw_artifact": "icons_raw/phone_1024.png",
+      "sha256": "08e37182c0e3df41d725f012fa965821778300dd348d74904858e240741ccdcf",
+      "source_name": "phone",
+      "source_query": "1146562108",
+      "source_role": "apple_stock_era_variant",
+      "source_url": "https://itunes.apple.com/lookup?id=1146562108&country=us",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_photos": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_photos.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Lookup API",
+      "raw_artifact": "icons_raw/photos_1024.png",
+      "sha256": "b95b631b5a77aaa87cf01de19f24b1b7d54d1c6cf2a64c6f2944b3c1013d759b",
+      "source_name": "photos",
+      "source_query": "1584215428",
+      "source_role": "apple_stock_era_variant",
+      "source_url": "https://itunes.apple.com/lookup?id=1584215428&country=us",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_pinterest": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_pinterest.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/pinterest_1024.png",
+      "sha256": "7e4777e065f66804a7329fceb71692f71cfd307c20be7c4a899696a171ab6030",
+      "source_name": "pinterest",
+      "source_query": "Pinterest",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Pinterest&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_reddit": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_reddit.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/reddit_1024.png",
+      "sha256": "f186127e32a37c8ea6119b67d8041d003a5ca145c4ac38194f5dc61b4a09f6f5",
+      "source_name": "reddit",
+      "source_query": "Reddit",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Reddit&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_robinhood": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_robinhood.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/robinhood_1024.png",
+      "sha256": "9ea9747e431e1dff71a464f728ec12b0110c519ceb3d552c369c51913daa4afb",
+      "source_name": "robinhood",
+      "source_query": "Robinhood",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Robinhood&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_safari": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_safari.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Lookup API",
+      "raw_artifact": "icons_raw/safari_1024.png",
+      "sha256": "3f57294e3b538fbc8b9b0fb4648ab085f576c459da7eef4b9fe2cd8316a779f9",
+      "source_name": "safari",
+      "source_query": "1146562112",
+      "source_role": "apple_stock_era_variant",
+      "source_url": "https://itunes.apple.com/lookup?id=1146562112&country=us",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_settings": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_settings.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/settings_1024.png",
+      "sha256": "1b4101c24781b2a838748257fb3fd42f69dd7b43d17fe3f0fbc1618d2b9d1860",
+      "source_name": "settings",
+      "source_query": "Settings Apple iPhone",
+      "source_role": "apple_stock_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Settings+Apple+iPhone&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_shazam": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_shazam.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/shazam_1024.png",
+      "sha256": "7bc577ee0771e229736860cd282efcd5159fc06fdfd119480982f25c75b5b203",
+      "source_name": "shazam",
+      "source_query": "Shazam",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Shazam&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_slack": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_slack.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/slack_1024.png",
+      "sha256": "e589ad8fbf1fd36046e757a21d72b43af9cc8c2b73dc282bbcfac75d528296f1",
+      "source_name": "slack",
+      "source_query": "Slack",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Slack&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_snapchat": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_snapchat.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/snapchat_1024.png",
+      "sha256": "02a400da9cf237e8a4d8bdb7e5c42f82be286bb06dcd096888ff14ce15106c90",
+      "source_name": "snapchat",
+      "source_query": "Snapchat",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Snapchat&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_spotify": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_spotify.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/spotify_1024.png",
+      "sha256": "e9dd086048bc563fab9d790ac6238c6f30ec8e219c610d24aa9333f6e71ddbfe",
+      "source_name": "spotify",
+      "source_query": "Spotify Music",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Spotify+Music&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_strava": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_strava.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/strava_1024.png",
+      "sha256": "b0134fe0c00bf3fd127b635a4027182df8af3ba3dcbbda2a55ca6a7b7e3db5e6",
+      "source_name": "strava",
+      "source_query": "Strava",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Strava&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_telegram": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_telegram.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/telegram_1024.png",
+      "sha256": "ca2cab97c862dd1f4c59ec51d302e58cedb33adc848aa8a0025fc76f31fe2593",
+      "source_name": "telegram",
+      "source_query": "Telegram Messenger",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Telegram+Messenger&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_tiktok": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_tiktok.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/tiktok_1024.png",
+      "sha256": "f448efa830d538bbe481dddebf6464bc1762a137b269f03be5e0717d53198743",
+      "source_name": "tiktok",
+      "source_query": "TikTok",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=TikTok&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_twitter": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_twitter.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/twitter_1024.png",
+      "sha256": "c8874e1547c60fde7b93e4bafb76f79a74e687a020535ad39ea8ea309488ed41",
+      "source_name": "twitter",
+      "source_query": "X Twitter",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=X+Twitter&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_uber": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_uber.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/uber_1024.png",
+      "sha256": "a4557e39e89312b3c045152367f473ab17bef1aa10389490b2916707dd6e9038",
+      "source_name": "uber",
+      "source_query": "Uber",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Uber&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_venmo": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_venmo.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/venmo_1024.png",
+      "sha256": "41227f0674b363ddbe5c1f698cc0d791606a168572b1771f0632bb85326c4913",
+      "source_name": "venmo",
+      "source_query": "Venmo",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Venmo&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_wallet": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_wallet.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Lookup API",
+      "raw_artifact": "icons_raw/wallet_1024.png",
+      "sha256": "7aaa53456ea25ac851f24337942c97f6d7a59bab2bd07559176c2d1066e4dbff",
+      "source_name": "wallet",
+      "source_query": "1160481993",
+      "source_role": "apple_stock_era_variant",
+      "source_url": "https://itunes.apple.com/lookup?id=1160481993&country=us",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_weather": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_weather.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Lookup API",
+      "raw_artifact": "icons_raw/weather_1024.png",
+      "sha256": "72865ecbf89d40fd76dfe9b2b4f144cadaf4906fbf322657add48d495e077b18",
+      "source_name": "weather",
+      "source_query": "1069513131",
+      "source_role": "apple_stock_era_variant",
+      "source_url": "https://itunes.apple.com/lookup?id=1069513131&country=us",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_whatsapp": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_whatsapp.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/whatsapp_1024.png",
+      "sha256": "d5c69ec5a92986ddee596ba6ed4b4f8f3f3aa81841bcac835e65c25220cc5469",
+      "source_name": "whatsapp",
+      "source_query": "WhatsApp Messenger",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=WhatsApp+Messenger&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_youtube": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_youtube.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/youtube_1024.png",
+      "sha256": "298c3f5280a98e8c5f401dd62532b96ec183be06ade72a28336dd8b1f2962cf6",
+      "source_name": "youtube",
+      "source_query": "YouTube",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=YouTube&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    },
+    "ios26_lg_zoom": {
+      "file": "app/src/main/res/drawable-xxxhdpi/ios26_lg_zoom.png",
+      "license_note": "Source URL is provenance metadata, not a license grant; app icons and trademarks remain with their respective owners.",
+      "provider": "Apple iTunes Search API",
+      "raw_artifact": "icons_raw/zoom_1024.png",
+      "sha256": "f903788a22c34a715a5f7d44e04f01919c59a359556d454552cc23430e3475e4",
+      "source_name": "zoom",
+      "source_query": "Zoom Workplace",
+      "source_role": "third_party_era_variant",
+      "source_url": "https://itunes.apple.com/search?term=Zoom+Workplace&entity=software&country=us&limit=5",
+      "transform": {
+        "color_grade": {
+          "brightness": 1.05,
+          "contrast": 0.95,
+          "saturation": 0.88
+        },
+        "era": "ios26_lg",
+        "liquid_glass_material": true,
+        "output_format": "PNG",
+        "resize": "192x192 Lanczos"
+      }
+    }
+  }
+}

@@ -2,6 +2,14 @@
 
 Format ringkas berasaskan [Keep a Changelog](https://keepachangelog.com/). Tarikh dalam UTC.
 
+## [0.2.1-rc4] — 2026-11-18 (ikon pack pilihan pengguna)
+
+- Import 57 ikon ios26_lg SysAdminDoc/iOSIconPack dengan hash/provenance dan lesen upstream.
+- Padanan 617 komponen, 435 fallback package dan kategori OEM yang sesuai; ikon tanpa padanan kekal asal.
+- Rail Peta/Media/Telefon menggunakan ikon; Home mengekalkan glyph launcher kerana pack tiada Home.
+- Cache bitmap 1 MiB, decode 96px dan trim memori tanpa recycle bitmap yang masih dirujuk view.
+- Artwork pack dipaparkan terus, tanpa lapisan tint renderer lama. Glass panel tidak diubah dalam rc4.
+
 ## [0.2.1-rc3] — 2026-11-17 (workspace Ringkas pilihan)
 
 - Audit main dan semua branch remote; rc2 dikekalkan sebagai asas, bukan branch lama.
