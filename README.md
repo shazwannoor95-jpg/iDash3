@@ -1,6 +1,6 @@
 # iDash4 — iDash3 integration
 
-**Current candidate: iDash4 0.6.0-rc3** — transparent prayer-card exterior, extra bounded motion, unclipped compact clock/date, and NeonGlassRim from the supplied Java kit. [Download debug APK](dist/iDash4-0.6.0-rc3-debug.apk?raw=true) · [Clock/glass/motion audit](docs/GLASS-CLOCK-MOTION-0.6.0-RC3.md). Shared glass engine and prayer timetable remain unchanged.
+**Current candidate: iDash4 0.6.0-rc4** — minimum 14dp gap between Home clock/date and JAKIM cards, including compact screens; prayer artwork resizes to preserve the gap. [Download debug APK](dist/iDash4-0.6.0-rc4-debug.apk?raw=true) · [Spacing audit](docs/CARD-SPACING-0.6.0-RC4.md). Existing prayer motion, artwork and glass stay intact.
 
 **Revert panel appearance:** Settings → Home & Dock → Liquid Glass → Material panel → **Classic iDash3**. The new iOS26 panel material and the icon-pack switch are independent.
 

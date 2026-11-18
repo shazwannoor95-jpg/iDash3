@@ -1,0 +1,480 @@
+--------- beginning of main
+11-18 22:37:14.189  2302  2324 D InitAlarmsService: Clearing and rescheduling alarms.
+11-18 22:37:14.205  2536  2536 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-18 22:37:14.631  2536  2536 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-18 22:37:14.658  2536  2536 I app_process: The ClassLoaderContext is a special shared library.
+11-18 22:37:14.860  2536  2536 D AndroidRuntime: Calling main entry com.android.commands.wm.Wm
+--------- beginning of system
+11-18 22:37:14.906  1581  2136 I WindowManager: Using new display size: 1024x600
+11-18 22:37:14.977  2536  2536 D AndroidRuntime: Shutting down VM
+11-18 22:37:16.164  2546  2546 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-18 22:37:16.530  2546  2546 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-18 22:37:16.553  2546  2546 I app_process: The ClassLoaderContext is a special shared library.
+11-18 22:37:16.708  2546  2546 D AndroidRuntime: Calling main entry com.android.commands.wm.Wm
+11-18 22:37:16.758  2546  2546 D AndroidRuntime: Shutting down VM
+11-18 22:37:17.614  1581  1682 D ConnectivityService: handleLingerComplete for NetworkAgentInfo [MOBILE (LTE) - 100]
+11-18 22:37:19.689  1581  1608 E memtrack: Couldn't load memtrack module
+11-18 22:37:19.689  1581  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-18 22:37:19.772  1581  1608 E memtrack: Couldn't load memtrack module
+11-18 22:37:19.772  1581  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-18 22:37:19.825  1581  1608 E memtrack: Couldn't load memtrack module
+11-18 22:37:19.825  1581  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-18 22:37:19.880  1581  1608 E memtrack: Couldn't load memtrack module
+11-18 22:37:19.880  1581  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-18 22:37:19.939  1581  1608 E memtrack: Couldn't load memtrack module
+11-18 22:37:19.939  1581  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-18 22:37:19.993  1581  1608 E memtrack: Couldn't load memtrack module
+11-18 22:37:19.993  1581  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-18 22:37:21.704  1581  2261 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 100]: PROBE_DNS www.google.com 40293ms FAIL
+11-18 22:37:21.722  1581  2261 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 100]: PROBE_HTTPS https://www.google.com/generate_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "www.google.com": No address associated with hostname
+11-18 22:37:21.741  1581  1675 D SntpClient: request time failed: java.net.UnknownHostException: Unable to resolve host "time.android.com": No address associated with hostname
+11-18 22:37:21.747  1581  2262 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 100]: PROBE_DNS connectivitycheck.gstatic.com 40353ms FAIL
+11-18 22:37:21.751  1581  1691 D SntpClient: request time failed: java.net.UnknownHostException: Unable to resolve host "time.android.com": No address associated with hostname
+11-18 22:37:21.751  1581  1691 E GnssLocationProvider: requestTime failed
+11-18 22:37:21.751  1581  1691 I GnssLocationProvider: WakeLock acquired by sendMessage(INJECT_NTP_TIME_FINISHED, 0, null)
+11-18 22:37:21.751  1581  1691 I GnssLocationProvider: WakeLock released by handleInjectNtpTime()
+11-18 22:37:21.753  1581  1608 I GnssLocationProvider: WakeLock released by handleMessage(INJECT_NTP_TIME_FINISHED, 0, null)
+11-18 22:37:21.763  1581  2262 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 100]: PROBE_HTTP http://connectivitycheck.gstatic.com/generate_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "connectivitycheck.gstatic.com": No address associated with hostname
+11-18 22:37:21.782  1581  1675 D RecurrenceRule: Resolving using anchor 2026-11-18T22:37:21.780Z[Etc/UTC]
+11-18 22:37:21.786  1581  1675 D RecurrenceRule: Resolving using anchor 2026-11-18T22:37:21.786Z[Etc/UTC]
+11-18 22:37:21.793  1581  1675 D RecurrenceRule: Cycle 22 from 2026-11-17T00:00Z[Etc/UTC] to 2026-12-17T00:00Z[Etc/UTC]
+11-18 22:37:21.796  1581  1675 D NetworkStats: Resolving plan for NetworkTemplate: matchRule=MOBILE_ALL, subscriberId=310260..., matchSubscriberIds=[310260...]
+11-18 22:37:21.805  1581  1675 D NetworkStats: Found active matching subId 1
+11-18 22:37:21.827  1581  1675 D NetworkStats: Resolved to plan null
+11-18 22:37:21.836  1581  1675 D SntpClient: request time failed: java.net.UnknownHostException: Unable to resolve host "time.android.com": No address associated with hostname
+11-18 22:37:21.874  1581  1675 D SntpClient: request time failed: java.net.UnknownHostException: Unable to resolve host "time.android.com": No address associated with hostname
+11-18 22:37:21.901  1581  1675 I WifiService: getConnectionInfo uid=1000
+11-18 22:37:21.911  1581  1675 D RecurrenceRule: Resolving using anchor 2026-11-18T22:37:21.911Z[Etc/UTC]
+11-18 22:37:21.915  1581  1675 D RecurrenceRule: Resolving using anchor 2026-11-18T22:37:21.915Z[Etc/UTC]
+11-18 22:37:21.918  1581  1675 D RecurrenceRule: Cycle 22 from 2026-11-17T00:00Z[Etc/UTC] to 2026-12-17T00:00Z[Etc/UTC]
+11-18 22:37:21.919  1581  1675 D NetworkStats: Resolving plan for NetworkTemplate: matchRule=MOBILE_ALL, subscriberId=310260..., matchSubscriberIds=[310260...]
+11-18 22:37:21.927  1581  1675 D NetworkStats: Found active matching subId 1
+11-18 22:37:21.940  1581  1675 D NetworkStats: Resolved to plan null
+11-18 22:37:21.946  1581  1675 D SntpClient: request time failed: java.net.UnknownHostException: Unable to resolve host "time.android.com": No address associated with hostname
+11-18 22:37:21.962  1581  1675 D SntpClient: request time failed: java.net.UnknownHostException: Unable to resolve host "time.android.com": No address associated with hostname
+11-18 22:37:21.975  1581  1675 D RecurrenceRule: Resolving using anchor 2026-11-18T22:37:21.974Z[Etc/UTC]
+11-18 22:37:21.979  1581  1675 D RecurrenceRule: Resolving using anchor 2026-11-18T22:37:21.979Z[Etc/UTC]
+11-18 22:37:21.983  1581  1675 D RecurrenceRule: Cycle 22 from 2026-11-17T00:00Z[Etc/UTC] to 2026-12-17T00:00Z[Etc/UTC]
+11-18 22:37:21.987  1581  1675 D NetworkStats: Resolving plan for NetworkTemplate: matchRule=MOBILE_ALL, subscriberId=310260..., matchSubscriberIds=[310260...]
+11-18 22:37:21.994  1581  1675 D NetworkStats: Found active matching subId 1
+11-18 22:37:22.012  1581  1675 D NetworkStats: Resolved to plan null
+11-18 22:37:22.015  1581  1675 D SntpClient: request time failed: java.net.UnknownHostException: Unable to resolve host "time.android.com": No address associated with hostname
+11-18 22:37:22.029  1581  1675 D RecurrenceRule: Resolving using anchor 2026-11-18T22:37:22.028Z[Etc/UTC]
+11-18 22:37:22.037  1581  1675 D RecurrenceRule: Resolving using anchor 2026-11-18T22:37:22.036Z[Etc/UTC]
+11-18 22:37:22.042  1581  1675 D RecurrenceRule: Cycle 22 from 2026-11-17T00:00Z[Etc/UTC] to 2026-12-17T00:00Z[Etc/UTC]
+11-18 22:37:22.042  1581  1675 D NetworkStats: Resolving plan for NetworkTemplate: matchRule=MOBILE_ALL, subscriberId=310260..., matchSubscriberIds=[310260...]
+11-18 22:37:22.049  1581  1675 D NetworkStats: Found active matching subId 1
+11-18 22:37:22.068  1581  1675 D NetworkStats: Resolved to plan null
+11-18 22:37:22.098  1581  1675 D SntpClient: request time failed: java.net.UnknownHostException: Unable to resolve host "time.android.com": No address associated with hostname
+11-18 22:37:22.119  1581  1675 I WifiService: getConnectionInfo uid=1000
+11-18 22:37:22.127  1581  1675 D RecurrenceRule: Resolving using anchor 2026-11-18T22:37:22.127Z[Etc/UTC]
+11-18 22:37:22.132  1581  1675 D RecurrenceRule: Resolving using anchor 2026-11-18T22:37:22.132Z[Etc/UTC]
+11-18 22:37:22.137  1581  1675 D RecurrenceRule: Cycle 22 from 2026-11-17T00:00Z[Etc/UTC] to 2026-12-17T00:00Z[Etc/UTC]
+11-18 22:37:22.137  1581  1675 D NetworkStats: Resolving plan for NetworkTemplate: matchRule=MOBILE_ALL, subscriberId=310260..., matchSubscriberIds=[310260...]
+11-18 22:37:22.150  1581  1675 D NetworkStats: Found active matching subId 1
+11-18 22:37:22.166  1581  1675 D NetworkStats: Resolved to plan null
+11-18 22:37:22.167  1581  1675 D SntpClient: request time failed: java.net.UnknownHostException: Unable to resolve host "time.android.com": No address associated with hostname
+11-18 22:37:22.189  1581  1675 I WifiService: getConnectionInfo uid=1000
+11-18 22:37:22.197  1581  1675 D RecurrenceRule: Resolving using anchor 2026-11-18T22:37:22.197Z[Etc/UTC]
+11-18 22:37:22.201  1581  1675 D RecurrenceRule: Resolving using anchor 2026-11-18T22:37:22.201Z[Etc/UTC]
+11-18 22:37:22.205  1581  1675 D RecurrenceRule: Cycle 22 from 2026-11-17T00:00Z[Etc/UTC] to 2026-12-17T00:00Z[Etc/UTC]
+11-18 22:37:22.205  1581  1675 D NetworkStats: Resolving plan for NetworkTemplate: matchRule=MOBILE_ALL, subscriberId=310260..., matchSubscriberIds=[310260...]
+11-18 22:37:22.220  1581  1675 D NetworkStats: Found active matching subId 1
+11-18 22:37:22.235  1581  1675 D NetworkStats: Resolved to plan null
+11-18 22:37:22.236  1581  1675 D SntpClient: request time failed: java.net.UnknownHostException: Unable to resolve host "time.android.com": No address associated with hostname
+11-18 22:37:22.250  1581  1675 D RecurrenceRule: Resolving using anchor 2026-11-18T22:37:22.250Z[Etc/UTC]
+11-18 22:37:22.254  1581  1675 D RecurrenceRule: Resolving using anchor 2026-11-18T22:37:22.254Z[Etc/UTC]
+11-18 22:37:22.257  1581  1675 D RecurrenceRule: Cycle 22 from 2026-11-17T00:00Z[Etc/UTC] to 2026-12-17T00:00Z[Etc/UTC]
+11-18 22:37:22.258  1581  1675 D NetworkStats: Resolving plan for NetworkTemplate: matchRule=MOBILE_ALL, subscriberId=310260..., matchSubscriberIds=[310260...]
+11-18 22:37:22.265  1581  1675 D NetworkStats: Found active matching subId 1
+11-18 22:37:22.281  1581  1675 D NetworkStats: Resolved to plan null
+11-18 22:37:22.282  1581  1675 D SntpClient: request time failed: java.net.UnknownHostException: Unable to resolve host "time.android.com": No address associated with hostname
+11-18 22:37:22.298  1581  1675 D RecurrenceRule: Resolving using anchor 2026-11-18T22:37:22.297Z[Etc/UTC]
+11-18 22:37:22.304  1581  1675 D RecurrenceRule: Resolving using anchor 2026-11-18T22:37:22.302Z[Etc/UTC]
+11-18 22:37:22.307  1581  1675 D RecurrenceRule: Cycle 22 from 2026-11-17T00:00Z[Etc/UTC] to 2026-12-17T00:00Z[Etc/UTC]
+11-18 22:37:22.308  1581  1675 D NetworkStats: Resolving plan for NetworkTemplate: matchRule=MOBILE_ALL, subscriberId=310260..., matchSubscriberIds=[310260...]
+11-18 22:37:22.316  1581  1675 D NetworkStats: Found active matching subId 1
+11-18 22:37:22.328  1581  1675 D NetworkStats: Resolved to plan null
+11-18 22:37:22.885  1398  1398 I boot-pipe: done populating /dev/random
+11-18 22:37:25.993  1581  1839 D WificondControl: Scan result ready event
+11-18 22:37:30.819  1581  1674 D SntpClient: request time failed: java.net.UnknownHostException: Unable to resolve host "time.android.com": No address associated with hostname
+11-18 22:37:30.849  1581  1675 D SntpClient: request time failed: java.net.UnknownHostException: Unable to resolve host "time.android.com": No address associated with hostname
+11-18 22:37:30.865  1581  1675 D RecurrenceRule: Resolving using anchor 2026-11-18T22:37:30.864Z[Etc/UTC]
+11-18 22:37:30.868  1581  1675 D RecurrenceRule: Resolving using anchor 2026-11-18T22:37:30.868Z[Etc/UTC]
+11-18 22:37:30.875  1581  1675 D RecurrenceRule: Cycle 22 from 2026-11-17T00:00Z[Etc/UTC] to 2026-12-17T00:00Z[Etc/UTC]
+11-18 22:37:30.875  1581  1675 D NetworkStats: Resolving plan for NetworkTemplate: matchRule=MOBILE_ALL, subscriberId=310260..., matchSubscriberIds=[310260...]
+11-18 22:37:30.885  1581  1675 D NetworkStats: Found active matching subId 1
+11-18 22:37:30.906  1581  1675 D NetworkStats: Resolved to plan null
+11-18 22:37:30.915  2325  2325 D CellBroadcastReceiver: onReceive Intent { act=android.telephony.action.CARRIER_CONFIG_CHANGED flg=0x5000010 cmp=com.android.cellbroadcastreceiver/.CellBroadcastReceiver (has extras) }
+11-18 22:37:30.915  2325  2325 D CellBroadcastReceiver: Start Cell Broadcast configuration.
+11-18 22:37:30.921  1581  1608 E memtrack: Couldn't load memtrack module
+11-18 22:37:30.921  1581  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-18 22:37:30.927  2325  2325 D CellBroadcastReceiver: Default interval 0 did not change.
+11-18 22:37:30.942  1844  1844 D OtaspSimStateReceiver: Received intent: android.telephony.action.CARRIER_CONFIG_CHANGED
+11-18 22:37:30.982  2325  2568 D CellBroadcastConfigService: Enable CellBroadcast on sub 1
+11-18 22:37:30.986  1844  1844 D OtaspSimStateReceiver: otasp activation not needed: no supported carrier
+11-18 22:37:30.993  1844  1844 I VvmSimStateTracker: android.telephony.action.CARRIER_CONFIG_CHANGED
+11-18 22:37:31.004  1844  1844 I VvmSimStateTracker: Service connected on ComponentInfo{com.android.phone/com.android.services.telephony.TelephonyConnectionService}, [e2f7d48dd2b5ca523e7313cf4ba0f6ea830b6281], UserHandle{0}
+11-18 22:37:31.059  1844  1993 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setCdmaBroadcastConfig with 1 configurations
+11-18 22:37:31.079  1581  1608 E memtrack: Couldn't load memtrack module
+11-18 22:37:31.079  1581  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-18 22:37:31.114  2269  2269 I Dialer  : VvmTaskReceiver - task received
+11-18 22:37:31.115  2269  2269 I Dialer  : VvmTaskReceiver - scheduling new job
+11-18 22:37:31.123  2269  2269 I Dialer  : TaskSchedulerJobService - scheduling job with 1 tasks
+11-18 22:37:31.136  1844  1844 I RemoteVvmTaskManager: Binding to ComponentInfo{com.android.dialer/com.android.voicemail.impl.OmtpService}
+11-18 22:37:31.147  2269  2269 I Dialer  : TaskSchedulerJobService - running job instantly.
+11-18 22:37:31.157  2269  2269 I Dialer  : TaskSchedulerJobService - job 10 scheduled
+11-18 22:37:31.170  1844  1993 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add cdma broadcast subscription for MID range 4096 to 4096 from client com.android.cellbroadcastreceiver
+11-18 22:37:31.215  2269  2269 I Dialer  : VvmOmtpService - onCellServiceConnected
+11-18 22:37:31.250  1844  2301 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setCdmaBroadcastConfig with 1 configurations
+11-18 22:37:31.304  1844  2301 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add cdma broadcast subscription for MID range 4097 to 4097 from client com.android.cellbroadcastreceiver
+11-18 22:37:31.360  1844  1993 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setCdmaBroadcastConfig with 1 configurations
+11-18 22:37:31.385  2269  2269 I Dialer  : TaskSchedulerJobService - starting 10
+11-18 22:37:31.420  2269  2269 I Dialer  : VvmTaskExecutor - onStartJob
+11-18 22:37:31.421  2269  2269 I Dialer  : Task.createTask - create task:com.android.voicemail.impl.ActivationTask
+11-18 22:37:31.426  2269  2570 I Dialer  : VvmTaskExecutor - executing task com.android.voicemail.impl.ActivationTask@370b2a0
+11-18 22:37:31.430  2269  2570 I Dialer  : PreOMigrationHandler - ComponentInfo{com.android.phone/com.android.services.telephony.TelephonyConnectionService}, [e2f7d48dd2b5ca523e7313cf4ba0f6ea830b6281], UserHandle{0} already migrated
+11-18 22:37:31.442  1844  1993 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add cdma broadcast subscription for MID range 4098 to 4098 from client com.android.cellbroadcastreceiver
+11-18 22:37:31.512  1581  1839 W ActivityManager: Slow operation: 69ms so far, now at startProcess: returned from zygote!
+11-18 22:37:31.513  1581  1839 W ActivityManager: Slow operation: 70ms so far, now at startProcess: done updating battery stats
+11-18 22:37:31.513  1581  1839 W ActivityManager: Slow operation: 71ms so far, now at startProcess: building log message
+11-18 22:37:31.514  1581  1839 I ActivityManager: Start proc 2571:com.android.gallery3d/u0a44 for broadcast com.android.gallery3d/.app.PackagesMonitor
+11-18 22:37:31.514  1581  1839 W ActivityManager: Slow operation: 71ms so far, now at startProcess: starting to update pids map
+11-18 22:37:31.514  1581  1839 W ActivityManager: Slow operation: 71ms so far, now at startProcess: done updating pids map
+11-18 22:37:31.514  1581  1839 W ActivityManager: Slow operation: 105ms so far, now at startProcess: done starting proc!
+11-18 22:37:31.526  1844  1993 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setCdmaBroadcastConfig with 1 configurations
+11-18 22:37:31.534  1581  1608 E memtrack: Couldn't load memtrack module
+11-18 22:37:31.534  1581  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-18 22:37:31.561  1844  1993 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add cdma broadcast subscription for MID range 4099 to 4099 from client com.android.cellbroadcastreceiver
+11-18 22:37:31.565  2571  2571 W zygote64: Unexpected CPU variant for X86 using defaults: x86_64
+11-18 22:37:31.576  1844  1993 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to remove cdma broadcast subscription for MID range 4100 to 4100 from client com.android.cellbroadcastreceiver
+11-18 22:37:31.604  1844  2221 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+11-18 22:37:31.614  1844  2221 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4352 to 4354 from client com.android.cellbroadcastreceiver
+11-18 22:37:31.688  1844  2301 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+11-18 22:37:31.717  1844  2301 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4356 to 4356 from client com.android.cellbroadcastreceiver
+11-18 22:37:31.728  1581  2259 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 100]: PROBE_FALLBACK http://www.google.com/gen_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "www.google.com": No address associated with hostname
+11-18 22:37:31.749  1581  1682 D ConnectivityService: NetworkAgentInfo [MOBILE (LTE) - 100] validation failed
+11-18 22:37:31.764  1844  2301 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to remove GSM cell broadcast subscription for MID range 4355 to 4355 from client com.android.cellbroadcastreceiver
+11-18 22:37:31.771  1844  2301 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+11-18 22:37:31.782  1844  2301 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4370 to 4370 from client com.android.cellbroadcastreceiver
+11-18 22:37:31.803  1844  2301 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+11-18 22:37:31.824  1844  2301 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4371 to 4372 from client com.android.cellbroadcastreceiver
+11-18 22:37:31.833  1844  2301 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+11-18 22:37:31.845  1844  2301 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4373 to 4378 from client com.android.cellbroadcastreceiver
+11-18 22:37:31.883  2571  2571 I zygote64: The ClassLoaderContext is a special shared library.
+11-18 22:37:31.919  1844  2221 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+11-18 22:37:31.941  1844  2221 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4379 to 4379 from client com.android.cellbroadcastreceiver
+11-18 22:37:31.946  1844  2301 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to remove GSM cell broadcast subscription for MID range 4380 to 4382 from client com.android.cellbroadcastreceiver
+11-18 22:37:31.953  1844  2301 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+11-18 22:37:31.957  1844  2301 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4383 to 4383 from client com.android.cellbroadcastreceiver
+11-18 22:37:31.965  1844  2221 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+11-18 22:37:31.990  1844  2221 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4384 to 4385 from client com.android.cellbroadcastreceiver
+11-18 22:37:32.001  1844  2221 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+11-18 22:37:32.003  2269  2570 I Dialer  : VvmActivationTask - VVM content provider configured - vvm_type_cvvm
+11-18 22:37:32.036  1844  2221 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4386 to 4391 from client com.android.cellbroadcastreceiver
+11-18 22:37:32.042  2269  2570 I Dialer  : OmtpVvmCarrierCfgHlpr - OmtpEvent:CONFIG_ACTIVATING
+11-18 22:37:32.077  1844  2301 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Calling setGsmBroadcastConfig with 1 configurations
+11-18 22:37:32.082  1844  2301 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to add GSM cell broadcast subscription for MID range 4392 to 4392 from client com.android.cellbroadcastreceiver
+11-18 22:37:32.089  1844  2221 D IccSmsInterfaceManager: [IccSmsInterfaceManager] Failed to remove GSM cell broadcast subscription for MID range 4393 to 4395 from client com.android.cellbroadcastreceiver
+11-18 22:37:32.171  1581  1594 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.shazwan.idash3 flg=0x4000010 (has extras) } to com.svox.pico/.VoiceDataInstallerReceiver
+11-18 22:37:32.225  1581  1839 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.shazwan.idash3.test flg=0x4000010 (has extras) } to com.svox.pico/.VoiceDataInstallerReceiver
+11-18 22:37:32.237  1581  1620 D AutofillManagerService: Close system dialogs
+11-18 22:37:32.264  2269  2570 I Dialer  : TelephonyMangerCompat.setVisualVoicemailSmsFilterSettings - using TelephonyManager
+11-18 22:37:32.330  2269  2269 I Dialer  : VvmTaskReceiver - task received
+11-18 22:37:32.331  2269  2269 I Dialer  : VvmTaskReceiver - TaskExecutor already running
+11-18 22:37:32.331  2269  2269 I Dialer  : Task.createTask - create task:com.android.voicemail.impl.ActivationTask
+11-18 22:37:32.332  2269  2269 I Dialer  : TaskQueue.add - duplicated task added
+11-18 22:37:32.333  2269  2269 I Dialer  : VvmTaskExecutor - com.android.voicemail.impl.ActivationTask@93e58cc added
+11-18 22:37:32.381  2269  2570 I Dialer  : TelephonyMangerCompat.sendVisualVoicemailSms - using TelephonyManager
+11-18 22:37:32.774  1581  2594 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 100]: PROBE_DNS www.google.com 13ms FAIL
+11-18 22:37:32.802  1581  2594 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 100]: PROBE_HTTPS https://www.google.com/generate_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "www.google.com": No address associated with hostname
+11-18 22:37:33.658  2592  2592 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-18 22:37:34.187  2592  2592 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-18 22:37:34.259  2592  2592 I app_process: The ClassLoaderContext is a special shared library.
+11-18 22:37:34.412  2592  2592 D AndroidRuntime: Calling main entry com.android.commands.am.Am
+11-18 22:37:34.471  1581  1836 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: start instr
+11-18 22:37:34.576  1581  1836 W ActivityManager: Slow operation: 82ms so far, now at startProcess: returned from zygote!
+11-18 22:37:34.576  1581  1836 W ActivityManager: Slow operation: 83ms so far, now at startProcess: done updating battery stats
+11-18 22:37:34.577  1581  1836 W ActivityManager: Slow operation: 83ms so far, now at startProcess: building log message
+11-18 22:37:34.577  1581  1836 I ActivityManager: Start proc 2605:com.shazwan.idash3/u0a59 for added application com.shazwan.idash3
+11-18 22:37:34.577  1581  1836 W ActivityManager: Slow operation: 84ms so far, now at startProcess: starting to update pids map
+11-18 22:37:34.578  1581  1836 W ActivityManager: Slow operation: 84ms so far, now at startProcess: done updating pids map
+11-18 22:37:34.601  1581  1611 W Looper  : Dispatch took 118ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {f474471} cb=null msg=53
+11-18 22:37:34.622  2605  2605 I zygote64: Late-enabling -Xcheck:jni
+11-18 22:37:34.674  2605  2605 W zygote64: Unexpected CPU variant for X86 using defaults: x86_64
+11-18 22:37:34.831  2605  2605 I zygote64: The ClassLoaderContext is a special shared library.
+11-18 22:37:34.837  2605  2605 I zygote64: The ClassLoaderContext is a special shared library.
+11-18 22:37:34.848  2605  2605 W zygote64: ClassLoaderContext classpath element mismatch for position 0. expected=/system/framework/android.test.mock.jar, found=/system/framework/android.test.runner.jar (PCL[/system/framework/android.test.mock.jar*1065265343:/system/framework/android.test.runner.jar*1742119008] | PCL[/system/framework/android.test.runner.jar*1742119008:/system/framework/android.test.mock.jar*1065265343])
+11-18 22:37:34.856  2605  2605 W zygote64: ClassLoaderContext classpath size mismatch for position 0. expected=0, found=5 (PCL[] | PCL[/system/framework/android.test.runner.jar*1742119008:/system/framework/android.test.mock.jar*1065265343:/data/app/com.shazwan.idash3.test-usT2PoONVlaneN7vc74N6A==/base.apk*4289975998:/data/app/com.shazwan.idash3.test-usT2PoONVlaneN7vc74N6A==/base.apk!classes2.dex*640077135:/data/app/com.shazwan.idash3.test-usT2PoONVlaneN7vc74N6A==/base.apk!classes3.dex*4171577632])
+11-18 22:37:34.928  2605  2605 W System  : ClassLoader referenced unknown path:
+11-18 22:37:35.011  1581  1836 I ActivityManager: START u0 {flg=0x10000000 cmp=com.shazwan.idash3/.LauncherActivity} from uid 10059
+11-18 22:37:35.147  1391  1418 D hwcomposer: hw_composer sent 91 syncs in 63s
+11-18 22:37:35.158  1581  1649 W System  : ClassLoader referenced unknown path:
+11-18 22:37:35.254  1581  1609 W zygote64: Long monitor contention with owner Binder:1581_5 (1836) at int com.android.server.am.ActivityStarter.startActivityMayWait(android.app.IApplicationThread, int, java.lang.String, android.content.Intent, java.lang.String, android.service.voice.IVoiceInteractionSession, com.android.internal.app.IVoiceInteractor, android.os.IBinder, java.lang.String, int, int, android.app.ProfilerInfo, android.app.WaitResult, android.content.res.Configuration, android.os.Bundle, boolean, int, com.android.server.am.TaskRecord, java.lang.String)(ActivityStarter.java:732) waiters=0 in void com.android.server.am.TaskChangeNotificationController.forAllRemoteListeners(com.android.server.am.TaskChangeNotificationController$TaskStackConsumer, android.os.Message) for 218ms
+11-18 22:37:35.485  1581  1611 W Looper  : Dispatch took 185ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {f474471} cb=null msg=31
+11-18 22:37:35.498  1390  1390 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-18 22:37:35.658  1390  1390 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-18 22:37:35.712  1581  1611 W zygote64: Long monitor contention with owner Binder:1581_C (2162) at android.app.ActivityManager$StackInfo com.android.server.am.ActivityManagerService.getStackInfo(int)(ActivityManagerService.java:10885) waiters=1 in void com.android.server.am.ActivityManagerService.dispatchUidsChanged() for 138ms
+11-18 22:37:35.715  1581  2136 W zygote64: Long monitor contention with owner Binder:1581_C (2162) at android.app.ActivityManager$StackInfo com.android.server.am.ActivityManagerService.getStackInfo(int)(ActivityManagerService.java:10885) waiters=0 in android.app.ContentProviderHolder com.android.server.am.ActivityManagerService.getContentProviderImpl(android.app.IApplicationThread, java.lang.String, android.os.IBinder, boolean, int) for 142ms
+11-18 22:37:35.733  1581  1611 W Looper  : Dispatch took 247ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {f474471} cb=null msg=53
+11-18 22:37:35.998  1718  1731 D         : HostConnection::get() New Host Connection established 0x7756188fd3e0, tid 1731
+11-18 22:37:36.669  2605  2605 D OpenGLRenderer: HWUI GL Pipeline
+11-18 22:37:37.835  1581  2383 D NetworkMonitor/NetworkAgentInfo [WIFI () - 101]: PROBE_FALLBACK http://www.google.com/gen_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "www.google.com": No address associated with hostname
+11-18 22:37:37.848  1581  1682 D ConnectivityService: NetworkAgentInfo [WIFI () - 101] validation failed
+11-18 22:37:37.849  1581  1678 D WifiStateMachine: NETWORK_STATUS_UNWANTED_VALIDATION_FAILED
+11-18 22:37:38.280  1400  1424 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-18 22:37:38.828  2605  2628 D         : HostConnection::get() New Host Connection established 0x77560daa12e0, tid 2628
+11-18 22:37:38.829  1390  1390 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-18 22:37:38.851  1390  1438 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-18 22:37:38.866  1390  1390 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-18 22:37:38.899  1581  2629 D NetworkMonitor/NetworkAgentInfo [WIFI () - 101]: PROBE_DNS www.google.com 1ms FAIL
+11-18 22:37:39.008  2605  2628 I zygote64: android::hardware::configstore::V1_0::ISurfaceFlingerConfigs::hasWideColorDisplay retrieved: 0
+11-18 22:37:39.009  2605  2628 I OpenGLRenderer: Initialized EGL, version 1.4
+11-18 22:37:39.028  2605  2628 D OpenGLRenderer: Swap behavior 1
+11-18 22:37:39.043  2605  2628 D EGL_emulation: eglCreateContext: 0x77560daa9c40: maj 3 min 0 rcv 3
+11-18 22:37:39.060  2605  2628 D EGL_emulation: eglMakeCurrent: 0x77560daa9c40: ver 3 0 (tinfo 0x77560dbf7b60)
+11-18 22:37:39.175  1400  1426 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-18 22:37:39.209  1581  2629 D NetworkMonitor/NetworkAgentInfo [WIFI () - 101]: PROBE_HTTPS https://www.google.com/generate_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "www.google.com": No address associated with hostname
+11-18 22:37:39.380  1390  1390 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-18 22:37:39.518  1390  1390 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-18 22:37:39.810  2605  2628 D EGL_emulation: eglMakeCurrent: 0x77560daa9c40: ver 3 0 (tinfo 0x77560dbf7b60)
+11-18 22:37:40.995  2605  2610 I zygote64: Do partial code cache collection, code=2712B, data=24KB
+11-18 22:37:41.095  2605  2610 I zygote64: After code cache collection, code=2712B, data=24KB
+11-18 22:37:41.095  2605  2610 I zygote64: Increasing code cache capacity to 128KB
+11-18 22:37:41.134  2605  2610 I zygote64: Do partial code cache collection, code=2712B, data=42KB
+11-18 22:37:41.188  2605  2610 I zygote64: After code cache collection, code=2712B, data=42KB
+11-18 22:37:41.188  2605  2610 I zygote64: Increasing code cache capacity to 256KB
+11-18 22:37:41.224  2605  2610 I zygote64: JIT allocated 71KB for compiled code of void android.widget.TextView.<init>(android.content.Context, android.util.AttributeSet, int, int)
+11-18 22:37:41.224  2605  2610 I zygote64: Compiler allocated 7MB to compile void android.widget.TextView.<init>(android.content.Context, android.util.AttributeSet, int, int)
+11-18 22:37:45.080  1581  1609 W ActivityManager: Launch timeout has expired, giving up wake lock!
+11-18 22:37:45.445  1581  1608 E memtrack: Couldn't load memtrack module
+11-18 22:37:45.445  1581  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-18 22:37:45.684  1581  1622 I ActivityManager: Displayed com.shazwan.idash3/.LauncherActivity: +10s346ms
+11-18 22:37:46.620  2605  2616 I zygote64: Background concurrent copying GC freed 36157(2MB) AllocSpace objects, 9(552KB) LOS objects, 50% free, 2MB/4MB, paused 5.365ms total 1.310s
+11-18 22:37:46.635  1581  1608 E memtrack: Couldn't load memtrack module
+11-18 22:37:46.635  1581  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-18 22:37:47.551  1581  1608 E memtrack: Couldn't load memtrack module
+11-18 22:37:47.551  1581  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-18 22:37:47.695  1581  1608 E memtrack: Couldn't load memtrack module
+11-18 22:37:47.695  1581  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-18 22:37:48.532  2605  2605 I Choreographer: Skipped 47 frames!  The application may be doing too much work on its main thread.
+11-18 22:37:50.373  2605  2616 I zygote64: NativeAlloc concurrent copying GC freed 18695(924KB) AllocSpace objects, 5(372KB) LOS objects, 49% free, 2MB/4MB, paused 172us total 615.011ms
+11-18 22:37:51.464  2605  2610 I zygote64: Do full code cache collection, code=125KB, data=93KB
+11-18 22:37:51.646  2605  2610 I zygote64: After code cache collection, code=117KB, data=54KB
+11-18 22:37:52.058  2605  2605 I Choreographer: Skipped 58 frames!  The application may be doing too much work on its main thread.
+11-18 22:37:52.670  2605  2610 I zygote64: Do partial code cache collection, code=120KB, data=65KB
+11-18 22:37:53.111  2605  2610 I zygote64: After code cache collection, code=119KB, data=66KB
+11-18 22:37:53.111  2605  2610 I zygote64: Increasing code cache capacity to 512KB
+11-18 22:37:56.445  2605  2616 I zygote64: Background concurrent copying GC freed 31693(1532KB) AllocSpace objects, 6(536KB) LOS objects, 49% free, 2MB/4MB, paused 100us total 164.966ms
+11-18 22:38:00.028  1581  1608 E memtrack: Couldn't load memtrack module
+11-18 22:38:00.028  1581  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-18 22:38:00.440  1581  1608 E memtrack: Couldn't load memtrack module
+11-18 22:38:00.440  1581  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-18 22:38:00.457  2605  2610 I zygote64: Do full code cache collection, code=250KB, data=169KB
+11-18 22:38:00.566  2605  2610 I zygote64: After code cache collection, code=149KB, data=99KB
+11-18 22:38:00.630  1581  1608 E memtrack: Couldn't load memtrack module
+11-18 22:38:00.630  1581  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-18 22:38:00.750  1581  1608 E memtrack: Couldn't load memtrack module
+11-18 22:38:00.750  1581  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-18 22:38:01.174  2605  2610 I zygote64: JIT allocated 71KB for compiled code of void android.widget.TextView.<init>(android.content.Context, android.util.AttributeSet, int, int)
+11-18 22:38:01.174  2605  2610 I zygote64: Compiler allocated 7MB to compile void android.widget.TextView.<init>(android.content.Context, android.util.AttributeSet, int, int)
+11-18 22:38:01.916  2605  2610 I zygote64: Do partial code cache collection, code=243KB, data=154KB
+11-18 22:38:01.950  2605  2610 I zygote64: After code cache collection, code=243KB, data=154KB
+11-18 22:38:01.950  2605  2610 I zygote64: Increasing code cache capacity to 1024KB
+11-18 22:38:03.030  1581  1608 E memtrack: Couldn't load memtrack module
+11-18 22:38:03.030  1581  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-18 22:38:03.265  1581  1608 E memtrack: Couldn't load memtrack module
+11-18 22:38:03.266  1581  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-18 22:38:03.431  1581  1608 E memtrack: Couldn't load memtrack module
+11-18 22:38:03.431  1581  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-18 22:38:03.732  2605  2610 I zygote64: JIT allocated 53KB for compiled code of void android.view.View.<init>(android.content.Context, android.util.AttributeSet, int, int)
+11-18 22:38:03.732  2605  2610 I zygote64: Compiler allocated 4MB to compile void android.view.View.<init>(android.content.Context, android.util.AttributeSet, int, int)
+11-18 22:38:04.220  2605  2616 I zygote64: NativeAlloc concurrent copying GC freed 38490(1776KB) AllocSpace objects, 7(720KB) LOS objects, 49% free, 2MB/4MB, paused 961us total 311.399ms
+11-18 22:38:06.080  1581  1836 D WificondControl: Scan result ready event
+11-18 22:38:09.757  2605  2616 I zygote64: NativeAlloc concurrent copying GC freed 24056(915KB) AllocSpace objects, 14(1224KB) LOS objects, 49% free, 1895KB/3MB, paused 120us total 163.983ms
+11-18 22:38:12.894  1581  2595 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 100]: PROBE_DNS connectivitycheck.gstatic.com 40104ms FAIL
+11-18 22:38:12.914  1581  2595 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 100]: PROBE_HTTP http://connectivitycheck.gstatic.com/generate_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "connectivitycheck.gstatic.com": No address associated with hostname
+11-18 22:38:14.079  2605  2610 I zygote64: Do full code cache collection, code=504KB, data=298KB
+11-18 22:38:14.125  2605  2610 I zygote64: After code cache collection, code=467KB, data=245KB
+11-18 22:38:14.865  2605  2616 I zygote64: Background concurrent copying GC freed 8017(380KB) AllocSpace objects, 15(1340KB) LOS objects, 49% free, 2020KB/3MB, paused 525us total 157.904ms
+11-18 22:38:15.903  1581  2259 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 100]: PROBE_FALLBACK http://www.google.com/gen_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "www.google.com": No address associated with hostname
+11-18 22:38:15.908  1581  1682 D ConnectivityService: NetworkAgentInfo [MOBILE (LTE) - 100] validation failed
+11-18 22:38:16.539  2605  2605 I Choreographer: Skipped 958 frames!  The application may be doing too much work on its main thread.
+11-18 22:38:17.217  1400  1874 D PermissionCache: checking android.permission.READ_FRAME_BUFFER for uid=2000 => granted (1002 us)
+11-18 22:38:17.281  1390  1390 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-18 22:38:17.286  2592  2604 D         : HostConnection::get() New Host Connection established 0x7e63ce831a60, tid 2604
+11-18 22:38:18.343  1581  1608 E memtrack: Couldn't load memtrack module
+11-18 22:38:18.343  1581  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-18 22:38:18.565  1581  2136 W WindowManager: removeWindowToken: Attempted to remove non-existing token: android.os.Binder@624a7ee
+11-18 22:38:18.636  1581  1839 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: finished inst
+11-18 22:38:18.646  1581  1839 I ActivityManager: Killing 2605:com.shazwan.idash3/u0a59 (adj 0): stop com.shazwan.idash3
+11-18 22:38:18.736  1581  1612 W zygote64: kill(-2605, 9) failed: No such process
+11-18 22:38:18.738  1581  2647 W Binder  : Outgoing transactions from this process must be FLAG_ONEWAY
+11-18 22:38:18.738  1581  2647 W Binder  : java.lang.Throwable
+11-18 22:38:18.738  1581  2647 W Binder  : 	at android.os.BinderProxy.transact(Binder.java:752)
+11-18 22:38:18.738  1581  2647 W Binder  : 	at android.app.IInstrumentationWatcher$Stub$Proxy.instrumentationFinished(IInstrumentationWatcher.java:160)
+11-18 22:38:18.738  1581  2647 W Binder  : 	at com.android.server.am.InstrumentationReporter$MyThread.run(InstrumentationReporter.java:86)
+11-18 22:38:18.777  2592  2592 D AndroidRuntime: Shutting down VM
+11-18 22:38:18.786  1581  1612 W zygote64: kill(-2605, 9) failed: No such process
+11-18 22:38:18.822  1581  1611 W Looper  : Dispatch took 203ms on android.ui, h=Handler (com.android.server.policy.PhoneWindowManager$PolicyHandler) {166e4f5} cb=android.database.ContentObserver$NotificationRunnable@d9119dd msg=0
+11-18 22:38:18.830  1581  1612 W zygote64: kill(-2605, 9) failed: No such process
+11-18 22:38:18.861  1390  1390 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2891776
+11-18 22:38:18.885  1581  1612 W zygote64: kill(-2605, 9) failed: No such process
+11-18 22:38:18.969  1581  1611 W Looper  : Dispatch took 146ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {f474471} cb=null msg=53
+11-18 22:38:18.936  1581  1612 W zygote64: kill(-2605, 9) failed: No such process
+11-18 22:38:19.003  1390  1390 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2891776
+11-18 22:38:19.018  1581  1612 W zygote64: kill(-2605, 9) failed: No such process
+11-18 22:38:19.135  1581  1649 I WindowManager: Failed to capture screenshot of Token{1ea4251 ActivityRecord{34d2b78 u0 com.shazwan.idash3/.LauncherActivity t-1 f}} appWin=Window{f7526ec u0 com.shazwan.idash3/com.shazwan.idash3.LauncherActivity} drawState=4
+11-18 22:38:19.129  1581  1611 W Looper  : Dispatch took 111ms on android.ui, h=Handler (android.os.Handler) {22c749b} cb=android.os.StrictMode$AndroidBlockGuardPolicy$1@3571038 msg=0
+11-18 22:38:19.133  1581  1612 I chatty  : uid=1000(system) ActivityManager identical 2 lines
+11-18 22:38:19.174  1581  1612 W zygote64: kill(-2605, 9) failed: No such process
+11-18 22:38:19.214  1581  2630 D NetworkMonitor/NetworkAgentInfo [WIFI () - 101]: PROBE_DNS connectivitycheck.gstatic.com 40316ms FAIL
+11-18 22:38:19.224  1581  1612 W zygote64: kill(-2605, 9) failed: No such process
+11-18 22:38:19.236  1581  2630 D NetworkMonitor/NetworkAgentInfo [WIFI () - 101]: PROBE_HTTP http://connectivitycheck.gstatic.com/generate_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "connectivitycheck.gstatic.com": No address associated with hostname
+11-18 22:38:19.269  1581  1612 W zygote64: kill(-2605, 9) failed: No such process
+11-18 22:38:19.371  1581  1612 W zygote64: kill(-2605, 9) failed: No such process
+11-18 22:38:19.414  1581  1666 W InputDispatcher: channel 'f7526ec com.shazwan.idash3/com.shazwan.idash3.LauncherActivity (server)' ~ Consumer closed input channel or an error occurred.  events=0x9
+11-18 22:38:19.414  1581  1666 E InputDispatcher: channel 'f7526ec com.shazwan.idash3/com.shazwan.idash3.LauncherActivity (server)' ~ Channel is unrecoverably broken and will be disposed!
+11-18 22:38:19.416  1581  1612 W zygote64: kill(-2605, 9) failed: No such process
+11-18 22:38:19.437  1581  1838 I WindowManager: WIN DEATH: Window{f7526ec u0 com.shazwan.idash3/com.shazwan.idash3.LauncherActivity}
+11-18 22:38:19.437  1581  1838 W InputDispatcher: Attempted to unregister already unregistered input channel 'f7526ec com.shazwan.idash3/com.shazwan.idash3.LauncherActivity (server)'
+11-18 22:38:19.460  1581  1612 W zygote64: kill(-2605, 9) failed: No such process
+11-18 22:38:19.488  1581  1622 W ActivityManager: setHasOverlayUi called on unknown pid: 2605
+11-18 22:38:19.505  1581  1612 W zygote64: kill(-2605, 9) failed: No such process
+11-18 22:38:19.540  1390  1390 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2891776
+11-18 22:38:19.553  1581  1612 W zygote64: kill(-2605, 9) failed: No such process
+11-18 22:38:19.595  1581  1612 I zygote64: Successfully killed process cgroup uid 10059 pid 2605 in 939ms
+11-18 22:38:19.935  1581  1594 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: from pid 2655
+11-18 22:38:20.047  1844  1844 D CarrierSvcBindHelper: No carrier app for: 0
+11-18 22:38:20.237  1581  1591 I zygote64: Background concurrent copying GC freed 51419(3MB) AllocSpace objects, 18(676KB) LOS objects, 42% free, 6MB/11MB, paused 357us total 296.418ms
+11-18 22:38:20.542  1581  1620 D AutofillManagerService: Close system dialogs
+11-18 22:38:21.684  2663  2663 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-18 22:38:22.006  1581  2383 D NetworkMonitor/NetworkAgentInfo [WIFI () - 101]: PROBE_FALLBACK http://www.google.com/gen_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "www.google.com": No address associated with hostname
+11-18 22:38:22.007  1581  1682 D ConnectivityService: NetworkAgentInfo [WIFI () - 101] validation failed
+11-18 22:38:22.008  1581  1678 D WifiStateMachine: NETWORK_STATUS_UNWANTED_VALIDATION_FAILED
+11-18 22:38:22.066  2663  2663 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-18 22:38:22.087  2663  2663 I app_process: The ClassLoaderContext is a special shared library.
+11-18 22:38:22.213  2663  2663 D AndroidRuntime: Calling main entry com.android.commands.am.Am
+11-18 22:38:22.247  1581  1594 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: start instr
+11-18 22:38:22.296  1581  1594 I ActivityManager: Start proc 2674:com.shazwan.idash3/u0a59 for added application com.shazwan.idash3
+11-18 22:38:22.314  2674  2674 I zygote64: Late-enabling -Xcheck:jni
+11-18 22:38:22.356  2674  2674 W zygote64: Unexpected CPU variant for X86 using defaults: x86_64
+11-18 22:38:22.446  2674  2674 I zygote64: The ClassLoaderContext is a special shared library.
+11-18 22:38:22.452  2674  2674 I zygote64: The ClassLoaderContext is a special shared library.
+11-18 22:38:22.456  2674  2674 W zygote64: ClassLoaderContext classpath element mismatch for position 0. expected=/system/framework/android.test.mock.jar, found=/system/framework/android.test.runner.jar (PCL[/system/framework/android.test.mock.jar*1065265343:/system/framework/android.test.runner.jar*1742119008] | PCL[/system/framework/android.test.runner.jar*1742119008:/system/framework/android.test.mock.jar*1065265343])
+11-18 22:38:22.463  2674  2674 W zygote64: ClassLoaderContext classpath size mismatch for position 0. expected=0, found=5 (PCL[] | PCL[/system/framework/android.test.runner.jar*1742119008:/system/framework/android.test.mock.jar*1065265343:/data/app/com.shazwan.idash3.test-usT2PoONVlaneN7vc74N6A==/base.apk*4289975998:/data/app/com.shazwan.idash3.test-usT2PoONVlaneN7vc74N6A==/base.apk!classes2.dex*640077135:/data/app/com.shazwan.idash3.test-usT2PoONVlaneN7vc74N6A==/base.apk!classes3.dex*4171577632])
+11-18 22:38:22.501  2674  2674 W System  : ClassLoader referenced unknown path:
+11-18 22:38:22.575  1581  1594 I ActivityManager: START u0 {flg=0x10000000 cmp=com.shazwan.idash3/.LauncherActivity} from uid 10059
+11-18 22:38:22.836  1390  1390 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-18 22:38:22.896  1398  1398 I boot-pipe: done populating /dev/random
+11-18 22:38:22.963  1390  1390 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-18 22:38:23.012  1718  1732 D         : HostConnection::get() New Host Connection established 0x775618831d60, tid 1732
+11-18 22:38:23.649  1718  1730 I zygote64: NativeAlloc concurrent copying GC freed 30383(2MB) AllocSpace objects, 0(0B) LOS objects, 50% free, 5MB/10MB, paused 68us total 617.858ms
+11-18 22:38:23.733  2674  2674 D OpenGLRenderer: HWUI GL Pipeline
+11-18 22:38:23.746  1718  1728 D         : HostConnection::get() New Host Connection established 0x7756011dbc20, tid 1728
+11-18 22:38:24.143  1581  2160 I zygote64: android::hardware::configstore::V1_0::ISurfaceFlingerConfigs::hasWideColorDisplay retrieved: 0
+11-18 22:38:24.144  1581  2160 I OpenGLRenderer: Initialized EGL, version 1.4
+11-18 22:38:24.144  1581  2160 D OpenGLRenderer: Swap behavior 1
+11-18 22:38:24.152  1581  2160 D EGL_emulation: eglCreateContext: 0x7755fa3dc480: maj 3 min 0 rcv 3
+11-18 22:38:24.190  1581  2160 D EGL_emulation: eglMakeCurrent: 0x7755fa3dc480: ver 3 0 (tinfo 0x7755f7450380)
+11-18 22:38:25.280  1400  1874 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-18 22:38:25.936  1390  1390 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-18 22:38:25.955  1390  1390 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-18 22:38:25.962  1390  1438 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-18 22:38:26.363  1390  1438 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-18 22:38:26.382  2674  2700 D         : HostConnection::get() New Host Connection established 0x77560da95160, tid 2700
+11-18 22:38:26.630  2674  2700 I zygote64: android::hardware::configstore::V1_0::ISurfaceFlingerConfigs::hasWideColorDisplay retrieved: 0
+11-18 22:38:26.630  2674  2700 I OpenGLRenderer: Initialized EGL, version 1.4
+11-18 22:38:26.630  2674  2700 D OpenGLRenderer: Swap behavior 1
+11-18 22:38:26.639  2674  2700 D EGL_emulation: eglCreateContext: 0x77560daa9ec0: maj 3 min 0 rcv 3
+11-18 22:38:26.644  2674  2700 D EGL_emulation: eglMakeCurrent: 0x77560daa9ec0: ver 3 0 (tinfo 0x77560dbf8aa0)
+11-18 22:38:26.750  1400  1901 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-18 22:38:27.752  2674  2700 D EGL_emulation: eglMakeCurrent: 0x77560daa9ec0: ver 3 0 (tinfo 0x77560dbf8aa0)
+11-18 22:38:27.828  2674  2679 I zygote64: Do partial code cache collection, code=2712B, data=21KB
+11-18 22:38:28.156  2674  2679 I zygote64: After code cache collection, code=2712B, data=21KB
+11-18 22:38:28.156  2674  2679 I zygote64: Increasing code cache capacity to 128KB
+11-18 22:38:28.197  2674  2679 I zygote64: Do partial code cache collection, code=2712B, data=39KB
+11-18 22:38:28.350  2674  2679 I zygote64: After code cache collection, code=2712B, data=39KB
+11-18 22:38:28.350  2674  2679 I zygote64: Increasing code cache capacity to 256KB
+11-18 22:38:28.351  2674  2679 I zygote64: JIT allocated 71KB for compiled code of void android.widget.TextView.<init>(android.content.Context, android.util.AttributeSet, int, int)
+11-18 22:38:28.351  2674  2679 I zygote64: Compiler allocated 7MB to compile void android.widget.TextView.<init>(android.content.Context, android.util.AttributeSet, int, int)
+11-18 22:38:29.923  2674  2685 I zygote64: Background concurrent copying GC freed 34351(2MB) AllocSpace objects, 9(552KB) LOS objects, 49% free, 2019KB/3MB, paused 3.162ms total 663.249ms
+11-18 22:38:32.605  1581  1609 W ActivityManager: Launch timeout has expired, giving up wake lock!
+11-18 22:38:32.756  2269  2570 I Dialer  : OmtpVvmCarrierCfgHlpr - OmtpEvent:CONFIG_STATUS_SMS_TIME_OUT
+11-18 22:38:32.757  2269  2269 I Dialer  : RetryPolicy - discarding deferred status: configuration_state=4
+11-18 22:38:32.764  2269  2269 I Dialer  : VvmTaskExecutor - no more tasks, stopping service if no task are added in 5000 millis
+11-18 22:38:32.782  1581  1608 E memtrack: Couldn't load memtrack module
+11-18 22:38:32.782  1581  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-18 22:38:32.791  2269  2269 I Dialer  : VvmTaskReceiver - task received
+11-18 22:38:32.792  2269  2269 I Dialer  : VvmTaskReceiver - TaskExecutor already running
+11-18 22:38:32.792  2269  2269 I Dialer  : Task.createTask - create task:com.android.voicemail.impl.ActivationTask
+11-18 22:38:32.793  2269  2269 I Dialer  : RetryPolicy - retry #1 for com.android.voicemail.impl.ActivationTask@8f13a2a queued, executing in 5000
+11-18 22:38:32.794  2269  2269 I Dialer  : VvmTaskExecutor - com.android.voicemail.impl.ActivationTask@8f13a2a added
+11-18 22:38:32.795  2269  2269 I Dialer  : VvmTaskExecutor - minimal wait time:4999
+11-18 22:38:32.795  2269  2269 I Dialer  : VvmTaskExecutor - sleep for 4999 millis
+11-18 22:38:33.034  1581  1622 I ActivityManager: Displayed com.shazwan.idash3/.LauncherActivity: +10s399ms
+11-18 22:38:35.263  2674  2674 I Choreographer: Skipped 50 frames!  The application may be doing too much work on its main thread.
+11-18 22:38:35.631  1391  1418 D hwcomposer: hw_composer sent 92 syncs in 60s
+11-18 22:38:37.346  2674  2685 I zygote64: NativeAlloc concurrent copying GC freed 22793(1116KB) AllocSpace objects, 5(372KB) LOS objects, 49% free, 2MB/4MB, paused 12.112ms total 1.098s
+11-18 22:38:37.469  2674  2679 I zygote64: Do full code cache collection, code=125KB, data=87KB
+11-18 22:38:37.761  2674  2679 I zygote64: After code cache collection, code=117KB, data=52KB
+11-18 22:38:37.803  2269  2570 I Dialer  : VvmTaskExecutor - executing task com.android.voicemail.impl.ActivationTask@8f13a2a
+11-18 22:38:37.818  2269  2570 I Dialer  : PreOMigrationHandler - ComponentInfo{com.android.phone/com.android.services.telephony.TelephonyConnectionService}, [e2f7d48dd2b5ca523e7313cf4ba0f6ea830b6281], UserHandle{0} already migrated
+11-18 22:38:38.543  2674  2679 I zygote64: Do partial code cache collection, code=119KB, data=65KB
+11-18 22:38:38.645  2674  2674 I Choreographer: Skipped 55 frames!  The application may be doing too much work on its main thread.
+11-18 22:38:38.684  2269  2570 I Dialer  : VvmActivationTask - VVM content provider configured - vvm_type_cvvm
+11-18 22:38:38.761  2269  2570 I Dialer  : OmtpVvmCarrierCfgHlpr - OmtpEvent:CONFIG_ACTIVATING
+11-18 22:38:39.207  2269  2570 I Dialer  : TelephonyMangerCompat.setVisualVoicemailSmsFilterSettings - using TelephonyManager
+11-18 22:38:39.227  2674  2679 I zygote64: After code cache collection, code=118KB, data=78KB
+11-18 22:38:39.227  2674  2679 I zygote64: Increasing code cache capacity to 512KB
+11-18 22:38:39.295  2269  2570 I Dialer  : TelephonyMangerCompat.sendVisualVoicemailSms - using TelephonyManager
+11-18 22:38:43.182  2088  2105 W zygote64: Suspending all threads took: 13.724ms
+11-18 22:38:46.815  2674  2685 I zygote64: Background concurrent copying GC freed 40693(1926KB) AllocSpace objects, 2(132KB) LOS objects, 50% free, 2MB/5MB, paused 3.886ms total 1.315s
+11-18 22:38:49.717  2674  2679 I zygote64: Do full code cache collection, code=251KB, data=171KB
+11-18 22:38:49.746  2674  2679 I zygote64: After code cache collection, code=153KB, data=100KB
+11-18 22:38:50.365  2674  2679 I zygote64: JIT allocated 71KB for compiled code of void android.widget.TextView.<init>(android.content.Context, android.util.AttributeSet, int, int)
+11-18 22:38:50.365  2674  2679 I zygote64: Compiler allocated 7MB to compile void android.widget.TextView.<init>(android.content.Context, android.util.AttributeSet, int, int)
+11-18 22:38:50.566  2674  2674 I Choreographer: Skipped 36 frames!  The application may be doing too much work on its main thread.
+11-18 22:38:50.830  2674  2679 I zygote64: Do partial code cache collection, code=230KB, data=161KB
+11-18 22:38:50.854  2674  2679 I zygote64: After code cache collection, code=228KB, data=161KB
+11-18 22:38:50.854  2674  2679 I zygote64: Increasing code cache capacity to 1024KB
+11-18 22:38:50.874  2674  2679 I zygote64: JIT allocated 53KB for compiled code of void android.view.View.<init>(android.content.Context, android.util.AttributeSet, int, int)
+11-18 22:38:50.874  2674  2679 I zygote64: Compiler allocated 4MB to compile void android.view.View.<init>(android.content.Context, android.util.AttributeSet, int, int)
+11-18 22:38:53.300  2674  2685 I zygote64: NativeAlloc concurrent copying GC freed 28754(1384KB) AllocSpace objects, 11(908KB) LOS objects, 50% free, 2MB/4MB, paused 64us total 297.260ms
+11-18 22:38:56.042  2674  2674 I Choreographer: Skipped 270 frames!  The application may be doing too much work on its main thread.
+11-18 22:38:56.240  2674  2685 I zygote64: NativeAlloc concurrent copying GC freed 29059(1300KB) AllocSpace objects, 4(144KB) LOS objects, 49% free, 1906KB/3MB, paused 816us total 313.040ms
+11-18 22:38:57.819  1581  1611 W Looper  : Dispatch took 122ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {f474471} cb=null msg=53
+11-18 22:38:57.861  1390  1438 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2891776
+11-18 22:38:57.916  1581  2145 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: finished inst
+11-18 22:38:57.917  1581  2145 I ActivityManager: Killing 2674:com.shazwan.idash3/u0a59 (adj 0): stop com.shazwan.idash3
+11-18 22:38:58.053  1390  1438 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2891776
+11-18 22:38:58.062  1581  1612 W zygote64: kill(-2674, 9) failed: No such process
+11-18 22:38:58.073  1581  2711 W Binder  : Outgoing transactions from this process must be FLAG_ONEWAY
+11-18 22:38:58.073  1581  2711 W Binder  : java.lang.Throwable
+11-18 22:38:58.073  1581  2711 W Binder  : 	at android.os.BinderProxy.transact(Binder.java:752)
+11-18 22:38:58.073  1581  2711 W Binder  : 	at android.app.IInstrumentationWatcher$Stub$Proxy.instrumentationFinished(IInstrumentationWatcher.java:160)
+11-18 22:38:58.073  1581  2711 W Binder  : 	at com.android.server.am.InstrumentationReporter$MyThread.run(InstrumentationReporter.java:86)
+11-18 22:38:58.084  2663  2663 D AndroidRuntime: Shutting down VM
+11-18 22:38:58.111  1581  1666 W InputDispatcher: channel 'd66ded6 com.shazwan.idash3/com.shazwan.idash3.LauncherActivity (server)' ~ Consumer closed input channel or an error occurred.  events=0x9
+11-18 22:38:58.112  1581  1666 E InputDispatcher: channel 'd66ded6 com.shazwan.idash3/com.shazwan.idash3.LauncherActivity (server)' ~ Channel is unrecoverably broken and will be disposed!
+11-18 22:38:58.149  1581  1612 W zygote64: kill(-2674, 9) failed: No such process
+11-18 22:38:58.149  1581  1612 I zygote64: Successfully killed process cgroup uid 10059 pid 2674 in 229ms
+11-18 22:38:58.166  1581  2642 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 100]: PROBE_DNS www.google.com 40227ms FAIL
+11-18 22:38:58.178  1581  2643 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 100]: PROBE_DNS connectivitycheck.gstatic.com 40241ms FAIL
+11-18 22:38:58.231  1581  2642 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 100]: PROBE_HTTPS https://www.google.com/generate_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "www.google.com": No address associated with hostname
+11-18 22:38:58.244  1581  2643 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 100]: PROBE_HTTP http://connectivitycheck.gstatic.com/generate_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "connectivitycheck.gstatic.com": No address associated with hostname
+11-18 22:38:58.262  1581  2145 I WindowManager: Failed to capture screenshot of Token{ced266f ActivityRecord{86b54e u0 com.shazwan.idash3/.LauncherActivity t-1 f}} appWin=Window{d66ded6 u0 com.shazwan.idash3/com.shazwan.idash3.LauncherActivity} drawState=4
+11-18 22:38:58.277  1581  1611 W zygote64: Long monitor contention with owner Binder:1581_B (2145) at void com.android.server.am.ActivityManagerService.finishInstrumentation(android.app.IApplicationThread, int, android.os.Bundle)(ActivityManagerService.java:20136) waiters=0 in void com.android.server.am.ActivityManagerService.dispatchUidsChanged() for 356ms
+11-18 22:38:58.296  1581  1611 W Looper  : Dispatch took 375ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {f474471} cb=null msg=53
+11-18 22:38:58.320  1581  1838 W zygote64: Long monitor contention with owner Binder:1581_B (2145) at void com.android.server.wm.WindowManagerService.executeAppTransition()(WindowManagerService.java:2836) waiters=2 in void com.android.server.wm.Session.binderDied() for 194ms
+11-18 22:38:58.324  1581  2087 W zygote64: Long monitor contention with owner Binder:1581_B (2145) at void com.android.server.wm.WindowManagerService.executeAppTransition()(WindowManagerService.java:2836) waiters=3 in void com.android.server.wm.WindowState$DeathRecipient.binderDied() for 198ms
+11-18 22:38:58.325  1581  2087 I WindowManager: WIN DEATH: Window{d66ded6 u0 com.shazwan.idash3/com.shazwan.idash3.LauncherActivity}
+11-18 22:38:58.326  1581  2087 W InputDispatcher: Attempted to unregister already unregistered input channel 'd66ded6 com.shazwan.idash3/com.shazwan.idash3.LauncherActivity (server)'
+11-18 22:38:58.407  1581  2711 I ActivityManager: Failure reporting to instrumentation watcher: comp=ComponentInfo{com.shazwan.idash3.test/com.shazwan.idash3.PrayerJourneyChecks} results=Bundle[mParcelledData.dataSize=104]
+11-18 22:38:58.570  1581  1622 W ActivityManager: setHasOverlayUi called on unknown pid: 2674
+11-18 22:38:58.944  1390  1438 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2891776
+11-18 22:38:58.953  1581  1649 W zygote64: Long monitor contention with owner android.display (1622) at void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message)(WindowManagerService.java:5284) waiters=1 in void com.android.server.wm.WindowAnimator.animate(long) for 290ms
+11-18 22:38:59.030  1581  1736 W zygote64: Long monitor contention with owner android.display (1622) at void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message)(WindowManagerService.java:5284) waiters=1 in void com.android.server.wm.StackWindowController.getBounds(android.graphics.Rect) for 351ms
+11-18 22:38:59.363  1581  1622 W zygote64: Long monitor contention with owner android.anim (1649) at void com.android.server.wm.WindowSurfacePlacer.lambda$-com_android_server_wm_WindowSurfacePlacer_5337()(WindowSurfacePlacer.java:107) waiters=1 in void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message) for 198ms
+11-18 22:38:59.387  1581  2712 W zygote64: Long monitor contention with owner Binder:1581_2 (1595) at android.content.pm.ParceledListSlice com.android.server.am.ActivityManagerService.getRecentTasks(int, int, int)(ActivityManagerService.java:9935) waiters=0 in void com.android.server.am.ActivityManagerService.activityIdle(android.os.IBinder, android.content.res.Configuration, boolean) for 160ms
+11-18 22:38:59.424  1581  2087 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: from pid 2715
