@@ -1,0 +1,21 @@
+{
+  "unit": {
+    "tests": 62,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "lint": {
+    "Error": 0,
+    "Warning": 88
+  },
+  "apk_sha256": "446b345407fce2a344e8e253d7db16df1b6039fa85e4eebf92688bed7e89099f",
+  "runtime": {
+    "PanelLayoutChecks": 88,
+    "PremiumFmChecks": 55,
+    "DashboardLayoutChecks": 71,
+    "DriveDashboardChecks": 24,
+    "PanelFullscreenChecks": 30,
+    "unique_assertions": 268
+  }
+}

@@ -42,7 +42,7 @@ final class DriveDashboard extends LinearLayout implements AutoCloseable {
   rail.addView(icon("Radio FM",null,()->setMode(2)),railBounds());
   rail.addView(appShortcut(),railBounds());
   rail.addView(new View(a),new LayoutParams(-1,0,1));rail.addView(icon("Apps",null,()->{a.page="apps";a.render();}),railBounds());rail.addView(icon("Home",null,()->{a.page="home";a.render();}),railBounds());
-  LinearLayout mapArea=a.column();LayoutParams mp=new LayoutParams(0,-1,.65f);mp.setMargins(a.dp(8),0,a.dp(8),0);addView(mapArea,mp);
+  LinearLayout mapArea=a.column();LayoutParams mp=new LayoutParams(0,-1,.65f);mp.setMargins(a.dp(8),0,0,0);addView(mapArea,mp);
   locationButton=button("Lokasi",this::enableLocation);
   locationStatus=text("Peta kawasan · bukan lokasi anda",12);locationStatus.setContentDescription("Dashboard location status");locationStatus.setBackgroundColor(0xcc172335);locationStatus.setPadding(a.dp(6),0,a.dp(6),0);
   mapHost=new FrameLayout(a);mapHost.setContentDescription("Native map area");mapArea.addView(mapHost,new LayoutParams(-1,0,1));
@@ -55,6 +55,11 @@ final class DriveDashboard extends LinearLayout implements AutoCloseable {
   LinearLayout prayerCard=card(cards);prayer=text("Waktu solat",18);prayer.setTypeface(IosStyle.font(a,true));prayer.setSingleLine(false);prayerDetail=text("",12);prayerDetail.setSingleLine(false);LinearLayout prayerRow=a.row();prayerRow.setGravity(Gravity.CENTER_VERTICAL);prayerRow.addView(new PrayerBadge(a),new LayoutParams(a.dp(36),a.dp(36)));LinearLayout prayerWords=a.column();prayerWords.setPadding(a.dp(8),0,0,0);prayerWords.addView(prayer);prayerWords.addView(prayerDetail);prayerRow.addView(prayerWords,new LayoutParams(0,-2,1));prayerCard.addView(prayerRow);prayerCard.setMinimumHeight(a.dp(72));prayerCard.setFocusable(true);prayerCard.setContentDescription("Dashboard prayer; tap for JAKIM zone and timetable");prayerCard.setOnClickListener(v->a.jakimDialog());cards.removeView(prayerCard);cards.addView(prayerCard,0);
   LinearLayout dateCard=card(cards);LinearLayout dateRow=a.row();dateRow.setGravity(Gravity.CENTER_VERTICAL);dateBadge=new DashboardDateBadge(a);dateRow.addView(dateBadge,new LayoutParams(a.dp(44),a.dp(48)));LinearLayout dateWords=a.column();dateWords.setPadding(a.dp(10),0,0,0);calendar=text("",16);calendar.setTypeface(IosStyle.font(a,true));calendarDetail=text("",12);calendarDetail.setSingleLine(false);dateWords.addView(calendar);dateWords.addView(calendarDetail);dateRow.addView(dateWords,new LayoutParams(0,-2,1));dateCard.addView(dateRow);dateCard.setContentDescription("Dashboard calendar");dateCard.setOnClickListener(v->a.showCalendar());dateCard.setFocusable(true);dateCard.setMinimumHeight(a.dp(72));
   setMode(GlassAppearance.integer(a.prefs,"dashboard_panel",0));a.loadJakim(false);tick(System.currentTimeMillis());if(a.resumed)resume();
+ }
+ @Override protected void onMeasure(int width,int height){
+  ViewGroup rail=(ViewGroup)getChildAt(0);int margin=Math.max(0,Math.min(a.dp(4),(MeasureSpec.getSize(height)-a.dp(36)-7*a.dp(48))/14));
+  for(int i=1;i<rail.getChildCount();i++){LayoutParams lp=(LayoutParams)rail.getChildAt(i).getLayoutParams();if(lp.height==a.dp(48)){lp.topMargin=margin;lp.bottomMargin=margin;}}
+  super.onMeasure(width,height);
  }
  View appShortcut(){FrameLayout hit=(FrameLayout)icon("Add App",null,this::openShortcut);hit.setTag("drive-shortcut");hit.setOnLongClickListener(v->{pickShortcut();return true;});bindShortcut(hit);return hit;}
  LauncherActivity.App selectedApp(){String component=a.prefs.getString("dashboard_app","");for(LauncherActivity.App app:a.apps)if(app.component.equals(component))return app;return null;}

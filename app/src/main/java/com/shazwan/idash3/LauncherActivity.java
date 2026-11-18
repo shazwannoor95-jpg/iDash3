@@ -101,7 +101,7 @@ public class LauncherActivity extends Activity {
         stage.addView(shell,new FrameLayout.LayoutParams(-1,-1)); setContentView(stage);
         if("drive".equals(page)){
             statusTime=null;body=column();shell.setPadding(dp(8),dp(8),dp(8),dp(8));shell.addView(body,new LinearLayout.LayoutParams(-1,-1));
-            stage.setOnApplyWindowInsetsListener((v,insets)->{shell.setPadding(dp(8)+insets.getSystemWindowInsetLeft(),dp(8)+insets.getSystemWindowInsetTop(),dp(8)+insets.getSystemWindowInsetRight(),dp(8)+insets.getSystemWindowInsetBottom());return insets;});
+            new ContentInsets(this,stage,shell,dp(8),dp(8),dp(4),dp(8));
             driveDashboard=new DriveDashboard(this);body.addView(driveDashboard,new LinearLayout.LayoutParams(-1,-1));updateClock();return;
         }
         // Dedicated workspace has its own rail/tabs; Home's glass chrome stays on Home.
@@ -109,18 +109,8 @@ public class LauncherActivity extends Activity {
             statusTime=null;body=column();shell.setPadding(dp(8),dp(8),dp(8),dp(8));shell.addView(body,new LinearLayout.LayoutParams(-1,-1));
             drivingWorkspace=new DrivingWorkspace(this);body.addView(drivingWorkspace,new LinearLayout.LayoutParams(-1,-1));updateClock();return;
         }
-        // API35 edge-to-edge insets, also works on older devices with immersive bars.
-        if(home){
-            final FrameLayout homeStage=stage;final LinearLayout homeShell=shell;final int[] bars=new int[4],at=new int[2];
-            // Decor may already reserve a bar/overscan area. Only pad its remaining overlap.
-            final Runnable fitInsets=()->{if(destroyed||stage!=homeStage||!homeStage.isLaidOut())return;View decor=getWindow().getDecorView();homeStage.getLocationInWindow(at);
-                int l=dp(edge)+Math.max(0,bars[0]-Math.max(0,at[0])),t=dp(top)+Math.max(0,bars[1]-Math.max(0,at[1]));
-                int r=dp(edge)+Math.max(0,bars[2]-Math.max(0,decor.getWidth()-at[0]-homeStage.getWidth())),b=dp(bottom)+Math.max(0,bars[3]-Math.max(0,decor.getHeight()-at[1]-homeStage.getHeight()));
-                if(homeShell.getPaddingLeft()!=l||homeShell.getPaddingTop()!=t||homeShell.getPaddingRight()!=r||homeShell.getPaddingBottom()!=b)homeShell.setPadding(l,t,r,b);
-            };
-            homeStage.setOnApplyWindowInsetsListener((v,insets)->{bars[0]=insets.getSystemWindowInsetLeft();bars[1]=insets.getSystemWindowInsetTop();bars[2]=insets.getSystemWindowInsetRight();bars[3]=insets.getSystemWindowInsetBottom();homeStage.removeCallbacks(fitInsets);homeStage.post(fitInsets);return insets;});
-            homeStage.addOnLayoutChangeListener((v,l,t,r,b,oldL,oldT,oldR,oldB)->fitInsets.run());
-        }else stage.setOnApplyWindowInsetsListener((v,insets)-> { shell.setPadding(dp(edge)+insets.getSystemWindowInsetLeft(),dp(top)+insets.getSystemWindowInsetTop(),dp(edge)+insets.getSystemWindowInsetRight(),dp(bottom)+insets.getSystemWindowInsetBottom()); return insets; });
+        if(home)new ContentInsets(this,stage,shell,dp(20),dp(8),dp(panelVisible?4:20),dp(8));
+        else stage.setOnApplyWindowInsetsListener((v,insets)-> { shell.setPadding(dp(edge)+insets.getSystemWindowInsetLeft(),dp(top)+insets.getSystemWindowInsetTop(),dp(edge)+insets.getSystemWindowInsetRight(),dp(bottom)+insets.getSystemWindowInsetBottom()); return insets; });
         LinearLayout status=row();boolean panelActions=home&&panelVisible; statusTime=text("",13,Color.WHITE); statusTime.setTypeface(IosStyle.font(this,true)); status.addView(statusTime,new LinearLayout.LayoutParams(0,dp(48),1)); statusTime.setGravity(Gravity.CENTER_VERTICAL);
         TextView brand=text("iDash4",13,0xcce6eaff); brand.setGravity(Gravity.CENTER); if(!panelActions)status.addView(brand,new LinearLayout.LayoutParams(dp(90),dp(48)));
         status.addView(headerAction("Panel",4,()->{panelVisible=!panelVisible;page="home";render();}));
@@ -261,7 +251,14 @@ public class LauncherActivity extends Activity {
     void openSettings(String action) {try{startActivity(new Intent(action));}catch(RuntimeException unavailable){try{startActivity(new Intent(Settings.ACTION_SETTINGS));}catch(RuntimeException absent){Toast.makeText(this,"Settings unavailable on this device",Toast.LENGTH_SHORT).show();}}}
     void controlCenter(){if(quickControls==null)quickControls=new QuickControls(this);quickControls.show();}
     void customize(){settingsSection="Appearance";page="settings";render();}
-    View headerAction(String label,int icon,Runnable action){LinearLayout item=row();item.setGravity(Gravity.CENTER);item.setPadding(dp(panelVisible&&"home".equals(page)?6:10),0,dp(panelVisible&&"home".equals(page)?6:10),0);item.setBackground(panelVisible&&"home".equals(page)?new android.graphics.drawable.InsetDrawable(glass(0x55e1eaff,16),0,dp(6),0,dp(6)):glass(0x55e1eaff,20));item.setContentDescription(label);item.setMinimumHeight(dp(48));item.addView(new IosStyle.Icon(this,icon),new LinearLayout.LayoutParams(dp(panelVisible&&"home".equals(page)?17:22),dp(panelVisible&&"home".equals(page)?17:22)));TextView title=text(label,panelVisible&&"home".equals(page)?11:12,Color.WHITE);title.setPadding(dp(5),0,0,0);item.addView(title);item.setOnClickListener(v->action.run());LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(-2,dp(48));lp.leftMargin=dp(6);item.setLayoutParams(lp);return item;}
+    View headerAction(String label,int icon,Runnable action){
+        boolean compact=panelVisible&&"home".equals(page);LinearLayout item=row();item.setGravity(Gravity.CENTER);
+        item.setBackground(compact?new android.graphics.drawable.InsetDrawable(glass(0x55e1eaff,16),0,dp(6),0,dp(6)):glass(0x55e1eaff,20));
+        item.setPadding(dp(10),0,dp(10),0);item.setContentDescription(label);item.setMinimumHeight(dp(48));item.setFocusable(true);
+        item.addView(new IosStyle.Icon(this,icon),new LinearLayout.LayoutParams(dp(compact?16:22),dp(compact?16:22)));
+        TextView title=text(label,compact?11:12,Color.WHITE);title.setSingleLine(true);title.setPadding(dp(6),0,0,0);item.addView(title);
+        item.setOnClickListener(v->action.run());LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(-2,dp(48));lp.leftMargin=dp(6);item.setLayoutParams(lp);return item;
+    }
     View controlTile(String label,int icon,int color,Runnable action){LinearLayout tile=column();tile.setGravity(Gravity.CENTER);FrameLayout disc=new FrameLayout(this);GradientDrawable fill=new GradientDrawable(GradientDrawable.Orientation.TL_BR,new int[]{color,0xcc000000|(color&0xffffff)});fill.setCornerRadius(dp(18));disc.setBackground(fill);disc.addView(new IosStyle.Icon(this,icon),new FrameLayout.LayoutParams(-1,-1));tile.addView(disc,new LinearLayout.LayoutParams(dp(48),dp(48)));TextView caption=text(label,13,Color.WHITE);caption.setGravity(Gravity.CENTER);tile.addView(caption,new LinearLayout.LayoutParams(-1,dp(28)));tile.setContentDescription(label+" settings");tile.setOnClickListener(v->action.run());return tile;}
     void appearancePicker(){new AlertDialog.Builder(this).setTitle("Appearance").setItems(new String[]{"Glass","Transparent","Solid · high contrast","Wallpapers"},(d,index)->{if(index==3){wallpaperPicker();return;}prefs.edit().putInt("glass_style",index).apply();render();}).setNegativeButton("Cancel",null).show();}
     View panelAction(String label,Runnable action){TextView v=text(label,11,Color.WHITE);v.setGravity(Gravity.CENTER);v.setContentDescription("Panel "+label);v.setFocusable(true);v.setBackground(new android.graphics.drawable.InsetDrawable(glass(0x55e1eaff,16),0,dp(6),0,dp(6)));v.setOnClickListener(w->action.run());LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(dp(52),dp(48));lp.leftMargin=dp(4);v.setLayoutParams(lp);return v;}

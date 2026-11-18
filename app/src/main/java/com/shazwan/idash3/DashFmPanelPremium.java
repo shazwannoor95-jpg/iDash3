@@ -53,7 +53,7 @@ final class DashFmPanelPremium extends LinearLayout {
         this.density = Math.max(0.5f, scale);
         this.diagnostics = diagnostics;
         setOrientation(VERTICAL);
-        setPadding(dp(10), dp(7), dp(10), dp(7));
+        setPadding(dp(8), dp(8), dp(8), dp(8));
         setContentDescription("Premium FM panel");
         setBackground(new android.graphics.drawable.LayerDrawable(new android.graphics.drawable.Drawable[]{panelBackground(),new PremiumWave()}));
 
@@ -68,16 +68,13 @@ final class DashFmPanelPremium extends LinearLayout {
         title.setEllipsize(TextUtils.TruncateAt.END);
         header.addView(title, new LayoutParams(0, LayoutParams.MATCH_PARENT, 1));
 
-        power = button("POWER", "Start or stop the OEM FM service", () -> {
-            if (controller.owned) controller.stop(); else controller.start();
-        }, true);
-        power.setCompoundDrawablesWithIntrinsicBounds(null,new Glyph(0),null,null);power.setTextSize(TypedValue.COMPLEX_UNIT_PX,0);power.setIncludeFontPadding(false);
-        header.addView(power, fixed(48,48,3));
-        TextView tune=button("", "Enter FM frequency", this::editFrequency,false);tune.setCompoundDrawablesWithIntrinsicBounds(null,new Glyph(1),null,null);tune.setTextSize(TypedValue.COMPLEX_UNIT_PX,0);tune.setIncludeFontPadding(false);header.addView(tune,fixed(48,48,3));
-        source = button("Auto ▾", "Choose FM source", this::chooseSource, false);
-        source.setSingleLine(true);source.setEllipsize(TextUtils.TruncateAt.END);header.addView(source, fixed(88, 48, 3));
-        TextView menu = button("•••", "FM settings, stations, presets and diagnostics", this::options, false);
-        header.addView(menu, fixed(48, 48, 3));
+        LinearLayout actions=row();actions.setGravity(Gravity.CENTER_VERTICAL);actions.setContentDescription("FM toolbar");
+        power = iconButton(0, "Start or stop the OEM FM service", () -> {if(controller.owned)controller.stop();else controller.start();});
+        actions.addView(power,fixed(48,48,0));
+        TextView tune=iconButton(1,"Enter FM frequency",this::editFrequency);actions.addView(tune,fixed(48,48,6));
+        source=button("Auto ▾","Choose FM source",this::chooseSource,false);source.setSingleLine(true);source.setEllipsize(TextUtils.TruncateAt.END);actions.addView(source,fixed(88,48,6));
+        TextView menu=iconButton(3,"FM settings, stations, presets and diagnostics",this::options);actions.addView(menu,fixed(48,48,6));
+        header.addView(actions,new LayoutParams(LayoutParams.WRAP_CONTENT,dp(48)));
         addView(header, new LayoutParams(LayoutParams.MATCH_PARENT, dp(48)));
 
         status = text("", 12, MUTED, false);
@@ -91,7 +88,7 @@ final class DashFmPanelPremium extends LinearLayout {
         TextView minus = button("−", "Tune down 0.10 MHz", () ->
                 controller.frequency(DashFmBand.step(controller.frequency, -1)), false);
         minus.setTextSize(TypedValue.COMPLEX_UNIT_SP, 28);
-        tuner.addView(minus, fixed(52, -1, 3));
+        tuner.addView(minus, fixed(52, -1, 0));
 
         LinearLayout tunerCenter = row();
         tunerCenter.setOrientation(VERTICAL);
@@ -113,7 +110,7 @@ final class DashFmPanelPremium extends LinearLayout {
         TextView plus = button("+", "Tune up 0.10 MHz", () ->
                 controller.frequency(DashFmBand.step(controller.frequency, 1)), false);
         plus.setTextSize(TypedValue.COMPLEX_UNIT_SP, 28);
-        tuner.addView(plus, fixed(52, -1, 3));
+        tuner.addView(plus, fixed(52, -1, 0));
         addView(tuner, new LayoutParams(LayoutParams.MATCH_PARENT, 0, 1));
 
         for (int r = 0; r < 2; r++) {
@@ -136,10 +133,10 @@ final class DashFmPanelPremium extends LinearLayout {
                 });
                 presets[slot] = preset;
                 LayoutParams pp = new LayoutParams(0, LayoutParams.MATCH_PARENT, 1);
-                pp.setMargins(dp(3), dp(2), dp(3), dp(2));
+                pp.leftMargin=c==0?0:dp(6);
                 presetRow.addView(preset, pp);
             }
-            addView(presetRow, new LayoutParams(LayoutParams.MATCH_PARENT, dp(52)));
+            LayoutParams rp=new LayoutParams(LayoutParams.MATCH_PARENT,dp(52));rp.topMargin=dp(6);addView(presetRow,rp);
         }
         refresh();
     }
@@ -192,6 +189,16 @@ final class DashFmPanelPremium extends LinearLayout {
         t.setContentDescription(description);t.setTooltipText(description);t.setFocusable(true);
         t.setOnClickListener(v -> { if (canAct()) action.run(); });
         return t;
+    }
+    private TextView iconButton(int type,String description,Runnable action){
+        IconControl v=new IconControl(type);v.setBackground(buttonBackground(false));v.setContentDescription(description);v.setTooltipText(description);v.setFocusable(true);v.setOnClickListener(w->{if(canAct())action.run();});return v;
+    }
+    final class IconControl extends TextView {
+        final Glyph glyph;
+        IconControl(int type){super(owner);glyph=new Glyph(type);setText("");setGravity(Gravity.CENTER);setIncludeFontPadding(false);}
+        @Override protected void onSizeChanged(int w,int h,int oldw,int oldh){super.onSizeChanged(w,h,oldw,oldh);int side=dp(24);glyph.setBounds((w-side)/2,(h-side)/2,(w+side)/2,(h+side)/2);}
+        android.graphics.Rect iconBounds(){return glyph.getBounds();}
+        @Override protected void onDraw(Canvas canvas){super.onDraw(canvas);glyph.draw(canvas);}
     }
     private int getPreset(int slot) {
         try {
@@ -355,6 +362,7 @@ final class DashFmPanelPremium extends LinearLayout {
         public void draw(Canvas c){int save=c.save();android.graphics.Rect b=getBounds();c.translate(b.left,b.top);c.scale(b.width()/24f,b.height()/24f);ink.setColor(type==2?ACCENT:INK);ink.setStyle(Paint.Style.STROKE);ink.setStrokeWidth(1.8f);ink.setStrokeCap(Paint.Cap.ROUND);
             if(type==0){if(controller.owned){ink.setStyle(Paint.Style.FILL);c.drawRoundRect(7,7,17,17,2,2,ink);}else{c.drawArc(4,4,20,20,-45,270,false,ink);c.drawLine(12,2,12,12,ink);}}
             else if(type==1){for(int y=6;y<=18;y+=6){c.drawLine(3,y,21,y,ink);c.drawCircle(y==12?15:8,y,2.5f,ink);}}
+            else if(type==3){ink.setStyle(Paint.Style.FILL);for(int x=5;x<=19;x+=7)c.drawCircle(x,12,1.5f,ink);}
             else {c.drawCircle(12,7,2,ink);c.drawLine(12,9,7,22,ink);c.drawLine(12,9,17,22,ink);c.drawLine(9,17,15,17,ink);c.drawArc(4,0,20,16,135,90,false,ink);c.drawArc(0,-4,24,20,135,90,false,ink);c.drawArc(4,0,20,16,-45,90,false,ink);c.drawArc(0,-4,24,20,-45,90,false,ink);}c.restoreToCount(save);
         }
         public void setAlpha(int a){ink.setAlpha(a);}public void setColorFilter(android.graphics.ColorFilter f){ink.setColorFilter(f);}public int getOpacity(){return android.graphics.PixelFormat.TRANSLUCENT;}
