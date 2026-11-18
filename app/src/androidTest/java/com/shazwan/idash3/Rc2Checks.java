@@ -26,7 +26,7 @@ public class Rc2Checks extends Instrumentation {
   });ui(()->{check(find(a.grid,"Open Long application name 3").isFocused(),"focus retained after crossing page");
    a.query="";a.page="home";a.panelVisible=true;a.prefs.edit().putInt("panel_mode",0).apply();a.render();View stage=a.stage;LinearLayout panel=a.panelBox;a.rebuildPanel();check(stage==a.stage&&panel==a.panelBox,"panel change reuses root and panel container");
    player=a.webPanel;player.resume();check(player.ensureWeb()!=null,"WebView available");FrameLayout video=new FrameLayout(a);int[] callbacks={0};player.showFullscreen(video,()->callbacks[0]++);
-   check(player.isFullscreen(),"fullscreen available");check(((FrameLayout.LayoutParams)video.getLayoutParams()).bottomMargin==a.dp(48),"video reserves toolbar space");player.expandFullscreen();player.pause();check(callbacks[0]==1&&video.getParent()==null&&player.web==null,"expand/pause cleans surface once");
+   check(player.isFullscreen(),"fullscreen available");check(((FrameLayout.LayoutParams)video.getLayoutParams()).bottomMargin==0,"video has no reserved toolbar space");player.expandFullscreen();player.pause();check(callbacks[0]==1&&video.getParent()==null&&player.web==null,"expand/pause cleans surface once");
    Bundle state=new Bundle();a.libraryPage=2;a.homePage=1;a.onSaveInstanceState(state);check(state.getInt("library_page")==2&&state.getInt("home_page")==1,"pagination saved for process recreation");
   });out.putString("stream","PASS: "+n+" rc2 assertions\n");result=Activity.RESULT_OK;
  }catch(Throwable t){out.putString("stream","FAIL after "+n+": "+t+"\n");}finally{if(a!=null)ui(()->{a.prefs.edit().remove(Readability.MODE).remove(Readability.CONTRAST).remove(Readability.OPAQUE).apply();a.finish();});}finish(result,out);}

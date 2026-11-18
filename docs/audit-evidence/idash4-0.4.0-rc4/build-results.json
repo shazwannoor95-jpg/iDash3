@@ -1,0 +1,16 @@
+{
+  "unit": {
+    "tests": 56,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "lint": {
+    "Error": 0,
+    "Warning": 63
+  },
+  "apk_sha256": "db747ad3e030f03a5f3a629a63b88c161b297112005b6d6c9277d577d868dd48",
+  "runtime": "See results.tsv; API27 x86_64 offline emulator checks, not live streaming",
+  "runtime_assertions": 45,
+  "runtime_status": "PanelFullscreenChecks 23 and Rc2Checks 22 passed"
+}

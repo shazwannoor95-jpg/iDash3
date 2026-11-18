@@ -1,0 +1,3 @@
+INSTRUMENTATION_RESULT: stream=PASS: 23 panel fullscreen assertions
+
+INSTRUMENTATION_CODE: -1

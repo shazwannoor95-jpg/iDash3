@@ -30,7 +30,12 @@ final class DashWebPlayer extends LinearLayout implements AutoCloseable {
     private boolean active,closed;private String lastAddress="";
     private View customView;
     private LinearLayout controls;private int searchVisibility,statusVisibility;
-    private FrameLayout fullscreenOverlay;
+    private FrameLayout fullscreenOverlay,videoHost;
+    private LinearLayout videoToolbar;private TextView videoMenu;private boolean fillVideo;private float videoAspect=16f/9f;
+    private final Runnable hideVideoControls=()->{if(videoToolbar!=null&&!videoToolbar.hasFocus())videoToolbar.setVisibility(GONE);};
+    static float fillScale(int w,int h,float aspect){if(w<=0||h<=0||!(aspect>0)||Float.isInfinite(aspect))return 1f;float ratio=w/(float)h/aspect;return Math.min(4f,Math.max(ratio,1f/ratio));}
+    private void fitVideo(){if(videoHost==null)return;float scale=fillVideo?fillScale(videoHost.getWidth(),videoHost.getHeight(),videoAspect):1f;videoHost.setScaleX(scale);videoHost.setScaleY(scale);}
+    private void showVideoControls(){if(videoToolbar==null)return;videoToolbar.setVisibility(VISIBLE);main.removeCallbacks(hideVideoControls);main.postDelayed(hideVideoControls,3000);}
     private ViewGroup fullscreenParent;
     private WebChromeClient.CustomViewCallback fullscreenCallback;
     private int savedSystemUi,savedWindowFlags;
@@ -135,19 +140,21 @@ final class DashWebPlayer extends LinearLayout implements AutoCloseable {
         customView=view;fullscreenCallback=callback;fullscreenParent=body;
         searchVisibility=searchRow.getVisibility();statusVisibility=status.getVisibility();
         searchRow.setVisibility(GONE);status.setVisibility(GONE);controls.setVisibility(GONE);stage.setVisibility(GONE);
-        FrameLayout overlay=new FrameLayout(activity);fullscreenOverlay=overlay;overlay.setBackgroundColor(Color.BLACK);
+        FrameLayout overlay=new FrameLayout(activity){@Override public boolean dispatchTouchEvent(android.view.MotionEvent e){if(e.getActionMasked()==android.view.MotionEvent.ACTION_DOWN)showVideoControls();return super.dispatchTouchEvent(e);}};fullscreenOverlay=overlay;overlay.setClipChildren(true);overlay.setBackgroundColor(Color.BLACK);
         overlay.setClickable(true);overlay.setFocusableInTouchMode(true);overlay.setContentDescription("YouTube web fullscreen video");
         overlay.setOnKeyListener((v,key,event)->{if(key!=KeyEvent.KEYCODE_BACK)return false;if(event.getAction()==KeyEvent.ACTION_UP)exitFullscreen();return true;});
         try{
-            overlay.addView(view,new FrameLayout.LayoutParams(-1,-1));
+            videoHost=new FrameLayout(activity);videoHost.setClipChildren(false);videoHost.addView(view,new FrameLayout.LayoutParams(-1,-1));overlay.addView(videoHost,new FrameLayout.LayoutParams(-1,-1));fillVideo=false;videoAspect=16f/9f;videoHost.addOnLayoutChangeListener((v,l,t,r,b,ol,ot,or,ob)->fitVideo());
+            final WebView owner=web;owner.evaluateJavascript("(function(){var v=document.querySelector('video');return v&&v.videoWidth&&v.videoHeight?v.videoWidth/v.videoHeight:0;})();",value->{if(web==owner&&customView==view){try{float aspect=Float.parseFloat(value);if(aspect>.1f&&aspect<10f)videoAspect=aspect;}catch(NumberFormatException ignored){}fitVideo();}});
             TextView exit=button("Exit fullscreen",this::exitFullscreen);exit.setContentDescription("Exit fullscreen and return to dashboard panel");
-            LinearLayout toolbar=new LinearLayout(activity);toolbar.setBackgroundColor(0xaa07101c);
+            LinearLayout toolbar=new LinearLayout(activity);videoToolbar=toolbar;toolbar.setBackgroundColor(0xaa07101c);
             toolbar.addView(exit,new LinearLayout.LayoutParams(0,dp(48),1));
             TextView expand=button("Full screen",this::expandFullscreen);
             expand.setContentDescription("Expand video to whole screen");
             toolbar.addView(expand,new LinearLayout.LayoutParams(0,dp(48),1));
-            FrameLayout.LayoutParams videoBounds=new FrameLayout.LayoutParams(-1,-1);videoBounds.bottomMargin=dp(48);view.setLayoutParams(videoBounds);
-            overlay.addView(toolbar,new FrameLayout.LayoutParams(-1,dp(48),Gravity.BOTTOM));
+            TextView sizing=button("Muat",()->{fillVideo=!fillVideo;fitVideo();if(videoToolbar!=null)((TextView)videoToolbar.getChildAt(2)).setText(fillVideo?"Isi · potong tepi":"Muat");showVideoControls();});sizing.setContentDescription("Toggle fit or fill video; fill crops edges");toolbar.addView(sizing,new LinearLayout.LayoutParams(0,dp(48),1));
+            FrameLayout.LayoutParams toolbarBounds=new FrameLayout.LayoutParams(-1,dp(48),Gravity.BOTTOM);toolbarBounds.rightMargin=dp(48);overlay.addView(toolbar,toolbarBounds);
+            videoMenu=button("⋯",this::showVideoControls);videoMenu.setContentDescription("Show video controls");overlay.addView(videoMenu,new FrameLayout.LayoutParams(dp(48),dp(48),Gravity.BOTTOM|Gravity.END));showVideoControls();
             fullscreenParent.addView(overlay,new ViewGroup.LayoutParams(-1,-1));
             activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
             overlay.requestFocus();
@@ -173,8 +180,9 @@ final class DashWebPlayer extends LinearLayout implements AutoCloseable {
         if(customView==null)return false;
         View oldView=customView;FrameLayout overlay=fullscreenOverlay;ViewGroup parent=fullscreenParent;WebChromeClient.CustomViewCallback callback=fullscreenCallback;
         customView=null;fullscreenOverlay=null;fullscreenParent=null;fullscreenCallback=null;
+        main.removeCallbacks(hideVideoControls);FrameLayout host=videoHost;videoHost=null;videoToolbar=null;videoMenu=null;
         controls.setVisibility(VISIBLE);stage.setVisibility(VISIBLE);searchRow.setVisibility(searchVisibility);status.setVisibility(statusVisibility);
-        if(overlay!=null){overlay.setOnKeyListener(null);overlay.removeView(oldView);if(parent!=null)parent.removeView(overlay);}
+        if(overlay!=null){overlay.setOnKeyListener(null);if(host!=null)host.removeView(oldView);else overlay.removeView(oldView);if(parent!=null)parent.removeView(overlay);}
         activity.getWindow().setFlags(savedWindowFlags,FULLSCREEN_WINDOW_FLAGS);
         activity.getWindow().getDecorView().setSystemUiVisibility(savedSystemUi);
         notifyHidden(callback);return true;
