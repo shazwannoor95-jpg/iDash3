@@ -44,4 +44,5 @@
     <instrumentation android:name="com.shazwan.idash3.SettingsResetChecks" android:targetPackage="com.shazwan.idash3"/>
     <instrumentation android:name="com.shazwan.idash3.PanelMigrationChecks" android:targetPackage="com.shazwan.idash3"/>
     <instrumentation android:name="com.shazwan.idash3.Idash3Checks" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.PageGlassChecks" android:targetPackage="com.shazwan.idash3"/>
 </manifest>

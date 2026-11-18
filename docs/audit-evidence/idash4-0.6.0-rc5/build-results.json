@@ -1,0 +1,21 @@
+{
+  "unit": {
+    "tests": 76,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "lint": {
+    "Warning": 89,
+    "Error": 0
+  },
+  "runtime": {
+    "PageGlassChecks": 25,
+    "AppLibraryChecks": 17,
+    "DriveDashboardChecks": 24,
+    "DashboardLayoutChecks": 71,
+    "ClockGlassChecks": 61,
+    "unique_assertions": 198
+  },
+  "runner_note": "All five classes completed PASS. Editing the harness default list during execution caused a summary-phase shell parse error after the gate loop; bash -n succeeds on final harness. Latest PageGlass fixture export rerun recorded separately."
+}

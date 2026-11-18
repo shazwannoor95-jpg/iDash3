@@ -1,0 +1,8 @@
+{
+  "base_commit": "542ea1ef26f50555e6d608b22d0d9efa149fe1eb",
+  "unchanged_tracked_files": 654,
+  "only_modified_file": "app/build.gradle (versionCode/versionName only)",
+  "rollback_version_code": 24,
+  "candidate_version_code": 23,
+  "same_debug_certificate": true
+}

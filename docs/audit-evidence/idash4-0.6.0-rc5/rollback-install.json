@@ -1,0 +1,20 @@
+[
+  {
+    "apk": "dist/iDash4-0.6.0-rc4-rollback-debug.apk",
+    "versionCode": 24,
+    "versionName": "0.6.0-rc4-rollback",
+    "install": "Success",
+    "preferences_preserved": true,
+    "preferences_sha256": "6d70770afa2227664d2561714ac145591183641599a6007817d27d833097ceb9",
+    "launch_note": "Cold start exceeded am start -W timeout on the software emulator; launcher was subsequently observed resumed and displayed. System UI ANR was also observed on rollback; not a physical-device performance result."
+  },
+  {
+    "apk": "dist/iDash4-0.6.0-rc5-debug.apk",
+    "versionCode": 23,
+    "versionName": "0.6.0-rc5",
+    "install": "Success",
+    "preferences_preserved": true,
+    "preferences_sha256": "6d70770afa2227664d2561714ac145591183641599a6007817d27d833097ceb9",
+    "launch_note": "Cold start exceeded am start -W timeout on the software emulator; launcher was subsequently observed resumed and displayed. System UI ANR was also observed on rollback; not a physical-device performance result."
+  }
+]

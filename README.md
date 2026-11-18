@@ -1,6 +1,6 @@
 # iDash4 — iDash3 integration
 
-**Current candidate: iDash4 0.6.0-rc4** — minimum 14dp gap between Home clock/date and JAKIM cards, including compact screens; prayer artwork resizes to preserve the gap. [Download debug APK](dist/iDash4-0.6.0-rc4-debug.apk?raw=true) · [Spacing audit](docs/CARD-SPACING-0.6.0-RC4.md). Existing prayer motion, artwork and glass stay intact.
+**Current candidate: iDash4 0.6.0-rc5** — ZIP scenic blue/magenta backdrop and cyan/purple glass rims for Drive + Apps. Home keeps the rc4 card-spacing fix. [Download debug APK](dist/iDash4-0.6.0-rc5-debug.apk?raw=true) · [Skin and backup notes](docs/DRIVE-APPS-GLASS-0.6.0-RC5.md) · [Return to rc4 appearance](dist/iDash4-0.6.0-rc4-rollback-debug.apk?raw=true).
 
 **Revert panel appearance:** Settings → Home & Dock → Liquid Glass → Material panel → **Classic iDash3**. The new iOS26 panel material and the icon-pack switch are independent.
 

@@ -10,6 +10,7 @@ final class GlassSurface extends Drawable {
  private int material=GlassMaterial.CLASSIC;private Shader materialGloss,materialShadow;
  GlassSurface material(int value){int next=value==GlassMaterial.IOS26?GlassMaterial.IOS26:GlassMaterial.CLASSIC;if(material!=next){material=next;if(!box.isEmpty())rebuild();invalidateSelf();}return this;}
  int material(){return material;}
+ float radiusDp(){return radius/density;}
  private Shader body,sheen,edge,reflection;private ColorFilter externalFilter;private BitmapShader frost;private int opacity=255,revision=-1;
  // Liquid Glass v2 state: region tint, edge lensing, touch specular, depth and reveal (blur/lens transition).
  private BitmapShader frostLens,frostSoft;private final Matrix lensMatrix=new Matrix(),softMatrix=new Matrix(),touchMatrix=new Matrix();private final Path ring=new Path();private final RectF ringInner=new RectF();

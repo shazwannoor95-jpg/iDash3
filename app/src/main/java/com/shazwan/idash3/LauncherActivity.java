@@ -103,7 +103,7 @@ public class LauncherActivity extends Activity {
         if("drive".equals(page)){
             statusTime=null;body=column();shell.setPadding(dp(8),dp(8),dp(8),dp(8));shell.addView(body,new LinearLayout.LayoutParams(-1,-1));
             new ContentInsets(this,stage,shell,dp(8),dp(8),dp(4),dp(8));
-            driveDashboard=new DriveDashboard(this);body.addView(driveDashboard,new LinearLayout.LayoutParams(-1,-1));updateClock();return;
+            driveDashboard=new DriveDashboard(this);body.addView(driveDashboard,new LinearLayout.LayoutParams(-1,-1));updateClock();PageGlassSkin.apply(this,shell,body,page);return;
         }
         // Dedicated workspace has its own rail/tabs; Home's glass chrome stays on Home.
         if("road".equals(page)){
@@ -120,7 +120,7 @@ public class LauncherActivity extends Activity {
         if(panelActions){status.addView(panelAction("Mode",this::panelMode));status.addView(panelAction("Layout",this::panelLayout));status.addView(panelAction("Close",()->{panelVisible=false;render();}));}shell.addView(status);
         body=column(); shell.addView(body,new LinearLayout.LayoutParams(-1,0,1));
         if("apps".equals(page)) buildDrawer();else if("settings".equals(page)){settingsScreen=new DashSettings(this);settingsScreen.build(body);}else buildHome();
-        buildDock(); updateClock();IosStyle.enter(body);
+        buildDock(); updateClock();PageGlassSkin.apply(this,shell,body,page);IosStyle.enter(body);
     }
     void buildHome() {
         boolean tightHeader=getResources().getConfiguration().screenHeightDp<=400&&getResources().getConfiguration().fontScale>1.10f;
@@ -190,7 +190,7 @@ public class LauncherActivity extends Activity {
         for(App app:apps)if(app.label.toLowerCase(Locale.ROOT).contains(q))filtered.add(app);
         drawerCount.setText(!loaded?"Loading installed apps…":filtered.size()+" apps");
         if(!q.equals(libraryQuery)){libraryPage=0;libraryQuery=q;}
-        ((AppLibraryGrid)grid).setApps(filtered);
+        ((AppLibraryGrid)grid).setApps(filtered);PageGlassSkin.refreshAppsGrid(this,grid);
     }
     App assigned(int slot) {String saved=prefs.getString("favorite_"+slots[slot],null);for(App a:apps)if(a.component.equals(saved))return a;return null;}
     void assign(int slot,App app) {prefs.edit().putString("favorite_"+slots[slot],app.component).apply();hideKeyboard();render();}

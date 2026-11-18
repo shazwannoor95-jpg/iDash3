@@ -1,0 +1,7 @@
+PageGlassChecks: LULUS
+AppLibraryChecks: LULUS
+DriveDashboardChecks: LULUS
+DashboardLayoutChecks: LULUS
+ClockGlassChecks: LULUS
+tools/ci/run-instrumentation.sh: line 33: syntax error near unexpected token `done'
+tools/ci/run-instrumentation.sh: line 33: `"$c" "$r"; done'
