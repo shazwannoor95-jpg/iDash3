@@ -36,6 +36,7 @@ public class LauncherActivity extends Activity {
     boolean loaded, destroyed, resumed, foregroundVisible; ImageView wallpaperView; View wallpaperShade;
     int theme;
     boolean panelVisible; LinearLayout panelBox; DashWebPlayer webPanel; FmPanelHost fmPanel; SagaAngleView carPanel;
+    PrayerJourneyView prayerJourney;
     DriveDashboard driveDashboard;DrivingWorkspace drivingWorkspace;int drivingTab;
     int libraryPage; int homePage; HomeGrid homeGrid; private final GlassPerf.Watcher frameWatcher=new GlassPerf.Watcher(); private boolean watching;
     AlertDialog wallpaperDialog; Bitmap wallpaperBitmap; String requestedWallpaper; int wallpaperGeneration;
@@ -58,7 +59,7 @@ public class LauncherActivity extends Activity {
     @Override protected void onStart(){super.onStart();foregroundVisible=true;}
     @Override protected void onStop(){foregroundVisible=false;if(driveDashboard!=null)driveDashboard.pause();if(drivingWorkspace!=null)drivingWorkspace.pause();if(quickControls!=null)quickControls.pause();if(webPanel!=null)webPanel.pause();if(fmPanel!=null)fmPanel.pause();if(carPanel!=null)carPanel.pause();main.removeCallbacks(ticker);super.onStop();}
     @Override protected void onResume() { super.onResume(); resumed=true;if(driveDashboard!=null)driveDashboard.resume();if(drivingWorkspace!=null)drivingWorkspace.resume();if(appearanceEditor!=null)appearanceEditor.resume();if(quickControls!=null)quickControls.resume(); main.removeCallbacks(ticker); ticker.run(); immersive();if(webPanel!=null)webPanel.resume();if(fmPanel!=null)fmPanel.resume();if(carPanel!=null)carPanel.resume(); startFrameWatch(); }
-    @Override protected void onPause() { resumed=false;if(driveDashboard!=null)driveDashboard.pause();if(drivingWorkspace!=null)drivingWorkspace.pause();stopFrameWatch();if(appearanceEditor!=null)appearanceEditor.pause();if(quickControls!=null)quickControls.pause();main.removeCallbacks(ticker);if(webPanel!=null)webPanel.pause();if(fmPanel!=null)fmPanel.pause();if(carPanel!=null)carPanel.pause(); super.onPause(); }
+    @Override protected void onPause() { resumed=false;if(prayerJourney!=null)prayerJourney.stop();if(driveDashboard!=null)driveDashboard.pause();if(drivingWorkspace!=null)drivingWorkspace.pause();stopFrameWatch();if(appearanceEditor!=null)appearanceEditor.pause();if(quickControls!=null)quickControls.pause();main.removeCallbacks(ticker);if(webPanel!=null)webPanel.pause();if(fmPanel!=null)fmPanel.pause();if(carPanel!=null)carPanel.pause(); super.onPause(); }
     @Override protected void onDestroy() { destroyed=true;if(driveDashboard!=null)driveDashboard.close();if(drivingWorkspace!=null)drivingWorkspace.close();if(settingsNavigation!=null)settingsNavigation.close();if(settingsScreen!=null)settingsScreen.close();if(appearanceEditor!=null)appearanceEditor.close();IosStyle.releaseGlass(this);if(quickControls!=null){quickControls.close();}if(wallpaperDialog!=null)wallpaperDialog.dismiss();disposePanel(); main.removeCallbacksAndMessages(null); worker.shutdownNow(); networkWorker.shutdownNow(); super.onDestroy(); }
     @Override public void onTrimMemory(int level){super.onTrimMemory(level);if(level>=android.content.ComponentCallbacks2.TRIM_MEMORY_RUNNING_LOW){Ios26Icons.clear();GlassBake.trim();}}
     @Override protected void onSaveInstanceState(Bundle out) { out.putInt("library_page",libraryPage);out.putInt("home_page",homePage);out.putInt("driving_tab",drivingTab);out.putBoolean("panel",panelVisible);out.putString("page",page);out.putString("settings_section",settingsSection); out.putString("query",query); super.onSaveInstanceState(out); }
@@ -92,7 +93,7 @@ public class LauncherActivity extends Activity {
         if(settingsScreen!=null){settingsScreen.close();settingsScreen=null;}
         if(appearanceEditor!=null)appearanceEditor.close();
         if(driveDashboard!=null){driveDashboard.close();driveDashboard=null;}if(drivingWorkspace!=null){drivingWorkspace.close();drivingWorkspace=null;}
-        disposePanel();homeGrid=null;clock=null;date=null;calendarDay=null;clockMinute=Long.MIN_VALUE;jakimText=null;jakimNext=null;search=null;grid=null;
+        disposePanel();prayerJourney=null;homeGrid=null;clock=null;date=null;calendarDay=null;clockMinute=Long.MIN_VALUE;jakimText=null;jakimNext=null;search=null;grid=null;
         stage=new FrameLayout(this); stage.addView(new Wallpaper(this),new FrameLayout.LayoutParams(-1,-1));
         wallpaperView=new ImageView(this);wallpaperView.setScaleType(ImageView.ScaleType.CENTER_CROP);stage.addView(wallpaperView,new FrameLayout.LayoutParams(-1,-1));wallpaperShade=new View(this);wallpaperShade.setBackgroundColor(0x35000000);stage.addView(wallpaperShade,new FrameLayout.LayoutParams(-1,-1));updateBackdrop();
         ensureWallpaper();
@@ -136,7 +137,7 @@ public class LauncherActivity extends Activity {
         if(prefs.getBoolean("calendar",true)){calendarDay=text("",18,Color.WHITE);timeCard.setOnClickListener(v->showCalendar());}
         if(prefs.getBoolean("jakim",true)) {
             LinearLayout card=column();card.setGravity(Gravity.CENTER_HORIZONTAL);card.setMinimumHeight(dp(48));card.setBackground(glass(0x682b426a,26));card.setContentDescription("JAKIM calendar widget");
-            jakimNext=text("Waktu solat",18,Color.WHITE);jakimNext.setTypeface(IosStyle.font(this,true));jakimNext.setMaxLines(1);jakimNext.setGravity(Gravity.CENTER);jakimNext.setAutoSizeTextTypeUniformWithConfiguration(13,18,1,android.util.TypedValue.COMPLEX_UNIT_SP);jakimNext.setVisibility(prefs.getBoolean("prayer_countdown",true)?View.VISIBLE:View.GONE);card.addView(jakimNext,new LinearLayout.LayoutParams(-1,-2));widgets.fitText(jakimNext,18,13);jakimText=text("",12.5f,0xe0ffffff);jakimText.setGravity(Gravity.CENTER);jakimText.setLineSpacing(0,1.12f);LinearLayout.LayoutParams jp=new LinearLayout.LayoutParams(-1,-2);jp.topMargin=dp(3);card.addView(jakimText,jp);widgets.fitText(jakimText,12.5f,11);card.setOnClickListener(v->jakimDialog());widgets.addView(card,Math.min(1,widgets.getChildCount()),new LinearLayout.LayoutParams(-1,-2));updateJakim();loadJakim(false);
+            jakimNext=text("Waktu solat",18,Color.WHITE);jakimNext.setTypeface(IosStyle.font(this,true));jakimNext.setMaxLines(1);jakimNext.setGravity(Gravity.CENTER);jakimNext.setAutoSizeTextTypeUniformWithConfiguration(13,18,1,android.util.TypedValue.COMPLEX_UNIT_SP);jakimNext.setVisibility(prefs.getBoolean("prayer_countdown",true)?View.VISIBLE:View.GONE);jakimNext.setVisibility(View.GONE);card.addView(jakimNext,new LinearLayout.LayoutParams(-1,-2));widgets.fitText(jakimNext,18,13);jakimText=text("",12.5f,0xe0ffffff);jakimText.setGravity(Gravity.CENTER);jakimText.setLineSpacing(0,1.12f);LinearLayout.LayoutParams jp=new LinearLayout.LayoutParams(-1,-2);jp.topMargin=dp(3);jakimText.setVisibility(View.GONE);card.addView(jakimText,jp);prayerJourney=new PrayerJourneyView(this);card.addView(prayerJourney,new LinearLayout.LayoutParams(-1,dp(140)));widgets.fitText(jakimText,12.5f,11);card.setOnClickListener(v->jakimDialog());widgets.addView(card,Math.min(1,widgets.getChildCount()),new LinearLayout.LayoutParams(-1,-2));updateJakim();loadJakim(false);
         }
         if(panelVisible){panelBox=column();panelBox.setPadding(dp(4),dp(4),dp(4),dp(4));panelBox.setBackground(glass(0x77324461,24));panelBox.setContentDescription("Optional media panel");LinearLayout.LayoutParams pp=new LinearLayout.LayoutParams(0,-1,.63f);pp.topMargin=dp(4);content.addView(panelBox,pp);buildPanel();}
         else if(!prefs.getBoolean(HomeGrid.ENABLED,false))content.addView(new View(this),new LinearLayout.LayoutParams(0,-1,.63f));
@@ -323,7 +324,7 @@ public class LauncherActivity extends Activity {
     void updateClock(){updateClock(System.currentTimeMillis());}
     // The argument makes day/time-zone boundaries testable without changing the device clock.
     void updateClock(long now){
-        if(driveDashboard!=null)driveDashboard.tick(now);
+        if(prayerJourney!=null)prayerJourney.tick(now);if(driveDashboard!=null)driveDashboard.tick(now);
         long minute=now/60000;if(minute!=jakimMinute)updateJakim(now);
         boolean h24=prefs.getBoolean("24h",true);Locale locale=Locale.getDefault();TimeZone zone=TimeZone.getDefault();
         boolean changed=clockFormat==null||clock24!=h24||!locale.equals(clockLocale)||!zone.getID().equals(clockZone.getID())||!zone.hasSameRules(clockZone);

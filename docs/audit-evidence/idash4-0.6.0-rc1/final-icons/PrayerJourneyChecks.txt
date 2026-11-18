@@ -1,0 +1,3 @@
+INSTRUMENTATION_RESULT: stream=PASS: 29 prayer journey assertions
+
+INSTRUMENTATION_CODE: -1

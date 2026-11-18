@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shazwan.idash3.PrayerPhaseTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-11-18T15:21:46" hostname="bb8898bc0593" time="0.03">
+  <properties/>
+  <testcase name="missingPreviousAndNextNeverInventTimes" classname="com.shazwan.idash3.PrayerPhaseTest" time="0.011"/>
+  <testcase name="leapDay" classname="com.shazwan.idash3.PrayerPhaseTest" time="0.001"/>
+  <testcase name="everyExactBoundaryAndSecondBefore" classname="com.shazwan.idash3.PrayerPhaseTest" time="0.015"/>
+  <testcase name="countdownRoundsUpAndProgressIsTimeBased" classname="com.shazwan.idash3.PrayerPhaseTest" time="0.001"/>
+  <testcase name="syurukHasItsOwnNonPrayerPhase" classname="com.shazwan.idash3.PrayerPhaseTest" time="0.002"/>
+  <testcase name="midnightAndYearDoNotResetIsyak" classname="com.shazwan.idash3.PrayerPhaseTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

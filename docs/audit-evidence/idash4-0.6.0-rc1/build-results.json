@@ -1,0 +1,21 @@
+{
+  "unit": {
+    "tests": 73,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "lint": {
+    "Error": 0,
+    "Warning": 89
+  },
+  "apk_sha256": "fdfdf5ddbd4d00e20d96df27ae64ecb0cb335614c98cc86378029c3c26cbe094",
+  "pre_visual_followup_apk_sha256": "86bc0be01f2acaa9445a08b55ed5e0ff8b68c947156bf168bff156a214306638",
+  "runtime": {
+    "PrayerJourneyChecks": 29,
+    "DriveDashboardChecks": 24,
+    "PanelLayoutChecks": 88,
+    "QualityChecks": 50,
+    "unique_assertions": 191
+  }
+}

@@ -1,0 +1,6 @@
+INSTRUMENTATION_RESULT: stream=PASS: 50 clock/cache/lifecycle checks
+GPS: NOT IMPLEMENTED; manual JAKIM zone, no added location permission.
+Offline tests use official bundled data and isolated corrupt-cache fixture; live JAKIM endpoint not certified.
+Clock/timezone boundary inputs are controlled test timestamps, not OS clock or head-unit verification.
+
+INSTRUMENTATION_CODE: -1
