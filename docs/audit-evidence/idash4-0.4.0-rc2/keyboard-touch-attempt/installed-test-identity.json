@@ -1,0 +1,5 @@
+{
+  "package": "com.shazwan.idash3.test",
+  "sha256": "6ea22bbf4df2ceeed29bc8c05f3bb9ce5ce15c2dc938853979ee00d703a6911b",
+  "note": "Read directly from the installed test APK while Rc2Checks was running; QualityChecks source was subsequently rebuilt to fix its worker barrier."
+}

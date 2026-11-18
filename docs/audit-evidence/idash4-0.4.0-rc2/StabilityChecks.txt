@@ -1,0 +1,15 @@
+INSTRUMENTATION_RESULT: stream=PASS: 104 wallpaper/appearance stability checks
+start pss_kib=37021 java_used_bytes=3536016 native_allocated_bytes=19782784
+cycle_0 pss_kib=37826 java_used_bytes=4733432 native_allocated_bytes=20351712
+cycle_1 pss_kib=34501 java_used_bytes=5481016 native_allocated_bytes=21721320
+cycle_2 pss_kib=35231 java_used_bytes=3401552 native_allocated_bytes=24040424
+cycle_3 pss_kib=39407 java_used_bytes=4349896 native_allocated_bytes=26294216
+cycle_4 pss_kib=41095 java_used_bytes=5218768 native_allocated_bytes=27777576
+cycle_5 pss_kib=41960 java_used_bytes=5255632 native_allocated_bytes=28342320
+cycle_6 pss_kib=41472 java_used_bytes=4331736 native_allocated_bytes=28874616
+cycle_7 pss_kib=47340 java_used_bytes=5641688 native_allocated_bytes=34200528
+after_gc_request pss_kib=44312 java_used_bytes=2409184 native_allocated_bytes=27406192
+weak_retention_observation wallpapers=0/8 editors=1/8 (GC timing and current stack may retain last editor; informational only)
+PSS observations include TCG/instrumentation; not proof of no long-term leak.
+
+INSTRUMENTATION_CODE: -1

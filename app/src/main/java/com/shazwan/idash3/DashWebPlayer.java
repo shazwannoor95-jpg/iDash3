@@ -27,7 +27,7 @@ final class DashWebPlayer extends LinearLayout implements AutoCloseable {
     private final TextView start;
     private final LinearLayout searchRow;
     private final Handler main=new Handler(Looper.getMainLooper());
-    private boolean active,closed;
+    private boolean active,closed;private String lastAddress="";
     private View customView;
     private FrameLayout fullscreenOverlay;
     private ViewGroup fullscreenParent;
@@ -56,18 +56,18 @@ final class DashWebPlayer extends LinearLayout implements AutoCloseable {
         query.setPadding(dp(8),0,dp(8),0);query.setIncludeFontPadding(false);query.setGravity(Gravity.CENTER_VERTICAL|Gravity.START);query.setTextSize(13);query.setTextColor(0xfff8faff);query.setHintTextColor(0xffbdcce5);
         query.setHint("YouTube link or search");query.setImeOptions(EditorInfo.IME_ACTION_GO);
         query.setOnEditorActionListener((v,action,event)->{if(action==EditorInfo.IME_ACTION_GO){open(query.getText().toString());return true;}return false;});
-        search.addView(query,new LayoutParams(0,dp(32),1));search.addView(button("Go",()->open(query.getText().toString())),new LayoutParams(dp(44),dp(32)));addView(search);
+        search.addView(query,new LayoutParams(0,dp(48),1));search.addView(button("Go",()->open(query.getText().toString())),new LayoutParams(dp(48),dp(48)));addView(search);
         body=new FrameLayout(activity);body.setBackgroundColor(Color.BLACK);addView(body,new LayoutParams(-1,0,1));viewportWidth=designW;stage=new ResolutionStage(activity,0,0);body.addView(stage,new FrameLayout.LayoutParams(-1,-1));
-        start=button("Start YouTube web\nPlays here · Internet required",()->open(query.getText().toString()));start.setTextSize(14);body.addView(start,new FrameLayout.LayoutParams(-1,-1));
+        start=button("Start YouTube web\nPlays here · Internet required",()->open(lastAddress.isEmpty()?query.getText().toString():lastAddress));start.setTextSize(14);body.addView(start,new FrameLayout.LayoutParams(-1,-1));
         status=new TextView(activity);status.setTextSize(11);status.setTextColor(0xffbdcce5);status.setText("Website player · tap video to play");status.setMaxLines(2);addView(status,new LayoutParams(-1,-2));
         LinearLayout controls=new LinearLayout(activity);
-        controls.addView(button("Back",()->{if(!exitFullscreen()&&web!=null&&web.canGoBack())web.goBack();}),new LayoutParams(0,dp(32),1));
-        controls.addView(button("Search",()->{boolean show=searchRow.getVisibility()!=VISIBLE;searchRow.setVisibility(show?VISIBLE:GONE);status.setVisibility(show?VISIBLE:GONE);}),new LayoutParams(0,dp(32),1));
-        controls.addView(button("Home",()->open("")),new LayoutParams(0,dp(32),1));
-        controls.addView(button("Stop",()->{releaseWeb();status.setText("Stopped · tap Start to load again");}),new LayoutParams(0,dp(32),1));addView(controls);
+        controls.addView(button("Back",()->{if(!exitFullscreen()&&web!=null&&web.canGoBack())web.goBack();}),new LayoutParams(0,dp(48),1));
+        controls.addView(button("Search",()->{boolean show=searchRow.getVisibility()!=VISIBLE;searchRow.setVisibility(show?VISIBLE:GONE);status.setVisibility(show?VISIBLE:GONE);}),new LayoutParams(0,dp(48),1));
+        controls.addView(button("Home",()->open("")),new LayoutParams(0,dp(48),1));
+        controls.addView(button("Stop",()->{releaseWeb();status.setText("Stopped · tap Start to load again");}),new LayoutParams(0,dp(48),1));addView(controls);
     }
     private int dp(float value){return Math.max(1,Math.round(value*getResources().getDisplayMetrics().density));}
-    private TextView button(String text,Runnable action){TextView b=new TextView(activity);b.setText(text);b.setTextColor(0xfff8faff);b.setTextSize(13);b.setGravity(Gravity.CENTER);b.setContentDescription(text);android.graphics.drawable.GradientDrawable tile=new android.graphics.drawable.GradientDrawable();tile.setColor(0x55283d60);tile.setCornerRadius(dp(12));tile.setStroke(dp(1),0x55ffffff);b.setBackground(tile);b.setOnClickListener(v->action.run());return b;}
+    private TextView button(String text,Runnable action){TextView b=new TextView(activity);b.setText(text);b.setTextColor(0xfff8faff);b.setTextSize(13);b.setGravity(Gravity.CENTER);b.setContentDescription(text);b.setFocusable(true);android.graphics.drawable.GradientDrawable tile=new android.graphics.drawable.GradientDrawable();tile.setColor(0x55283d60);tile.setCornerRadius(dp(12));tile.setStroke(dp(1),0x55ffffff);b.setBackground(tile);b.setOnClickListener(v->action.run());return b;}
     static boolean allowed(String value){
         try{Uri uri=Uri.parse(value);String host=uri.getHost();if(!"https".equalsIgnoreCase(uri.getScheme())||host==null||uri.getUserInfo()!=null)return false;
             host=host.toLowerCase(Locale.ROOT);return host.equals("youtube.com")||host.endsWith(".youtube.com")||host.equals("youtu.be")||host.equals("consent.google.com");
@@ -89,7 +89,7 @@ final class DashWebPlayer extends LinearLayout implements AutoCloseable {
         if(ensureWeb()==null)return;
         // Keep the browsing surface usable even in the small default dashboard panel.
         searchRow.setVisibility(GONE);status.setVisibility(GONE);
-        status.setText("Loading YouTube · tap video to play");web.loadUrl(address(value));
+        status.setText("Loading YouTube · tap video to play");lastAddress=address(value);web.loadUrl(lastAddress);
     }
     @SuppressLint("SetJavaScriptEnabled") WebView ensureWeb(){
         if(!active||closed)return null;
@@ -138,10 +138,13 @@ final class DashWebPlayer extends LinearLayout implements AutoCloseable {
         try{
             overlay.addView(view,new FrameLayout.LayoutParams(-1,-1));
             TextView exit=button("Exit fullscreen",this::exitFullscreen);exit.setContentDescription("Exit fullscreen and return to dashboard panel");
-            FrameLayout.LayoutParams exitBounds=new FrameLayout.LayoutParams(dp(124),dp(44),Gravity.TOP|Gravity.END);exitBounds.setMargins(dp(12),dp(12),dp(12),dp(12));overlay.addView(exit,exitBounds);
+            LinearLayout toolbar=new LinearLayout(activity);toolbar.setBackgroundColor(0xaa07101c);
+            toolbar.addView(exit,new LinearLayout.LayoutParams(0,dp(48),1));
             TextView expand=button("Full screen",this::expandFullscreen);
             expand.setContentDescription("Expand video to whole screen");
-            FrameLayout.LayoutParams expandBounds=new FrameLayout.LayoutParams(dp(100),dp(44),Gravity.TOP|Gravity.START);expandBounds.setMargins(dp(8),dp(12),dp(8),dp(12));overlay.addView(expand,expandBounds);
+            toolbar.addView(expand,new LinearLayout.LayoutParams(0,dp(48),1));
+            FrameLayout.LayoutParams videoBounds=new FrameLayout.LayoutParams(-1,-1);videoBounds.bottomMargin=dp(48);view.setLayoutParams(videoBounds);
+            overlay.addView(toolbar,new FrameLayout.LayoutParams(-1,dp(48),Gravity.BOTTOM));
             fullscreenParent.addView(overlay,new ViewGroup.LayoutParams(-1,-1));
             activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
             overlay.requestFocus();
@@ -177,7 +180,7 @@ final class DashWebPlayer extends LinearLayout implements AutoCloseable {
         @Override public boolean shouldOverrideUrlLoading(WebView view,String url){return block(url);}
         private boolean block(String url){if(allowed(url))return false;status.setVisibility(VISIBLE);status.setText("This link is unavailable in the panel. No external app was opened.");return true;}
         @Override public void onPageStarted(WebView view,String url,android.graphics.Bitmap icon){if(web==view)inject(view);}
-        @Override public void onPageFinished(WebView view,String url){if(web==view){inject(view);status.setText("YouTube web · tap video to play · sign-in/restricted videos may be unavailable");compactWatch(url);}}
+        @Override public void onPageFinished(WebView view,String url){if(web==view){if(allowed(url))lastAddress=url;inject(view);status.setText("YouTube web · tap video to play · sign-in/restricted videos may be unavailable");compactWatch(url);}}
         @Override public void doUpdateVisitedHistory(WebView view,String url,boolean reload){if(web==view){inject(view);compactWatch(url);}}
         private void compactWatch(String url){Uri uri=Uri.parse(url);String path=uri.getPath();if(allowed(url)&&path!=null&&(path.equals("/watch")||path.startsWith("/shorts/"))){searchRow.setVisibility(GONE);status.setVisibility(GONE);}}
         @Override public void onReceivedError(WebView view,WebResourceRequest request,WebResourceError error){if(web==view&&request.isForMainFrame()){status.setVisibility(VISIBLE);status.setText("Page unavailable. Check Internet/System WebView, then tap Home to retry.");}}

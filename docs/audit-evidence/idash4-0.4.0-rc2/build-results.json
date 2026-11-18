@@ -1,0 +1,84 @@
+{
+  "unit": {
+    "tests": 51,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "lint": {
+    "Error": 0,
+    "Warning": 63
+  },
+  "runtime": {
+    "MaterialContrastChecks": {
+      "assertions": 36,
+      "evidence": "MaterialContrastChecks.txt",
+      "status": "PASS"
+    },
+    "AppearanceChecks": {
+      "assertions": 62,
+      "evidence": "AppearanceChecks.txt",
+      "status": "PASS"
+    },
+    "MaterialSwitchChecks": {
+      "assertions": 13,
+      "evidence": "MaterialSwitchChecks.txt",
+      "status": "PASS"
+    },
+    "PanelFullscreenChecks": {
+      "assertions": 14,
+      "evidence": "final-followup/PanelFullscreenChecks.txt",
+      "status": "PASS"
+    },
+    "AppLibraryChecks": {
+      "assertions": 17,
+      "evidence": "final-followup/AppLibraryChecks.txt",
+      "status": "PASS"
+    },
+    "StabilityChecks": {
+      "assertions": 104,
+      "evidence": "StabilityChecks.txt",
+      "status": "PASS"
+    },
+    "DrivingWorkspaceChecks": {
+      "assertions": 33,
+      "evidence": "DrivingWorkspaceChecks.txt",
+      "status": "PASS"
+    },
+    "SettingsChecks": {
+      "assertions": 27,
+      "evidence": "SettingsChecks.txt",
+      "status": "PASS"
+    },
+    "CrashSafetyChecks": {
+      "assertions": 11,
+      "evidence": "CrashSafetyChecks.txt",
+      "status": "PASS"
+    },
+    "QualityChecks": {
+      "assertions": 50,
+      "evidence": "final-followup/QualityChecks.txt",
+      "status": "PASS"
+    },
+    "Rc2Checks": {
+      "assertions": 22,
+      "evidence": "final-followup/Rc2Checks.txt",
+      "status": "PASS"
+    },
+    "AppearancePersistenceChecks-write": {
+      "assertions": 3,
+      "evidence": "final-followup/persistence-write.txt",
+      "status": "PASS"
+    },
+    "AppearancePersistenceChecks-read": {
+      "assertions": 6,
+      "evidence": "final-followup/persistence-read.txt",
+      "status": "PASS"
+    }
+  },
+  "unique_runtime_assertions": 398,
+  "artifact_sha256": "1d31c9c2f39a60387122f71294c0addee78b197583d935a5c9d06f6d5ee6f99a",
+  "glass_renderer_changed": false,
+  "environment": "API27 x86_64 TCG/SwiftShader, not physical ARM32 head unit",
+  "attempt_notes": "Original runner registration and persistence invocation errors corrected. Original QualityChecks waited on the wrong worker; fixed to drain the network worker too. Keyboard test now waits for layout and real keyboard focus. D-pad destination focus also deferred until layout. Initial suite script was edited while running, causing a parse error in an intermediate follow-up; shell syntax checked and final run used the stable script. Earlier failed outputs retained; final-followup supersedes the affected checks."
+}

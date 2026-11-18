@@ -5,7 +5,7 @@ public class QualityChecks extends Instrumentation {
  LauncherActivity a;SharedPreferences prefs;Map<String,?> saved;Locale locale;TimeZone zone;int count;StringBuilder notes=new StringBuilder();
  void check(boolean ok,String name){if(!ok)throw new AssertionError(name);count++;}
  void ui(Runnable work){Throwable[] error={null};runOnMainSync(()->{try{work.run();}catch(Throwable t){error[0]=t;}});waitForIdleSync();if(error[0]!=null)throw new AssertionError(error[0]);}
- void ready()throws Exception{CountDownLatch latch=new CountDownLatch(1);a.worker.execute(()->a.main.post(latch::countDown));check(latch.await(45,TimeUnit.SECONDS),"worker ready");waitForIdleSync();}
+ void ready()throws Exception{CountDownLatch latch=new CountDownLatch(2);a.worker.execute(()->a.main.post(latch::countDown));a.networkWorker.execute(()->a.main.post(latch::countDown));check(latch.await(45,TimeUnit.SECONDS),"UI and network workers ready");waitForIdleSync();}
  long at(String value)throws Exception{SimpleDateFormat f=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss",Locale.US);f.setTimeZone(JakimCalendar.MY);return f.parse(value).getTime();}
  String expected(String pattern,long at){return new SimpleDateFormat(pattern,Locale.getDefault()).format(new Date(at));}
  boolean tickerPending(){StringBuilder queue=new StringBuilder();a.main.dump(s->queue.append(s).append('\n'),"");return java.util.regex.Pattern.compile(java.util.regex.Pattern.quote(a.ticker.getClass().getName())+"(?:\\s|@|\\})").matcher(queue).find();}

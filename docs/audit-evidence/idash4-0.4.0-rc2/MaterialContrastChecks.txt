@@ -1,0 +1,3 @@
+INSTRUMENTATION_RESULT: stream=PASS: 36 material text contrast checks; minimum=6.174833043227683
+
+INSTRUMENTATION_CODE: -1

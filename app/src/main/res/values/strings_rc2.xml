@@ -1,0 +1,10 @@
+<resources>
+ <string name="readability">Paparan &amp; kebolehbacaan</string>
+ <string name="readability_detail">Siang/malam, kontras dan ketelusan</string>
+ <string name="readability_note">Untuk panel glass. Auto sistem ikut mod Android jika tersedia, bukan sensor cahaya. Gaya Classic/iOS 26 dan tetapan asal kekal disimpan.</string>
+ <string name="high_contrast">Tingkatkan kontras panel</string>
+ <string name="reduce_transparency">Kurangkan ketelusan panel</string>
+ <string-array name="readability_modes"><item>Asal · ikut tetapan glass</item><item>Siang</item><item>Malam</item><item>Auto · ikut sistem Android</item></string-array>
+ <string name="map_only">Peta sahaja</string>
+ <string name="map_only_missing">Pilih atau pasang app peta dahulu.</string>
+</resources>

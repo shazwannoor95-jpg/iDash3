@@ -79,6 +79,13 @@ final class DriveController {
         active = false; splitDocked = false;
     }
 
+    static boolean mapOnly(Context c,String component){
+        cancelPending();DriveBarService.stop(c.getApplicationContext());
+        if(splitDocked&&SplitService.isRunning())SplitService.toggleSplit();
+        active=false;splitDocked=false;
+        return launch(c,component,false);
+    }
+
     static boolean launch(Context c, String component, boolean adjacent) {
         ComponentName name = component == null ? null : ComponentName.unflattenFromString(component);
         if (name == null) return false;

@@ -10,7 +10,7 @@ final class GlassAppearance {
  static boolean bool(SharedPreferences p,String key,boolean fallback){try{return p.getBoolean(key,fallback);}catch(ClassCastException bad){return fallback;}}
  static GlassAppearance defaults(){return new GlassAppearance(0,45,1,0,1,true,true);}
  static GlassAppearance read(Context c){SharedPreferences p=c.getSharedPreferences("idash",0);return new GlassAppearance(integer(p,"glass_tone",0),integer(p,"glass_transparency",45),integer(p,"glass_quality",1),integer(p,"glass_tint",0),integer(p,"glass_reflection",1),bool(p,"motion",true),bool(p,"glass_customized",false)&&integer(p,"glass_style",0)==0);}
- static GlassAppearance active(Context c){GlassAppearance s=read(c);return s.customized?s:null;}
+ static GlassAppearance active(Context c){GlassAppearance s=read(c);GlassAppearance effective=Readability.apply(c,s);return effective.customized?effective:null;}
  GlassAppearance change(int field,int value){return new GlassAppearance(field==0?value:tone,field==1?value:transparency,field==2?value:quality,field==3?value:tint,field==4?value:reflection,field==5?value!=0:motion,true);}
  boolean same(GlassAppearance b){return tone==b.tone&&transparency==b.transparency&&quality==b.quality&&tint==b.tint&&reflection==b.reflection&&motion==b.motion&&customized==b.customized;}
  void save(Context c){c.getSharedPreferences("idash",0).edit().putBoolean("glass_customized",true).putInt("glass_style",0).putInt("glass_tone",tone).putInt("glass_transparency",transparency).putInt("glass_quality",quality).putInt("glass_tint",tint).putInt("glass_reflection",reflection).putBoolean("motion",motion).apply();}

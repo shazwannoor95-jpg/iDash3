@@ -1,0 +1,3 @@
+INSTRUMENTATION_RESULT: stream=PASS: 6 appearance process-persistence read checks
+
+INSTRUMENTATION_CODE: -1

@@ -1,0 +1,3 @@
+INSTRUMENTATION_RESULT: stream=PASS: 11 crash/isolation assertions
+
+INSTRUMENTATION_CODE: -1

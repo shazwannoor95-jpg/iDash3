@@ -1,0 +1,16 @@
+### Instrumentation (emulator API27 x86_64, benar-benar dijalankan)
+
+| Kelas | Jenis | Keputusan | Butiran |
+|---|---|---|---|
+| Rc2Checks | gate | TIDAK_DIJALANKAN |  |
+| AppLibraryChecks | gate | LULUS | stream=PASS: 17 app lib |
+| PanelFullscreenChecks | gate | LULUS | stream=PASS: 14 panel fullsc |
+| CrashSafetyChecks | gate | LULUS | stream=PASS: 11 c |
+| DrivingWorkspaceChecks | gate | LULUS | stream=PASS: 33 d |
+| MaterialSwitchChecks | gate | LULUS | stream=PASS: 13  |
+| MaterialContrastChecks | gate | LULUS | stream=PASS: 36 mate |
+| AppearanceChecks | gate | LULUS | stream=PASS: 62 appea |
+| AppearancePersistenceChecks | gate | GAGAL | stream=FAIL afte |
+| SettingsChecks | gate | LULUS | stream=PASS: 27 iDash settings/cont |
+| StabilityChecks | gate | LULUS | stream=PASS: 104 wallpape |
+| QualityChecks | gate | GAGAL | stream=FAIL afte |

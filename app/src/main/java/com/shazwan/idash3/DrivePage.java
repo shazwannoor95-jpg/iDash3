@@ -75,6 +75,11 @@ final class DrivePage {
         });
         start.setTextSize(18); start.setBackground(a.glass(0x9a2f7de1, 26)); start.setContentDescription("Start Drive");
         actions.addView(start, new LinearLayout.LayoutParams(0, -1, 1.6f));
+        TextView solo=a.button(a.getString(R.string.map_only),()->{
+            if(map==null){Toast.makeText(a,R.string.map_only_missing,Toast.LENGTH_LONG).show();return;}
+            if(a.webPanel!=null)a.webPanel.pause();
+            if(!DriveController.mapOnly(a,map))Toast.makeText(a,R.string.map_only_missing,Toast.LENGTH_LONG).show();
+        });solo.setContentDescription(a.getString(R.string.map_only));actions.addView(solo,new LinearLayout.LayoutParams(0,-1,1));
         if (DriveController.isActive()) {
             TextView stop = a.button("Keluar Drive", () -> { DriveController.stop(a); a.render(); });
             LinearLayout.LayoutParams xp = new LinearLayout.LayoutParams(0, -1, 1); xp.leftMargin = a.dp(10); actions.addView(stop, xp);

@@ -16,6 +16,7 @@
     <instrumentation android:name="com.shazwan.idash3.CompactChecks" android:targetPackage="com.shazwan.idash3"/>
     <instrumentation android:name="com.shazwan.idash3.Glass6aChecks" android:targetPackage="com.shazwan.idash3"/>
     <instrumentation android:name="com.shazwan.idash3.GlassMaterialChecks" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.Rc2Checks" android:targetPackage="com.shazwan.idash3"/>
     <!-- AGP rewrites the first entry to the configured default runner. -->
     <instrumentation android:name="com.shazwan.idash3.DeviceReadinessChecks" android:targetPackage="com.shazwan.idash3"/>
     <instrumentation android:name="com.shazwan.idash3.WallpaperChecks" android:targetPackage="com.shazwan.idash3"/>

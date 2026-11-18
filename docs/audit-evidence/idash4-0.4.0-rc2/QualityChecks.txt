@@ -1,0 +1,3 @@
+INSTRUMENTATION_RESULT: stream=FAIL after 9: java.lang.AssertionError: java.lang.NullPointerException: Attempt to read from field 'java.lang.String[] com.shazwan.idash3.JakimCalendar$Day.times' on a null object reference
+
+INSTRUMENTATION_CODE: 0
