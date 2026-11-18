@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shazwan.idash3.PrayerCountdownTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-18T14:29:44" hostname="bb8898bc0593" time="0.001">
+  <properties/>
+  <testcase name="reported445Minutes" classname="com.shazwan.idash3.PrayerCountdownTest" time="0.0"/>
+  <testcase name="underHour" classname="com.shazwan.idash3.PrayerCountdownTest" time="0.0"/>
+  <testcase name="fourHoursFortyFive" classname="com.shazwan.idash3.PrayerCountdownTest" time="0.0"/>
+  <testcase name="hourBoundary" classname="com.shazwan.idash3.PrayerCountdownTest" time="0.0"/>
+  <testcase name="zero" classname="com.shazwan.idash3.PrayerCountdownTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

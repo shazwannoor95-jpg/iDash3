@@ -30,7 +30,7 @@ final class JakimCalendar {
         Day(JSONObject o)throws Exception{date=JakimCalendar.date(o.getString("date"));hijri=o.getString("hijri");if(!hijri.matches("\\d{4}-\\d{2}-\\d{2}"))throw new IOException("Invalid Hijri date");
             int last=-1;for(int i=0;i<6;i++){String v=o.getString(KEYS[i]);if(!v.matches("\\d{2}:\\d{2}(:\\d{2})?"))throw new IOException("Invalid time");int h=Integer.parseInt(v.substring(0,2)),m=Integer.parseInt(v.substring(3,5));if(h>23||m>59||(v.length()==8&&Integer.parseInt(v.substring(6))>59)||h*60+m<=last)throw new IOException("Invalid timetable");last=h*60+m;times[i]=v.substring(0,5);}}
     }
-    static final class NextPrayer {final String name,time;final long minutes;NextPrayer(String name,String time,long minutes){this.name=name;this.time=time;this.minutes=minutes;}}
+    static final class NextPrayer {final String name,time;final long minutes;NextPrayer(String name,String time,long minutes){this.name=name;this.time=time;this.minutes=minutes;}String countdown(){return minutes>=60?minutes/60+"h "+minutes%60+"m":minutes+" m";}}
     static String nextPrayer(Map<String,Day> days,long now){NextPrayer n=nextPrayerTime(days,now);return n==null?"Tiada waktu seterusnya dalam jadual":n.name+" · "+n.time+" · "+(n.minutes>=60?n.minutes/60+"j ":"")+n.minutes%60+"m lagi";}
     static NextPrayer nextPrayerTime(Map<String,Day> days,long now){
         String[] names={"Subuh","Syuruk","Zohor","Asar","Maghrib","Isyak"};

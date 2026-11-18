@@ -1,6 +1,6 @@
 # iDash4 — iDash3 integration
 
-**Current candidate: iDash4 0.5.0-rc5** — narrow right-edge spacing for radio/panel, immersive inset correction, centered FM toolbar icons and consistent button spacing. [Download debug APK](dist/iDash4-0.5.0-rc5-debug.apk?raw=true) · [Edge/radio audit](docs/EDGE-RADIO-0.5.0-RC5.md). Premium/Classic FM remains available. Shared glass and `main` remain unchanged.
+**Current candidate: iDash4 0.5.0-rc6** — prayer countdown shows hours and minutes from one hour onward (`445 m` → `7h 25m`). [Download debug APK](dist/iDash4-0.5.0-rc6-debug.apk?raw=true) · [Countdown audit](docs/PRAYER-COUNTDOWN-0.5.0-RC6.md). Shared glass and `main` remain unchanged.
 
 **Revert panel appearance:** Settings → Home & Dock → Liquid Glass → Material panel → **Classic iDash3**. The new iOS26 panel material and the icon-pack switch are independent.
 

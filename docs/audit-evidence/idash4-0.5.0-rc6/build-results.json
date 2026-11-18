@@ -1,0 +1,14 @@
+{
+  "unit": {
+    "tests": 67,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "lint": {
+    "Error": 0,
+    "Warning": 88
+  },
+  "runtime": "Not rerun for this formatting-only change",
+  "apk_sha256": "ea05e661e18cefd7fef70bb861e7a557eda12b896f04fbeb6e21253212ede15f"
+}
