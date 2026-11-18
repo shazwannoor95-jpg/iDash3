@@ -19,7 +19,12 @@ final class Ios26Icons {
  static synchronized Bitmap named(Context c,String name){
   if(name==null)return null;String key=name.startsWith("ios26_lg_")?name:"ios26_lg_"+name;
   Bitmap hit=cache.get(key);if(hit!=null)return hit;
-  try(InputStream input=c.getAssets().open(ROOT+key+".png")){BitmapFactory.Options options=new BitmapFactory.Options();options.inSampleSize=2;options.inPreferredConfig=Bitmap.Config.ARGB_8888;Bitmap image=BitmapFactory.decodeStream(input,null,options);if(image!=null)cache.put(key,image);return image;}catch(IOException|RuntimeException|OutOfMemoryError unavailable){return null;}
+  try(InputStream input=c.getAssets().open(ROOT+key+".png")){BitmapFactory.Options options=new BitmapFactory.Options();options.inSampleSize=2;options.inPreferredConfig=Bitmap.Config.ARGB_8888;Bitmap image=BitmapFactory.decodeStream(input,null,options);if(image!=null){
+    // Upstream Liquid Glass artwork is pastel. Keep its bytes/provenance intact;
+    // strengthen the decoded RGB without changing alpha or applying a theme tint.
+    try{ColorMatrix saturation=new ColorMatrix();saturation.setSaturation(1.35f);ColorMatrix contrast=new ColorMatrix(new float[]{1.4f,0,0,0,-72,0,1.4f,0,0,-72,0,0,1.4f,0,-72,0,0,0,1,0});saturation.postConcat(contrast);Paint ink=new Paint(3);ink.setColorFilter(new ColorMatrixColorFilter(saturation));Bitmap vivid=Bitmap.createBitmap(image.getWidth(),image.getHeight(),Bitmap.Config.ARGB_8888);new Canvas(vivid).drawBitmap(image,0,0,ink);image.recycle();image=vivid;}catch(OutOfMemoryError unavailable){/* Keep the original decoded icon under pressure. */}
+    cache.put(key,image);
+   }return image;}catch(IOException|RuntimeException|OutOfMemoryError unavailable){return null;}
  }
  static synchronized String match(Context c,String component,String label){
   index(c);android.content.ComponentName cn=component==null?null:android.content.ComponentName.unflattenFromString(component);

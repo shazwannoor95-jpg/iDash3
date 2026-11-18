@@ -1,6 +1,6 @@
 # iDash4 — iDash3 integration
 
-**Current candidate: iDash4 0.4.0-rc6** — smaller video menu with timed auto-hide; tap video or use D-pad to reveal controls. [Download debug APK](dist/iDash4-0.4.0-rc6-debug.apk?raw=true) · [rc6 audit](docs/IDASH4-RC6-AUDIT.md). `main` and glass renderer remain unchanged.
+**Current candidate: iDash4 0.4.0-rc7** — FM header icons, ten inline presets and stronger app icon colors. [Download debug APK](dist/iDash4-0.4.0-rc7-debug.apk?raw=true) · [rc7 audit](docs/IDASH4-RC7-AUDIT.md). `main` and glass panel renderer remain unchanged.
 
 **Revert panel appearance:** Settings → Home & Dock → Liquid Glass → Material panel → **Classic iDash3**. The new iOS26 panel material and the icon-pack switch are independent.
 

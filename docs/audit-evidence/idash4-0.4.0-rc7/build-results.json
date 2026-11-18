@@ -1,0 +1,16 @@
+{
+  "unit": {
+    "tests": 56,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "lint": {
+    "Error": 0,
+    "Warning": 65
+  },
+  "runtime_assertions": 231,
+  "runtime_status": "FM panel 36 and icon checks 195 passed",
+  "environment": "API27 x86_64 emulator; no RF/audio validation",
+  "apk_sha256": "74eb563d1d681f718fafb571b27e50d3637292c0125adbe7fb1bfaa92176e16b"
+}
