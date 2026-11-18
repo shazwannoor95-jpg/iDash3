@@ -1,6 +1,6 @@
 # iDash4 — iDash3 integration
 
-**Current candidate: iDash4 0.4.0-rc4** — full-height panel video, floating controls and reversible Fit/Fill crop. [Download debug APK](dist/iDash4-0.4.0-rc4-debug.apk?raw=true) · [rc4 audit and limitations](docs/IDASH4-RC4-AUDIT.md). `main` remains unchanged; Maps/native YouTube compatibility issues remain separate.
+**Current candidate: iDash4 0.4.0-rc5** — panel fullscreen starts in Fill (crop); Fit remains available through `⋯`. [Download debug APK](dist/iDash4-0.4.0-rc5-debug.apk?raw=true) · [rc5 audit](docs/IDASH4-RC5-AUDIT.md). `main` and glass renderer remain unchanged.
 
 **Revert panel appearance:** Settings → Home & Dock → Liquid Glass → Material panel → **Classic iDash3**. The new iOS26 panel material and the icon-pack switch are independent.
 

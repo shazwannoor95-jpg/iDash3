@@ -1,0 +1,16 @@
+{
+  "unit": {
+    "tests": 56,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "lint": {
+    "Error": 0,
+    "Warning": 63
+  },
+  "apk_sha256": "f962318e92b750abc042883592a0c3ccf1672b873d8af9617bdfedeadb90b0ab",
+  "runtime": "See PanelFullscreenChecks.txt and results.tsv; API27 x86_64 emulator, offline checks only",
+  "runtime_assertions": 25,
+  "runtime_status": "PASS"
+}

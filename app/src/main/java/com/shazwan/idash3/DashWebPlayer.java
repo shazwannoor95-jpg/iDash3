@@ -144,7 +144,7 @@ final class DashWebPlayer extends LinearLayout implements AutoCloseable {
         overlay.setClickable(true);overlay.setFocusableInTouchMode(true);overlay.setContentDescription("YouTube web fullscreen video");
         overlay.setOnKeyListener((v,key,event)->{if(key!=KeyEvent.KEYCODE_BACK)return false;if(event.getAction()==KeyEvent.ACTION_UP)exitFullscreen();return true;});
         try{
-            videoHost=new FrameLayout(activity);videoHost.setClipChildren(false);videoHost.addView(view,new FrameLayout.LayoutParams(-1,-1));overlay.addView(videoHost,new FrameLayout.LayoutParams(-1,-1));fillVideo=false;videoAspect=16f/9f;videoHost.addOnLayoutChangeListener((v,l,t,r,b,ol,ot,or,ob)->fitVideo());
+            videoHost=new FrameLayout(activity);videoHost.setClipChildren(false);videoHost.addView(view,new FrameLayout.LayoutParams(-1,-1));overlay.addView(videoHost,new FrameLayout.LayoutParams(-1,-1));fillVideo=true;videoAspect=16f/9f;videoHost.addOnLayoutChangeListener((v,l,t,r,b,ol,ot,or,ob)->fitVideo());
             final WebView owner=web;owner.evaluateJavascript("(function(){var v=document.querySelector('video');return v&&v.videoWidth&&v.videoHeight?v.videoWidth/v.videoHeight:0;})();",value->{if(web==owner&&customView==view){try{float aspect=Float.parseFloat(value);if(aspect>.1f&&aspect<10f)videoAspect=aspect;}catch(NumberFormatException ignored){}fitVideo();}});
             TextView exit=button("Exit fullscreen",this::exitFullscreen);exit.setContentDescription("Exit fullscreen and return to dashboard panel");
             LinearLayout toolbar=new LinearLayout(activity);videoToolbar=toolbar;toolbar.setBackgroundColor(0xaa07101c);
@@ -152,7 +152,7 @@ final class DashWebPlayer extends LinearLayout implements AutoCloseable {
             TextView expand=button("Full screen",this::expandFullscreen);
             expand.setContentDescription("Expand video to whole screen");
             toolbar.addView(expand,new LinearLayout.LayoutParams(0,dp(48),1));
-            TextView sizing=button("Muat",()->{fillVideo=!fillVideo;fitVideo();if(videoToolbar!=null)((TextView)videoToolbar.getChildAt(2)).setText(fillVideo?"Isi · potong tepi":"Muat");showVideoControls();});sizing.setContentDescription("Toggle fit or fill video; fill crops edges");toolbar.addView(sizing,new LinearLayout.LayoutParams(0,dp(48),1));
+            TextView sizing=button("Isi · potong tepi",()->{fillVideo=!fillVideo;fitVideo();if(videoToolbar!=null)((TextView)videoToolbar.getChildAt(2)).setText(fillVideo?"Isi · potong tepi":"Muat");showVideoControls();});sizing.setContentDescription("Toggle fit or fill video; fill crops edges");toolbar.addView(sizing,new LinearLayout.LayoutParams(0,dp(48),1));
             FrameLayout.LayoutParams toolbarBounds=new FrameLayout.LayoutParams(-1,dp(48),Gravity.BOTTOM);toolbarBounds.rightMargin=dp(48);overlay.addView(toolbar,toolbarBounds);
             videoMenu=button("⋯",this::showVideoControls);videoMenu.setContentDescription("Show video controls");overlay.addView(videoMenu,new FrameLayout.LayoutParams(dp(48),dp(48),Gravity.BOTTOM|Gravity.END));showVideoControls();
             fullscreenParent.addView(overlay,new ViewGroup.LayoutParams(-1,-1));
