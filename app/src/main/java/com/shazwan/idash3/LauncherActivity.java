@@ -110,22 +110,23 @@ public class LauncherActivity extends Activity {
             statusTime=null;body=column();shell.setPadding(dp(8),dp(8),dp(8),dp(8));shell.addView(body,new LinearLayout.LayoutParams(-1,-1));
             drivingWorkspace=new DrivingWorkspace(this);body.addView(drivingWorkspace,new LinearLayout.LayoutParams(-1,-1));updateClock();return;
         }
-        if(home)new ContentInsets(this,stage,shell,dp(20),dp(8),dp(panelVisible?4:20),dp(8));
+        if(home){int vertical=getResources().getConfiguration().fontScale>1.10f?4:8;new ContentInsets(this,stage,shell,dp(20),dp(vertical),dp(panelVisible?4:20),dp(vertical));}
         else stage.setOnApplyWindowInsetsListener((v,insets)-> { shell.setPadding(dp(edge)+insets.getSystemWindowInsetLeft(),dp(top)+insets.getSystemWindowInsetTop(),dp(edge)+insets.getSystemWindowInsetRight(),dp(bottom)+insets.getSystemWindowInsetBottom()); return insets; });
         LinearLayout status=row();boolean panelActions=home&&panelVisible; statusTime=text("",13,Color.WHITE); statusTime.setTypeface(IosStyle.font(this,true)); status.addView(statusTime,new LinearLayout.LayoutParams(0,dp(48),1)); statusTime.setGravity(Gravity.CENTER_VERTICAL);
-        TextView brand=text("iDash4",13,0xcce6eaff); brand.setGravity(Gravity.CENTER); if(!panelActions)status.addView(brand,new LinearLayout.LayoutParams(dp(90),dp(48)));
+        statusTime.setSingleLine(true);statusTime.setAutoSizeTextTypeUniformWithConfiguration(9,13,1,android.util.TypedValue.COMPLEX_UNIT_SP);
         status.addView(headerAction("Panel",4,()->{panelVisible=!panelVisible;page="home";render();}));
         status.addView(headerAction("Customize",5,this::customize));
         status.addView(headerAction("Control Center",6,this::controlCenter));
+        if("apps".equals(page))addLibraryActions(status);
         if(panelActions){status.addView(panelAction("Mode",this::panelMode));status.addView(panelAction("Layout",this::panelLayout));status.addView(panelAction("Close",()->{panelVisible=false;render();}));}shell.addView(status);
         body=column(); shell.addView(body,new LinearLayout.LayoutParams(-1,0,1));
         if("apps".equals(page)) buildDrawer();else if("settings".equals(page)){settingsScreen=new DashSettings(this);settingsScreen.build(body);}else buildHome();
         buildDock(); updateClock();PageGlassSkin.apply(this,shell,body,page);IosStyle.enter(body);
     }
     void buildHome() {
-        boolean tightHeader=getResources().getConfiguration().screenHeightDp<=400&&getResources().getConfiguration().fontScale>1.10f;
+        boolean tightHeader=getResources().getConfiguration().fontScale>1.10f;
         LinearLayout heading=row(); LinearLayout words=column();
-        TextView greeting=text("Shazwan's Saga",22,Color.WHITE);greeting.setTypeface(IosStyle.display(this,true));greeting.setLetterSpacing(-.01f);greeting.setIncludeFontPadding(false);greeting.setMaxLines(1);greeting.setEllipsize(TextUtils.TruncateAt.END);greeting.setAutoSizeTextTypeUniformWithConfiguration(14,20,1,android.util.TypedValue.COMPLEX_UNIT_SP);words.addView(greeting);TextView intro=text("Your drive. Your space.",11,0xcce6eaff);intro.setIncludeFontPadding(false);intro.setPadding(0,tightHeader?0:dp(2),0,tightHeader?0:dp(3));intro.setVisibility(View.GONE);words.addView(intro); heading.addView(words,new LinearLayout.LayoutParams(0,-2,1));
+        TextView greeting=text("Shazwan's Saga",22,Color.WHITE);greeting.setTypeface(IosStyle.display(this,true));greeting.setLetterSpacing(-.01f);greeting.setIncludeFontPadding(false);greeting.setMaxLines(1);greeting.setEllipsize(TextUtils.TruncateAt.END);greeting.setAutoSizeTextTypeUniformWithConfiguration(14,tightHeader?15:20,1,android.util.TypedValue.COMPLEX_UNIT_SP);words.addView(greeting);TextView intro=text("Your drive. Your space.",11,0xcce6eaff);intro.setIncludeFontPadding(false);intro.setPadding(0,tightHeader?0:dp(2),0,tightHeader?0:dp(3));intro.setVisibility(View.GONE);words.addView(intro); heading.addView(words,new LinearLayout.LayoutParams(0,-2,1));
         LinearLayout.LayoutParams hp=new LinearLayout.LayoutParams(-1,-2);hp.bottomMargin=tightHeader?dp(2):dp(10);
         LinearLayout content=row(); content.setGravity(Gravity.TOP); body.addView(content,new LinearLayout.LayoutParams(-1,0,1));
         HomeWidgets widgets=new HomeWidgets(this);LinearLayout left=column();LinearLayout.LayoutParams wp=new LinearLayout.LayoutParams(0,-1,0.37f);wp.rightMargin=dp(16);content.addView(left,wp);left.addView(heading,hp);left.addView(widgets,new LinearLayout.LayoutParams(-1,0,1));
@@ -155,12 +156,12 @@ public class LauncherActivity extends Activity {
         Bitmap packed=prefs.getBoolean("ios_icons",true)?(app==null?Ios26Icons.named(this,slot==0?"phone":slot==1?"files":"youtube"):Ios26Icons.app(this,app.component,app.label)):null;
         if(packed!=null){icon.removeAllViews();icon.setBackground(null);ImageView image=new ImageView(this);image.setImageBitmap(packed);icon.addView(image,new FrameLayout.LayoutParams(-1,-1));}
         tile.addView(icon,new LinearLayout.LayoutParams(dp(size),dp(size)));
-        TextView label=text(slots[slot],dock?10:12,Color.WHITE); label.setMaxLines(1);label.setEllipsize(TextUtils.TruncateAt.END);label.setGravity(Gravity.CENTER);LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(-1,dp(dock?15:22));lp.topMargin=dp(dock?1:3);tile.addView(label,lp);
+        TextView label=text(slots[slot],dock?10:12,Color.WHITE); label.setIncludeFontPadding(false);label.setMaxLines(1);label.setEllipsize(TextUtils.TruncateAt.END);label.setGravity(Gravity.CENTER);LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(-1,dock?dockLabelHeight():dp(22));lp.topMargin=dp(3);tile.addView(label,lp);
         Elastic.attach(tile);tile.setContentDescription("Favorite "+slots[slot]);tile.setOnClickListener(v->{App current=assigned(slot);if(current==null)pick(slot);else launch(current);});tile.setOnLongClickListener(v->{pick(slot);return true;});return tile;
     }
     void buildDock() {
-        LinearLayout outer=row();outer.setGravity(Gravity.CENTER);LinearLayout.LayoutParams op=new LinearLayout.LayoutParams(-1,dp(prefs.getInt("dock_size",0)==0?60:76));op.topMargin=dp(8);shell.addView(outer,op);
-        LinearLayout dock=row();dock.setGravity(Gravity.CENTER);dock.setPadding(dp(10),dp(2),dp(10),dp(2));dock.setBackground(glass(0x75e5eaff,22));dock.setElevation(dp(8));if("home".equals(page))dock.setForeground(new NeonGlassRim(this,22));outer.addView(dock,new LinearLayout.LayoutParams(-2,-1));
+        LinearLayout outer=row();outer.setGravity(Gravity.CENTER);LinearLayout.LayoutParams op=new LinearLayout.LayoutParams(-1,dockHeight());op.topMargin=dp(8);shell.addView(outer,op);
+        LinearLayout dock=row();dock.setGravity(Gravity.CENTER);dock.setPadding(dp(12),dp(8),dp(12),dp(8));dock.setContentDescription("Launcher dock");dock.setBackground(glass(0x75e5eaff,22));dock.setElevation(dp(8));if("home".equals(page))dock.setForeground(new NeonGlassRim(this,22));outer.addView(dock,new LinearLayout.LayoutParams(-2,-1));
         for(int i=0;i<slots.length;i++) dock.addView(shortcut(i,true),new LinearLayout.LayoutParams(dp(prefs.getInt("dock_size",0)==0?60:66),-1));
         View divider=new View(this);divider.setBackgroundColor(0x40ffffff);LinearLayout.LayoutParams d=new LinearLayout.LayoutParams(dp(1),dp(32));d.setMargins(dp(6),0,dp(6),0);dock.addView(divider,d);
         dock.addView(dockAction("⚙","Settings",()->{settingsSection="";page="settings";render();}),new LinearLayout.LayoutParams(dp(prefs.getInt("dock_size",0)==0?60:66),-1));
@@ -168,16 +169,25 @@ public class LauncherActivity extends Activity {
         dock.addView(dockAction("▦","Apps",()-> {if("apps".equals(page)){page="home";query="";hideKeyboard();render();}else showApps();}),new LinearLayout.LayoutParams(dp(prefs.getInt("dock_size",0)==0?60:66),-1));
     }
     View dockAction(String glyph,String label,Runnable action) {
-        LinearLayout l=column();l.setGravity(Gravity.CENTER);View icon;
+        LinearLayout l=column();l.setGravity(Gravity.CENTER);l.setPadding(dp(4),dp(2),dp(4),dp(2));View icon;
         FrameLayout tile=new FrameLayout(this);boolean settings="Settings".equals(label),drive="Drive".equals(label);float density=getResources().getDisplayMetrics().density;
         tile.setBackground(settings?new Squircle.Tile(0xffa3abb8,0xff69717f,density):drive?new Squircle.Tile(0xff34c759,0xff1f9d40,density):new Squircle.Tile(0xff7f8ba3,0xff4b5468,density));tile.setElevation(dp(3));
         tile.addView(new DockGlyph(this,settings?DockGlyph.SETTINGS:drive?DockGlyph.DRIVE:DockGlyph.APPS),new FrameLayout.LayoutParams(-1,-1));icon=tile;
         if(settings&&prefs.getBoolean("ios_icons",true)){Bitmap packed=Ios26Icons.named(this,"settings");if(packed!=null){tile.removeAllViews();tile.setBackground(null);ImageView image=new ImageView(this);image.setImageBitmap(packed);tile.addView(image,new FrameLayout.LayoutParams(-1,-1));}}
-        l.addView(icon,new LinearLayout.LayoutParams(dp(prefs.getInt("dock_size",0)==0?34:42),dp(prefs.getInt("dock_size",0)==0?34:42)));TextView name=text(label,10,Color.WHITE);name.setGravity(Gravity.CENTER);l.addView(name,new LinearLayout.LayoutParams(-1,dp(15)));l.setContentDescription(label);l.setOnClickListener(v->action.run());Elastic.attach(l);return l;
+        l.addView(icon,new LinearLayout.LayoutParams(dp(prefs.getInt("dock_size",0)==0?34:42),dp(prefs.getInt("dock_size",0)==0?34:42)));TextView name=text(label,10,Color.WHITE);name.setGravity(Gravity.CENTER);name.setIncludeFontPadding(false);name.setSingleLine(true);name.setEllipsize(TextUtils.TruncateAt.END);LinearLayout.LayoutParams nameBounds=new LinearLayout.LayoutParams(-1,dockLabelHeight());nameBounds.topMargin=dp(3);l.addView(name,nameBounds);l.setContentDescription(label);l.setOnClickListener(v->action.run());Elastic.attach(l);return l;
     }
     void showApps() {page="apps";render();}
+    int dockLabelHeight(){return Math.max(dp(15),(int)Math.ceil(14*getResources().getDisplayMetrics().scaledDensity));}
+    int dockHeight(){return Math.max(dp(prefs.getInt("dock_size",0)==0?72:84),dp((prefs.getInt("dock_size",0)==0?34:42)+23)+dockLabelHeight());}
+    View libraryAction(String label,Runnable action){
+        TextView v=text(label,10,Color.WHITE);v.setGravity(Gravity.CENTER);v.setSingleLine(true);v.setFocusable(true);v.setContentDescription(label);
+        v.setBackground(new InsetDrawable(glass(0x55e1eaff,16),0,dp(7),0,dp(7)));
+        v.setForeground(new InsetDrawable(new LiquidGlassStrokeDrawable(getResources().getDisplayMetrics().density,16),0,dp(7),0,dp(7)));
+        LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(dp("Refresh".equals(label)?60:52),dp(48));lp.leftMargin=dp(4);v.setLayoutParams(lp);v.setOnClickListener(w->action.run());return v;
+    }
+    void addLibraryActions(LinearLayout target){target.addView(libraryAction("Search",()->{boolean show=search.getVisibility()!=View.VISIBLE;search.setVisibility(show?View.VISIBLE:View.GONE);drawerCount.setVisibility(show?View.VISIBLE:View.GONE);if(show){search.requestFocus();((android.view.inputmethod.InputMethodManager)getSystemService(INPUT_METHOD_SERVICE)).showSoftInput(search,android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT);}else{search.setText("");hideKeyboard();}}));target.addView(libraryAction("Refresh",this::loadApps));target.addView(libraryAction("Done",()-> {page="home";query="";hideKeyboard();render();})); }
     void buildDrawer() {
-        LinearLayout header=row();LinearLayout words=column();TextView compact=text("App Library · Ringkas ›",18,Color.WHITE);compact.setContentDescription("Open driving workspace");compact.setMinHeight(dp(56));compact.setGravity(Gravity.CENTER_VERTICAL);compact.setOnClickListener(v->{page="road";render();});words.addView(compact);header.addView(words,new LinearLayout.LayoutParams(0,-2,1));header.addView(button("Search",()->{boolean show=search.getVisibility()!=View.VISIBLE;search.setVisibility(show?View.VISIBLE:View.GONE);drawerCount.setVisibility(show?View.VISIBLE:View.GONE);if(show){search.requestFocus();((android.view.inputmethod.InputMethodManager)getSystemService(INPUT_METHOD_SERVICE)).showSoftInput(search,android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT);}else{search.setText("");hideKeyboard();}}));header.addView(button("Refresh",this::loadApps));header.addView(button("Done",()-> {page="home";query="";hideKeyboard();render();}));body.addView(header);
+        LinearLayout header=row();LinearLayout words=column();TextView compact=text("App Library · Ringkas ›",18,Color.WHITE);compact.setContentDescription("Open driving workspace");compact.setMinHeight(dp(56));compact.setGravity(Gravity.CENTER_VERTICAL);compact.setOnClickListener(v->{page="road";render();});words.addView(compact);header.addView(words,new LinearLayout.LayoutParams(0,-2,1));body.addView(header);
         search=new EditText(this);search.setSingleLine();search.setTextSize(16);search.setTextColor(Color.WHITE);search.setHintTextColor(0xffd0d8ec);search.setHint("Search apps");search.setContentDescription("Search apps");search.setPadding(dp(20),0,dp(20),0);search.setBackground(glass(0x55ffffff,18));search.setText(query);search.setVisibility(query.isEmpty()?View.GONE:View.VISIBLE);body.addView(search,new LinearLayout.LayoutParams(-1,dp(48)));
         drawerCount=text("",11,0xcce6eaff);drawerCount.setPadding(dp(6),dp(6),0,0);drawerCount.setVisibility(query.isEmpty()?View.GONE:View.VISIBLE);body.addView(drawerCount,new LinearLayout.LayoutParams(-1,dp(26)));
         grid=new AppLibraryGrid(this);body.addView(grid,new LinearLayout.LayoutParams(-1,0,1));
@@ -253,10 +263,11 @@ public class LauncherActivity extends Activity {
     void controlCenter(){if(quickControls==null)quickControls=new QuickControls(this);quickControls.show();}
     void customize(){settingsSection="Appearance";page="settings";render();}
     View headerAction(String label,int icon,Runnable action){
-        boolean compact=panelVisible&&"home".equals(page);LinearLayout item=row();item.setGravity(Gravity.CENTER);
+        boolean compact="apps".equals(page)||(panelVisible&&"home".equals(page));LinearLayout item=row();item.setGravity(Gravity.CENTER);
         item.setBackground(compact?new android.graphics.drawable.InsetDrawable(glass(0x55e1eaff,16),0,dp(6),0,dp(6)):glass(0x55e1eaff,20));
         if("home".equals(page))item.setForeground(compact?new android.graphics.drawable.InsetDrawable(new NeonGlassRim(this,16),0,dp(6),0,dp(6)):new NeonGlassRim(this,20));
-        item.setPadding(dp(10),0,dp(10),0);item.setContentDescription(label);item.setMinimumHeight(dp(48));item.setFocusable(true);
+        if("apps".equals(page))item.setForeground(new InsetDrawable(new LiquidGlassStrokeDrawable(getResources().getDisplayMetrics().density,16),0,dp(6),0,dp(6)));
+        item.setPadding(dp(compact?7:10),0,dp(compact?7:10),0);item.setContentDescription(label);item.setMinimumHeight(dp(48));item.setFocusable(true);
         item.addView(new IosStyle.Icon(this,icon),new LinearLayout.LayoutParams(dp(compact?16:22),dp(compact?16:22)));
         TextView title=text(label,compact?11:12,Color.WHITE);title.setSingleLine(true);title.setPadding(dp(6),0,0,0);item.addView(title);
         item.setOnClickListener(v->action.run());LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(-2,dp(48));lp.leftMargin=dp(6);item.setLayoutParams(lp);return item;

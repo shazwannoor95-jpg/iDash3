@@ -29,7 +29,7 @@ public class PageGlassChecks extends Instrumentation {
    String wallpaper=a.prefs.getString("wallpaper","");
    a.page="apps";a.render();check(a.shell.getBackground() instanceof ScenicBackdropDrawable,"scenic Apps installed");
    check(a.search.getBackground() instanceof GlassSurface&&a.search.getForeground() instanceof LiquidGlassStrokeDrawable,"search keeps original glass plus rim");
-   check(find(a.shell,"Panel").getForeground() instanceof LiquidGlassStrokeDrawable,"Apps header styled");
+   check(find(a.shell,"Panel").getForeground() instanceof InsetDrawable,"Apps header styled");
    if(!a.apps.isEmpty()){
     LauncherActivity.App app=a.apps.get(0);a.search.setText(app.label);check(find(a.grid,"Open "+app.label)!=null,"search finds installed app with skin");
     a.assign(1,app);check(app.component.equals(a.prefs.getString("favorite_Files","")),"favorite assignment survives styled re-render");

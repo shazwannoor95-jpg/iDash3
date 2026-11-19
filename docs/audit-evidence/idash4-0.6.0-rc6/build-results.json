@@ -1,0 +1,20 @@
+{
+  "unit": {
+    "tests": 76,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "lint": {
+    "Error": 0,
+    "Warning": 89
+  },
+  "runtime": {
+    "ToolbarDockChecks": 390,
+    "AppLibraryChecks": 17,
+    "PageGlassChecks": 25,
+    "ClockGlassChecks": 61
+  },
+  "unique_runtime_assertions": 493,
+  "note": "Apps/toolbar checks passed before the Home-only large-font adjustment; ClockGlass passed on corrected final APK. Initial compact failures retained for traceability."
+}

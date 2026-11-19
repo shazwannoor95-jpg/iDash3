@@ -1,6 +1,6 @@
 # iDash4 — iDash3 integration
 
-**Current candidate: iDash4 0.6.0-rc5** — ZIP scenic blue/magenta backdrop and cyan/purple glass rims for Drive + Apps. Home keeps the rc4 card-spacing fix. [Download debug APK](dist/iDash4-0.6.0-rc5-debug.apk?raw=true) · [Skin and backup notes](docs/DRIVE-APPS-GLASS-0.6.0-RC5.md) · [Return to rc4 appearance](dist/iDash4-0.6.0-rc4-rollback-debug.apk?raw=true).
+**Current candidate: iDash4 0.6.0-rc6** — one compact Apps toolbar, no iDash4 header label, padded and aligned dock icons. [Download APK](dist/iDash4-0.6.0-rc6-debug.apk?raw=true) · [Layout notes](docs/TOOLBAR-DOCK-0.6.0-RC6.md).
 
 **Revert panel appearance:** Settings → Home & Dock → Liquid Glass → Material panel → **Classic iDash3**. The new iOS26 panel material and the icon-pack switch are independent.
 
