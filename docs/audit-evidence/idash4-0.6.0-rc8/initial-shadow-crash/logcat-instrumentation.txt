@@ -1,0 +1,378 @@
+--------- beginning of main
+11-19 05:25:10.516  2559  2559 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-19 05:25:10.873  2559  2559 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-19 05:25:10.908  2559  2559 I app_process: The ClassLoaderContext is a special shared library.
+11-19 05:25:11.096  2559  2559 D AndroidRuntime: Calling main entry com.android.commands.wm.Wm
+--------- beginning of system
+11-19 05:25:11.129  1579  1596 I WindowManager: Using new display size: 1024x600
+11-19 05:25:11.209  2559  2559 D AndroidRuntime: Shutting down VM
+11-19 05:25:12.446  2569  2569 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-19 05:25:12.810  2569  2569 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-19 05:25:12.828  2569  2569 I app_process: The ClassLoaderContext is a special shared library.
+11-19 05:25:12.968  2569  2569 D AndroidRuntime: Calling main entry com.android.commands.wm.Wm
+11-19 05:25:13.025  2569  2569 D AndroidRuntime: Shutting down VM
+11-19 05:25:13.769  1579  1616 D AutofillManagerService: Close system dialogs
+11-19 05:25:13.788  1579  1608 E memtrack: Couldn't load memtrack module
+11-19 05:25:13.788  1579  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-19 05:25:14.826  2590  2590 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-19 05:25:14.965  1579  1608 E memtrack: Couldn't load memtrack module
+11-19 05:25:14.968  1579  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-19 05:25:15.299  2590  2590 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-19 05:25:15.322  2590  2590 I app_process: The ClassLoaderContext is a special shared library.
+11-19 05:25:15.456  2590  2590 D AndroidRuntime: Calling main entry com.android.commands.am.Am
+11-19 05:25:15.496  1579  1596 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: start instr
+11-19 05:25:15.547  1579  1596 I ActivityManager: Start proc 2602:com.shazwan.idash3/u0a59 for added application com.shazwan.idash3
+11-19 05:25:15.579  2602  2602 I zygote64: Late-enabling -Xcheck:jni
+11-19 05:25:15.624  2602  2602 W zygote64: Unexpected CPU variant for X86 using defaults: x86_64
+11-19 05:25:15.765  2602  2602 I zygote64: The ClassLoaderContext is a special shared library.
+11-19 05:25:15.773  2602  2602 I zygote64: The ClassLoaderContext is a special shared library.
+11-19 05:25:15.779  2602  2602 W zygote64: ClassLoaderContext classpath element mismatch for position 0. expected=/system/framework/android.test.mock.jar, found=/system/framework/android.test.runner.jar (PCL[/system/framework/android.test.mock.jar*1065265343:/system/framework/android.test.runner.jar*1742119008] | PCL[/system/framework/android.test.runner.jar*1742119008:/system/framework/android.test.mock.jar*1065265343])
+11-19 05:25:15.797  2602  2602 W zygote64: ClassLoaderContext classpath size mismatch for position 0. expected=0, found=5 (PCL[] | PCL[/system/framework/android.test.runner.jar*1742119008:/system/framework/android.test.mock.jar*1065265343:/data/app/com.shazwan.idash3.test-ToSgn-IKcE421TT8eIyV1Q==/base.apk*4289975998:/data/app/com.shazwan.idash3.test-ToSgn-IKcE421TT8eIyV1Q==/base.apk!classes2.dex*2437465431:/data/app/com.shazwan.idash3.test-ToSgn-IKcE421TT8eIyV1Q==/base.apk!classes3.dex*4171577632])
+11-19 05:25:15.863  2602  2602 W System  : ClassLoader referenced unknown path:
+11-19 05:25:15.932  1579  1596 I ActivityManager: START u0 {flg=0x10000000 cmp=com.shazwan.idash3/.LauncherActivity} from uid 10059
+11-19 05:25:15.996  1579  1644 W System  : ClassLoader referenced unknown path:
+11-19 05:25:16.216  1390  1881 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-19 05:25:16.235  1579  1644 D         : HostConnection::get() New Host Connection established 0x726611ccb080, tid 1644
+11-19 05:25:16.263  1579  1609 W zygote64: Long monitor contention with owner Binder:1579_8 (2079) at void com.android.server.am.ActivityManagerService.activityPaused(android.os.IBinder)(ActivityManagerService.java:7438) waiters=0 in void com.android.server.am.ActivityStackSupervisor$ActivityStackSupervisorHandler.activityIdleInternal(com.android.server.am.ActivityRecord, boolean) for 172ms
+11-19 05:25:16.277  1579  1612 W Looper  : Dispatch took 179ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {ba0152c} cb=null msg=31
+11-19 05:25:16.458  1400  1423 D PermissionCache: checking android.permission.READ_FRAME_BUFFER for uid=1000 => granted (1230 us)
+11-19 05:25:16.482  1390  1881 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-19 05:25:16.543  1579  1595 W zygote64: Long monitor contention with owner android.anim (1644) at void com.android.server.wm.WindowSurfacePlacer.lambda$-com_android_server_wm_WindowSurfacePlacer_5337()(WindowSurfacePlacer.java:107) waiters=1 in void com.android.server.wm.TaskWindowContainerController.setTaskDescription(android.app.ActivityManager$TaskDescription) for 106ms
+11-19 05:25:16.633  1712  1733 D         : HostConnection::get() New Host Connection established 0x72662f6fd860, tid 1733
+11-19 05:25:17.441  2602  2602 D OpenGLRenderer: HWUI GL Pipeline
+11-19 05:25:18.693  1400  1664 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-19 05:25:19.303  1390  1881 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-19 05:25:19.333  1390  1881 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-19 05:25:19.353  1390  1435 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-19 05:25:19.507  2602  2624 D         : HostConnection::get() New Host Connection established 0x7266248a92e0, tid 2624
+11-19 05:25:20.103  2602  2624 I zygote64: android::hardware::configstore::V1_0::ISurfaceFlingerConfigs::hasWideColorDisplay retrieved: 0
+11-19 05:25:20.105  2602  2624 I OpenGLRenderer: Initialized EGL, version 1.4
+11-19 05:25:20.107  2602  2624 D OpenGLRenderer: Swap behavior 1
+11-19 05:25:20.112  2602  2624 D EGL_emulation: eglCreateContext: 0x7266190664c0: maj 3 min 0 rcv 3
+11-19 05:25:20.124  2602  2624 D EGL_emulation: eglMakeCurrent: 0x7266190664c0: ver 3 0 (tinfo 0x7266249f69c0)
+11-19 05:25:20.238  1400  1664 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-19 05:25:20.406  1390  1881 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-19 05:25:20.702  1390  1881 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-19 05:25:21.192  2602  2624 D EGL_emulation: eglMakeCurrent: 0x7266190664c0: ver 3 0 (tinfo 0x7266249f69c0)
+11-19 05:25:21.391  2602  2626 E OpenGLRenderer: resultIndex is -1, the polygon must be invalid!
+11-19 05:25:21.403  2602  2626 F OpenGLRenderer: Error: Spot pair overflow!!! used 134, total 70
+--------- beginning of crash
+11-19 05:25:21.406  2602  2626 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 2626 (hwuiTask1), pid 2602 (.shazwan.idash3)
+11-19 05:25:22.258  2629  2629 I crash_dump64: obtaining output fd from tombstoned, type: kDebuggerdTombstone
+11-19 05:25:22.274  1482  1482 I /system/bin/tombstoned: received crash request for pid 2602
+11-19 05:25:22.284  2629  2629 I crash_dump64: performing dump of process 2602 (target tid = 2626)
+11-19 05:25:22.292  2629  2629 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+11-19 05:25:22.293  2629  2629 F DEBUG   : Build fingerprint: 'Android/sdk_phone_x86_64/generic_x86_64:8.1.0/OSM1.180201.023/4931629:userdebug/test-keys'
+11-19 05:25:22.293  2629  2629 F DEBUG   : Revision: '0'
+11-19 05:25:22.293  2629  2629 F DEBUG   : ABI: 'x86_64'
+11-19 05:25:22.293  2629  2629 F DEBUG   : pid: 2602, tid: 2626, name: hwuiTask1  >>> com.shazwan.idash3 <<<
+11-19 05:25:22.293  2629  2629 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+11-19 05:25:22.304  2629  2629 F DEBUG   : Abort message: 'Error: Spot pair overflow!!! used 134, total 70'
+11-19 05:25:22.305  2629  2629 F DEBUG   :     rax 0000000000000000  rbx 0000000000000a42  rcx ffffffffffffffff  rdx 0000000000000006
+11-19 05:25:22.305  2629  2629 F DEBUG   :     rsi 0000000000000a42  rdi 0000000000000a2a
+11-19 05:25:22.305  2629  2629 F DEBUG   :     r8  000072661804d480  r9  000072661804d480  r10 000072661804d480  r11 0000000000000246
+11-19 05:25:22.305  2629  2629 F DEBUG   :     r12 000072661804dae0  r13 0000000000000044  r14 0000000000000a2a  r15 000072661804d388
+11-19 05:25:22.305  2629  2629 F DEBUG   :     cs  0000000000000033  ss  000000000000002b
+11-19 05:25:22.305  2629  2629 F DEBUG   :     rip 00007266aff2b6f8  rbp 000072661804e0e0  rsp 000072661804d358  eflags 0000000000000246
+11-19 05:25:22.401  2629  2629 F DEBUG   :
+11-19 05:25:22.401  2629  2629 F DEBUG   : backtrace:
+11-19 05:25:22.402  2629  2629 F DEBUG   :     #00 pc 00000000000276f8  /system/lib64/libc.so (syscall+24)
+11-19 05:25:22.402  2629  2629 F DEBUG   :     #01 pc 0000000000027905  /system/lib64/libc.so (abort+101)
+11-19 05:25:22.402  2629  2629 F DEBUG   :     #02 pc 0000000000007dbb  /system/lib64/liblog.so (__android_log_assert+363)
+11-19 05:25:22.402  2629  2629 F DEBUG   :     #03 pc 00000000000a292b  /system/lib64/libhwui.so (android::uirenderer::ShadowTessellator::checkOverflow(int, int, char const*)+43)
+11-19 05:25:22.402  2629  2629 F DEBUG   :     #04 pc 00000000000a9210  /system/lib64/libhwui.so (android::uirenderer::SpotShadow::generateTriangleStrip(bool, float, android::uirenderer::Vector2*, int, android::uirenderer::Vector2*, int, android::uirenderer::Vector3 const*, int, android::uirenderer::VertexBuffer&, android::uirenderer::Vector2 const&)+480)
+11-19 05:25:22.402  2629  2629 F DEBUG   :     #05 pc 00000000000a8fbf  /system/lib64/libhwui.so (android::uirenderer::SpotShadow::createSpotShadow(bool, android::uirenderer::Vector3 const&, float, android::uirenderer::Vector3 const*, int, android::uirenderer::Vector3 const&, android::uirenderer::VertexBuffer&)+1727)
+11-19 05:25:22.402  2629  2629 F DEBUG   :     #06 pc 00000000000a265d  /system/lib64/libhwui.so (android::uirenderer::ShadowTessellator::tessellateSpotShadow(bool, android::uirenderer::Vector3 const*, int, android::uirenderer::Vector3 const&, android::uirenderer::Matrix4 const&, android::uirenderer::Vector3 const&, int, android::uirenderer::Rect const&, android::uirenderer::Rect const&, android::uirenderer::VertexBuffer&)+509)
+11-19 05:25:22.402  2629  2629 F DEBUG   :     #07 pc 00000000000aae4e  /system/lib64/libhwui.so (android::uirenderer::tessellateShadows(android::uirenderer::Matrix4 const*, android::uirenderer::Rect const*, bool, SkPath const*, android::uirenderer::Matrix4 const*, android::uirenderer::Matrix4 const*, android::uirenderer::Vector3 const&, float, android::uirenderer::VertexBuffer&, android::uirenderer::VertexBuffer&)+1070)
+11-19 05:25:22.403  2629  2629 F DEBUG   :     #08 pc 00000000000ad119  /system/lib64/libhwui.so (android::uirenderer::ShadowProcessor::onProcess(android::sp<android::uirenderer::Task<android::uirenderer::Pair<android::uirenderer::VertexBuffer*, android::uirenderer::VertexBuffer*>>> const&)+121)
+11-19 05:25:22.403  2629  2629 F DEBUG   :     #09 pc 00000000000ad065  /system/lib64/libhwui.so (android::uirenderer::TaskProcessor<android::uirenderer::Pair<android::uirenderer::VertexBuffer*, android::uirenderer::VertexBuffer*>>::process(android::sp<android::uirenderer::TaskBase> const&)+53)
+11-19 05:25:22.403  2629  2629 F DEBUG   :     #10 pc 000000000005f2dc  /system/lib64/libhwui.so (android::uirenderer::TaskManager::WorkerThread::threadLoop()+172)
+11-19 05:25:22.403  2629  2629 F DEBUG   :     #11 pc 000000000001187a  /system/lib64/libutils.so (android::Thread::_threadLoop(void*)+314)
+11-19 05:25:22.403  2629  2629 F DEBUG   :     #12 pc 00000000000b8cc3  /system/lib64/libandroid_runtime.so (android::AndroidRuntime::javaThreadShell(void*)+131)
+11-19 05:25:22.403  2629  2629 F DEBUG   :     #13 pc 0000000000079f3b  /system/lib64/libc.so (__pthread_start(void*)+27)
+11-19 05:25:22.403  2629  2629 F DEBUG   :     #14 pc 0000000000028c8d  /system/lib64/libc.so (__start_thread+61)
+11-19 05:25:22.403  2629  2629 F DEBUG   :     #15 pc 0000000000027515  /system/lib64/libc.so (__bionic_clone+53)
+11-19 05:25:24.160  1482  1482 E /system/bin/tombstoned: Tombstone written to: /data/tombstones/tombstone_00
+11-19 05:25:24.243  1579  1615 I BootReceiver: Copying /data/tombstones/tombstone_00 to DropBox (SYSTEM_TOMBSTONE)
+11-19 05:25:24.296  1579  1661 W InputDispatcher: channel 'c83692 com.shazwan.idash3/com.shazwan.idash3.LauncherActivity (server)' ~ Consumer closed input channel or an error occurred.  events=0x9
+11-19 05:25:24.297  1579  1661 E InputDispatcher: channel 'c83692 com.shazwan.idash3/com.shazwan.idash3.LauncherActivity (server)' ~ Channel is unrecoverably broken and will be disposed!
+11-19 05:25:24.318  1464  1464 I Zygote  : Process 2602 exited due to signal (6)
+11-19 05:25:24.332  1579  1663 I WindowManager: WIN DEATH: Window{c83692 u0 com.shazwan.idash3/com.shazwan.idash3.LauncherActivity}
+11-19 05:25:24.333  1579  1663 W InputDispatcher: Attempted to unregister already unregistered input channel 'c83692 com.shazwan.idash3/com.shazwan.idash3.LauncherActivity (server)'
+11-19 05:25:24.371  1579  1846 I ActivityManager: Process com.shazwan.idash3 (pid 2602) has died: fore TOP
+11-19 05:25:24.453  1579  1846 W ActivityManager: Force removing ActivityRecord{4d0cddf u0 com.shazwan.idash3/.LauncherActivity t176}: app died, no saved state
+11-19 05:25:24.486  1579  1613 W zygote64: kill(-2602, 9) failed: No such process
+11-19 05:25:24.486  1579  1613 I zygote64: Successfully killed process cgroup uid 10059 pid 2602 in 125ms
+11-19 05:25:24.528  1579  1846 W ActivityManager: Crash of app com.shazwan.idash3 running instrumentation ComponentInfo{com.shazwan.idash3.test/com.shazwan.idash3.ClockGlassChecks}
+11-19 05:25:24.530  1579  1846 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: finished inst
+11-19 05:25:24.556  1579  2636 W Binder  : Outgoing transactions from this process must be FLAG_ONEWAY
+11-19 05:25:24.556  1579  2636 W Binder  : java.lang.Throwable
+11-19 05:25:24.556  1579  2636 W Binder  : 	at android.os.BinderProxy.transact(Binder.java:752)
+11-19 05:25:24.556  1579  2636 W Binder  : 	at android.app.IInstrumentationWatcher$Stub$Proxy.instrumentationFinished(IInstrumentationWatcher.java:160)
+11-19 05:25:24.556  1579  2636 W Binder  : 	at com.android.server.am.InstrumentationReporter$MyThread.run(InstrumentationReporter.java:86)
+11-19 05:25:24.710  1579  1616 W zygote64: Long monitor contention with owner Binder:1579_6 (1846) at void com.android.server.am.ActivityManagerService$AppDeathRecipient.binderDied()(ActivityManagerService.java:1625) waiters=0 in int com.android.server.am.ActivityManagerService.broadcastIntent(android.app.IApplicationThread, android.content.Intent, java.lang.String, android.content.IIntentReceiver, int, java.lang.String, android.os.Bundle, java.lang.String[], int, android.os.Bundle, boolean, boolean, int) for 339ms
+11-19 05:25:24.714  1579  1618 W zygote64: Long monitor contention with owner Binder:1579_6 (1846) at void com.android.server.am.ActivityManagerService$AppDeathRecipient.binderDied()(ActivityManagerService.java:1625) waiters=1 in void com.android.server.am.ActivityManagerService$LocalService.setHasOverlayUi(int, boolean) for 326ms
+11-19 05:25:24.715  1579  1618 W ActivityManager: setHasOverlayUi called on unknown pid: 2602
+11-19 05:25:24.716  1579  1612 W zygote64: Long monitor contention with owner Binder:1579_6 (1846) at void com.android.server.am.ActivityManagerService$AppDeathRecipient.binderDied()(ActivityManagerService.java:1625) waiters=2 in void com.android.server.am.ActivityManagerService.dispatchUidsChanged() for 270ms
+11-19 05:25:24.722  1579  1608 W zygote64: Long monitor contention with owner Binder:1579_6 (1846) at void com.android.server.am.ActivityManagerService$AppDeathRecipient.binderDied()(ActivityManagerService.java:1625) waiters=4 in void com.android.server.am.ActivityManagerService$2.handleMessage(android.os.Message) for 180ms
+11-19 05:25:24.726  1579  1608 E memtrack: Couldn't load memtrack module
+11-19 05:25:24.726  1579  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-19 05:25:24.847  2590  2590 D AndroidRuntime: Shutting down VM
+11-19 05:25:25.024  1579  1612 W Looper  : Dispatch took 578ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {ba0152c} cb=null msg=53
+11-19 05:25:25.168  1579  2085 W zygote64: Long monitor contention with owner Binder:1579_2 (1596) at int com.android.server.wm.WindowManagerService.relayoutWindow(com.android.server.wm.Session, android.view.IWindow, int, android.view.WindowManager$LayoutParams, int, int, int, int, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.util.MergedConfiguration, android.view.Surface)(WindowManagerService.java:1930) waiters=2 in void com.android.server.wm.TaskWindowContainerController.setTaskDescription(android.app.ActivityManager$TaskDescription) for 110ms
+11-19 05:25:25.204  1579  1608 E memtrack: Couldn't load memtrack module
+11-19 05:25:25.204  1579  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-19 05:25:25.216  1390  1881 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2891776
+11-19 05:25:25.425  1579  1618 W zygote64: Long monitor contention with owner android.anim (1644) at void com.android.server.wm.WindowSurfacePlacer.lambda$-com_android_server_wm_WindowSurfacePlacer_5337()(WindowSurfacePlacer.java:107) waiters=1 in void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message) for 114ms
+11-19 05:25:25.435  1579  1663 W zygote64: Long monitor contention with owner android.anim (1644) at void com.android.server.wm.WindowSurfacePlacer.lambda$-com_android_server_wm_WindowSurfacePlacer_5337()(WindowSurfacePlacer.java:107) waiters=1 in void com.android.server.wm.WindowManagerService.getStableInsets(int, android.graphics.Rect) for 112ms
+11-19 05:25:25.457  1390  1881 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2891776
+11-19 05:25:25.554  1579  2636 I ActivityManager: Failure reporting to instrumentation watcher: comp=ComponentInfo{com.shazwan.idash3.test/com.shazwan.idash3.ClockGlassChecks} results=Bundle[{shortMsg=Process crashed.}]
+11-19 05:25:25.529  1579  1608 E memtrack: Couldn't load memtrack module
+11-19 05:25:25.558  1579  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-19 05:25:25.582  1390  1881 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2891776
+11-19 05:25:25.966  1579  1663 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: from pid 2643
+11-19 05:25:26.049  1797  1797 D CarrierSvcBindHelper: No carrier app for: 0
+11-19 05:25:26.461  1579  1616 D AutofillManagerService: Close system dialogs
+11-19 05:25:26.587  1579  2477 D NetworkMonitor/NetworkAgentInfo [WIFI () - 100]: PROBE_DNS connectivitycheck.gstatic.com 40197ms FAIL
+11-19 05:25:26.630  1579  2477 D NetworkMonitor/NetworkAgentInfo [WIFI () - 100]: PROBE_HTTP http://connectivitycheck.gstatic.com/generate_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "connectivitycheck.gstatic.com": No address associated with hostname
+11-19 05:25:27.768  2651  2651 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-19 05:25:28.206  2651  2651 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-19 05:25:28.231  2651  2651 I app_process: The ClassLoaderContext is a special shared library.
+11-19 05:25:28.402  2651  2651 D AndroidRuntime: Calling main entry com.android.commands.am.Am
+11-19 05:25:28.437  1579  1663 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: start instr
+11-19 05:25:28.499  1579  1663 W ActivityManager: Slow operation: 60ms so far, now at startProcess: returned from zygote!
+11-19 05:25:28.500  1579  1663 W ActivityManager: Slow operation: 60ms so far, now at startProcess: done updating battery stats
+11-19 05:25:28.500  1579  1663 W ActivityManager: Slow operation: 61ms so far, now at startProcess: building log message
+11-19 05:25:28.500  1579  1663 I ActivityManager: Start proc 2661:com.shazwan.idash3/u0a59 for added application com.shazwan.idash3
+11-19 05:25:28.501  1579  1663 W ActivityManager: Slow operation: 61ms so far, now at startProcess: starting to update pids map
+11-19 05:25:28.513  1579  1663 W ActivityManager: Slow operation: 73ms so far, now at startProcess: done updating pids map
+11-19 05:25:28.518  1579  1608 E memtrack: Couldn't load memtrack module
+11-19 05:25:28.518  1579  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-19 05:25:28.541  2661  2661 I zygote64: Late-enabling -Xcheck:jni
+11-19 05:25:28.623  2661  2661 W zygote64: Unexpected CPU variant for X86 using defaults: x86_64
+11-19 05:25:28.785  2661  2661 I zygote64: The ClassLoaderContext is a special shared library.
+11-19 05:25:28.795  2661  2661 I zygote64: The ClassLoaderContext is a special shared library.
+11-19 05:25:28.803  2661  2661 W zygote64: ClassLoaderContext classpath element mismatch for position 0. expected=/system/framework/android.test.mock.jar, found=/system/framework/android.test.runner.jar (PCL[/system/framework/android.test.mock.jar*1065265343:/system/framework/android.test.runner.jar*1742119008] | PCL[/system/framework/android.test.runner.jar*1742119008:/system/framework/android.test.mock.jar*1065265343])
+11-19 05:25:28.809  2661  2661 W zygote64: ClassLoaderContext classpath size mismatch for position 0. expected=0, found=5 (PCL[] | PCL[/system/framework/android.test.runner.jar*1742119008:/system/framework/android.test.mock.jar*1065265343:/data/app/com.shazwan.idash3.test-ToSgn-IKcE421TT8eIyV1Q==/base.apk*4289975998:/data/app/com.shazwan.idash3.test-ToSgn-IKcE421TT8eIyV1Q==/base.apk!classes2.dex*2437465431:/data/app/com.shazwan.idash3.test-ToSgn-IKcE421TT8eIyV1Q==/base.apk!classes3.dex*4171577632])
+11-19 05:25:28.863  2661  2661 W System  : ClassLoader referenced unknown path:
+11-19 05:25:28.942  1579  1663 I ActivityManager: START u0 {flg=0x10000000 cmp=com.shazwan.idash3/.LauncherActivity} from uid 10059
+11-19 05:25:29.260  1579  1612 W Looper  : Dispatch took 189ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {ba0152c} cb=null msg=53
+11-19 05:25:29.332  1390  1881 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-19 05:25:29.477  1579  2145 D NetworkMonitor/NetworkAgentInfo [WIFI () - 100]: PROBE_FALLBACK http://www.google.com/gen_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "www.google.com": No address associated with hostname
+11-19 05:25:29.484  1579  1679 D ConnectivityService: NetworkAgentInfo [WIFI () - 100] validation failed
+11-19 05:25:29.486  1579  1674 D WifiStateMachine: NETWORK_STATUS_UNWANTED_VALIDATION_FAILED
+11-19 05:25:29.712  1390  1881 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-19 05:25:29.938  1579  1590 I zygote64: Background concurrent copying GC freed 20986(1858KB) AllocSpace objects, 28(2MB) LOS objects, 42% free, 6MB/10MB, paused 136us total 845.346ms
+11-19 05:25:29.955  2661  2661 D OpenGLRenderer: HWUI GL Pipeline
+11-19 05:25:29.961  1579  1644 I Choreographer: Skipped 33 frames!  The application may be doing too much work on its main thread.
+11-19 05:25:29.962  1579  1663 W zygote64: Long monitor contention with owner android.anim (1644) at void com.android.server.wm.WindowSurfacePlacer.lambda$-com_android_server_wm_WindowSurfacePlacer_5337()(WindowSurfacePlacer.java:107) waiters=1 in void com.android.server.wm.TaskWindowContainerController.setTaskDescription(android.app.ActivityManager$TaskDescription) for 558ms
+11-19 05:25:29.963  1579  1846 W zygote64: Long monitor contention with owner android.anim (1644) at void com.android.server.wm.WindowSurfacePlacer.lambda$-com_android_server_wm_WindowSurfacePlacer_5337()(WindowSurfacePlacer.java:107) waiters=2 in int com.android.server.wm.WindowManagerService.relayoutWindow(com.android.server.wm.Session, android.view.IWindow, int, android.view.WindowManager$LayoutParams, int, int, int, int, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.util.MergedConfiguration, android.view.Surface) for 467ms
+11-19 05:25:29.965  1579  1609 W zygote64: Long monitor contention with owner Binder:1579_3 (1663) at android.content.pm.ParceledListSlice com.android.server.am.ActivityManagerService.getRecentTasks(int, int, int)(ActivityManagerService.java:9935) waiters=1 in void com.android.server.am.ActivityStack$ActivityStackHandler.handleMessage(android.os.Message) for 453ms
+11-19 05:25:29.974  1579  1618 W zygote64: Long monitor contention with owner android.anim (1644) at void com.android.server.wm.WindowSurfacePlacer.lambda$-com_android_server_wm_WindowSurfacePlacer_5337()(WindowSurfacePlacer.java:107) waiters=0 in void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message) for 560ms
+11-19 05:25:30.186  1712  2638 D         : HostConnection::get() New Host Connection established 0x72662f68d360, tid 2638
+11-19 05:25:31.025  1579  2170 I zygote64: android::hardware::configstore::V1_0::ISurfaceFlingerConfigs::hasWideColorDisplay retrieved: 0
+11-19 05:25:31.025  1579  2170 I OpenGLRenderer: Initialized EGL, version 1.4
+11-19 05:25:31.025  1579  2170 D OpenGLRenderer: Swap behavior 1
+11-19 05:25:31.026  1579  2170 D EGL_emulation: eglCreateContext: 0x726611ce10a0: maj 3 min 0 rcv 3
+11-19 05:25:31.027  1579  2170 D EGL_emulation: eglMakeCurrent: 0x726611ce10a0: ver 3 0 (tinfo 0x72660e6ff140)
+11-19 05:25:31.083  1400  1623 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-19 05:25:31.844  1390  1881 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-19 05:25:31.857  2661  2683 D         : HostConnection::get() New Host Connection established 0x7266248a92e0, tid 2683
+11-19 05:25:31.866  1390  1435 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-19 05:25:31.872  1390  1435 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-19 05:25:31.885  2661  2683 I zygote64: android::hardware::configstore::V1_0::ISurfaceFlingerConfigs::hasWideColorDisplay retrieved: 0
+11-19 05:25:31.885  2661  2683 I OpenGLRenderer: Initialized EGL, version 1.4
+11-19 05:25:31.885  2661  2683 D OpenGLRenderer: Swap behavior 1
+11-19 05:25:31.898  2661  2683 D EGL_emulation: eglCreateContext: 0x72661906c240: maj 3 min 0 rcv 3
+11-19 05:25:31.914  2661  2683 D EGL_emulation: eglMakeCurrent: 0x72661906c240: ver 3 0 (tinfo 0x7266249fca60)
+11-19 05:25:32.040  1400  1623 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-19 05:25:32.153  1579  2487 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 101]: PROBE_DNS connectivitycheck.gstatic.com 40103ms FAIL
+11-19 05:25:32.157  1579  2487 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 101]: PROBE_HTTP http://connectivitycheck.gstatic.com/generate_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "connectivitycheck.gstatic.com": No address associated with hostname
+11-19 05:25:32.406  1390  1435 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-19 05:25:32.477  1390  1435 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-19 05:25:32.933  2661  2683 D EGL_emulation: eglMakeCurrent: 0x72661906c240: ver 3 0 (tinfo 0x7266249fca60)
+11-19 05:25:33.048  2661  2689 E OpenGLRenderer: resultIndex is -1, the polygon must be invalid!
+11-19 05:25:33.062  2661  2689 F OpenGLRenderer: Error: Spot pair overflow!!! used 134, total 70
+11-19 05:25:33.063  2661  2689 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 2689 (hwuiTask1), pid 2661 (.shazwan.idash3)
+11-19 05:25:33.370  2692  2692 I crash_dump64: obtaining output fd from tombstoned, type: kDebuggerdTombstone
+11-19 05:25:33.372  1482  1482 I /system/bin/tombstoned: received crash request for pid 2661
+11-19 05:25:33.375  2692  2692 I crash_dump64: performing dump of process 2661 (target tid = 2689)
+11-19 05:25:33.377  2692  2692 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+11-19 05:25:33.379  2692  2692 F DEBUG   : Build fingerprint: 'Android/sdk_phone_x86_64/generic_x86_64:8.1.0/OSM1.180201.023/4931629:userdebug/test-keys'
+11-19 05:25:33.380  2692  2692 F DEBUG   : Revision: '0'
+11-19 05:25:33.380  2692  2692 F DEBUG   : ABI: 'x86_64'
+11-19 05:25:33.380  2692  2692 F DEBUG   : pid: 2661, tid: 2689, name: hwuiTask1  >>> com.shazwan.idash3 <<<
+11-19 05:25:33.380  2692  2692 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+11-19 05:25:33.387  2692  2692 F DEBUG   : Abort message: 'Error: Spot pair overflow!!! used 134, total 70'
+11-19 05:25:33.388  2692  2692 F DEBUG   :     rax 0000000000000000  rbx 0000000000000a81  rcx ffffffffffffffff  rdx 0000000000000006
+11-19 05:25:33.388  2692  2692 F DEBUG   :     rsi 0000000000000a81  rdi 0000000000000a65
+11-19 05:25:33.388  2692  2692 F DEBUG   :     r8  000072661804d480  r9  000072661804d480  r10 000072661804d480  r11 0000000000000246
+11-19 05:25:33.388  2692  2692 F DEBUG   :     r12 000072661804dae0  r13 0000000000000044  r14 0000000000000a65  r15 000072661804d388
+11-19 05:25:33.388  2692  2692 F DEBUG   :     cs  0000000000000033  ss  000000000000002b
+11-19 05:25:33.388  2692  2692 F DEBUG   :     rip 00007266aff2b6f8  rbp 000072661804e0e0  rsp 000072661804d358  eflags 0000000000000246
+11-19 05:25:33.461  2692  2692 F DEBUG   :
+11-19 05:25:33.461  2692  2692 F DEBUG   : backtrace:
+11-19 05:25:33.461  2692  2692 F DEBUG   :     #00 pc 00000000000276f8  /system/lib64/libc.so (syscall+24)
+11-19 05:25:33.461  2692  2692 F DEBUG   :     #01 pc 0000000000027905  /system/lib64/libc.so (abort+101)
+11-19 05:25:33.464  2692  2692 F DEBUG   :     #02 pc 0000000000007dbb  /system/lib64/liblog.so (__android_log_assert+363)
+11-19 05:25:33.464  2692  2692 F DEBUG   :     #03 pc 00000000000a292b  /system/lib64/libhwui.so (android::uirenderer::ShadowTessellator::checkOverflow(int, int, char const*)+43)
+11-19 05:25:33.464  2692  2692 F DEBUG   :     #04 pc 00000000000a9210  /system/lib64/libhwui.so (android::uirenderer::SpotShadow::generateTriangleStrip(bool, float, android::uirenderer::Vector2*, int, android::uirenderer::Vector2*, int, android::uirenderer::Vector3 const*, int, android::uirenderer::VertexBuffer&, android::uirenderer::Vector2 const&)+480)
+11-19 05:25:33.464  2692  2692 F DEBUG   :     #05 pc 00000000000a8fbf  /system/lib64/libhwui.so (android::uirenderer::SpotShadow::createSpotShadow(bool, android::uirenderer::Vector3 const&, float, android::uirenderer::Vector3 const*, int, android::uirenderer::Vector3 const&, android::uirenderer::VertexBuffer&)+1727)
+11-19 05:25:33.464  2692  2692 F DEBUG   :     #06 pc 00000000000a265d  /system/lib64/libhwui.so (android::uirenderer::ShadowTessellator::tessellateSpotShadow(bool, android::uirenderer::Vector3 const*, int, android::uirenderer::Vector3 const&, android::uirenderer::Matrix4 const&, android::uirenderer::Vector3 const&, int, android::uirenderer::Rect const&, android::uirenderer::Rect const&, android::uirenderer::VertexBuffer&)+509)
+11-19 05:25:33.464  2692  2692 F DEBUG   :     #07 pc 00000000000aae4e  /system/lib64/libhwui.so (android::uirenderer::tessellateShadows(android::uirenderer::Matrix4 const*, android::uirenderer::Rect const*, bool, SkPath const*, android::uirenderer::Matrix4 const*, android::uirenderer::Matrix4 const*, android::uirenderer::Vector3 const&, float, android::uirenderer::VertexBuffer&, android::uirenderer::VertexBuffer&)+1070)
+11-19 05:25:33.464  2692  2692 F DEBUG   :     #08 pc 00000000000ad119  /system/lib64/libhwui.so (android::uirenderer::ShadowProcessor::onProcess(android::sp<android::uirenderer::Task<android::uirenderer::Pair<android::uirenderer::VertexBuffer*, android::uirenderer::VertexBuffer*>>> const&)+121)
+11-19 05:25:33.464  2692  2692 F DEBUG   :     #09 pc 00000000000ad065  /system/lib64/libhwui.so (android::uirenderer::TaskProcessor<android::uirenderer::Pair<android::uirenderer::VertexBuffer*, android::uirenderer::VertexBuffer*>>::process(android::sp<android::uirenderer::TaskBase> const&)+53)
+11-19 05:25:33.464  2692  2692 F DEBUG   :     #10 pc 000000000005f2dc  /system/lib64/libhwui.so (android::uirenderer::TaskManager::WorkerThread::threadLoop()+172)
+11-19 05:25:33.464  2692  2692 F DEBUG   :     #11 pc 000000000001181e  /system/lib64/libutils.so (android::Thread::_threadLoop(void*)+222)
+11-19 05:25:33.464  2692  2692 F DEBUG   :     #12 pc 00000000000b8cc3  /system/lib64/libandroid_runtime.so (android::AndroidRuntime::javaThreadShell(void*)+131)
+11-19 05:25:33.465  2692  2692 F DEBUG   :     #13 pc 0000000000079f3b  /system/lib64/libc.so (__pthread_start(void*)+27)
+11-19 05:25:33.465  2692  2692 F DEBUG   :     #14 pc 0000000000028c8d  /system/lib64/libc.so (__start_thread+61)
+11-19 05:25:33.465  2692  2692 F DEBUG   :     #15 pc 0000000000027515  /system/lib64/libc.so (__bionic_clone+53)
+11-19 05:25:35.123  1579  2271 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 101]: PROBE_FALLBACK http://www.google.com/gen_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "www.google.com": No address associated with hostname
+11-19 05:25:35.132  1579  1679 D ConnectivityService: NetworkAgentInfo [MOBILE (LTE) - 101] validation failed
+11-19 05:25:35.258  1482  1482 E /system/bin/tombstoned: Tombstone written to: /data/tombstones/tombstone_01
+11-19 05:25:35.273  1579  1615 I BootReceiver: Copying /data/tombstones/tombstone_01 to DropBox (SYSTEM_TOMBSTONE)
+11-19 05:25:35.341  1579  1661 W InputDispatcher: channel '305808f com.shazwan.idash3/com.shazwan.idash3.LauncherActivity (server)' ~ Consumer closed input channel or an error occurred.  events=0x9
+11-19 05:25:35.342  1579  1661 E InputDispatcher: channel '305808f com.shazwan.idash3/com.shazwan.idash3.LauncherActivity (server)' ~ Channel is unrecoverably broken and will be disposed!
+11-19 05:25:35.354  1464  1464 I Zygote  : Process 2661 exited due to signal (6)
+11-19 05:25:35.363  1579  1846 I ActivityManager: Process com.shazwan.idash3 (pid 2661) has died: fore TOP
+11-19 05:25:35.364  1579  1846 W ActivityManager: Force removing ActivityRecord{38a1966 u0 com.shazwan.idash3/.LauncherActivity t177}: app died, no saved state
+11-19 05:25:35.365  1579  1613 W zygote64: kill(-2661, 9) failed: No such process
+11-19 05:25:35.365  1579  1613 I zygote64: Successfully killed process cgroup uid 10059 pid 2661 in 0ms
+11-19 05:25:35.366  1579  1663 I WindowManager: WIN DEATH: Window{305808f u0 com.shazwan.idash3/com.shazwan.idash3.LauncherActivity}
+11-19 05:25:35.367  1579  1663 W InputDispatcher: Attempted to unregister already unregistered input channel '305808f com.shazwan.idash3/com.shazwan.idash3.LauncherActivity (server)'
+11-19 05:25:35.426  1579  1846 W ActivityManager: Crash of app com.shazwan.idash3 running instrumentation ComponentInfo{com.shazwan.idash3.test/com.shazwan.idash3.ToolbarDockChecks}
+11-19 05:25:35.426  1579  1846 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: finished inst
+11-19 05:25:35.481  1579  2636 W Binder  : Outgoing transactions from this process must be FLAG_ONEWAY
+11-19 05:25:35.481  1579  2636 W Binder  : java.lang.Throwable
+11-19 05:25:35.481  1579  2636 W Binder  : 	at android.os.BinderProxy.transact(Binder.java:752)
+11-19 05:25:35.481  1579  2636 W Binder  : 	at android.app.IInstrumentationWatcher$Stub$Proxy.instrumentationFinished(IInstrumentationWatcher.java:160)
+11-19 05:25:35.481  1579  2636 W Binder  : 	at com.android.server.am.InstrumentationReporter$MyThread.run(InstrumentationReporter.java:86)
+11-19 05:25:35.551  1579  1618 W zygote64: Long monitor contention with owner Binder:1579_6 (1846) at void com.android.server.am.ActivityManagerService$AppDeathRecipient.binderDied()(ActivityManagerService.java:1625) waiters=1 in void com.android.server.am.ActivityManagerService$LocalService.setHasOverlayUi(int, boolean) for 181ms
+11-19 05:25:35.553  1579  1618 W ActivityManager: setHasOverlayUi called on unknown pid: 2661
+11-19 05:25:35.612  2651  2651 D AndroidRuntime: Shutting down VM
+11-19 05:25:35.714  1579  2700 W zygote64: Long monitor contention with owner Binder:1579_3 (1663) at android.app.ActivityManager$StackInfo com.android.server.am.ActivityManagerService.getStackInfo(int)(ActivityManagerService.java:10885) waiters=1 in boolean com.android.server.am.ActivityManagerService.isTopOfTask(android.os.IBinder) for 130ms
+11-19 05:25:35.716  1579  1612 W Looper  : Dispatch took 350ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {ba0152c} cb=null msg=53
+11-19 05:25:35.794  1390  1435 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2891776
+11-19 05:25:36.463  1579  1596 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: from pid 2705
+11-19 05:25:35.982  1390  1435 I chatty  : uid=1000(system) HwBinder:1390_1 identical 1 line
+11-19 05:25:36.098  1390  1435 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2891776
+11-19 05:25:36.502  1797  1797 D CarrierSvcBindHelper: No carrier app for: 0
+11-19 05:25:36.976  1579  1616 D AutofillManagerService: Close system dialogs
+11-19 05:25:38.243  2713  2713 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-19 05:25:38.588  2713  2713 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-19 05:25:38.610  2713  2713 I app_process: The ClassLoaderContext is a special shared library.
+11-19 05:25:38.758  2713  2713 D AndroidRuntime: Calling main entry com.android.commands.am.Am
+11-19 05:25:38.784  1579  1663 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: start instr
+11-19 05:25:38.818  2727  2727 I zygote64: Late-enabling -Xcheck:jni
+11-19 05:25:38.833  1579  1663 I ActivityManager: Start proc 2727:com.shazwan.idash3/u0a59 for added application com.shazwan.idash3
+11-19 05:25:38.835  1579  1608 E memtrack: Couldn't load memtrack module
+11-19 05:25:38.835  1579  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-19 05:25:38.909  2727  2727 W zygote64: Unexpected CPU variant for X86 using defaults: x86_64
+11-19 05:25:39.006  1579  1608 E memtrack: Couldn't load memtrack module
+11-19 05:25:39.006  1579  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-19 05:25:39.080  2727  2727 I zygote64: The ClassLoaderContext is a special shared library.
+11-19 05:25:39.102  2727  2727 I zygote64: The ClassLoaderContext is a special shared library.
+11-19 05:25:39.107  2727  2727 W zygote64: ClassLoaderContext classpath element mismatch for position 0. expected=/system/framework/android.test.mock.jar, found=/system/framework/android.test.runner.jar (PCL[/system/framework/android.test.mock.jar*1065265343:/system/framework/android.test.runner.jar*1742119008] | PCL[/system/framework/android.test.runner.jar*1742119008:/system/framework/android.test.mock.jar*1065265343])
+11-19 05:25:39.112  2727  2727 W zygote64: ClassLoaderContext classpath size mismatch for position 0. expected=0, found=5 (PCL[] | PCL[/system/framework/android.test.runner.jar*1742119008:/system/framework/android.test.mock.jar*1065265343:/data/app/com.shazwan.idash3.test-ToSgn-IKcE421TT8eIyV1Q==/base.apk*4289975998:/data/app/com.shazwan.idash3.test-ToSgn-IKcE421TT8eIyV1Q==/base.apk!classes2.dex*2437465431:/data/app/com.shazwan.idash3.test-ToSgn-IKcE421TT8eIyV1Q==/base.apk!classes3.dex*4171577632])
+11-19 05:25:39.152  2727  2727 W System  : ClassLoader referenced unknown path:
+11-19 05:25:39.247  1579  1663 I ActivityManager: START u0 {flg=0x10000000 cmp=com.shazwan.idash3/.LauncherActivity} from uid 10059
+11-19 05:25:39.918  1579  1618 W zygote64: Long monitor contention with owner android.anim (1644) at int com.android.server.wm.WindowManagerService.relayoutWindow(com.android.server.wm.Session, android.view.IWindow, int, android.view.WindowManager$LayoutParams, int, int, int, int, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.util.MergedConfiguration, android.view.Surface)(WindowManagerService.java:1930) waiters=0 in void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message) for 430ms
+11-19 05:25:39.922  1579  1663 W zygote64: Long monitor contention with owner Binder:1579_6 (1846) at void com.android.server.am.ActivityManagerService.setTaskDescription(android.os.IBinder, android.app.ActivityManager$TaskDescription)(ActivityManagerService.java:10165) waiters=0 in android.content.pm.ParceledListSlice com.android.server.am.ActivityManagerService.getRecentTasks(int, int, int) for 432ms
+11-19 05:25:40.007  1390  1435 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-19 05:25:40.248  1390  1435 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-19 05:25:40.355  1579  1618 W zygote64: Long monitor contention with owner android.anim (1644) at void com.android.server.wm.WindowSurfacePlacer.lambda$-com_android_server_wm_WindowSurfacePlacer_5337()(WindowSurfacePlacer.java:107) waiters=0 in void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message) for 256ms
+11-19 05:25:40.382  1579  2700 W zygote64: Long monitor contention with owner android.anim (1644) at void com.android.server.wm.WindowSurfacePlacer.lambda$-com_android_server_wm_WindowSurfacePlacer_5337()(WindowSurfacePlacer.java:107) waiters=2 in void com.android.server.wm.WindowManagerService.getStableInsets(int, android.graphics.Rect) for 159ms
+11-19 05:25:41.129  2727  2727 D OpenGLRenderer: HWUI GL Pipeline
+11-19 05:25:41.217  1712  1732 I zygote64: NativeAlloc concurrent copying GC freed 8807(462KB) AllocSpace objects, 0(0B) LOS objects, 49% free, 4MB/9MB, paused 23.726ms total 642.018ms
+11-19 05:25:41.226  1712  1730 D         : HostConnection::get() New Host Connection established 0x7266181b2180, tid 1730
+11-19 05:25:42.377  1579  2170 I zygote64: android::hardware::configstore::V1_0::ISurfaceFlingerConfigs::hasWideColorDisplay retrieved: 0
+11-19 05:25:42.378  1579  2170 I OpenGLRenderer: Initialized EGL, version 1.4
+11-19 05:25:42.379  1579  2170 D OpenGLRenderer: Swap behavior 1
+11-19 05:25:42.386  1579  2170 D EGL_emulation: eglCreateContext: 0x726611ce16e0: maj 3 min 0 rcv 3
+11-19 05:25:42.394  1579  2170 D EGL_emulation: eglMakeCurrent: 0x726611ce16e0: ver 3 0 (tinfo 0x72660e6ff140)
+11-19 05:25:42.512  1400  1664 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-19 05:25:43.336  2727  2750 D         : HostConnection::get() New Host Connection established 0x7266248a9160, tid 2750
+11-19 05:25:43.340  1390  1435 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-19 05:25:43.345  1390  1881 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-19 05:25:43.350  1390  1435 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-19 05:25:43.463  1579  1590 I zygote64: NativeAlloc concurrent copying GC freed 13078(1360KB) AllocSpace objects, 25(2MB) LOS objects, 42% free, 6MB/11MB, paused 154us total 948.791ms
+11-19 05:25:43.474  1579  1618 W zygote64: Long monitor contention with owner LazyTaskWriterThread (1696) at void com.android.server.am.TaskPersister.writeTaskIdsFiles()(TaskPersister.java:572) waiters=0 in void com.android.server.am.ActivityRecord.onStartingWindowDrawn(long) for 137ms
+11-19 05:25:43.533  2727  2750 I zygote64: android::hardware::configstore::V1_0::ISurfaceFlingerConfigs::hasWideColorDisplay retrieved: 0
+11-19 05:25:43.533  2727  2750 I OpenGLRenderer: Initialized EGL, version 1.4
+11-19 05:25:43.533  2727  2750 D OpenGLRenderer: Swap behavior 1
+11-19 05:25:43.545  2727  2750 D EGL_emulation: eglCreateContext: 0x726619066240: maj 3 min 0 rcv 3
+11-19 05:25:43.569  2727  2750 D EGL_emulation: eglMakeCurrent: 0x726619066240: ver 3 0 (tinfo 0x7266249f6a60)
+11-19 05:25:43.663  1400  1423 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-19 05:25:43.872  1390  1435 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-19 05:25:44.019  1390  1435 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-19 05:25:44.465  1398  1398 I boot-pipe: done populating /dev/random
+11-19 05:25:44.533  2727  2750 D EGL_emulation: eglMakeCurrent: 0x726619066240: ver 3 0 (tinfo 0x7266249f6a60)
+11-19 05:25:44.645  2727  2752 E OpenGLRenderer: resultIndex is -1, the polygon must be invalid!
+11-19 05:25:44.645  2727  2752 F OpenGLRenderer: Error: Spot pair overflow!!! used 134, total 70
+11-19 05:25:44.647  2727  2752 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 2752 (hwuiTask1), pid 2727 (.shazwan.idash3)
+11-19 05:25:45.150  2755  2755 I crash_dump64: obtaining output fd from tombstoned, type: kDebuggerdTombstone
+11-19 05:25:45.157  1482  1482 I /system/bin/tombstoned: received crash request for pid 2727
+11-19 05:25:45.164  2755  2755 I crash_dump64: performing dump of process 2727 (target tid = 2752)
+11-19 05:25:45.168  2755  2755 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+11-19 05:25:45.168  2755  2755 F DEBUG   : Build fingerprint: 'Android/sdk_phone_x86_64/generic_x86_64:8.1.0/OSM1.180201.023/4931629:userdebug/test-keys'
+11-19 05:25:45.168  2755  2755 F DEBUG   : Revision: '0'
+11-19 05:25:45.168  2755  2755 F DEBUG   : ABI: 'x86_64'
+11-19 05:25:45.168  2755  2755 F DEBUG   : pid: 2727, tid: 2752, name: hwuiTask1  >>> com.shazwan.idash3 <<<
+11-19 05:25:45.169  2755  2755 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+11-19 05:25:45.176  2755  2755 F DEBUG   : Abort message: 'Error: Spot pair overflow!!! used 134, total 70'
+11-19 05:25:45.176  2755  2755 F DEBUG   :     rax 0000000000000000  rbx 0000000000000ac0  rcx ffffffffffffffff  rdx 0000000000000006
+11-19 05:25:45.176  2755  2755 F DEBUG   :     rsi 0000000000000ac0  rdi 0000000000000aa7
+11-19 05:25:45.176  2755  2755 F DEBUG   :     r8  000072661804d480  r9  000072661804d480  r10 000072661804d480  r11 0000000000000246
+11-19 05:25:45.176  2755  2755 F DEBUG   :     r12 000072661804dae0  r13 0000000000000044  r14 0000000000000aa7  r15 000072661804d388
+11-19 05:25:45.177  2755  2755 F DEBUG   :     cs  0000000000000033  ss  000000000000002b
+11-19 05:25:45.177  2755  2755 F DEBUG   :     rip 00007266aff2b6f8  rbp 000072661804e0e0  rsp 000072661804d358  eflags 0000000000000246
+11-19 05:25:45.243  2755  2755 F DEBUG   :
+11-19 05:25:45.243  2755  2755 F DEBUG   : backtrace:
+11-19 05:25:45.243  2755  2755 F DEBUG   :     #00 pc 00000000000276f8  /system/lib64/libc.so (syscall+24)
+11-19 05:25:45.243  2755  2755 F DEBUG   :     #01 pc 0000000000027905  /system/lib64/libc.so (abort+101)
+11-19 05:25:45.243  2755  2755 F DEBUG   :     #02 pc 0000000000007dbb  /system/lib64/liblog.so (__android_log_assert+363)
+11-19 05:25:45.243  2755  2755 F DEBUG   :     #03 pc 00000000000a292b  /system/lib64/libhwui.so (android::uirenderer::ShadowTessellator::checkOverflow(int, int, char const*)+43)
+11-19 05:25:45.243  2755  2755 F DEBUG   :     #04 pc 00000000000a9210  /system/lib64/libhwui.so (android::uirenderer::SpotShadow::generateTriangleStrip(bool, float, android::uirenderer::Vector2*, int, android::uirenderer::Vector2*, int, android::uirenderer::Vector3 const*, int, android::uirenderer::VertexBuffer&, android::uirenderer::Vector2 const&)+480)
+11-19 05:25:45.244  2755  2755 F DEBUG   :     #05 pc 00000000000a8fbf  /system/lib64/libhwui.so (android::uirenderer::SpotShadow::createSpotShadow(bool, android::uirenderer::Vector3 const&, float, android::uirenderer::Vector3 const*, int, android::uirenderer::Vector3 const&, android::uirenderer::VertexBuffer&)+1727)
+11-19 05:25:45.244  2755  2755 F DEBUG   :     #06 pc 00000000000a265d  /system/lib64/libhwui.so (android::uirenderer::ShadowTessellator::tessellateSpotShadow(bool, android::uirenderer::Vector3 const*, int, android::uirenderer::Vector3 const&, android::uirenderer::Matrix4 const&, android::uirenderer::Vector3 const&, int, android::uirenderer::Rect const&, android::uirenderer::Rect const&, android::uirenderer::VertexBuffer&)+509)
+11-19 05:25:45.244  2755  2755 F DEBUG   :     #07 pc 00000000000aae4e  /system/lib64/libhwui.so (android::uirenderer::tessellateShadows(android::uirenderer::Matrix4 const*, android::uirenderer::Rect const*, bool, SkPath const*, android::uirenderer::Matrix4 const*, android::uirenderer::Matrix4 const*, android::uirenderer::Vector3 const&, float, android::uirenderer::VertexBuffer&, android::uirenderer::VertexBuffer&)+1070)
+11-19 05:25:45.244  2755  2755 F DEBUG   :     #08 pc 00000000000ad119  /system/lib64/libhwui.so (android::uirenderer::ShadowProcessor::onProcess(android::sp<android::uirenderer::Task<android::uirenderer::Pair<android::uirenderer::VertexBuffer*, android::uirenderer::VertexBuffer*>>> const&)+121)
+11-19 05:25:45.244  2755  2755 F DEBUG   :     #09 pc 00000000000ad065  /system/lib64/libhwui.so (android::uirenderer::TaskProcessor<android::uirenderer::Pair<android::uirenderer::VertexBuffer*, android::uirenderer::VertexBuffer*>>::process(android::sp<android::uirenderer::TaskBase> const&)+53)
+11-19 05:25:45.244  2755  2755 F DEBUG   :     #10 pc 000000000005f2dc  /system/lib64/libhwui.so (android::uirenderer::TaskManager::WorkerThread::threadLoop()+172)
+11-19 05:25:45.244  2755  2755 F DEBUG   :     #11 pc 000000000001181e  /system/lib64/libutils.so (android::Thread::_threadLoop(void*)+222)
+11-19 05:25:45.244  2755  2755 F DEBUG   :     #12 pc 00000000000b8cc3  /system/lib64/libandroid_runtime.so (android::AndroidRuntime::javaThreadShell(void*)+131)
+11-19 05:25:45.244  2755  2755 F DEBUG   :     #13 pc 0000000000079f3b  /system/lib64/libc.so (__pthread_start(void*)+27)
+11-19 05:25:45.244  2755  2755 F DEBUG   :     #14 pc 0000000000028c8d  /system/lib64/libc.so (__start_thread+61)
+11-19 05:25:45.244  2755  2755 F DEBUG   :     #15 pc 0000000000027515  /system/lib64/libc.so (__bionic_clone+53)
+11-19 05:25:46.888  1482  1482 E /system/bin/tombstoned: Tombstone written to: /data/tombstones/tombstone_02
+11-19 05:25:46.981  1579  1615 I BootReceiver: Copying /data/tombstones/tombstone_02 to DropBox (SYSTEM_TOMBSTONE)
+11-19 05:25:47.084  1579  2092 I WindowManager: WIN DEATH: Window{6cd2698 u0 com.shazwan.idash3/com.shazwan.idash3.LauncherActivity}
+11-19 05:25:47.090  1579  2093 I ActivityManager: Process com.shazwan.idash3 (pid 2727) has died: fore TOP
+11-19 05:25:47.098  1579  1613 W zygote64: kill(-2727, 9) failed: No such process
+11-19 05:25:47.120  1464  1464 I Zygote  : Process 2727 exited due to signal (6)
+11-19 05:25:47.144  1579  1613 W zygote64: kill(-2727, 9) failed: No such process
+11-19 05:25:47.155  1579  2093 W ActivityManager: Force removing ActivityRecord{d3f6813 u0 com.shazwan.idash3/.LauncherActivity t178}: app died, no saved state
+11-19 05:25:47.167  1579  1613 I zygote64: Successfully killed process cgroup uid 10059 pid 2727 in 47ms
+11-19 05:25:47.179  1579  2093 I WindowManager: Failed to capture screenshot of Token{7674a50 ActivityRecord{d3f6813 u0 com.shazwan.idash3/.LauncherActivity t178 f}} appWin=Window{75e76bd u0 Splash Screen com.shazwan.idash3} drawState=4
+11-19 05:25:47.188  1579  2093 D         : HostConnection::get() New Host Connection established 0x72662f6318e0, tid 2093
+11-19 05:25:47.235  1579  1644 W WindowManager: Failed looking up window callers=com.android.server.wm.WindowManagerService.windowForClientLocked:5797 com.android.server.wm.WindowManagerService.removeWindow:1715 com.android.server.wm.Session.remove:222
+11-19 05:25:47.243  1579  2093 W ActivityManager: Crash of app com.shazwan.idash3 running instrumentation ComponentInfo{com.shazwan.idash3.test/com.shazwan.idash3.PrayerJourneyChecks}
+11-19 05:25:47.246  1579  2093 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: finished inst
+11-19 05:25:47.271  1579  2763 W Binder  : Outgoing transactions from this process must be FLAG_ONEWAY
+11-19 05:25:47.271  1579  2763 W Binder  : java.lang.Throwable
+11-19 05:25:47.271  1579  2763 W Binder  : 	at android.os.BinderProxy.transact(Binder.java:752)
+11-19 05:25:47.271  1579  2763 W Binder  : 	at android.app.IInstrumentationWatcher$Stub$Proxy.instrumentationFinished(IInstrumentationWatcher.java:160)
+11-19 05:25:47.271  1579  2763 W Binder  : 	at com.android.server.am.InstrumentationReporter$MyThread.run(InstrumentationReporter.java:86)
+11-19 05:25:47.362  1390  1435 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2891776
+11-19 05:25:47.416  1579  1612 W zygote64: Long monitor contention with owner Binder:1579_B (2093) at void com.android.server.am.ActivityManagerService$AppDeathRecipient.binderDied()(ActivityManagerService.java:1625) waiters=0 in void com.android.server.am.ActivityManagerService.dispatchUidsChanged() for 268ms
+11-19 05:25:47.422  1579  1618 W zygote64: Long monitor contention with owner Binder:1579_B (2093) at void com.android.server.am.ActivityManagerService$AppDeathRecipient.binderDied()(ActivityManagerService.java:1625) waiters=1 in void com.android.server.am.ActivityManagerService.notifyActivityDrawn(android.os.IBinder) for 252ms
+11-19 05:25:47.437  1579  1608 E memtrack: Couldn't load memtrack module
+11-19 05:25:47.437  1579  1608 W android.os.Debug: failed to get memory consumption info: -1
+11-19 05:25:47.486  1579  1618 W ActivityManager: setHasOverlayUi called on unknown pid: 2727
+11-19 05:25:47.617  2713  2713 D AndroidRuntime: Shutting down VM
+11-19 05:25:47.674  1579  1618 W zygote64: Long monitor contention with owner android.anim (1644) at void com.android.server.wm.WindowSurfacePlacer.lambda$-com_android_server_wm_WindowSurfacePlacer_5337()(WindowSurfacePlacer.java:107) waiters=1 in void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message) for 108ms
+11-19 05:25:47.764  1579  1612 W Looper  : Dispatch took 616ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {ba0152c} cb=null msg=53
+11-19 05:25:47.787  1390  1435 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2891776
+11-19 05:25:47.923  1579  2763 I ActivityManager: Failure reporting to instrumentation watcher: comp=ComponentInfo{com.shazwan.idash3.test/com.shazwan.idash3.PrayerJourneyChecks} results=Bundle[{shortMsg=Process crashed.}]
+11-19 05:25:48.319  1579  2085 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: from pid 2769

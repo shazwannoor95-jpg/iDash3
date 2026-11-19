@@ -17,9 +17,19 @@ final class HomeWidgets extends LinearLayout {
   for(Label label:labels){float size=Math.max(label.min,label.size*SCALE[selected]);if(label.single){float available=Math.max(1,width-2*horizontal-label.view.getCompoundPaddingLeft()-label.view.getCompoundPaddingRight());CharSequence value=label.view.getText();measure.set(label.view.getPaint());measure.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,size,getResources().getDisplayMetrics()));while(size>label.min&&measure.measureText(value,0,value.length())>available){size=Math.max(label.min,size-1);measure.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,size,getResources().getDisplayMetrics()));}}textSize(label.view,size);}
  }
  private View art(){for(int i=0;i<getChildCount();i++){View v=getChildAt(i);if(v instanceof ViewGroup){ViewGroup group=(ViewGroup)v;for(int j=0;j<group.getChildCount();j++)if(group.getChildAt(j) instanceof PrayerJourneyView)return group.getChildAt(j);}}return null;}
- @Override protected void onMeasure(int widthSpec,int heightSpec){int width=MeasureSpec.getSize(widthSpec),height=MeasureSpec.getSize(heightSpec),mode=MeasureSpec.getMode(heightSpec);View image=art();if(image!=null)image.getLayoutParams().height=dp(156);int selected=0;
-  for(;selected<SCALE.length;selected++){profile(selected,width);super.onMeasure(widthSpec,MeasureSpec.makeMeasureSpec(0,MeasureSpec.UNSPECIFIED));if(mode==MeasureSpec.UNSPECIFIED||getMeasuredHeight()<=height||selected==SCALE.length-1)break;}
-  if(mode!=MeasureSpec.UNSPECIFIED&&getMeasuredHeight()>height&&image!=null){image.getLayoutParams().height=Math.max(dp(96),image.getLayoutParams().height-(getMeasuredHeight()-height));super.onMeasure(widthSpec,MeasureSpec.makeMeasureSpec(0,MeasureSpec.UNSPECIFIED));}
-  fit=selected;lastWidth=width;lastHeight=height;setGravity(getMeasuredHeight()>height&&mode!=MeasureSpec.UNSPECIFIED?Gravity.TOP:Gravity.CENTER_VERTICAL);setMeasuredDimension(getMeasuredWidthAndState(),resolveSizeAndState(getMeasuredHeight(),heightSpec,getMeasuredState()<<MEASURED_HEIGHT_STATE_SHIFT));
+ private boolean inkFits(){
+  for(int i=0;i<getChildCount();i++){View child=getChildAt(i);if(!(child instanceof android.view.ViewGroup)||"JAKIM calendar widget".contentEquals(child.getContentDescription()==null?"":child.getContentDescription()))continue;
+   android.view.ViewGroup card=(android.view.ViewGroup)child;int required=card.getPaddingTop()+card.getPaddingBottom();for(int j=0;j<card.getChildCount();j++){View label=card.getChildAt(j);if(label.getVisibility()!=GONE&&label instanceof TextView)required+=Math.max(label.getMeasuredHeight(),((TextView)label).getPaint().getFontMetricsInt(null));}if(required>card.getMeasuredHeight())return false;
+  }return true;
+ }
+ @Override protected void onMeasure(int widthSpec,int heightSpec){
+  int width=MeasureSpec.getSize(widthSpec),height=MeasureSpec.getSize(heightSpec),mode=MeasureSpec.getMode(heightSpec);View image=art();float aspect=2.1f;if(image instanceof PrayerJourneyView){PrayerArt scene=((PrayerJourneyView)image).art;if(scene!=null)aspect=scene.crop.width()/scene.crop.height();}
+  int count=0;for(int i=0;i<getChildCount();i++)if(getChildAt(i).getVisibility()!=GONE)count++;
+  float room=mode==MeasureSpec.UNSPECIFIED?dp(116):Math.max(1,(height-dp(14)*Math.max(0,count-1))/(float)Math.max(1,count));
+  int cardWidth=Math.min(width,dp(224));int cardHeight=Math.max(1,Math.round(Math.min(cardWidth/aspect,Math.min(dp(116),room))));cardWidth=Math.max(1,Math.min(Math.min(width,dp(224)),Math.round(cardHeight*aspect)));
+  for(int i=0;i<getChildCount();i++){LayoutParams lp=(LayoutParams)getChildAt(i).getLayoutParams();lp.width=cardWidth;lp.height=cardHeight;lp.gravity=Gravity.START;}
+  if(image!=null)image.getLayoutParams().height=LayoutParams.MATCH_PARENT;
+  int selected=0;for(;selected<SCALE.length;selected++){profile(selected,cardWidth);super.onMeasure(widthSpec,MeasureSpec.makeMeasureSpec(0,MeasureSpec.UNSPECIFIED));if(inkFits()||selected==SCALE.length-1)break;}
+  fit=selected;lastWidth=width;lastHeight=height;setGravity(Gravity.START|Gravity.CENTER_VERTICAL);setMeasuredDimension(getMeasuredWidthAndState(),resolveSizeAndState(getMeasuredHeight(),heightSpec,getMeasuredState()<<MEASURED_HEIGHT_STATE_SHIFT));
  }
 }

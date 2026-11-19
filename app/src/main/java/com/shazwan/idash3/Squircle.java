@@ -59,7 +59,15 @@ final class Squircle {
             p.setStrokeWidth(Math.max(1f, density * 1.6f)); p.setShader(edge); c.drawPath(inner, p);
             p.setShader(null);
         }
-        @Override public void getOutline(Outline o) { o.setConvexPath(shape); o.setAlpha(.6f); }
+        @Override public void getOutline(Outline o) {
+            if (getBounds().isEmpty()) { o.setEmpty(); return; }
+            // API26/27 HWUI can abort while tessellating a dense 28dp path shadow.
+            // Simplify only the shadow; the rendered continuous-corner icon stays unchanged.
+            if (android.os.Build.VERSION.SDK_INT <= 27 && Math.min(box.width(),box.height()) <= 32*density)
+                o.setRoundRect(getBounds(),Math.min(box.width(),box.height())*.22f);
+            else o.setConvexPath(shape);
+            o.setAlpha(.6f);
+        }
         @Override public void setAlpha(int a) { p.setAlpha(a); }
         @Override public void setColorFilter(ColorFilter f) { p.setColorFilter(f); }
         @Override public int getOpacity() { return PixelFormat.TRANSLUCENT; }

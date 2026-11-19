@@ -17,7 +17,7 @@ final class PrayerJourneyView extends View {
   PrayerPhase next=zone.equals(owner.loadedZone)&&owner.jakimDays.containsKey(date)?PrayerPhase.at(timeline,time):null;
   if(next==null||phase==null||next.current.at!=phase.current.at){previous=phase;previousArt=art;transition=SystemClock.uptimeMillis();}
   phase=next;progress=phase==null?0:phase.progress(now);int scene=phase==null?0:PrayerArtLayout.scene(phase.current.kind);
-  if(art==null||art.index!=scene)art=PrayerArt.load(owner,scene);
+  if(art==null||art.index!=scene){art=PrayerArt.load(owner,scene);if(getParent() instanceof View&&((View)getParent()).getParent() instanceof HomeWidgets)requestLayout();}
   message=zone.isEmpty()?"Pilih zon JAKIM":owner.jakimLoading?"Memuat jadual…":"Jadual fasa belum lengkap";
   String label=phase==null?message:PrayerPhase.NAMES[phase.current.kind]+" "+phase.current.time+"; menuju "+PrayerPhase.NAMES[phase.next.kind]+" "+phase.next.time+"; "+phase.remaining(now)+" lagi"+(phase.current.kind==1||phase.next.kind==1?". Syuruk ialah penanda, bukan solat fardu":"");
   if(!label.contentEquals(getContentDescription()))setContentDescription(label);invalidate();sync();

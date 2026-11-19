@@ -132,10 +132,10 @@ public class LauncherActivity extends Activity {
         LinearLayout.LayoutParams hp=new LinearLayout.LayoutParams(-1,-2);hp.bottomMargin=tightHeader?dp(2):dp(10);
         LinearLayout content=row(); content.setGravity(Gravity.TOP); body.addView(content,new LinearLayout.LayoutParams(-1,0,1));
         HomeWidgets widgets=new HomeWidgets(this);LinearLayout left=column();LinearLayout.LayoutParams wp=new LinearLayout.LayoutParams(0,-1,0.37f);wp.rightMargin=dp(16);content.addView(left,wp);left.addView(heading,hp);left.addView(widgets,new LinearLayout.LayoutParams(-1,0,1));
-        LinearLayout timeCard=column();timeCard.setMinimumHeight(dp(104));timeCard.setBackground(glass(0x7c20395d,26));
+        LinearLayout timeCard=column();timeCard.setMinimumHeight(dp(88));timeCard.setBackground(glass(0x7c20395d,26));
         timeCard.setGravity(Gravity.CENTER);timeCard.setForeground(new NeonGlassRim(this,26));TextView eyebrow=text("TODAY",11,0xffff8a80);eyebrow.setTypeface(IosStyle.font(this,true));eyebrow.setLetterSpacing(.08f);eyebrow.setGravity(Gravity.CENTER);eyebrow.setTag(GlassSurface.NO_SCRIM);eyebrow.setTextColor(0xffff9f9a);eyebrow.setShadowLayer(dp(2),0,dp(1),0x66000000);if(prefs.getBoolean("calendar",true)){eyebrow.setContentDescription("Calendar widget");timeCard.addView(eyebrow,new LinearLayout.LayoutParams(-1,-2));widgets.fitText(eyebrow,11,10);}
-        clock=text("",46,Color.WHITE);clock.setTypeface(IosStyle.display(this,false));clock.setLetterSpacing(-.02f);clock.setMaxLines(1);clock.setGravity(Gravity.CENTER);clock.setAutoSizeTextTypeUniformWithConfiguration(30,46,1,android.util.TypedValue.COMPLEX_UNIT_SP);timeCard.addView(clock,new LinearLayout.LayoutParams(-1,-2));widgets.fitText(clock,46,30);
-        date=text("",14,0xd9ffffff);date.setTypeface(IosStyle.medium(this));date.setMaxLines(1);date.setGravity(Gravity.CENTER);date.setAutoSizeTextTypeUniformWithConfiguration(12,14,1,android.util.TypedValue.COMPLEX_UNIT_SP);timeCard.addView(date,new LinearLayout.LayoutParams(-1,-2));widgets.fitText(date,14,12);timeCard.setContentDescription("Clock widget");timeCard.setOnClickListener(v->openSettings(Settings.ACTION_DATE_SETTINGS));widgets.addView(timeCard,new LinearLayout.LayoutParams(-1,-2));
+        clock=text("",36,Color.WHITE);clock.setTypeface(IosStyle.display(this,false));clock.setLetterSpacing(-.02f);clock.setMaxLines(1);clock.setGravity(Gravity.CENTER);clock.setAutoSizeTextTypeUniformWithConfiguration(24,36,1,android.util.TypedValue.COMPLEX_UNIT_SP);timeCard.addView(clock,new LinearLayout.LayoutParams(-1,-2));widgets.fitText(clock,36,24);
+        date=text("",12,0xd9ffffff);date.setTypeface(IosStyle.medium(this));date.setMaxLines(1);date.setGravity(Gravity.CENTER);date.setAutoSizeTextTypeUniformWithConfiguration(10,12,1,android.util.TypedValue.COMPLEX_UNIT_SP);timeCard.addView(date,new LinearLayout.LayoutParams(-1,-2));widgets.fitText(date,12,10);timeCard.setContentDescription("Clock widget");timeCard.setOnClickListener(v->openSettings(Settings.ACTION_DATE_SETTINGS));widgets.addView(timeCard,new LinearLayout.LayoutParams(-1,-2));
         // The separate Today card was merged into the clock card ("TODAY" + date); calendarDay mirrors the date.
         if(prefs.getBoolean("calendar",true)){calendarDay=text("",18,Color.WHITE);timeCard.setOnClickListener(v->showCalendar());}
         if(prefs.getBoolean("jakim",true)) {
@@ -148,7 +148,7 @@ public class LauncherActivity extends Activity {
     }
     View shortcut(int slot,boolean dock) {
         LinearLayout tile=column(); tile.setGravity(Gravity.CENTER);tile.setPadding(dp(4),dp(2),dp(4),dp(2));
-        App app=assigned(slot); int size=dock?(prefs.getInt("dock_size",0)==0?34:42):54;
+        App app=assigned(slot); int size=dock?(dockIconSize()):54;
         FrameLayout icon=new FrameLayout(this);
         int[] tops={0xff36b4ff,0xff48baff,0xffff4c6c};
         int[] bottoms={0xff0055ee,0xff0660ed,0xffe60027};
@@ -158,17 +158,17 @@ public class LauncherActivity extends Activity {
         Bitmap packed=prefs.getBoolean("ios_icons",true)?(app==null?Ios26Icons.named(this,slot==0?"phone":slot==1?"files":"youtube"):Ios26Icons.app(this,app.component,app.label)):null;
         if(packed!=null){icon.removeAllViews();icon.setBackground(null);ImageView image=new ImageView(this);image.setImageBitmap(packed);icon.addView(image,new FrameLayout.LayoutParams(-1,-1));}
         tile.addView(icon,new LinearLayout.LayoutParams(dp(size),dp(size)));
-        TextView label=text(slots[slot],dock?10:12,Color.WHITE); label.setIncludeFontPadding(false);label.setMaxLines(1);label.setEllipsize(TextUtils.TruncateAt.END);label.setGravity(Gravity.CENTER);LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(-1,dock?dockLabelHeight():dp(22));lp.topMargin=dp(3);tile.addView(label,lp);
+        TextView label=text(slots[slot],dock?9:12,Color.WHITE); label.setIncludeFontPadding(false);label.setMaxLines(1);label.setEllipsize(TextUtils.TruncateAt.END);label.setGravity(Gravity.CENTER);LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(-1,dock?dockLabelHeight():dp(22));lp.topMargin=dp(dock?2:3);tile.addView(label,lp);
         Elastic.attach(tile);tile.setContentDescription("Favorite "+slots[slot]);tile.setOnClickListener(v->{App current=assigned(slot);if(current==null)pick(slot);else launch(current);});tile.setOnLongClickListener(v->{pick(slot);return true;});return tile;
     }
     void buildDock() {
         LinearLayout outer=row();outer.setGravity(Gravity.CENTER);LinearLayout.LayoutParams op=new LinearLayout.LayoutParams(-1,dockHeight());op.topMargin=dp(8);shell.addView(outer,op);
         LinearLayout dock=row();dock.setGravity(Gravity.CENTER);dock.setPadding(dp(12),dp(8),dp(12),dp(8));dock.setContentDescription("Launcher dock");dock.setBackground(glass(0x75e5eaff,22));dock.setElevation(dp(8));if("home".equals(page))dock.setForeground(new NeonGlassRim(this,22));outer.addView(dock,new LinearLayout.LayoutParams(-2,-1));
-        for(int i=0;i<slots.length;i++) dock.addView(shortcut(i,true),new LinearLayout.LayoutParams(dp(prefs.getInt("dock_size",0)==0?60:66),-1));
+        for(int i=0;i<slots.length;i++) dock.addView(shortcut(i,true),new LinearLayout.LayoutParams(dp(dockItemWidth()),-1));
         View divider=new View(this);divider.setBackgroundColor(0x40ffffff);LinearLayout.LayoutParams d=new LinearLayout.LayoutParams(dp(1),dp(32));d.setMargins(dp(6),0,dp(6),0);dock.addView(divider,d);
-        dock.addView(dockAction("⚙","Settings",()->{settingsSection="";page="settings";render();}),new LinearLayout.LayoutParams(dp(prefs.getInt("dock_size",0)==0?60:66),-1));
-        dock.addView(dockAction("◎","Drive",()->{page="drive";render();}),new LinearLayout.LayoutParams(dp(prefs.getInt("dock_size",0)==0?60:66),-1));
-        dock.addView(dockAction("▦","Apps",()-> {if("apps".equals(page)){page="home";query="";hideKeyboard();render();}else showApps();}),new LinearLayout.LayoutParams(dp(prefs.getInt("dock_size",0)==0?60:66),-1));
+        dock.addView(dockAction("⚙","Settings",()->{settingsSection="";page="settings";render();}),new LinearLayout.LayoutParams(dp(dockItemWidth()),-1));
+        dock.addView(dockAction("◎","Drive",()->{page="drive";render();}),new LinearLayout.LayoutParams(dp(dockItemWidth()),-1));
+        dock.addView(dockAction("▦","Apps",()-> {if("apps".equals(page)){page="home";query="";hideKeyboard();render();}else showApps();}),new LinearLayout.LayoutParams(dp(dockItemWidth()),-1));
     }
     View dockAction(String glyph,String label,Runnable action) {
         LinearLayout l=column();l.setGravity(Gravity.CENTER);l.setPadding(dp(4),dp(2),dp(4),dp(2));View icon;
@@ -176,11 +176,13 @@ public class LauncherActivity extends Activity {
         tile.setBackground(settings?new Squircle.Tile(0xffa3abb8,0xff69717f,density):drive?new Squircle.Tile(0xff34c759,0xff1f9d40,density):new Squircle.Tile(0xff7f8ba3,0xff4b5468,density));tile.setElevation(dp(3));
         tile.addView(new DockGlyph(this,settings?DockGlyph.SETTINGS:drive?DockGlyph.DRIVE:DockGlyph.APPS),new FrameLayout.LayoutParams(-1,-1));icon=tile;
         if(settings&&prefs.getBoolean("ios_icons",true)){Bitmap packed=Ios26Icons.named(this,"settings");if(packed!=null){tile.removeAllViews();tile.setBackground(null);ImageView image=new ImageView(this);image.setImageBitmap(packed);tile.addView(image,new FrameLayout.LayoutParams(-1,-1));}}
-        l.addView(icon,new LinearLayout.LayoutParams(dp(prefs.getInt("dock_size",0)==0?34:42),dp(prefs.getInt("dock_size",0)==0?34:42)));TextView name=text(label,10,Color.WHITE);name.setGravity(Gravity.CENTER);name.setIncludeFontPadding(false);name.setSingleLine(true);name.setEllipsize(TextUtils.TruncateAt.END);LinearLayout.LayoutParams nameBounds=new LinearLayout.LayoutParams(-1,dockLabelHeight());nameBounds.topMargin=dp(3);l.addView(name,nameBounds);l.setContentDescription(label);l.setOnClickListener(v->action.run());Elastic.attach(l);return l;
+        l.addView(icon,new LinearLayout.LayoutParams(dp(dockIconSize()),dp(dockIconSize())));TextView name=text(label,9,Color.WHITE);name.setGravity(Gravity.CENTER);name.setIncludeFontPadding(false);name.setSingleLine(true);name.setEllipsize(TextUtils.TruncateAt.END);LinearLayout.LayoutParams nameBounds=new LinearLayout.LayoutParams(-1,dockLabelHeight());nameBounds.topMargin=dp(2);l.addView(name,nameBounds);l.setContentDescription(label);l.setOnClickListener(v->action.run());Elastic.attach(l);return l;
     }
     void showApps() {page="apps";render();}
-    int dockLabelHeight(){return Math.max(dp(15),(int)Math.ceil(14*getResources().getDisplayMetrics().scaledDensity));}
-    int dockHeight(){return Math.max(dp(prefs.getInt("dock_size",0)==0?72:84),dp((prefs.getInt("dock_size",0)==0?34:42)+23)+dockLabelHeight());}
+    int dockIconSize(){return prefs.getInt("dock_size",0)==0?28:34;}
+    int dockItemWidth(){return prefs.getInt("dock_size",0)==0?52:58;}
+    int dockLabelHeight(){return Math.max(dp(14),(int)Math.ceil(12*getResources().getDisplayMetrics().scaledDensity));}
+    int dockHeight(){return Math.max(dp(prefs.getInt("dock_size",0)==0?64:72),dp(dockIconSize()+22)+dockLabelHeight());}
     View libraryAction(String label,Runnable action){
         TextView v=text(label,10,Color.WHITE);v.setGravity(Gravity.CENTER);v.setSingleLine(true);v.setFocusable(true);v.setContentDescription(label);
         v.setBackground(new InsetDrawable(glass(0x55e1eaff,16),0,dp(7),0,dp(7)));

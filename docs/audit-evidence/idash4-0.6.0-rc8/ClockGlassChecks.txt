@@ -1,0 +1,3 @@
+INSTRUMENTATION_RESULT: stream=PASS: 98 clock/glass geometry assertions
+
+INSTRUMENTATION_CODE: -1

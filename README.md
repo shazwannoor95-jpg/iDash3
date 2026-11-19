@@ -1,6 +1,6 @@
 # iDash4 — iDash3 integration
 
-**Current candidate: iDash4 0.6.0-rc7** — supplied ULTRA skin for Drive/Apps, animated prism rims and new scenery; rc6 toolbar/dock preserved. [APK](dist/iDash4-0.6.0-rc7-debug.apk?raw=true) · [ULTRA notes](docs/ULTRA-GLASS-0.6.0-RC7.md) · [Rollback to rc6](dist/iDash4-0.6.0-rc6-rollback-debug.apk?raw=true).
+**Current candidate: iDash4 0.6.0-rc8** — matching compact Home clock/JAKIM cards and smaller dock, retaining ULTRA Drive/Apps. [APK](dist/iDash4-0.6.0-rc8-debug.apk?raw=true) · [Sizing notes](docs/COMPACT-HOME-0.6.0-RC8.md).
 
 **Revert panel appearance:** Settings → Home & Dock → Liquid Glass → Material panel → **Classic iDash3**. The new iOS26 panel material and the icon-pack switch are independent.
 
