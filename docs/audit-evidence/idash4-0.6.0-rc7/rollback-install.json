@@ -1,0 +1,16 @@
+[
+  {
+    "apk": "dist/iDash4-0.6.0-rc6-rollback-debug.apk",
+    "versionCode": 27,
+    "install": "Success",
+    "preferences_preserved": true,
+    "preference_sha256": "b2ec64a581bb4db1ad5a1f1177252868e128cb962730b2aab7680056ea596528"
+  },
+  {
+    "apk": "dist/iDash4-0.6.0-rc7-debug.apk",
+    "versionCode": 26,
+    "install": "Success",
+    "preferences_preserved": true,
+    "preference_sha256": "b2ec64a581bb4db1ad5a1f1177252868e128cb962730b2aab7680056ea596528"
+  }
+]

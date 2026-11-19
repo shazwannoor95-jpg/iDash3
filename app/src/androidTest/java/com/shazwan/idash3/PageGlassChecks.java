@@ -27,8 +27,8 @@ public class PageGlassChecks extends Instrumentation {
   java.util.concurrent.CountDownLatch ready=new java.util.concurrent.CountDownLatch(2);a.worker.execute(()->a.main.post(ready::countDown));a.networkWorker.execute(()->a.main.post(ready::countDown));check(ready.await(45,java.util.concurrent.TimeUnit.SECONDS),"discovery and timetable ready");waitForIdleSync();
   ui(()->{
    String wallpaper=a.prefs.getString("wallpaper","");
-   a.page="apps";a.render();check(a.shell.getBackground() instanceof ScenicBackdropDrawable,"scenic Apps installed");
-   check(a.search.getBackground() instanceof GlassSurface&&a.search.getForeground() instanceof LiquidGlassStrokeDrawable,"search keeps original glass plus rim");
+   a.page="apps";a.render();check(a.shell.getBackground() instanceof UltraGlassScene,"scenic Apps installed");
+   check(a.search.getBackground() instanceof GlassSurface&&a.search.getForeground() instanceof UltraGlassOverlay,"search keeps original glass plus rim");
    check(find(a.shell,"Panel").getForeground() instanceof InsetDrawable,"Apps header styled");
    if(!a.apps.isEmpty()){
     LauncherActivity.App app=a.apps.get(0);a.search.setText(app.label);check(find(a.grid,"Open "+app.label)!=null,"search finds installed app with skin");
@@ -40,22 +40,22 @@ public class PageGlassChecks extends Instrumentation {
    ((AppLibraryGrid)a.grid).setApps(list);PageGlassSkin.refreshAppsGrid(a,a.grid);View tile=find(a.grid,"Open Fixture 0");Drawable focus=tile.getBackground();check(focus instanceof StateListDrawable&&tile.getForeground()==null,"tile keeps unobscured focus state");
    find(a.grid,"Next app page").performClick();check(find(a.grid,"Open Fixture 8")!=null,"styled grid pages forward");
    find(a.grid,"Previous app page").performClick();check(find(a.grid,"Open Fixture 0")!=null,"styled grid pages back");
-   a.page="drive";a.render();DriveDashboard drive=a.driveDashboard;check(a.shell.getBackground() instanceof ScenicBackdropDrawable,"Drive early render path styled");
+   a.page="drive";a.render();DriveDashboard drive=a.driveDashboard;check(a.shell.getBackground() instanceof UltraGlassScene,"Drive early render path styled");
    check(drive.map!=null,"native map preserved");drive.map.setUseDataConnection(false);Object map=drive.map;
    Drawable railFocus=find(drive,"Dashboard Peta").getBackground();Object marker=drive.marker;
    PageGlassSkin.apply(a,a.shell,a.body,a.page);check(map==drive.map&&marker==drive.marker&&!drive.listening,"reapply preserves map instance and GPS opt-in");
    check(railFocus==find(drive,"Dashboard Peta").getBackground(),"rail input/focus state preserved");
-   check(find(drive,"Dashboard calendar").getForeground() instanceof LiquidGlassStrokeDrawable,"calendar rim installed");
+   check(find(drive,"Dashboard calendar").getForeground() instanceof UltraGlassOverlay,"calendar rim installed");
    for(int[] size:new int[][]{{1024,600},{800,480}})fixture("drive",size[0],size[1]);
    find(drive,"Dashboard Radio FM").performClick();check(drive.fm!=null&&drive.map==null,"FM rail click works");
    find(drive,"Dashboard YouTube").performClick();check(drive.web!=null&&drive.fm==null,"YouTube rail click works");
    find(drive,"Dashboard Media").performClick();check(drive.largeMedia!=null&&drive.web==null,"media rail click works");
    find(drive,"Dashboard Home").performClick();check("home".equals(a.page)&&drive.closed,"Home rail click releases Drive");
-   check(!(a.shell.getBackground() instanceof ScenicBackdropDrawable),"skin removed on Home");check(find(a.shell,"Clock widget").getForeground() instanceof NeonGlassRim,"original Home rim unchanged");
+   check(!(a.shell.getBackground() instanceof UltraGlassScene),"skin removed on Home");check(find(a.shell,"Clock widget").getForeground() instanceof NeonGlassRim,"original Home rim unchanged");
    check(wallpaper.equals(a.prefs.getString("wallpaper","")),"global wallpaper preference unchanged");
    LinearLayout sample=a.column();sample.setBackground(a.glass(0x55ffffff,18));Drawable original=new ColorDrawable(Color.RED);sample.setForeground(original);PageGlassSkin.refreshDriveMain(a,sample);check(original==sample.getForeground(),"non-target refresh does not replace foreground");
    a.page="drive";PageGlassSkin.refreshDriveMain(a,sample);check(original==sample.getForeground(),"existing foreground preserved on target page");a.page="home";
-   a.page="settings";a.render();check(!(a.shell.getBackground() instanceof ScenicBackdropDrawable),"skin scoped away from Settings");
+   a.page="settings";a.render();check(!(a.shell.getBackground() instanceof UltraGlassScene),"skin scoped away from Settings");
   });
   out.putString("stream","PASS: "+n+" page skin assertions\n");result=Activity.RESULT_OK;
  }catch(Throwable t){out.putString("stream","FAIL after "+n+": "+t+"\n");}finally{if(a!=null)ui(a::finish);if(prefs!=null&&saved!=null)AppearanceChecks.restore(prefs,saved);}finish(result,out);}

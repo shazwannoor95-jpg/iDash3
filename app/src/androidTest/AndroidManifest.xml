@@ -47,4 +47,5 @@
     <instrumentation android:name="com.shazwan.idash3.PageGlassChecks" android:targetPackage="com.shazwan.idash3"/>
     <instrumentation android:name="com.shazwan.idash3.ToolbarDockChecks" android:targetPackage="com.shazwan.idash3"/>
     <instrumentation android:name="com.shazwan.idash3.ToolbarPreview" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.UltraGlassChecks" android:targetPackage="com.shazwan.idash3"/>
 </manifest>

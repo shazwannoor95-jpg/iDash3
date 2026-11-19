@@ -1,6 +1,6 @@
 # iDash4 — iDash3 integration
 
-**Current candidate: iDash4 0.6.0-rc6** — one compact Apps toolbar, no iDash4 header label, padded and aligned dock icons. [Download APK](dist/iDash4-0.6.0-rc6-debug.apk?raw=true) · [Layout notes](docs/TOOLBAR-DOCK-0.6.0-RC6.md).
+**Current candidate: iDash4 0.6.0-rc7** — supplied ULTRA skin for Drive/Apps, animated prism rims and new scenery; rc6 toolbar/dock preserved. [APK](dist/iDash4-0.6.0-rc7-debug.apk?raw=true) · [ULTRA notes](docs/ULTRA-GLASS-0.6.0-RC7.md) · [Rollback to rc6](dist/iDash4-0.6.0-rc6-rollback-debug.apk?raw=true).
 
 **Revert panel appearance:** Settings → Home & Dock → Liquid Glass → Material panel → **Classic iDash3**. The new iOS26 panel material and the icon-pack switch are independent.
 

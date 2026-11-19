@@ -1,0 +1,27 @@
+{
+  "unit": {
+    "tests": 76,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "lint": {
+    "Error": 0,
+    "Warning": 90
+  },
+  "rollback": {
+    "source_commit": "069a587ef5493d6511ac90c0f5d040149e671800",
+    "unchanged_tracked_files": 717,
+    "only_change": "app/build.gradle versionCode 27 and versionName 0.6.0-rc6-rollback"
+  },
+  "runtime": {
+    "UltraGlassChecks": 28,
+    "PageGlassChecks": 25,
+    "ToolbarDockChecks": 390,
+    "DriveDashboardChecks": 24,
+    "ClockGlassChecks": 61
+  },
+  "unique_runtime_assertions": 528,
+  "modern_shader_runtime": "Not exercised; installed emulator is API27 only",
+  "certificates": "Candidate, original rc6 and rollback certificates verified identical"
+}

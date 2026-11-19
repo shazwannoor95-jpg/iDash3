@@ -1,0 +1,3 @@
+INSTRUMENTATION_RESULT: stream=PASS: 28 ULTRA skin assertions; AGSL/RenderEffect modern path not exercised on API27
+
+INSTRUMENTATION_CODE: -1

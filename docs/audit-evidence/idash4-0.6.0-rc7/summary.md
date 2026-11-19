@@ -1,0 +1,9 @@
+### Instrumentation (emulator API27 x86_64, benar-benar dijalankan)
+
+| Kelas | Jenis | Keputusan | Butiran |
+|---|---|---|---|
+| UltraGlassChecks | gate | LULUS | stream=PASS: 28 ULTRA skin asse |
+| PageGlassChecks | gate | LULUS | stream=PASS: 25 page skin asse |
+| ToolbarDockChecks | gate | LULUS | stream=PASS: 390 toolba |
+| DriveDashboardChecks | gate | LULUS | stream=PASS: 24 D |
+| ClockGlassChecks | gate | LULUS | stream=PASS: 61 clock/glass geomet |

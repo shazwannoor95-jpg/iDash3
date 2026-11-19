@@ -1,0 +1,1 @@
+Native API27 software-emulator screenshots at 1024×600. Motion disabled for settled static captures. Apps and Drive show ULTRA Canvas fallback; Home retains rc6. Drive uses the real native MapView with tile data connection disabled for this capture, so the tile grid is intentionally blank. No physical head-unit or API33 shader rendering is shown.
