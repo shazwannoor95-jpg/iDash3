@@ -1,0 +1,449 @@
+{
+  "case": "apps-800x480",
+  "window_focused": true,
+  "viewport": {
+    "x": 0,
+    "y": 0,
+    "width": 800,
+    "height": 480
+  },
+  "text": [
+    {
+      "x": 28,
+      "y": 12,
+      "width": 278,
+      "height": 48,
+      "text": "15:40  ·  Fri, 20 Nov",
+      "sp": 13,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 335,
+      "y": 27,
+      "width": 35,
+      "height": 17,
+      "text": "Panel",
+      "sp": 11,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 406,
+      "y": 27,
+      "width": 63,
+      "height": 17,
+      "text": "Customize",
+      "sp": 11,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 505,
+      "y": 27,
+      "width": 84,
+      "height": 17,
+      "text": "Control Center",
+      "sp": 11,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 600,
+      "y": 12,
+      "width": 52,
+      "height": 48,
+      "text": "Search",
+      "sp": 10,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 656,
+      "y": 12,
+      "width": 60,
+      "height": 48,
+      "text": "Refresh",
+      "sp": 10,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 720,
+      "y": 12,
+      "width": 52,
+      "height": 48,
+      "text": "Done",
+      "sp": 10,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 28,
+      "y": 60,
+      "width": 744,
+      "height": 56,
+      "text": "App Library · Ringkas ›",
+      "sp": 18,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 28,
+      "y": 206,
+      "width": 186,
+      "height": 24,
+      "text": "Calculator",
+      "sp": 15,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 214,
+      "y": 206,
+      "width": 186,
+      "height": 24,
+      "text": "Calendar",
+      "sp": 15,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 400,
+      "y": 206,
+      "width": 186,
+      "height": 24,
+      "text": "Clock",
+      "sp": 15,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 586,
+      "y": 206,
+      "width": 186,
+      "height": 24,
+      "text": "Contacts",
+      "sp": 15,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 28,
+      "y": 323,
+      "width": 186,
+      "height": 24,
+      "text": "Custom Locale",
+      "sp": 15,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 214,
+      "y": 323,
+      "width": 186,
+      "height": 24,
+      "text": "Dev Tools",
+      "sp": 15,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 400,
+      "y": 323,
+      "width": 186,
+      "height": 24,
+      "text": "Email",
+      "sp": 15,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 586,
+      "y": 323,
+      "width": 186,
+      "height": 24,
+      "text": "Files",
+      "sp": 15,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 304,
+      "y": 350,
+      "width": 48,
+      "height": 48,
+      "text": "‹",
+      "sp": 28,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 448,
+      "y": 350,
+      "width": 48,
+      "height": 48,
+      "text": "›",
+      "sp": 28,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 241,
+      "y": 446,
+      "width": 44,
+      "height": 14,
+      "text": "Bluetooth",
+      "sp": 9,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 293,
+      "y": 446,
+      "width": 44,
+      "height": 14,
+      "text": "Files",
+      "sp": 9,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 345,
+      "y": 446,
+      "width": 44,
+      "height": 14,
+      "text": "YouTube",
+      "sp": 9,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 410,
+      "y": 446,
+      "width": 44,
+      "height": 14,
+      "text": "Settings",
+      "sp": 9,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 462,
+      "y": 446,
+      "width": 44,
+      "height": 14,
+      "text": "Drive",
+      "sp": 9,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 514,
+      "y": 446,
+      "width": 44,
+      "height": 14,
+      "text": "Apps",
+      "sp": 9,
+      "clipped": false,
+      "ellipsized": false
+    }
+  ],
+  "controls": [
+    {
+      "x": 312,
+      "y": 12,
+      "width": 65,
+      "height": 48,
+      "description": "Panel"
+    },
+    {
+      "x": 383,
+      "y": 12,
+      "width": 93,
+      "height": 48,
+      "description": "Customize"
+    },
+    {
+      "x": 482,
+      "y": 12,
+      "width": 114,
+      "height": 48,
+      "description": "Control Center"
+    },
+    {
+      "x": 600,
+      "y": 12,
+      "width": 52,
+      "height": 48,
+      "description": "Search"
+    },
+    {
+      "x": 656,
+      "y": 12,
+      "width": 60,
+      "height": 48,
+      "description": "Refresh"
+    },
+    {
+      "x": 720,
+      "y": 12,
+      "width": 52,
+      "height": 48,
+      "description": "Done"
+    },
+    {
+      "x": 28,
+      "y": 60,
+      "width": 744,
+      "height": 56,
+      "description": "Open driving workspace"
+    },
+    {
+      "x": 28,
+      "y": 116,
+      "width": 744,
+      "height": 282,
+      "description": "Paged App Library"
+    },
+    {
+      "x": 28,
+      "y": 116,
+      "width": 186,
+      "height": 117,
+      "description": "Open Calculator"
+    },
+    {
+      "x": 214,
+      "y": 116,
+      "width": 186,
+      "height": 117,
+      "description": "Open Calendar"
+    },
+    {
+      "x": 400,
+      "y": 116,
+      "width": 186,
+      "height": 117,
+      "description": "Open Clock"
+    },
+    {
+      "x": 586,
+      "y": 116,
+      "width": 186,
+      "height": 117,
+      "description": "Open Contacts"
+    },
+    {
+      "x": 28,
+      "y": 233,
+      "width": 186,
+      "height": 117,
+      "description": "Open Custom Locale"
+    },
+    {
+      "x": 214,
+      "y": 233,
+      "width": 186,
+      "height": 117,
+      "description": "Open Dev Tools"
+    },
+    {
+      "x": 400,
+      "y": 233,
+      "width": 186,
+      "height": 117,
+      "description": "Open Email"
+    },
+    {
+      "x": 586,
+      "y": 233,
+      "width": 186,
+      "height": 117,
+      "description": "Open Files"
+    },
+    {
+      "x": 304,
+      "y": 350,
+      "width": 48,
+      "height": 48,
+      "description": "Previous app page"
+    },
+    {
+      "x": 352,
+      "y": 350,
+      "width": 48,
+      "height": 48,
+      "description": "App page 1 of 2"
+    },
+    {
+      "x": 400,
+      "y": 350,
+      "width": 48,
+      "height": 48,
+      "description": "App page 2 of 2"
+    },
+    {
+      "x": 448,
+      "y": 350,
+      "width": 48,
+      "height": 48,
+      "description": "Next app page"
+    },
+    {
+      "x": 225,
+      "y": 406,
+      "width": 349,
+      "height": 64,
+      "description": "Launcher dock"
+    },
+    {
+      "x": 237,
+      "y": 414,
+      "width": 52,
+      "height": 48,
+      "description": "Favorite Bluetooth"
+    },
+    {
+      "x": 289,
+      "y": 414,
+      "width": 52,
+      "height": 48,
+      "description": "Favorite Files"
+    },
+    {
+      "x": 341,
+      "y": 414,
+      "width": 52,
+      "height": 48,
+      "description": "Favorite YouTube"
+    },
+    {
+      "x": 406,
+      "y": 414,
+      "width": 52,
+      "height": 48,
+      "description": "Settings"
+    },
+    {
+      "x": 458,
+      "y": 414,
+      "width": 52,
+      "height": 48,
+      "description": "Drive"
+    },
+    {
+      "x": 510,
+      "y": 414,
+      "width": 52,
+      "height": 48,
+      "description": "Apps"
+    }
+  ],
+  "dock": {
+    "x": 225,
+    "y": 406,
+    "width": 349,
+    "height": 64
+  }
+}

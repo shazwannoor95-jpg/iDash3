@@ -1,0 +1,100 @@
+{
+  "cases": [
+    {
+      "case": "apps-1024x600",
+      "viewport": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 600
+      },
+      "visible_text_views": 24,
+      "checks": {
+        "focused": true,
+        "no_text_clipping": true,
+        "no_ellipsis": true,
+        "toolbar_inside": true,
+        "toolbar_same_row": true,
+        "toolbar_separated": true,
+        "eight_visible_tiles": true,
+        "grid_four_by_two": true,
+        "tiles_inside": true,
+        "dock_inside": true
+      },
+      "failed": []
+    },
+    {
+      "case": "apps-800x480",
+      "viewport": {
+        "x": 0,
+        "y": 0,
+        "width": 800,
+        "height": 480
+      },
+      "visible_text_views": 24,
+      "checks": {
+        "focused": true,
+        "no_text_clipping": true,
+        "no_ellipsis": true,
+        "toolbar_inside": true,
+        "toolbar_same_row": true,
+        "toolbar_separated": true,
+        "eight_visible_tiles": true,
+        "grid_four_by_two": true,
+        "tiles_inside": true,
+        "dock_inside": true
+      },
+      "failed": []
+    },
+    {
+      "case": "drive-1024x600",
+      "viewport": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 600
+      },
+      "visible_text_views": 8,
+      "checks": {
+        "focused": true,
+        "no_text_clipping": true,
+        "no_ellipsis": true,
+        "native_map": true,
+        "gps_not_automatically_enabled": true,
+        "rail_inside": true,
+        "rail_targets": true,
+        "rail_separated": true,
+        "three_cards_inside": true,
+        "cards_separated": true,
+        "map_inside": true
+      },
+      "failed": []
+    },
+    {
+      "case": "drive-800x480",
+      "viewport": {
+        "x": 0,
+        "y": 0,
+        "width": 800,
+        "height": 480
+      },
+      "visible_text_views": 8,
+      "checks": {
+        "focused": true,
+        "no_text_clipping": true,
+        "no_ellipsis": true,
+        "native_map": true,
+        "gps_not_automatically_enabled": true,
+        "rail_inside": true,
+        "rail_targets": true,
+        "rail_separated": true,
+        "three_cards_inside": true,
+        "cards_separated": true,
+        "map_inside": true
+      },
+      "failed": []
+    }
+  ],
+  "checked_conditions": 42,
+  "failures": 0
+}

@@ -1,0 +1,656 @@
+{
+  "window_focused": true,
+  "case": "fm-800x480",
+  "viewport": {
+    "x": 0,
+    "y": 0,
+    "width": 800,
+    "height": 480
+  },
+  "clock": {
+    "x": 20,
+    "y": 125,
+    "width": 224,
+    "height": 114
+  },
+  "prayer": {
+    "x": 20,
+    "y": 253,
+    "width": 224,
+    "height": 114
+  },
+  "dock": {
+    "x": 233,
+    "y": 408,
+    "width": 349,
+    "height": 64
+  },
+  "text": [
+    {
+      "x": 20,
+      "y": 8,
+      "width": 318,
+      "height": 48,
+      "text": "15:35  ·  Fri, 20 Nov",
+      "sp": 13,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 367,
+      "y": 23,
+      "width": 35,
+      "height": 17,
+      "text": "Panel",
+      "sp": 11,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 438,
+      "y": 23,
+      "width": 63,
+      "height": 17,
+      "text": "Customize",
+      "sp": 11,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 537,
+      "y": 23,
+      "width": 84,
+      "height": 17,
+      "text": "Control Center",
+      "sp": 11,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 632,
+      "y": 8,
+      "width": 52,
+      "height": 48,
+      "text": "Mode",
+      "sp": 11,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 688,
+      "y": 8,
+      "width": 52,
+      "height": 48,
+      "text": "Layout",
+      "sp": 11,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 744,
+      "y": 8,
+      "width": 52,
+      "height": 48,
+      "text": "Close",
+      "sp": 11,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 20,
+      "y": 56,
+      "width": 281,
+      "height": 26,
+      "text": "Shazwan's Saga",
+      "sp": 20,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 40,
+      "y": 145,
+      "width": 184,
+      "height": 14,
+      "text": "TODAY",
+      "sp": 11,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 40,
+      "y": 159,
+      "width": 184,
+      "height": 44,
+      "text": "15:35",
+      "sp": 36,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 40,
+      "y": 203,
+      "width": 184,
+      "height": 15,
+      "text": "Friday, 20 November",
+      "sp": 12,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 329,
+      "y": 72,
+      "width": 204,
+      "height": 48,
+      "text": "FM RADIO",
+      "sp": 15,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 642,
+      "y": 72,
+      "width": 88,
+      "height": 48,
+      "text": "Auto ▾",
+      "sp": 13,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 329,
+      "y": 120,
+      "width": 455,
+      "height": 28,
+      "text": "Select a frequency, then Start FM.",
+      "sp": 12,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 330,
+      "y": 148,
+      "width": 52,
+      "height": 124,
+      "text": "−",
+      "sp": 28,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 382,
+      "y": 148,
+      "width": 349,
+      "height": 99,
+      "text": "87.50 MHz",
+      "sp": 50,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 732,
+      "y": 148,
+      "width": 52,
+      "height": 124,
+      "text": "+",
+      "sp": 28,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 329,
+      "y": 278,
+      "width": 86,
+      "height": 52,
+      "text": "1\n—",
+      "sp": 15,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 421,
+      "y": 278,
+      "width": 86,
+      "height": 52,
+      "text": "2\n—",
+      "sp": 15,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 513,
+      "y": 278,
+      "width": 86,
+      "height": 52,
+      "text": "3\n—",
+      "sp": 15,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 605,
+      "y": 278,
+      "width": 86,
+      "height": 52,
+      "text": "4\n—",
+      "sp": 15,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 697,
+      "y": 278,
+      "width": 87,
+      "height": 52,
+      "text": "5\n—",
+      "sp": 15,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 329,
+      "y": 336,
+      "width": 86,
+      "height": 52,
+      "text": "6\n—",
+      "sp": 15,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 421,
+      "y": 336,
+      "width": 86,
+      "height": 52,
+      "text": "7\n—",
+      "sp": 15,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 513,
+      "y": 336,
+      "width": 86,
+      "height": 52,
+      "text": "8\n—",
+      "sp": 15,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 605,
+      "y": 336,
+      "width": 86,
+      "height": 52,
+      "text": "9\n—",
+      "sp": 15,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 697,
+      "y": 336,
+      "width": 87,
+      "height": 52,
+      "text": "10\n—",
+      "sp": 15,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 249,
+      "y": 448,
+      "width": 44,
+      "height": 14,
+      "text": "Bluetooth",
+      "sp": 9,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 301,
+      "y": 448,
+      "width": 44,
+      "height": 14,
+      "text": "Files",
+      "sp": 9,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 353,
+      "y": 448,
+      "width": 44,
+      "height": 14,
+      "text": "YouTube",
+      "sp": 9,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 418,
+      "y": 448,
+      "width": 44,
+      "height": 14,
+      "text": "Settings",
+      "sp": 9,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 470,
+      "y": 448,
+      "width": 44,
+      "height": 14,
+      "text": "Drive",
+      "sp": 9,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 522,
+      "y": 448,
+      "width": 44,
+      "height": 14,
+      "text": "Apps",
+      "sp": 9,
+      "clipped": false,
+      "ellipsized": false
+    }
+  ],
+  "controls": [
+    {
+      "x": 344,
+      "y": 8,
+      "width": 65,
+      "height": 48,
+      "description": "Panel"
+    },
+    {
+      "x": 415,
+      "y": 8,
+      "width": 93,
+      "height": 48,
+      "description": "Customize"
+    },
+    {
+      "x": 514,
+      "y": 8,
+      "width": 114,
+      "height": 48,
+      "description": "Control Center"
+    },
+    {
+      "x": 632,
+      "y": 8,
+      "width": 52,
+      "height": 48,
+      "description": "Panel Mode"
+    },
+    {
+      "x": 688,
+      "y": 8,
+      "width": 52,
+      "height": 48,
+      "description": "Panel Layout"
+    },
+    {
+      "x": 744,
+      "y": 8,
+      "width": 52,
+      "height": 48,
+      "description": "Panel Close"
+    },
+    {
+      "x": 20,
+      "y": 92,
+      "width": 281,
+      "height": 308,
+      "description": "Dashboard widgets"
+    },
+    {
+      "x": 20,
+      "y": 125,
+      "width": 224,
+      "height": 114,
+      "description": "Clock widget"
+    },
+    {
+      "x": 40,
+      "y": 145,
+      "width": 184,
+      "height": 14,
+      "description": "Calendar widget"
+    },
+    {
+      "x": 20,
+      "y": 253,
+      "width": 224,
+      "height": 114,
+      "description": "JAKIM calendar widget"
+    },
+    {
+      "x": 20,
+      "y": 253,
+      "width": 224,
+      "height": 114,
+      "description": "Isyak 20:14; menuju Subuh 05:52; 6J 17M lagi"
+    },
+    {
+      "x": 317,
+      "y": 60,
+      "width": 479,
+      "height": 340,
+      "description": "Optional media panel"
+    },
+    {
+      "x": 321,
+      "y": 64,
+      "width": 471,
+      "height": 332,
+      "description": "Premium FM panel"
+    },
+    {
+      "x": 533,
+      "y": 72,
+      "width": 251,
+      "height": 48,
+      "description": "FM toolbar"
+    },
+    {
+      "x": 534,
+      "y": 72,
+      "width": 48,
+      "height": 48,
+      "description": "Start FM"
+    },
+    {
+      "x": 588,
+      "y": 72,
+      "width": 48,
+      "height": 48,
+      "description": "Enter FM frequency"
+    },
+    {
+      "x": 642,
+      "y": 72,
+      "width": 88,
+      "height": 48,
+      "description": "Choose FM source"
+    },
+    {
+      "x": 736,
+      "y": 72,
+      "width": 48,
+      "height": 48,
+      "description": "FM settings, stations, presets and diagnostics"
+    },
+    {
+      "x": 329,
+      "y": 120,
+      "width": 455,
+      "height": 28,
+      "description": "Select a frequency, then Start FM."
+    },
+    {
+      "x": 330,
+      "y": 148,
+      "width": 52,
+      "height": 124,
+      "description": "Tune down 0.10 MHz"
+    },
+    {
+      "x": 382,
+      "y": 148,
+      "width": 349,
+      "height": 99,
+      "description": "Current FM frequency. Tap to enter frequency"
+    },
+    {
+      "x": 382,
+      "y": 247,
+      "width": 349,
+      "height": 25,
+      "description": "Frequency tuner scale"
+    },
+    {
+      "x": 732,
+      "y": 148,
+      "width": 52,
+      "height": 124,
+      "description": "Tune up 0.10 MHz"
+    },
+    {
+      "x": 329,
+      "y": 278,
+      "width": 86,
+      "height": 52,
+      "description": "FM channel 1; —; hold to save"
+    },
+    {
+      "x": 421,
+      "y": 278,
+      "width": 86,
+      "height": 52,
+      "description": "FM channel 2; —; hold to save"
+    },
+    {
+      "x": 513,
+      "y": 278,
+      "width": 86,
+      "height": 52,
+      "description": "FM channel 3; —; hold to save"
+    },
+    {
+      "x": 605,
+      "y": 278,
+      "width": 86,
+      "height": 52,
+      "description": "FM channel 4; —; hold to save"
+    },
+    {
+      "x": 697,
+      "y": 278,
+      "width": 87,
+      "height": 52,
+      "description": "FM channel 5; —; hold to save"
+    },
+    {
+      "x": 329,
+      "y": 336,
+      "width": 86,
+      "height": 52,
+      "description": "FM channel 6; —; hold to save"
+    },
+    {
+      "x": 421,
+      "y": 336,
+      "width": 86,
+      "height": 52,
+      "description": "FM channel 7; —; hold to save"
+    },
+    {
+      "x": 513,
+      "y": 336,
+      "width": 86,
+      "height": 52,
+      "description": "FM channel 8; —; hold to save"
+    },
+    {
+      "x": 605,
+      "y": 336,
+      "width": 86,
+      "height": 52,
+      "description": "FM channel 9; —; hold to save"
+    },
+    {
+      "x": 697,
+      "y": 336,
+      "width": 87,
+      "height": 52,
+      "description": "FM channel 10; —; hold to save"
+    },
+    {
+      "x": 233,
+      "y": 408,
+      "width": 349,
+      "height": 64,
+      "description": "Launcher dock"
+    },
+    {
+      "x": 245,
+      "y": 416,
+      "width": 52,
+      "height": 48,
+      "description": "Favorite Bluetooth"
+    },
+    {
+      "x": 297,
+      "y": 416,
+      "width": 52,
+      "height": 48,
+      "description": "Favorite Files"
+    },
+    {
+      "x": 349,
+      "y": 416,
+      "width": 52,
+      "height": 48,
+      "description": "Favorite YouTube"
+    },
+    {
+      "x": 414,
+      "y": 416,
+      "width": 52,
+      "height": 48,
+      "description": "Settings"
+    },
+    {
+      "x": 466,
+      "y": 416,
+      "width": 52,
+      "height": 48,
+      "description": "Drive"
+    },
+    {
+      "x": 518,
+      "y": 416,
+      "width": 52,
+      "height": 48,
+      "description": "Apps"
+    }
+  ],
+  "card_equal": true,
+  "card_gap": 14,
+  "fm": {
+    "x": 321,
+    "y": 64,
+    "width": 471,
+    "height": 332
+  },
+  "panel": {
+    "x": 317,
+    "y": 60,
+    "width": 479,
+    "height": 340
+  }
+}

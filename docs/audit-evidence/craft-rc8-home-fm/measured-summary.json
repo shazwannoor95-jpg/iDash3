@@ -1,0 +1,180 @@
+{
+  "cases": [
+    {
+      "case": "fm-1024x600",
+      "viewport": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 600
+      },
+      "clock": {
+        "x": 20,
+        "y": 185,
+        "width": 224,
+        "height": 114
+      },
+      "prayer": {
+        "x": 20,
+        "y": 313,
+        "width": 224,
+        "height": 114
+      },
+      "dock": {
+        "x": 345,
+        "y": 528,
+        "width": 349,
+        "height": 64
+      },
+      "visible_text_views": 33,
+      "checks": {
+        "unobstructed_app_focus": true,
+        "equal_cards": true,
+        "same_left_edge": true,
+        "14px_card_gap": true,
+        "cards_clear_dock": true,
+        "no_text_clipping": true,
+        "no_ellipsis": true,
+        "dock_inside_viewport": true,
+        "toolbar_aligned": true,
+        "toolbar_separated": true,
+        "toolbar_inside": true,
+        "fm_fills_panel": true,
+        "ten_presets": true,
+        "presets_visible_and_tappable": true
+      },
+      "failed": []
+    },
+    {
+      "case": "fm-800x480",
+      "viewport": {
+        "x": 0,
+        "y": 0,
+        "width": 800,
+        "height": 480
+      },
+      "clock": {
+        "x": 20,
+        "y": 125,
+        "width": 224,
+        "height": 114
+      },
+      "prayer": {
+        "x": 20,
+        "y": 253,
+        "width": 224,
+        "height": 114
+      },
+      "dock": {
+        "x": 233,
+        "y": 408,
+        "width": 349,
+        "height": 64
+      },
+      "visible_text_views": 33,
+      "checks": {
+        "unobstructed_app_focus": true,
+        "equal_cards": true,
+        "same_left_edge": true,
+        "14px_card_gap": true,
+        "cards_clear_dock": true,
+        "no_text_clipping": true,
+        "no_ellipsis": true,
+        "dock_inside_viewport": true,
+        "toolbar_aligned": true,
+        "toolbar_separated": true,
+        "toolbar_inside": true,
+        "fm_fills_panel": true,
+        "ten_presets": true,
+        "presets_visible_and_tappable": true
+      },
+      "failed": []
+    },
+    {
+      "case": "home-1024x600",
+      "viewport": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 600
+      },
+      "clock": {
+        "x": 20,
+        "y": 185,
+        "width": 224,
+        "height": 114
+      },
+      "prayer": {
+        "x": 20,
+        "y": 313,
+        "width": 224,
+        "height": 114
+      },
+      "dock": {
+        "x": 337,
+        "y": 528,
+        "width": 349,
+        "height": 64
+      },
+      "visible_text_views": 14,
+      "checks": {
+        "unobstructed_app_focus": true,
+        "equal_cards": true,
+        "same_left_edge": true,
+        "14px_card_gap": true,
+        "cards_clear_dock": true,
+        "no_text_clipping": true,
+        "no_ellipsis": true,
+        "dock_inside_viewport": true,
+        "toolbar_aligned": true,
+        "toolbar_separated": true,
+        "toolbar_inside": true
+      },
+      "failed": []
+    },
+    {
+      "case": "home-800x480",
+      "viewport": {
+        "x": 0,
+        "y": 0,
+        "width": 800,
+        "height": 480
+      },
+      "clock": {
+        "x": 20,
+        "y": 125,
+        "width": 224,
+        "height": 114
+      },
+      "prayer": {
+        "x": 20,
+        "y": 253,
+        "width": 224,
+        "height": 114
+      },
+      "dock": {
+        "x": 225,
+        "y": 408,
+        "width": 349,
+        "height": 64
+      },
+      "visible_text_views": 14,
+      "checks": {
+        "unobstructed_app_focus": true,
+        "equal_cards": true,
+        "same_left_edge": true,
+        "14px_card_gap": true,
+        "cards_clear_dock": true,
+        "no_text_clipping": true,
+        "no_ellipsis": true,
+        "dock_inside_viewport": true,
+        "toolbar_aligned": true,
+        "toolbar_separated": true,
+        "toolbar_inside": true
+      },
+      "failed": []
+    }
+  ],
+  "checked_conditions": 50,
+  "failures": 0
+}

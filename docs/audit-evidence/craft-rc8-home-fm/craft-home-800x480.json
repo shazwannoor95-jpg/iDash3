@@ -1,0 +1,279 @@
+{
+  "window_focused": true,
+  "case": "home-800x480",
+  "viewport": {
+    "x": 0,
+    "y": 0,
+    "width": 800,
+    "height": 480
+  },
+  "clock": {
+    "x": 20,
+    "y": 125,
+    "width": 224,
+    "height": 114
+  },
+  "prayer": {
+    "x": 20,
+    "y": 253,
+    "width": 224,
+    "height": 114
+  },
+  "dock": {
+    "x": 225,
+    "y": 408,
+    "width": 349,
+    "height": 64
+  },
+  "text": [
+    {
+      "x": 20,
+      "y": 8,
+      "width": 421,
+      "height": 48,
+      "text": "15:35  ·  Fri, 20 Nov",
+      "sp": 13,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 479,
+      "y": 23,
+      "width": 38,
+      "height": 18,
+      "text": "Panel",
+      "sp": 12,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 565,
+      "y": 23,
+      "width": 67,
+      "height": 18,
+      "text": "Customize",
+      "sp": 12,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 680,
+      "y": 23,
+      "width": 90,
+      "height": 18,
+      "text": "Control Center",
+      "sp": 12,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 20,
+      "y": 56,
+      "width": 275,
+      "height": 26,
+      "text": "Shazwan's Saga",
+      "sp": 20,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 40,
+      "y": 145,
+      "width": 184,
+      "height": 14,
+      "text": "TODAY",
+      "sp": 11,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 40,
+      "y": 159,
+      "width": 184,
+      "height": 44,
+      "text": "15:35",
+      "sp": 36,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 40,
+      "y": 203,
+      "width": 184,
+      "height": 15,
+      "text": "Friday, 20 November",
+      "sp": 12,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 241,
+      "y": 448,
+      "width": 44,
+      "height": 14,
+      "text": "Bluetooth",
+      "sp": 9,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 293,
+      "y": 448,
+      "width": 44,
+      "height": 14,
+      "text": "Files",
+      "sp": 9,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 345,
+      "y": 448,
+      "width": 44,
+      "height": 14,
+      "text": "YouTube",
+      "sp": 9,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 410,
+      "y": 448,
+      "width": 44,
+      "height": 14,
+      "text": "Settings",
+      "sp": 9,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 462,
+      "y": 448,
+      "width": 44,
+      "height": 14,
+      "text": "Drive",
+      "sp": 9,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 514,
+      "y": 448,
+      "width": 44,
+      "height": 14,
+      "text": "Apps",
+      "sp": 9,
+      "clipped": false,
+      "ellipsized": false
+    }
+  ],
+  "controls": [
+    {
+      "x": 447,
+      "y": 8,
+      "width": 80,
+      "height": 48,
+      "description": "Panel"
+    },
+    {
+      "x": 533,
+      "y": 8,
+      "width": 109,
+      "height": 48,
+      "description": "Customize"
+    },
+    {
+      "x": 648,
+      "y": 8,
+      "width": 132,
+      "height": 48,
+      "description": "Control Center"
+    },
+    {
+      "x": 20,
+      "y": 92,
+      "width": 275,
+      "height": 308,
+      "description": "Dashboard widgets"
+    },
+    {
+      "x": 20,
+      "y": 125,
+      "width": 224,
+      "height": 114,
+      "description": "Clock widget"
+    },
+    {
+      "x": 40,
+      "y": 145,
+      "width": 184,
+      "height": 14,
+      "description": "Calendar widget"
+    },
+    {
+      "x": 20,
+      "y": 253,
+      "width": 224,
+      "height": 114,
+      "description": "JAKIM calendar widget"
+    },
+    {
+      "x": 20,
+      "y": 253,
+      "width": 224,
+      "height": 114,
+      "description": "Isyak 20:14; menuju Subuh 05:52; 6J 17M lagi"
+    },
+    {
+      "x": 225,
+      "y": 408,
+      "width": 349,
+      "height": 64,
+      "description": "Launcher dock"
+    },
+    {
+      "x": 237,
+      "y": 416,
+      "width": 52,
+      "height": 48,
+      "description": "Favorite Bluetooth"
+    },
+    {
+      "x": 289,
+      "y": 416,
+      "width": 52,
+      "height": 48,
+      "description": "Favorite Files"
+    },
+    {
+      "x": 341,
+      "y": 416,
+      "width": 52,
+      "height": 48,
+      "description": "Favorite YouTube"
+    },
+    {
+      "x": 406,
+      "y": 416,
+      "width": 52,
+      "height": 48,
+      "description": "Settings"
+    },
+    {
+      "x": 458,
+      "y": 416,
+      "width": 52,
+      "height": 48,
+      "description": "Drive"
+    },
+    {
+      "x": 510,
+      "y": 416,
+      "width": 52,
+      "height": 48,
+      "description": "Apps"
+    }
+  ],
+  "card_equal": true,
+  "card_gap": 14
+}

@@ -1,0 +1,235 @@
+{
+  "case": "drive-1024x600",
+  "window_focused": true,
+  "viewport": {
+    "x": 0,
+    "y": 0,
+    "width": 1024,
+    "height": 600
+  },
+  "text": [
+    {
+      "x": 8,
+      "y": 8,
+      "width": 64,
+      "height": 36,
+      "text": "15:40",
+      "sp": 15,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 134,
+      "y": 294,
+      "width": 262,
+      "height": 25,
+      "text": "Media access needed",
+      "sp": 17,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 134,
+      "y": 319,
+      "width": 262,
+      "height": 18,
+      "text": "Tap card to review access",
+      "sp": 12,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 144,
+      "y": 490,
+      "width": 252,
+      "height": 24,
+      "text": "Friday",
+      "sp": 16,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 144,
+      "y": 514,
+      "width": 252,
+      "height": 18,
+      "text": "20 November 2026",
+      "sp": 12,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 940,
+      "y": 16,
+      "width": 72,
+      "height": 48,
+      "text": "Lokasi",
+      "sp": 14,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 414,
+      "y": 548,
+      "width": 606,
+      "height": 28,
+      "text": "Peta kawasan · bukan lokasi anda",
+      "sp": 12,
+      "clipped": false,
+      "ellipsized": false
+    },
+    {
+      "x": 414,
+      "y": 576,
+      "width": 606,
+      "height": 16,
+      "text": "© OpenStreetMap contributors · Internet untuk kawasan baharu",
+      "sp": 10,
+      "clipped": false,
+      "ellipsized": false
+    }
+  ],
+  "controls": [
+    {
+      "x": 8,
+      "y": 8,
+      "width": 1012,
+      "height": 584,
+      "description": "Drive Dashboard"
+    },
+    {
+      "x": 8,
+      "y": 8,
+      "width": 64,
+      "height": 36,
+      "description": "15:40"
+    },
+    {
+      "x": 16,
+      "y": 48,
+      "width": 48,
+      "height": 48,
+      "description": "Dashboard Peta"
+    },
+    {
+      "x": 16,
+      "y": 104,
+      "width": 48,
+      "height": 48,
+      "description": "Dashboard Media"
+    },
+    {
+      "x": 16,
+      "y": 160,
+      "width": 48,
+      "height": 48,
+      "description": "Dashboard YouTube"
+    },
+    {
+      "x": 16,
+      "y": 216,
+      "width": 48,
+      "height": 48,
+      "description": "Dashboard Radio FM"
+    },
+    {
+      "x": 16,
+      "y": 272,
+      "width": 48,
+      "height": 48,
+      "description": "Dashboard Add App"
+    },
+    {
+      "x": 16,
+      "y": 484,
+      "width": 48,
+      "height": 48,
+      "description": "Dashboard Apps"
+    },
+    {
+      "x": 16,
+      "y": 540,
+      "width": 48,
+      "height": 48,
+      "description": "Dashboard Home"
+    },
+    {
+      "x": 80,
+      "y": 8,
+      "width": 326,
+      "height": 233,
+      "description": "Dashboard prayer; tap for JAKIM zone and timetable"
+    },
+    {
+      "x": 80,
+      "y": 44,
+      "width": 326,
+      "height": 160,
+      "description": "Isyak 20:14; menuju Subuh 05:52; 6J 12M lagi"
+    },
+    {
+      "x": 80,
+      "y": 249,
+      "width": 326,
+      "height": 181,
+      "description": "Dashboard media; tap for media access"
+    },
+    {
+      "x": 90,
+      "y": 337,
+      "width": 102,
+      "height": 48,
+      "description": "Previous · access required"
+    },
+    {
+      "x": 192,
+      "y": 337,
+      "width": 102,
+      "height": 48,
+      "description": "Play · access required"
+    },
+    {
+      "x": 294,
+      "y": 337,
+      "width": 102,
+      "height": 48,
+      "description": "Next · access required"
+    },
+    {
+      "x": 80,
+      "y": 438,
+      "width": 326,
+      "height": 146,
+      "description": "Dashboard calendar"
+    },
+    {
+      "x": 414,
+      "y": 8,
+      "width": 606,
+      "height": 568,
+      "description": "Native map area"
+    },
+    {
+      "x": 940,
+      "y": 16,
+      "width": 72,
+      "height": 48,
+      "description": "Lokasi"
+    },
+    {
+      "x": 414,
+      "y": 548,
+      "width": 606,
+      "height": 28,
+      "description": "Dashboard location status"
+    }
+  ],
+  "native_map": true,
+  "gps_tracking": false,
+  "map": {
+    "x": 414,
+    "y": 8,
+    "width": 606,
+    "height": 568
+  }
+}

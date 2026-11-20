@@ -1,0 +1,1217 @@
+{
+  "format": "craft-anything-evidence-bundle",
+  "records": [
+    {
+      "authority": "outside-service",
+      "confidence": "observed",
+      "coverage": {
+        "examined": 1,
+        "status": "complete",
+        "total": 1
+      },
+      "environment": {
+        "clean_room": false,
+        "engine": "adb",
+        "host": "linux-x86_64"
+      },
+      "id": "ev_b012136023b426020caf0f57098b8d526877125aa13dd64a5f95a62ebf7ce583",
+      "limitations": [],
+      "links": [],
+      "locations": [
+        {
+          "kind": "path",
+          "value": "/workspace/craft-audits/rc8-pages-final/drive-800x480-metrics"
+        }
+      ],
+      "operation": "adb_file_download",
+      "params": {
+        "device_path": "/sdcard/Android/data/com.shazwan.idash3/files/craft-drive-800x480.json",
+        "output_directory": "/workspace/craft-audits/rc8-pages-final/drive-800x480-metrics",
+        "serial": "emulator-5554"
+      },
+      "result": {
+        "device_path": "/sdcard/Android/data/com.shazwan.idash3/files/craft-drive-800x480.json",
+        "files": [
+          "craft-drive-800x480.json"
+        ],
+        "output_directory": "/workspace/craft-audits/rc8-pages-final/drive-800x480-metrics"
+      },
+      "subject": {
+        "kind": "device",
+        "name": "emulator-5554"
+      },
+      "summary": "Pulled /sdcard/Android/data/com.shazwan.idash3/files/craft-drive-800x480.json to /workspace/craft-audits/rc8-pages-final/drive-800x480-metrics."
+    },
+    {
+      "authority": "outside-service",
+      "confidence": "observed",
+      "coverage": {
+        "examined": 1,
+        "status": "complete",
+        "total": 1
+      },
+      "environment": {
+        "clean_room": false,
+        "engine": "adb",
+        "host": "linux-x86_64"
+      },
+      "id": "ev_b6b76f71afd057ea3e71ae0e922f5f9f15a91e14050b45794da1efe0287553e9",
+      "limitations": [],
+      "links": [],
+      "locations": [
+        {
+          "kind": "path",
+          "value": "/workspace/craft-audits/rc8-pages-final/drive-800x480-screen/screen.png"
+        }
+      ],
+      "operation": "adb_screenshot_take",
+      "params": {
+        "output_directory": "/workspace/craft-audits/rc8-pages-final/drive-800x480-screen",
+        "serial": "emulator-5554"
+      },
+      "result": {
+        "bytes": 427021,
+        "file": "/workspace/craft-audits/rc8-pages-final/drive-800x480-screen/screen.png"
+      },
+      "subject": {
+        "kind": "device",
+        "name": "emulator-5554"
+      },
+      "summary": "Saved a 427021-byte screenshot to /workspace/craft-audits/rc8-pages-final/drive-800x480-screen/screen.png."
+    },
+    {
+      "authority": "outside-service",
+      "confidence": "observed",
+      "coverage": {
+        "examined": 1,
+        "status": "complete",
+        "total": 1
+      },
+      "environment": {
+        "clean_room": false,
+        "engine": "adb",
+        "host": "linux-x86_64"
+      },
+      "id": "ev_f7ca6f9e444493aee50b148f2ba535bbdad21bae63a7b0277d1cdf28f6a4ee56",
+      "limitations": [],
+      "links": [],
+      "locations": [
+        {
+          "kind": "path",
+          "value": "/workspace/craft-audits/rc8-pages-final/apps-800x480-metrics"
+        }
+      ],
+      "operation": "adb_file_download",
+      "params": {
+        "device_path": "/sdcard/Android/data/com.shazwan.idash3/files/craft-apps-800x480.json",
+        "output_directory": "/workspace/craft-audits/rc8-pages-final/apps-800x480-metrics",
+        "serial": "emulator-5554"
+      },
+      "result": {
+        "device_path": "/sdcard/Android/data/com.shazwan.idash3/files/craft-apps-800x480.json",
+        "files": [
+          "craft-apps-800x480.json"
+        ],
+        "output_directory": "/workspace/craft-audits/rc8-pages-final/apps-800x480-metrics"
+      },
+      "subject": {
+        "kind": "device",
+        "name": "emulator-5554"
+      },
+      "summary": "Pulled /sdcard/Android/data/com.shazwan.idash3/files/craft-apps-800x480.json to /workspace/craft-audits/rc8-pages-final/apps-800x480-metrics."
+    },
+    {
+      "authority": "outside-service",
+      "confidence": "observed",
+      "coverage": {
+        "examined": 1,
+        "status": "complete",
+        "total": 1
+      },
+      "environment": {
+        "clean_room": false,
+        "engine": "adb",
+        "host": "linux-x86_64"
+      },
+      "id": "ev_0d6f6d861fe3952fffdf9d299a6235dc68b521abb376033fec7ca63a7b7cd5b9",
+      "limitations": [],
+      "links": [],
+      "locations": [
+        {
+          "kind": "path",
+          "value": "/workspace/craft-audits/rc8-pages-final/apps-800x480-screen/screen.png"
+        }
+      ],
+      "operation": "adb_screenshot_take",
+      "params": {
+        "output_directory": "/workspace/craft-audits/rc8-pages-final/apps-800x480-screen",
+        "serial": "emulator-5554"
+      },
+      "result": {
+        "bytes": 613150,
+        "file": "/workspace/craft-audits/rc8-pages-final/apps-800x480-screen/screen.png"
+      },
+      "subject": {
+        "kind": "device",
+        "name": "emulator-5554"
+      },
+      "summary": "Saved a 613150-byte screenshot to /workspace/craft-audits/rc8-pages-final/apps-800x480-screen/screen.png."
+    },
+    {
+      "authority": "outside-service",
+      "confidence": "observed",
+      "coverage": {
+        "examined": 1,
+        "status": "complete",
+        "total": 1
+      },
+      "environment": {
+        "clean_room": false,
+        "engine": "adb",
+        "host": "linux-x86_64"
+      },
+      "id": "ev_182a650941619685861b58868457809b4e8ce56ebe5a76f0ecdf3e4837e9a90c",
+      "limitations": [],
+      "links": [],
+      "locations": [
+        {
+          "kind": "path",
+          "value": "/workspace/craft-audits/rc8-pages-final/drive-1024x600-metrics"
+        }
+      ],
+      "operation": "adb_file_download",
+      "params": {
+        "device_path": "/sdcard/Android/data/com.shazwan.idash3/files/craft-drive-1024x600.json",
+        "output_directory": "/workspace/craft-audits/rc8-pages-final/drive-1024x600-metrics",
+        "serial": "emulator-5554"
+      },
+      "result": {
+        "device_path": "/sdcard/Android/data/com.shazwan.idash3/files/craft-drive-1024x600.json",
+        "files": [
+          "craft-drive-1024x600.json"
+        ],
+        "output_directory": "/workspace/craft-audits/rc8-pages-final/drive-1024x600-metrics"
+      },
+      "subject": {
+        "kind": "device",
+        "name": "emulator-5554"
+      },
+      "summary": "Pulled /sdcard/Android/data/com.shazwan.idash3/files/craft-drive-1024x600.json to /workspace/craft-audits/rc8-pages-final/drive-1024x600-metrics."
+    },
+    {
+      "authority": "outside-service",
+      "confidence": "observed",
+      "coverage": {
+        "examined": 1,
+        "status": "complete",
+        "total": 1
+      },
+      "environment": {
+        "clean_room": false,
+        "engine": "adb",
+        "host": "linux-x86_64"
+      },
+      "id": "ev_b548aa593c33475665726405ab20e2c727d2a8096f3574240748382ba723a9c4",
+      "limitations": [],
+      "links": [],
+      "locations": [
+        {
+          "kind": "path",
+          "value": "/workspace/craft-audits/rc8-pages-final/drive-1024x600-screen/screen.png"
+        }
+      ],
+      "operation": "adb_screenshot_take",
+      "params": {
+        "output_directory": "/workspace/craft-audits/rc8-pages-final/drive-1024x600-screen",
+        "serial": "emulator-5554"
+      },
+      "result": {
+        "bytes": 450011,
+        "file": "/workspace/craft-audits/rc8-pages-final/drive-1024x600-screen/screen.png"
+      },
+      "subject": {
+        "kind": "device",
+        "name": "emulator-5554"
+      },
+      "summary": "Saved a 450011-byte screenshot to /workspace/craft-audits/rc8-pages-final/drive-1024x600-screen/screen.png."
+    },
+    {
+      "authority": "outside-service",
+      "confidence": "observed",
+      "coverage": {
+        "examined": 1,
+        "status": "complete",
+        "total": 1
+      },
+      "environment": {
+        "clean_room": false,
+        "engine": "adb",
+        "host": "linux-x86_64"
+      },
+      "id": "ev_767e6652c505d5762c12eab0b2f8434a5e1577bf33028b8028dc265e10a12e55",
+      "limitations": [],
+      "links": [],
+      "locations": [
+        {
+          "kind": "path",
+          "value": "/workspace/craft-audits/rc8-pages-final/apps-1024x600-metrics"
+        }
+      ],
+      "operation": "adb_file_download",
+      "params": {
+        "device_path": "/sdcard/Android/data/com.shazwan.idash3/files/craft-apps-1024x600.json",
+        "output_directory": "/workspace/craft-audits/rc8-pages-final/apps-1024x600-metrics",
+        "serial": "emulator-5554"
+      },
+      "result": {
+        "device_path": "/sdcard/Android/data/com.shazwan.idash3/files/craft-apps-1024x600.json",
+        "files": [
+          "craft-apps-1024x600.json"
+        ],
+        "output_directory": "/workspace/craft-audits/rc8-pages-final/apps-1024x600-metrics"
+      },
+      "subject": {
+        "kind": "device",
+        "name": "emulator-5554"
+      },
+      "summary": "Pulled /sdcard/Android/data/com.shazwan.idash3/files/craft-apps-1024x600.json to /workspace/craft-audits/rc8-pages-final/apps-1024x600-metrics."
+    },
+    {
+      "authority": "outside-service",
+      "confidence": "observed",
+      "coverage": {
+        "examined": 1,
+        "status": "complete",
+        "total": 1
+      },
+      "environment": {
+        "clean_room": false,
+        "engine": "adb",
+        "host": "linux-x86_64"
+      },
+      "id": "ev_e10589db2ecfb333dc19602a59a9aaecd2b0108c47d6ebfee5c96475a0582503",
+      "limitations": [],
+      "links": [],
+      "locations": [
+        {
+          "kind": "path",
+          "value": "/workspace/craft-audits/rc8-pages-final/apps-1024x600-screen/screen.png"
+        }
+      ],
+      "operation": "adb_screenshot_take",
+      "params": {
+        "output_directory": "/workspace/craft-audits/rc8-pages-final/apps-1024x600-screen",
+        "serial": "emulator-5554"
+      },
+      "result": {
+        "bytes": 711980,
+        "file": "/workspace/craft-audits/rc8-pages-final/apps-1024x600-screen/screen.png"
+      },
+      "subject": {
+        "kind": "device",
+        "name": "emulator-5554"
+      },
+      "summary": "Saved a 711980-byte screenshot to /workspace/craft-audits/rc8-pages-final/apps-1024x600-screen/screen.png."
+    },
+    {
+      "authority": "outside-service",
+      "confidence": "observed",
+      "coverage": {
+        "examined": 1,
+        "status": "complete",
+        "total": 1
+      },
+      "environment": {
+        "clean_room": false,
+        "engine": "adb",
+        "host": "linux-x86_64"
+      },
+      "id": "ev_8abe0f150f785c38f0daf57ecdb005ccfe373bfed06ddfd6660ae76ba28e3167",
+      "limitations": [],
+      "links": [],
+      "locations": [
+        {
+          "kind": "path",
+          "value": "/workspace/craft-audits/rc8-native-final/fm-800x480-metrics"
+        }
+      ],
+      "operation": "adb_file_download",
+      "params": {
+        "device_path": "/sdcard/Android/data/com.shazwan.idash3/files/craft-fm-800x480.json",
+        "output_directory": "/workspace/craft-audits/rc8-native-final/fm-800x480-metrics",
+        "serial": "emulator-5554"
+      },
+      "result": {
+        "device_path": "/sdcard/Android/data/com.shazwan.idash3/files/craft-fm-800x480.json",
+        "files": [
+          "craft-fm-800x480.json"
+        ],
+        "output_directory": "/workspace/craft-audits/rc8-native-final/fm-800x480-metrics"
+      },
+      "subject": {
+        "kind": "device",
+        "name": "emulator-5554"
+      },
+      "summary": "Pulled /sdcard/Android/data/com.shazwan.idash3/files/craft-fm-800x480.json to /workspace/craft-audits/rc8-native-final/fm-800x480-metrics."
+    },
+    {
+      "authority": "outside-service",
+      "confidence": "observed",
+      "coverage": {
+        "examined": 1,
+        "status": "complete",
+        "total": 1
+      },
+      "environment": {
+        "clean_room": false,
+        "engine": "adb",
+        "host": "linux-x86_64"
+      },
+      "id": "ev_68a67afd0229ce599e39e621eb6aa0519ee248d5e2c938dba6da842727af7b3c",
+      "limitations": [],
+      "links": [],
+      "locations": [
+        {
+          "kind": "path",
+          "value": "/workspace/craft-audits/rc8-native-final/fm-800x480-screen/screen.png"
+        }
+      ],
+      "operation": "adb_screenshot_take",
+      "params": {
+        "output_directory": "/workspace/craft-audits/rc8-native-final/fm-800x480-screen",
+        "serial": "emulator-5554"
+      },
+      "result": {
+        "bytes": 599359,
+        "file": "/workspace/craft-audits/rc8-native-final/fm-800x480-screen/screen.png"
+      },
+      "subject": {
+        "kind": "device",
+        "name": "emulator-5554"
+      },
+      "summary": "Saved a 599359-byte screenshot to /workspace/craft-audits/rc8-native-final/fm-800x480-screen/screen.png."
+    },
+    {
+      "authority": "outside-service",
+      "confidence": "observed",
+      "coverage": {
+        "examined": 1,
+        "status": "complete",
+        "total": 1
+      },
+      "environment": {
+        "clean_room": false,
+        "engine": "adb",
+        "host": "linux-x86_64"
+      },
+      "id": "ev_f07f3097e514988958d7d9df863d648f8aa20d90a4fa79e7ed4578228d8f81c3",
+      "limitations": [],
+      "links": [],
+      "locations": [
+        {
+          "kind": "path",
+          "value": "/workspace/craft-audits/rc8-native-final/home-800x480-metrics"
+        }
+      ],
+      "operation": "adb_file_download",
+      "params": {
+        "device_path": "/sdcard/Android/data/com.shazwan.idash3/files/craft-home-800x480.json",
+        "output_directory": "/workspace/craft-audits/rc8-native-final/home-800x480-metrics",
+        "serial": "emulator-5554"
+      },
+      "result": {
+        "device_path": "/sdcard/Android/data/com.shazwan.idash3/files/craft-home-800x480.json",
+        "files": [
+          "craft-home-800x480.json"
+        ],
+        "output_directory": "/workspace/craft-audits/rc8-native-final/home-800x480-metrics"
+      },
+      "subject": {
+        "kind": "device",
+        "name": "emulator-5554"
+      },
+      "summary": "Pulled /sdcard/Android/data/com.shazwan.idash3/files/craft-home-800x480.json to /workspace/craft-audits/rc8-native-final/home-800x480-metrics."
+    },
+    {
+      "authority": "outside-service",
+      "confidence": "observed",
+      "coverage": {
+        "examined": 1,
+        "status": "complete",
+        "total": 1
+      },
+      "environment": {
+        "clean_room": false,
+        "engine": "adb",
+        "host": "linux-x86_64"
+      },
+      "id": "ev_c4f67a1b8eac3728930bba6a0098b3f1bcbb086526aabd9f36068934f6a4dfad",
+      "limitations": [],
+      "links": [],
+      "locations": [
+        {
+          "kind": "path",
+          "value": "/workspace/craft-audits/rc8-native-final/home-800x480-screen/screen.png"
+        }
+      ],
+      "operation": "adb_screenshot_take",
+      "params": {
+        "output_directory": "/workspace/craft-audits/rc8-native-final/home-800x480-screen",
+        "serial": "emulator-5554"
+      },
+      "result": {
+        "bytes": 480662,
+        "file": "/workspace/craft-audits/rc8-native-final/home-800x480-screen/screen.png"
+      },
+      "subject": {
+        "kind": "device",
+        "name": "emulator-5554"
+      },
+      "summary": "Saved a 480662-byte screenshot to /workspace/craft-audits/rc8-native-final/home-800x480-screen/screen.png."
+    },
+    {
+      "authority": "outside-service",
+      "confidence": "observed",
+      "coverage": {
+        "examined": 1,
+        "status": "complete",
+        "total": 1
+      },
+      "environment": {
+        "clean_room": false,
+        "engine": "adb",
+        "host": "linux-x86_64"
+      },
+      "id": "ev_bca67c04ed449715c49d4584357ae79990c8b5f8b41c51a405e2f3d0447e17b6",
+      "limitations": [],
+      "links": [],
+      "locations": [
+        {
+          "kind": "path",
+          "value": "/workspace/craft-audits/rc8-native-final/fm-1024x600-metrics"
+        }
+      ],
+      "operation": "adb_file_download",
+      "params": {
+        "device_path": "/sdcard/Android/data/com.shazwan.idash3/files/craft-fm-1024x600.json",
+        "output_directory": "/workspace/craft-audits/rc8-native-final/fm-1024x600-metrics",
+        "serial": "emulator-5554"
+      },
+      "result": {
+        "device_path": "/sdcard/Android/data/com.shazwan.idash3/files/craft-fm-1024x600.json",
+        "files": [
+          "craft-fm-1024x600.json"
+        ],
+        "output_directory": "/workspace/craft-audits/rc8-native-final/fm-1024x600-metrics"
+      },
+      "subject": {
+        "kind": "device",
+        "name": "emulator-5554"
+      },
+      "summary": "Pulled /sdcard/Android/data/com.shazwan.idash3/files/craft-fm-1024x600.json to /workspace/craft-audits/rc8-native-final/fm-1024x600-metrics."
+    },
+    {
+      "authority": "outside-service",
+      "confidence": "observed",
+      "coverage": {
+        "examined": 1,
+        "status": "complete",
+        "total": 1
+      },
+      "environment": {
+        "clean_room": false,
+        "engine": "adb",
+        "host": "linux-x86_64"
+      },
+      "id": "ev_6220eeb780b8d964e6e5016136bcd8ed16e6663748f8da26f94dd2a33b6410bf",
+      "limitations": [],
+      "links": [],
+      "locations": [
+        {
+          "kind": "path",
+          "value": "/workspace/craft-audits/rc8-native-final/fm-1024x600-screen/screen.png"
+        }
+      ],
+      "operation": "adb_screenshot_take",
+      "params": {
+        "output_directory": "/workspace/craft-audits/rc8-native-final/fm-1024x600-screen",
+        "serial": "emulator-5554"
+      },
+      "result": {
+        "bytes": 668921,
+        "file": "/workspace/craft-audits/rc8-native-final/fm-1024x600-screen/screen.png"
+      },
+      "subject": {
+        "kind": "device",
+        "name": "emulator-5554"
+      },
+      "summary": "Saved a 668921-byte screenshot to /workspace/craft-audits/rc8-native-final/fm-1024x600-screen/screen.png."
+    },
+    {
+      "authority": "outside-service",
+      "confidence": "observed",
+      "coverage": {
+        "examined": 1,
+        "status": "complete",
+        "total": 1
+      },
+      "environment": {
+        "clean_room": false,
+        "engine": "adb",
+        "host": "linux-x86_64"
+      },
+      "id": "ev_7152f3248bca3fe4f0c390244d19f5a46ed0fcc98e2fc2904880a4b1a405a0c1",
+      "limitations": [],
+      "links": [],
+      "locations": [
+        {
+          "kind": "path",
+          "value": "/workspace/craft-audits/rc8-native-final/home-1024x600-metrics"
+        }
+      ],
+      "operation": "adb_file_download",
+      "params": {
+        "device_path": "/sdcard/Android/data/com.shazwan.idash3/files/craft-home-1024x600.json",
+        "output_directory": "/workspace/craft-audits/rc8-native-final/home-1024x600-metrics",
+        "serial": "emulator-5554"
+      },
+      "result": {
+        "device_path": "/sdcard/Android/data/com.shazwan.idash3/files/craft-home-1024x600.json",
+        "files": [
+          "craft-home-1024x600.json"
+        ],
+        "output_directory": "/workspace/craft-audits/rc8-native-final/home-1024x600-metrics"
+      },
+      "subject": {
+        "kind": "device",
+        "name": "emulator-5554"
+      },
+      "summary": "Pulled /sdcard/Android/data/com.shazwan.idash3/files/craft-home-1024x600.json to /workspace/craft-audits/rc8-native-final/home-1024x600-metrics."
+    },
+    {
+      "authority": "outside-service",
+      "confidence": "observed",
+      "coverage": {
+        "examined": 1,
+        "status": "complete",
+        "total": 1
+      },
+      "environment": {
+        "clean_room": false,
+        "engine": "adb",
+        "host": "linux-x86_64"
+      },
+      "id": "ev_2fb6879dee2fd210cb6b5fac4c7fcdc00ceb24ecbde1f0ff50d7cf118f7e757b",
+      "limitations": [],
+      "links": [],
+      "locations": [
+        {
+          "kind": "path",
+          "value": "/workspace/craft-audits/rc8-native-final/home-1024x600-screen/screen.png"
+        }
+      ],
+      "operation": "adb_screenshot_take",
+      "params": {
+        "output_directory": "/workspace/craft-audits/rc8-native-final/home-1024x600-screen",
+        "serial": "emulator-5554"
+      },
+      "result": {
+        "bytes": 535324,
+        "file": "/workspace/craft-audits/rc8-native-final/home-1024x600-screen/screen.png"
+      },
+      "subject": {
+        "kind": "device",
+        "name": "emulator-5554"
+      },
+      "summary": "Saved a 535324-byte screenshot to /workspace/craft-audits/rc8-native-final/home-1024x600-screen/screen.png."
+    },
+    {
+      "authority": "outside-service",
+      "confidence": "observed",
+      "coverage": {
+        "examined": 1,
+        "status": "complete",
+        "total": 1
+      },
+      "environment": {
+        "clean_room": false,
+        "engine": "adb",
+        "host": "linux-x86_64"
+      },
+      "id": "ev_5b20b3977625f045ad3d8f6df72b1a74c20c4cf4d440bfc4a126038c8a9f230a",
+      "limitations": [],
+      "links": [],
+      "locations": [
+        {
+          "kind": "path",
+          "value": "/workspace/craft-audits/rc8-native/fm-800x480-metrics"
+        }
+      ],
+      "operation": "adb_file_download",
+      "params": {
+        "device_path": "/sdcard/Android/data/com.shazwan.idash3/files/craft-fm-800x480.json",
+        "output_directory": "/workspace/craft-audits/rc8-native/fm-800x480-metrics",
+        "serial": "emulator-5554"
+      },
+      "result": {
+        "device_path": "/sdcard/Android/data/com.shazwan.idash3/files/craft-fm-800x480.json",
+        "files": [
+          "craft-fm-800x480.json"
+        ],
+        "output_directory": "/workspace/craft-audits/rc8-native/fm-800x480-metrics"
+      },
+      "subject": {
+        "kind": "device",
+        "name": "emulator-5554"
+      },
+      "summary": "Pulled /sdcard/Android/data/com.shazwan.idash3/files/craft-fm-800x480.json to /workspace/craft-audits/rc8-native/fm-800x480-metrics."
+    },
+    {
+      "authority": "outside-service",
+      "confidence": "observed",
+      "coverage": {
+        "examined": 1,
+        "status": "complete",
+        "total": 1
+      },
+      "environment": {
+        "clean_room": false,
+        "engine": "adb",
+        "host": "linux-x86_64"
+      },
+      "id": "ev_0e0e2ad0ee440b23078482001e7716d8c4277f5aad34420b7eb1790187ed946f",
+      "limitations": [],
+      "links": [],
+      "locations": [
+        {
+          "kind": "path",
+          "value": "/workspace/craft-audits/rc8-native/fm-800x480-screen/screen.png"
+        }
+      ],
+      "operation": "adb_screenshot_take",
+      "params": {
+        "output_directory": "/workspace/craft-audits/rc8-native/fm-800x480-screen",
+        "serial": "emulator-5554"
+      },
+      "result": {
+        "bytes": 356503,
+        "file": "/workspace/craft-audits/rc8-native/fm-800x480-screen/screen.png"
+      },
+      "subject": {
+        "kind": "device",
+        "name": "emulator-5554"
+      },
+      "summary": "Saved a 356503-byte screenshot to /workspace/craft-audits/rc8-native/fm-800x480-screen/screen.png."
+    },
+    {
+      "authority": "outside-service",
+      "confidence": "observed",
+      "coverage": {
+        "examined": 1,
+        "status": "complete",
+        "total": 1
+      },
+      "environment": {
+        "clean_room": false,
+        "engine": "adb",
+        "host": "linux-x86_64"
+      },
+      "id": "ev_8e57117dc9986b2f5d0418c48b934e722edd7b0f16dd3e620ea69b941bfda3b2",
+      "limitations": [],
+      "links": [],
+      "locations": [
+        {
+          "kind": "path",
+          "value": "/workspace/craft-audits/rc8-native/home-800x480-metrics"
+        }
+      ],
+      "operation": "adb_file_download",
+      "params": {
+        "device_path": "/sdcard/Android/data/com.shazwan.idash3/files/craft-home-800x480.json",
+        "output_directory": "/workspace/craft-audits/rc8-native/home-800x480-metrics",
+        "serial": "emulator-5554"
+      },
+      "result": {
+        "device_path": "/sdcard/Android/data/com.shazwan.idash3/files/craft-home-800x480.json",
+        "files": [
+          "craft-home-800x480.json"
+        ],
+        "output_directory": "/workspace/craft-audits/rc8-native/home-800x480-metrics"
+      },
+      "subject": {
+        "kind": "device",
+        "name": "emulator-5554"
+      },
+      "summary": "Pulled /sdcard/Android/data/com.shazwan.idash3/files/craft-home-800x480.json to /workspace/craft-audits/rc8-native/home-800x480-metrics."
+    },
+    {
+      "authority": "outside-service",
+      "confidence": "observed",
+      "coverage": {
+        "examined": 1,
+        "status": "complete",
+        "total": 1
+      },
+      "environment": {
+        "clean_room": false,
+        "engine": "adb",
+        "host": "linux-x86_64"
+      },
+      "id": "ev_1949fb04d7955d08b64b817530dc82eaa05ddfd66886e7b309910473f9ceb6c7",
+      "limitations": [],
+      "links": [],
+      "locations": [
+        {
+          "kind": "path",
+          "value": "/workspace/craft-audits/rc8-native/home-800x480-screen/screen.png"
+        }
+      ],
+      "operation": "adb_screenshot_take",
+      "params": {
+        "output_directory": "/workspace/craft-audits/rc8-native/home-800x480-screen",
+        "serial": "emulator-5554"
+      },
+      "result": {
+        "bytes": 285191,
+        "file": "/workspace/craft-audits/rc8-native/home-800x480-screen/screen.png"
+      },
+      "subject": {
+        "kind": "device",
+        "name": "emulator-5554"
+      },
+      "summary": "Saved a 285191-byte screenshot to /workspace/craft-audits/rc8-native/home-800x480-screen/screen.png."
+    },
+    {
+      "authority": "outside-service",
+      "confidence": "observed",
+      "coverage": {
+        "examined": 1,
+        "status": "complete",
+        "total": 1
+      },
+      "environment": {
+        "clean_room": false,
+        "engine": "adb",
+        "host": "linux-x86_64"
+      },
+      "id": "ev_5d38bc26ed80284b13bb996bf894f62215e54407028cd1847cf6ac211123bee5",
+      "limitations": [],
+      "links": [],
+      "locations": [
+        {
+          "kind": "path",
+          "value": "/workspace/craft-audits/rc8-native/fm-1024x600-metrics"
+        }
+      ],
+      "operation": "adb_file_download",
+      "params": {
+        "device_path": "/sdcard/Android/data/com.shazwan.idash3/files/craft-fm-1024x600.json",
+        "output_directory": "/workspace/craft-audits/rc8-native/fm-1024x600-metrics",
+        "serial": "emulator-5554"
+      },
+      "result": {
+        "device_path": "/sdcard/Android/data/com.shazwan.idash3/files/craft-fm-1024x600.json",
+        "files": [
+          "craft-fm-1024x600.json"
+        ],
+        "output_directory": "/workspace/craft-audits/rc8-native/fm-1024x600-metrics"
+      },
+      "subject": {
+        "kind": "device",
+        "name": "emulator-5554"
+      },
+      "summary": "Pulled /sdcard/Android/data/com.shazwan.idash3/files/craft-fm-1024x600.json to /workspace/craft-audits/rc8-native/fm-1024x600-metrics."
+    },
+    {
+      "authority": "outside-service",
+      "confidence": "observed",
+      "coverage": {
+        "examined": 1,
+        "status": "complete",
+        "total": 1
+      },
+      "environment": {
+        "clean_room": false,
+        "engine": "adb",
+        "host": "linux-x86_64"
+      },
+      "id": "ev_3407c867462b18493b4f9e6417e0d6f7388f2e6da08ff95b89d5552f3b5d2174",
+      "limitations": [],
+      "links": [],
+      "locations": [
+        {
+          "kind": "path",
+          "value": "/workspace/craft-audits/rc8-native/fm-1024x600-screen/screen.png"
+        }
+      ],
+      "operation": "adb_screenshot_take",
+      "params": {
+        "output_directory": "/workspace/craft-audits/rc8-native/fm-1024x600-screen",
+        "serial": "emulator-5554"
+      },
+      "result": {
+        "bytes": 396389,
+        "file": "/workspace/craft-audits/rc8-native/fm-1024x600-screen/screen.png"
+      },
+      "subject": {
+        "kind": "device",
+        "name": "emulator-5554"
+      },
+      "summary": "Saved a 396389-byte screenshot to /workspace/craft-audits/rc8-native/fm-1024x600-screen/screen.png."
+    },
+    {
+      "authority": "outside-service",
+      "confidence": "observed",
+      "coverage": {
+        "examined": 1,
+        "status": "complete",
+        "total": 1
+      },
+      "environment": {
+        "clean_room": false,
+        "engine": "adb",
+        "host": "linux-x86_64"
+      },
+      "id": "ev_28882279e7c526a73a0bc792639e08ba8bd7fce5c9ddb11e63d88c7d67b8e676",
+      "limitations": [],
+      "links": [],
+      "locations": [
+        {
+          "kind": "path",
+          "value": "/workspace/craft-audits/rc8-native/home-1024x600-metrics"
+        }
+      ],
+      "operation": "adb_file_download",
+      "params": {
+        "device_path": "/sdcard/Android/data/com.shazwan.idash3/files/craft-home-1024x600.json",
+        "output_directory": "/workspace/craft-audits/rc8-native/home-1024x600-metrics",
+        "serial": "emulator-5554"
+      },
+      "result": {
+        "device_path": "/sdcard/Android/data/com.shazwan.idash3/files/craft-home-1024x600.json",
+        "files": [
+          "craft-home-1024x600.json"
+        ],
+        "output_directory": "/workspace/craft-audits/rc8-native/home-1024x600-metrics"
+      },
+      "subject": {
+        "kind": "device",
+        "name": "emulator-5554"
+      },
+      "summary": "Pulled /sdcard/Android/data/com.shazwan.idash3/files/craft-home-1024x600.json to /workspace/craft-audits/rc8-native/home-1024x600-metrics."
+    },
+    {
+      "authority": "outside-service",
+      "confidence": "observed",
+      "coverage": {
+        "examined": 1,
+        "status": "complete",
+        "total": 1
+      },
+      "environment": {
+        "clean_room": false,
+        "engine": "adb",
+        "host": "linux-x86_64"
+      },
+      "id": "ev_7cf450bcc5c379150e574b946c046dd017d7a18709ecbac611a10c220892965a",
+      "limitations": [],
+      "links": [],
+      "locations": [
+        {
+          "kind": "path",
+          "value": "/workspace/craft-audits/rc8-native/home-1024x600-screen/screen.png"
+        }
+      ],
+      "operation": "adb_screenshot_take",
+      "params": {
+        "output_directory": "/workspace/craft-audits/rc8-native/home-1024x600-screen",
+        "serial": "emulator-5554"
+      },
+      "result": {
+        "bytes": 307415,
+        "file": "/workspace/craft-audits/rc8-native/home-1024x600-screen/screen.png"
+      },
+      "subject": {
+        "kind": "device",
+        "name": "emulator-5554"
+      },
+      "summary": "Saved a 307415-byte screenshot to /workspace/craft-audits/rc8-native/home-1024x600-screen/screen.png."
+    },
+    {
+      "authority": "original-files",
+      "confidence": "observed",
+      "coverage": {
+        "status": "complete"
+      },
+      "environment": {
+        "clean_room": false,
+        "engine": "builtin",
+        "engine_version": "0.6.1",
+        "host": "linux-x86_64"
+      },
+      "id": "ev_12d0ba9706c516c68e6724189d55e40c22c2618ec431ce85b398f11549915197",
+      "limitations": [
+        {
+          "code": "verification_scope",
+          "message": "Signatures ARE verified cryptographically here (v2/v3 signature over the signed data plus a recomputed APK content digest; v1 PKCS#7 over the .SF plus MANIFEST.MF per-file digests). NOT checked: certificate revocation, v3 key-rotation lineage/proof-of-rotation, rollback protection, source-stamp, and whether the signing certificate is one you trust (the certificate SHA-256 fingerprint is reported so you can compare it yourself)."
+        }
+      ],
+      "links": [],
+      "locations": [
+        {
+          "kind": "path",
+          "value": "/workspace/iDash3/dist/iDash4-0.6.0-rc8-debug.apk"
+        }
+      ],
+      "operation": "android_package_show",
+      "params": {
+        "include_manifest_xml": true,
+        "path": "/workspace/iDash3/dist/iDash4-0.6.0-rc8-debug.apk"
+      },
+      "result": {
+        "assets": 74,
+        "dex": [
+          {
+            "bytes": 548296,
+            "checksum_ok": true,
+            "classes": 330,
+            "fields": 1579,
+            "methods": 3960,
+            "name": "classes.dex",
+            "sha256": "4e51063ccc8c17d24718609cf0ba602f09eacff718d2b1e1af1115b8ddf92219",
+            "strings": 6327,
+            "version": "038"
+          },
+          {
+            "bytes": 6396,
+            "checksum_ok": true,
+            "classes": 11,
+            "fields": 98,
+            "methods": 12,
+            "name": "classes2.dex",
+            "sha256": "88342b527111f40e76b5c1c22b0dfd9df6d4e7fc796af2295f177f1b270e8383",
+            "strings": 127,
+            "version": "038"
+          },
+          {
+            "bytes": 467476,
+            "checksum_ok": true,
+            "classes": 408,
+            "fields": 1483,
+            "methods": 3020,
+            "name": "classes3.dex",
+            "sha256": "2665f592b72dcdeab3cd8acee636251bfb03cb650e11701ea0529bffa9c518cf",
+            "strings": 4661,
+            "version": "038"
+          }
+        ],
+        "entries": 158,
+        "has_resources_arsc": true,
+        "manifest": {
+          "application": {
+            "allow_backup": false,
+            "debuggable": true,
+            "enabled": null,
+            "extract_native_libs": false,
+            "label": "iDash4",
+            "name": null,
+            "network_security_config": null,
+            "permission": null,
+            "test_only": null,
+            "uses_cleartext_traffic": null
+          },
+          "components": [
+            {
+              "authorities": null,
+              "enabled": null,
+              "exported": true,
+              "exported_attribute": true,
+              "intent_filters": [
+                {
+                  "actions": [
+                    "android.service.notification.NotificationListenerService"
+                  ],
+                  "categories": [],
+                  "data": []
+                }
+              ],
+              "kind": "service",
+              "name": "com.shazwan.idash3.MediaAccessService",
+              "permission": "android.permission.BIND_NOTIFICATION_LISTENER_SERVICE",
+              "read_permission": null,
+              "write_permission": null
+            },
+            {
+              "authorities": null,
+              "enabled": null,
+              "exported": true,
+              "exported_attribute": true,
+              "intent_filters": [
+                {
+                  "actions": [
+                    "android.intent.action.MAIN"
+                  ],
+                  "categories": [
+                    "android.intent.category.HOME",
+                    "android.intent.category.DEFAULT"
+                  ],
+                  "data": []
+                },
+                {
+                  "actions": [
+                    "android.intent.action.MAIN"
+                  ],
+                  "categories": [
+                    "android.intent.category.LAUNCHER"
+                  ],
+                  "data": []
+                }
+              ],
+              "kind": "activity",
+              "name": "com.shazwan.idash3.LauncherActivity",
+              "permission": null,
+              "read_permission": null,
+              "write_permission": null
+            }
+          ],
+          "declared_permissions": [
+            {
+              "name": "com.shazwan.idash3.permission.CONTROL",
+              "protection_level": "0x2"
+            }
+          ],
+          "max_sdk": null,
+          "min_sdk": "26",
+          "package": "com.shazwan.idash3",
+          "target_sdk": "35",
+          "uses_features": [
+            "android.hardware.location.network",
+            "android.hardware.location.gps",
+            "android.hardware.telephony",
+            "android.hardware.wifi"
+          ],
+          "uses_libraries": [],
+          "uses_permissions": [
+            "android.permission.MODIFY_AUDIO_SETTINGS",
+            "android.permission.INTERNET",
+            "android.permission.ACCESS_WIFI_STATE",
+            "android.permission.CHANGE_WIFI_STATE",
+            "android.permission.BLUETOOTH_ADMIN",
+            "android.permission.BLUETOOTH",
+            "android.permission.BLUETOOTH_CONNECT",
+            "android.permission.WRITE_SETTINGS",
+            "android.permission.ACCESS_NOTIFICATION_POLICY",
+            "com.android.alarm.permission.SET_ALARM",
+            "com.shazwan.idash3.permission.CONTROL",
+            "android.permission.ACCESS_COARSE_LOCATION",
+            "android.permission.ACCESS_FINE_LOCATION",
+            "android.permission.ACCESS_NETWORK_STATE"
+          ],
+          "version_code": "28",
+          "version_name": "0.6.0-rc8"
+        },
+        "manifest_xml": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\" android:versionCode=\"28\" android:versionName=\"0.6.0-rc8\" android:compileSdkVersion=\"35\" android:compileSdkVersionCodename=\"15\" package=\"com.shazwan.idash3\" platformBuildVersionCode=\"35\" platformBuildVersionName=\"15\">\n  <uses-sdk android:minSdkVersion=\"26\" android:targetSdkVersion=\"35\">\n  </uses-sdk>\n  <uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\">\n  </uses-permission>\n  <uses-permission android:name=\"android.permission.INTERNET\">\n  </uses-permission>\n  <uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\">\n  </uses-permission>\n  <uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\" android:maxSdkVersion=\"28\">\n  </uses-permission>\n  <uses-permission android:name=\"android.permission.BLUETOOTH_ADMIN\" android:maxSdkVersion=\"30\">\n  </uses-permission>\n  <uses-permission android:name=\"android.permission.BLUETOOTH\" android:maxSdkVersion=\"30\">\n  </uses-permission>\n  <uses-permission android:name=\"android.permission.BLUETOOTH_CONNECT\">\n  </uses-permission>\n  <uses-permission android:name=\"android.permission.WRITE_SETTINGS\">\n  </uses-permission>\n  <uses-permission android:name=\"android.permission.ACCESS_NOTIFICATION_POLICY\">\n  </uses-permission>\n  <uses-permission android:name=\"com.android.alarm.permission.SET_ALARM\">\n  </uses-permission>\n  <permission android:name=\"com.shazwan.idash3.permission.CONTROL\" android:protectionLevel=\"0x2\">\n  </permission>\n  <uses-permission android:name=\"com.shazwan.idash3.permission.CONTROL\">\n  </uses-permission>\n  <queries>\n    <intent>\n      <action android:name=\"android.intent.action.SHOW_TIMERS\">\n      </action>\n    </intent>\n    <intent>\n      <action android:name=\"android.intent.action.SET_TIMER\">\n      </action>\n    </intent>\n    <intent>\n      <action android:name=\"android.intent.action.MAIN\">\n      </action>\n      <category android:name=\"android.intent.category.APP_CALCULATOR\">\n      </category>\n    </intent>\n    <package android:name=\"com.android.fmradio\">\n    </package>\n    <package android:name=\"com.acloud.stub.extradio\">\n    </package>\n    <intent>\n      <action android:name=\"android.intent.action.MAIN\">\n      </action>\n      <category android:name=\"android.intent.category.LAUNCHER\">\n      </category>\n    </intent>\n  </queries>\n  <uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\">\n  </uses-permission>\n  <uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\">\n  </uses-permission>\n  <uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\">\n  </uses-permission>\n  <supports-screens android:anyDensity=\"true\" android:normalScreens=\"true\" android:largeScreens=\"true\">\n  </supports-screens>\n  <uses-feature android:name=\"android.hardware.location.network\" android:required=\"false\">\n  </uses-feature>\n  <uses-feature android:name=\"android.hardware.location.gps\" android:required=\"false\">\n  </uses-feature>\n  <uses-feature android:name=\"android.hardware.telephony\" android:required=\"false\">\n  </uses-feature>\n  <uses-feature android:name=\"android.hardware.wifi\" android:required=\"false\">\n  </uses-feature>\n  <application android:theme=\"@0x7f070000\" android:label=\"iDash4\" android:icon=\"@0x7f020004\" android:debuggable=\"true\" android:allowBackup=\"false\" android:supportsRtl=\"true\" android:extractNativeLibs=\"false\">\n    <service android:label=\"iDash media controls\" android:name=\"com.shazwan.idash3.MediaAccessService\" android:permission=\"android.permission.BIND_NOTIFICATION_LISTENER_SERVICE\" android:exported=\"true\">\n      <intent-filter>\n        <action android:name=\"android.service.notification.NotificationListenerService\">\n        </action>\n      </intent-filter>\n    </service>\n    <activity android:name=\"com.shazwan.idash3.LauncherActivity\" android:exported=\"true\" android:launchMode=\"2\" android:screenOrientation=\"6\" android:configChanges=\"0x40002ff4\">\n      <intent-filter>\n        <action android:name=\"android.intent.action.MAIN\">\n        </action>\n        <category android:name=\"android.intent.category.HOME\">\n        </category>\n        <category android:name=\"android.intent.category.DEFAULT\">\n        </category>\n      </intent-filter>\n      <intent-filter>\n        <action android:name=\"android.intent.action.MAIN\">\n        </action>\n        <category android:name=\"android.intent.category.LAUNCHER\">\n        </category>\n      </intent-filter>\n    </activity>\n  </application>\n</manifest>\n",
+        "max_sdk": null,
+        "min_sdk": "26",
+        "native_libraries": {},
+        "package": "com.shazwan.idash3",
+        "res_files": 78,
+        "signing": {
+          "schemes": [
+            "v2"
+          ],
+          "signing_block": {
+            "entries": [
+              {
+                "id": "0x7109871a",
+                "name": "signature scheme v2",
+                "size": 1390
+              },
+              {
+                "id": "0x42726577",
+                "name": "verity padding",
+                "size": 2650
+              }
+            ],
+            "offset": 4030047,
+            "signers": [
+              {
+                "certificates": [
+                  {
+                    "bytes": 744,
+                    "issuer": "CN=Android Debug, O=Android, C=US",
+                    "not_after": "20561109095717Z",
+                    "not_before": "261117095717Z",
+                    "notes": [],
+                    "public_key_algorithm": "rsaEncryption",
+                    "serial": "01",
+                    "sha256": "cf3906b6e81372d253cdf786428558b4432453fd345480bc72c490c385c2c2e6",
+                    "signature_algorithm": "sha256WithRSAEncryption",
+                    "subject": "CN=Android Debug, O=Android, C=US",
+                    "version": 1
+                  }
+                ],
+                "digests": [
+                  {
+                    "algorithm": "0x0103",
+                    "algorithm_name": "RSASSA-PKCS1-v1_5 with SHA2-256",
+                    "digest": "946bbbaf724b3687121a6cf32efcead3e8b67f0e735108837b4e57243b9189cd"
+                  }
+                ],
+                "max_sdk": null,
+                "min_sdk": null,
+                "public_key_bytes": 294,
+                "scheme": "v2",
+                "signature_algorithms": [
+                  "RSASSA-PKCS1-v1_5 with SHA2-256 (0x0103)"
+                ],
+                "verification": {
+                  "algorithm": "RSASSA-PKCS1-v1_5 with SHA2-256",
+                  "certificate_sha256": "cf3906b6e81372d253cdf786428558b4432453fd345480bc72c490c385c2c2e6",
+                  "digest_matches": true,
+                  "max_sdk": null,
+                  "min_sdk": null,
+                  "notes": [
+                    "the APK signer has incomplete required fields"
+                  ],
+                  "public_key_matches_certificate": true,
+                  "scheme": "v2",
+                  "signature_valid": {
+                    "status": "valid"
+                  },
+                  "verified": false
+                }
+              }
+            ],
+            "size": 4088
+          },
+          "v1": []
+        },
+        "target_sdk": "35",
+        "version_code": "28",
+        "version_name": "0.6.0-rc8",
+        "warnings": []
+      },
+      "subject": {
+        "kind": "apk",
+        "name": "iDash4-0.6.0-rc8-debug.apk",
+        "sha256": "f6201e2e1743b32c305713eb46266184455504d190188d1b8387b25f7f6614ac"
+      },
+      "summary": "com.shazwan.idash3 (iDash4-0.6.0-rc8-debug.apk, version 0.6.0-rc8, SDK 26–35): 14 permissions, 2 components (2 exported), 3 DEX file(s), native code for no ABI; signed with scheme v2 (present but NOT verified)."
+    }
+  ],
+  "unknowns": [
+    {
+      "domain": "physical-validation",
+      "evidence_against": [],
+      "evidence_for": [],
+      "id": "unk_e03146b8479cc01a",
+      "probes": [],
+      "question": "Are the small custom-painted JAKIM footer and dock captions readable at real head-unit viewing distance, and do FM RF/audio and frame pacing work on the physical head unit? Physical hardware was not connected.",
+      "revision": 1,
+      "severity": "medium",
+      "status": "open"
+    }
+  ],
+  "version": 1
+}

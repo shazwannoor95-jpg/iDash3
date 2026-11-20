@@ -1,0 +1,3 @@
+INSTRUMENTATION_RESULT: stream=PASS: 4 settled native UI cases; measured text candidates=0
+
+INSTRUMENTATION_CODE: -1

@@ -1,6 +1,6 @@
 # iDash4 — iDash3 integration
 
-**Current candidate: iDash4 0.6.0-rc8** — matching compact Home clock/JAKIM cards and smaller dock, retaining ULTRA Drive/Apps. [APK](dist/iDash4-0.6.0-rc8-debug.apk?raw=true) · [Sizing notes](docs/COMPACT-HOME-0.6.0-RC8.md).
+**Current candidate: iDash4 0.6.0-rc8** — matching compact Home clock/JAKIM cards and smaller dock, retaining ULTRA Drive/Apps. [APK](dist/iDash4-0.6.0-rc8-debug.apk?raw=true) · [Sizing notes](docs/COMPACT-HOME-0.6.0-RC8.md). [Craft UI audit: 8 views / 92 checks](docs/CRAFT-UI-AUDIT-RC8.md).
 
 **Revert panel appearance:** Settings → Home & Dock → Liquid Glass → Material panel → **Classic iDash3**. The new iOS26 panel material and the icon-pack switch are independent.
 
