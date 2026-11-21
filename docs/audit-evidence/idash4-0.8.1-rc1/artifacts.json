@@ -1,0 +1,55 @@
+[
+  {
+    "file": "dist/iDash4-0.8.1-rc1-arm32-debug.apk",
+    "bytes": 80546891,
+    "sha256": "93ae70157fb34d04ad5a5efdf3e3afa40474a9897d163e7cad8b85c644c3bcc1",
+    "abis": [
+      "armeabi-v7a"
+    ],
+    "dex_sha256": {
+      "classes.dex": "74e8a12cc071c382f1942aacfbcb75ec8184d299dfd77540f107346509569b8d",
+      "classes2.dex": "233088f3ad2605f6ffb6fc709cd9ad639d46ea8f8da4483edc5bc4660e94b8b8",
+      "classes3.dex": "19c0459fa5269c677234930a9742c42571163535b7b903b9f259f8640234a8fa",
+      "classes4.dex": "32addcc31adcc87ed04d52891af18ed7fa97901e42e96d9d76a16477aa259c1e"
+    }
+  },
+  {
+    "file": "dist/iDash4-0.8.1-rc1-arm64-debug.apk",
+    "bytes": 90029293,
+    "sha256": "6a44fe5e40a4f26c4b28457af05132f246a11ccb75f9ffba20920564b75f5a5b",
+    "abis": [
+      "arm64-v8a"
+    ],
+    "dex_sha256": {
+      "classes.dex": "74e8a12cc071c382f1942aacfbcb75ec8184d299dfd77540f107346509569b8d",
+      "classes2.dex": "233088f3ad2605f6ffb6fc709cd9ad639d46ea8f8da4483edc5bc4660e94b8b8",
+      "classes3.dex": "19c0459fa5269c677234930a9742c42571163535b7b903b9f259f8640234a8fa",
+      "classes4.dex": "32addcc31adcc87ed04d52891af18ed7fa97901e42e96d9d76a16477aa259c1e"
+    }
+  },
+  {
+    "file": "dist/iDash4-0.8.1-rc1-x86_64-debug.apk",
+    "bytes": 96264276,
+    "sha256": "4296225577a3fa9694971a8e256216beaa1beb56e1bf095a80e477b4a121ddf2",
+    "abis": [
+      "x86_64"
+    ],
+    "dex_sha256": {
+      "classes.dex": "74e8a12cc071c382f1942aacfbcb75ec8184d299dfd77540f107346509569b8d",
+      "classes2.dex": "233088f3ad2605f6ffb6fc709cd9ad639d46ea8f8da4483edc5bc4660e94b8b8",
+      "classes3.dex": "19c0459fa5269c677234930a9742c42571163535b7b903b9f259f8640234a8fa",
+      "classes4.dex": "32addcc31adcc87ed04d52891af18ed7fa97901e42e96d9d76a16477aa259c1e"
+    }
+  },
+  {
+    "file": "dist/iDash4-0.7.0-rc5-rollback-code42.apk",
+    "bytes": 3826850,
+    "sha256": "f0d384d270275453e670a02c124bca137d563021a91fcc9a7688bcc88700220a",
+    "abis": [],
+    "dex_sha256": {
+      "classes.dex": "4e51063ccc8c17d24718609cf0ba602f09eacff718d2b1e1af1115b8ddf92219",
+      "classes2.dex": "d2de9e1c8f2bb50570a60a2a80e477feebd02a755627dba71a2a81fb53416fa3",
+      "classes3.dex": "89042e23eaff1d7c1de4546526e4a63afa12b145077791f6a1a1f9cf3c286f98"
+    }
+  }
+]

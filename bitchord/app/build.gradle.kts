@@ -10,15 +10,15 @@ android {
  defaultConfig {
   minSdk = 26
   buildConfigField("String", "APPLICATION_ID", "\"com.shazwan.idash3\"")
-  buildConfigField("String", "VERSION_NAME", "\"0.8.0-rc2\"")
-  buildConfigField("int", "VERSION_CODE", "41")
+  buildConfigField("String", "VERSION_NAME", "\"0.8.1-rc1\"")
+  buildConfigField("int", "VERSION_CODE", "42")
   buildConfigField("boolean", "IS_IDASH_HOST", "true")
   buildConfigField("String", "LASTFM_API_KEY", "\"\"")
   buildConfigField("String", "LASTFM_SECRET", "\"\"")
   buildConfigField("String", "LISTEN_TOGETHER_SERVER", "\"https://bitchord-listen-together.onrender.com\"")
   buildConfigField("String", "ADDON_AUTH_URL", "\"https://bitchord-auth.kushagrasingh.in\"")
   buildConfigField("String", "UPDATE_APK_PREFIX", "\"iDash4-\"")
-  ndk { abiFilters += listOf("armeabi-v7a", "x86_64") }
+  ndk { abiFilters += providers.gradleProperty("idashAbi").getOrElse("armeabi-v7a,arm64-v8a,x86_64").split(",") }
  }
  sourceSets { getByName("main") { java.srcDir("../wearos/protocol") } }
  externalNativeBuild { cmake { path = file("src/main/cpp/CMakeLists.txt"); version = "3.22.1" } }

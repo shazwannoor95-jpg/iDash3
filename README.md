@@ -1,6 +1,6 @@
 # iDash4 — iDash3 integration
 
-**Trial candidate: iDash4 0.8.0-rc2** — actual BitChord Compose UI and Media3 player integrated inside the native Drive panel beside JAKIM. [ARM32 APK](dist/iDash4-0.8.0-rc2-arm32-debug.apk?raw=true) · [rc5 rollback APK](dist/iDash4-0.7.0-rc5-rollback-full-debug.apk?raw=true) · [Preview](docs/audit-evidence/idash4-0.8.0-rc2/bitchord-full-ui-1024x600.png) · [Scope, GPL source and validation](docs/NATIVE-BITCHORD-0.8.0-RC2.md). API27 emulator: native UI, real local audio and Drive flows pass; live online streaming/login and physical head-unit performance remain unverified. No separate BitChord APK or split-screen is required.
+**Trial candidate: iDash4 0.8.1-rc1** — BitChord uses its measured panel window and can expand beside the Drive rail with **Besarkan BitChord**; **Pulihkan kad** restores JAKIM/media/date cards. A dedicated **iDash4** launcher entry supports opening from the emulator app drawer. [Android Studio x86_64 APK](dist/iDash4-0.8.1-rc1-x86_64-debug.apk?raw=true) · [ARM64 emulator APK](dist/iDash4-0.8.1-rc1-arm64-debug.apk?raw=true) · [Head-unit ARM32 APK](dist/iDash4-0.8.1-rc1-arm32-debug.apk?raw=true) · [Scope and validation](docs/BITCHORD-PANEL-0.8.1-RC1.md). No separate BitChord APK or split-screen is required. Live online streaming/login and physical head-unit performance remain unverified.
 
 **Revert panel appearance:** Settings → Home & Dock → Liquid Glass → Material panel → **Classic iDash3**. The new iOS26 panel material and the icon-pack switch are independent.
 

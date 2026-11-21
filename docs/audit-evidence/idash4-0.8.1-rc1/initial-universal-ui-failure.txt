@@ -1,0 +1,3 @@
+INSTRUMENTATION_RESULT: stream=FAIL after 2: java.lang.AssertionError: native root did not appear
+
+INSTRUMENTATION_CODE: 0

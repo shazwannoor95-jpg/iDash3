@@ -6278,6 +6278,7 @@ private const val TAB_SEARCH = 3
 
 /** iDash native host: actual upstream navigation and player, sized by ComposeView constraints. */
 object BitChordEmbedded {
+    @kotlin.OptIn(androidx.compose.ui.ExperimentalComposeUiApi::class)
     @JvmStatic fun create(activity: androidx.appcompat.app.AppCompatActivity): android.view.View {
         (activity.application as BitChordApplication).initializeNativeHost()
         return androidx.compose.ui.platform.ComposeView(activity).apply {
@@ -6328,12 +6329,22 @@ object BitChordEmbedded {
                 // A measured constraint cannot be stale — it is the very width
                 // the split is about to be laid out in.
                 BoxWithConstraints(Modifier.fillMaxSize()) {
+                    val parentWindow = LocalWindowInfo.current
+                    val density = androidx.compose.ui.platform.LocalDensity.current
+                    val panelSize = with(density) { androidx.compose.ui.unit.IntSize(maxWidth.roundToPx(), maxHeight.roundToPx()) }
+                    val panelWindow = remember(parentWindow, panelSize) {
+                        object : androidx.compose.ui.platform.WindowInfo by parentWindow {
+                            override val containerSize = panelSize
+                        }
+                    }
+                    CompositionLocalProvider(LocalWindowInfo provides panelWindow) {
                     BitChordApp(
                         darkTheme = darkTheme,
                         windowWidth = maxWidth,
                         windowHeight = maxHeight,
                         appBackdrop = appBackdrop,
                     )
+                    }
                 }
                 }
             }

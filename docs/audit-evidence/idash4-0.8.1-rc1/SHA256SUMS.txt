@@ -1,0 +1,4 @@
+93ae70157fb34d04ad5a5efdf3e3afa40474a9897d163e7cad8b85c644c3bcc1  dist/iDash4-0.8.1-rc1-arm32-debug.apk
+6a44fe5e40a4f26c4b28457af05132f246a11ccb75f9ffba20920564b75f5a5b  dist/iDash4-0.8.1-rc1-arm64-debug.apk
+4296225577a3fa9694971a8e256216beaa1beb56e1bf095a80e477b4a121ddf2  dist/iDash4-0.8.1-rc1-x86_64-debug.apk
+f0d384d270275453e670a02c124bca137d563021a91fcc9a7688bcc88700220a  dist/iDash4-0.7.0-rc5-rollback-code42.apk
