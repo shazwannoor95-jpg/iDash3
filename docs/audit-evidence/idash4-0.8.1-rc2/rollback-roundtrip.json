@@ -1,0 +1,11 @@
+{
+  "sequence": [
+    "rc2 code43",
+    "rc1 code42 via adb install -r -d",
+    "rc2 code43"
+  ],
+  "uninstall_used": false,
+  "pre_existing_idash_preferences": 17,
+  "downgrade_preserves_all": true,
+  "reinstall_preserves_all": true
+}
