@@ -1,0 +1,15 @@
+{
+  "iDash4-0.7.0-rc4-debug.apk": {
+    "certificate": "Signer #1 certificate SHA-256 digest: cf3906b6e81372d253cdf786428558b4432453fd345480bc72c490c385c2c2e6",
+    "identity": "package: name='com.shazwan.idash3' versionCode='35' versionName='0.7.0-rc4' platformBuildVersionName='15' platformBuildVersionCode='35' compileSdkVersion='35' compileSdkVersionCodename='15'"
+  },
+  "iDash4-0.7.0-rc3-rollback-debug.apk": {
+    "certificate": "Signer #1 certificate SHA-256 digest: cf3906b6e81372d253cdf786428558b4432453fd345480bc72c490c385c2c2e6",
+    "identity": "package: name='com.shazwan.idash3' versionCode='36' versionName='0.7.0-rc3-rollback' platformBuildVersionName='15' platformBuildVersionCode='35' compileSdkVersion='35' compileSdkVersionCodename='15'"
+  },
+  "jvm_tests": 79,
+  "failures": 0,
+  "lint": "0 errors, 92 warnings",
+  "test_fixture_removed": true,
+  "prior_accessibility_settings_restored": true
+}

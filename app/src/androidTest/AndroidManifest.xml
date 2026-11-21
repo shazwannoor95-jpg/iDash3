@@ -53,4 +53,5 @@
     <instrumentation android:name="com.shazwan.idash3.NativeDriveFlowChecks" android:targetPackage="com.shazwan.idash3"/>
     <instrumentation android:name="com.shazwan.idash3.FmMotionChecks" android:targetPackage="com.shazwan.idash3"/>
     <instrumentation android:name="com.shazwan.idash3.BitChordChecks" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.DriveSideSmoke" android:targetPackage="com.shazwan.idash3"/>
 </manifest>

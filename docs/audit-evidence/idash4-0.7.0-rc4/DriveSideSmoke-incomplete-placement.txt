@@ -1,0 +1,3 @@
+INSTRUMENTATION_RESULT: stream=PASS: 8 actual system split assertions; external app is a test fixture, not BitChord
+
+INSTRUMENTATION_CODE: -1

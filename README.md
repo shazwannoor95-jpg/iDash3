@@ -1,6 +1,6 @@
 # iDash4 — iDash3 integration
 
-**Trial candidate: iDash4 0.7.0-rc3** — native BitChord control panel in Drive, package-filtered sessions and callback reuse. [APK](dist/iDash4-0.7.0-rc3-debug.apk?raw=true) · [rc2 rollback](dist/iDash4-0.7.0-rc2-rollback-debug.apk?raw=true) · [Integration / limitations](docs/BITCHORD-0.7.0-RC3.md). BitChord itself is a separate official app, not bundled or embedded.
+**Trial candidate: iDash4 0.7.0-rc4** — experimental system split: dedicated iDash cards beside the complete installed BitChord app. [APK](dist/iDash4-0.7.0-rc4-debug.apk?raw=true) · [rc3 rollback](dist/iDash4-0.7.0-rc3-rollback-debug.apk?raw=true) · [Setup / validation limits](docs/BITCHORD-SIDE-0.7.0-RC4.md). Requires an explicit accessibility action grant on supported Android API26–30 firmware; actual head unit + BitChord testing remains pending.
 
 **Revert panel appearance:** Settings → Home & Dock → Liquid Glass → Material panel → **Classic iDash3**. The new iOS26 panel material and the icon-pack switch are independent.
 

@@ -1,0 +1,27 @@
+OK: applicationId com.shazwan.idash3
+OK: tiada signingConfig
+OK: tiada embedding/VirtualDisplay
+OK: tiada aset MRiOS/SF Pro/SmartTube
+OK: tiada rujukan MRiOS/SF Pro
+OK: permission signature dinamakan untuk iDash3
+OK: wujud: DriveDashboard
+OK: wujud: DrivePlan
+OK: wujud: HomeWidgets
+OK: wujud: HomeGrid
+OK: wujud: HomeLayout
+OK: wujud: JakimCalendar
+OK: wujud: QuickControls
+OK: wujud: GlassSurface
+OK: wujud: GlassBackdrop
+OK: wujud: GlassPerf
+OK: wujud: Spring
+OK: wujud: IconStyler
+OK: wujud: MorphOverlay
+OK: wujud: DashSettings
+OK: jadual JAKIM SGR01
+OK: jadual JAKIM SGR02
+OK: jadual JAKIM SGR03
+OK: jadual JAKIM WLY01
+OK: APK: pakej com.shazwan.idash3
+OK: APK: tiada pustaka native (neutral ABI)
+OK: APK 4062018 bait (<8 MB)
