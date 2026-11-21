@@ -1,0 +1,7 @@
+{
+  "unit_tests": 81,
+  "failures": 0,
+  "lint": "0 errors, 92 warnings",
+  "modern_android_runtime": "NOT RUN - only API27 emulator image available",
+  "sdk_policy_cases": "26/27/28/30/31 legacy; 32/33/34/35/36 modern"
+}

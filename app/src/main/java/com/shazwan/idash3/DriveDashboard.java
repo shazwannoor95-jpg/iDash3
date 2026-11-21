@@ -40,7 +40,7 @@ final class DriveDashboard extends LinearLayout implements AutoCloseable {
   modeButtons[1]=icon("Media","music",()->setMode(1));rail.addView(modeButtons[1],railBounds());
   modeButtons[3]=icon("YouTube","youtube",()->setMode(3));rail.addView(modeButtons[3],railBounds());
   modeButtons[2]=icon("Radio FM",null,()->setMode(2));rail.addView(modeButtons[2],railBounds());
-  modeButtons[4]=icon("BitChord",null,()->{setMode(4);if(!(a instanceof DriveSideActivity)&&DriveSideActions.ready())DriveSideActivity.open(a);});rail.addView(modeButtons[4],railBounds());
+  modeButtons[4]=icon("BitChord",null,()->{setMode(4);if(!(a instanceof DriveSideActivity)&&(DriveSideActions.ready()||SideLaunchPolicy.modern(Build.VERSION.SDK_INT)))DriveSideActivity.open(a);});rail.addView(modeButtons[4],railBounds());
   rail.addView(appShortcut(),railBounds());
   rail.addView(new View(a),new LayoutParams(-1,0,1));rail.addView(icon("Apps",null,a::showApps),railBounds());rail.addView(icon("Home",null,()->{if(a instanceof DriveSideActivity){a.startActivity(new Intent(a,LauncherActivity.class));a.finish();}else{a.page="home";a.render();}}),railBounds());
   LinearLayout mapArea=a.column();LayoutParams mp=new LayoutParams(0,-1,.65f);mp.setMargins(a.dp(8),0,0,0);addView(mapArea,mp);

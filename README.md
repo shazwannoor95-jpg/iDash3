@@ -1,6 +1,6 @@
 # iDash4 — iDash3 integration
 
-**Trial candidate: iDash4 0.7.0-rc4** — experimental system split: dedicated iDash cards beside the complete installed BitChord app. [APK](dist/iDash4-0.7.0-rc4-debug.apk?raw=true) · [rc3 rollback](dist/iDash4-0.7.0-rc3-rollback-debug.apk?raw=true) · [Setup / validation limits](docs/BITCHORD-SIDE-0.7.0-RC4.md). Requires an explicit accessibility action grant on supported Android API26–30 firmware; actual head unit + BitChord testing remains pending.
+**Trial candidate: iDash4 0.7.0-rc5** — remove the API31+ rejection and try the Android12L+ native adjacent-window route. [APK](dist/iDash4-0.7.0-rc5-debug.apk?raw=true) · [rc4 rollback](dist/iDash4-0.7.0-rc4-rollback-debug.apk?raw=true) · [Compatibility and validation limits](docs/MODERN-SPLIT-0.7.0-RC5.md). Modern runtime pairing remains untested; Android/OEM controls multi-window support.
 
 **Revert panel appearance:** Settings → Home & Dock → Liquid Glass → Material panel → **Classic iDash3**. The new iOS26 panel material and the icon-pack switch are independent.
 
