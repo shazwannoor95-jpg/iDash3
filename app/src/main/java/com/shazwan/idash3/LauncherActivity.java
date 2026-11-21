@@ -16,8 +16,8 @@ import java.text.*;
 import java.util.*;
 import java.util.concurrent.*;
 
-/** Original, dependency-free Android launcher. No privileged hosting or vehicle commands. */
-public class LauncherActivity extends Activity {
+/** Native Android launcher with a source-integrated music module. No privileged hosting or vehicle commands. */
+public class LauncherActivity extends androidx.appcompat.app.AppCompatActivity {
     final Handler main = new Handler(Looper.getMainLooper());
     final ExecutorService worker = Executors.newSingleThreadExecutor();
     final ExecutorService networkWorker = Executors.newSingleThreadExecutor();
@@ -38,7 +38,7 @@ public class LauncherActivity extends Activity {
     boolean panelVisible; LinearLayout panelBox; DashWebPlayer webPanel; FmPanelHost fmPanel; SagaAngleView carPanel;
     PrayerJourneyView prayerJourney;
     String libraryReturnPage="home";DriveViewport driveViewport;
-    NativeMusicEngine nativeMusic;DriveDashboard driveDashboard;DrivingWorkspace drivingWorkspace;int drivingTab;
+    DriveDashboard driveDashboard;DrivingWorkspace drivingWorkspace;int drivingTab;
     int libraryPage; int homePage; HomeGrid homeGrid; private final GlassPerf.Watcher frameWatcher=new GlassPerf.Watcher(); private boolean watching;
     AlertDialog wallpaperDialog; Bitmap wallpaperBitmap; String requestedWallpaper; int wallpaperGeneration;
     final Runnable ticker = new Runnable() { public void run() { updateClock(); if (foregroundVisible) main.postDelayed(this, 1000); } };
@@ -49,12 +49,14 @@ public class LauncherActivity extends Activity {
     }
     int dp(float n) { return Math.round(n * getResources().getDisplayMetrics().density); }
     @Override public void onCreate(Bundle state) {
-        super.onCreate(state); prefs=getSharedPreferences("idash",MODE_PRIVATE); GlassPerf.load(this); theme=prefs.getInt("theme",0); migrateFavorites(); migratePanelPreferences();if(!prefs.getBoolean("prayer_visibility_v2",false))prefs.edit().putBoolean("jakim",true).putBoolean("prayer_visibility_v2",true).apply();
+        super.onCreate(state);
+        getOnBackPressedDispatcher().addCallback(this,new androidx.activity.OnBackPressedCallback(true){public void handleOnBackPressed(){handleDashboardBack();}});
+        prefs=getSharedPreferences("idash",MODE_PRIVATE); GlassPerf.load(this); theme=prefs.getInt("theme",0); migrateFavorites(); migratePanelPreferences();if(!prefs.getBoolean("prayer_visibility_v2",false))prefs.edit().putBoolean("jakim",true).putBoolean("prayer_visibility_v2",true).apply();
         if(!prefs.contains("wallpaper"))prefs.edit().putString("wallpaper",theme==1?"":Wallpapers.DEFAULT).apply();
         if(state!=null) { libraryReturnPage="drive".equals(state.getString("library_return"))?"drive":"home";if(state.getBoolean("drive_viewport",false))driveViewport=DriveViewport.of(state.getDouble("drive_lat",Double.NaN),state.getDouble("drive_lon",Double.NaN),state.getDouble("drive_zoom",Double.NaN)); libraryPage=Math.max(0,state.getInt("library_page",0));homePage=Math.max(0,state.getInt("home_page",0));panelVisible=state.getBoolean("panel",false); page=state.getString("page","home"); query=state.getString("query","");settingsSection=state.getString("settings_section","");drivingTab=DrivingTemplates.tab(state.getInt("driving_tab",0)); }
         libraryQuery=query.toLowerCase(Locale.ROOT).trim();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        immersive(); render(); loadApps();
+        immersive(); if(isNativeMusicIntent(getIntent())){page="drive";prefs.edit().putInt("dashboard_panel",4).apply();com.music.bitchord.BitChordEmbedded.consumeIntent(getIntent());} render(); loadApps();
     }
     @Override public void onWindowFocusChanged(boolean focused){super.onWindowFocusChanged(focused);if(focused)UltraGlassSkin.resume(this);else UltraGlassSkin.pause(this);}
     void immersive() { getWindow().getDecorView().setSystemUiVisibility(5894); }
@@ -66,7 +68,7 @@ public class LauncherActivity extends Activity {
     @Override public void onTrimMemory(int level){super.onTrimMemory(level);if(level>=android.content.ComponentCallbacks2.TRIM_MEMORY_RUNNING_LOW){Ios26Icons.clear();GlassBake.trim();}}
     @Override protected void onSaveInstanceState(Bundle out) { if(driveDashboard!=null)driveDashboard.captureViewport();out.putString("library_return",libraryReturnPage);if(driveViewport!=null){out.putBoolean("drive_viewport",true);out.putDouble("drive_lat",driveViewport.latitude);out.putDouble("drive_lon",driveViewport.longitude);out.putDouble("drive_zoom",driveViewport.zoom);}out.putInt("library_page",libraryPage);out.putInt("home_page",homePage);out.putInt("driving_tab",drivingTab);out.putBoolean("panel",panelVisible);out.putString("page",page);out.putString("settings_section",settingsSection); out.putString("query",query); super.onSaveInstanceState(out); }
     @Override public void onConfigurationChanged(Configuration config) { super.onConfigurationChanged(config); render(); }
-    @Override protected void onNewIntent(Intent intent) { super.onNewIntent(intent); setIntent(intent); if("home".equals(page)&&!panelVisible)return;libraryReturnPage="home";page="home";query="";hideKeyboard();render(); }
+    @Override protected void onNewIntent(Intent intent) { super.onNewIntent(intent); setIntent(intent); if(isNativeMusicIntent(intent)){page="drive";prefs.edit().putInt("dashboard_panel",4).apply();com.music.bitchord.BitChordEmbedded.consumeIntent(intent);render();return;} if("home".equals(page)&&!panelVisible)return;libraryReturnPage="home";page="home";query="";hideKeyboard();render(); }
     /** Real frame durations feed the low-performance policy; nothing runs while no frames are drawn. */
     void startFrameWatch(){if(watching)return;try{frameWatcher.reset();getWindow().addOnFrameMetricsAvailableListener(frameWatcher,main);watching=true;}catch(RuntimeException unsupported){watching=false;}}
     void stopFrameWatch(){if(!watching)return;watching=false;try{getWindow().removeOnFrameMetricsAvailableListener(frameWatcher);}catch(RuntimeException ignored){}}
@@ -75,7 +77,8 @@ public class LauncherActivity extends Activity {
         if(!GlassPerf.low()){int act=e.getActionMasked();if(act==android.view.MotionEvent.ACTION_DOWN||act==android.view.MotionEvent.ACTION_MOVE||act==android.view.MotionEvent.ACTION_UP||act==android.view.MotionEvent.ACTION_CANCEL){GlassBackdrop b=IosStyle.backdrops.get(this);if(b!=null)for(int i=b.surfaces.size()-1;i>=0;i--){GlassSurface g=b.surfaces.get(i).get();if(g!=null)g.onScreenTouch(e.getRawX(),e.getRawY(),act);}}}
         return super.dispatchTouchEvent(e);
     }
-    @Override public void onBackPressed() { if(homeGrid!=null&&homeGrid.closeFolder())return;if(webPanel!=null&&webPanel.exitFullscreen())return;if("apps".equals(page)){closeApps();return;}if("drive".equals(page)&&driveDashboard!=null&&driveDashboard.back())return;if("settings".equals(page)&&!settingsSection.isEmpty()){settingsSection="";render();return;}if(!"home".equals(page)) { page="home"; query=""; hideKeyboard(); render(); }else if(panelVisible){panelVisible=false;render();} }
+    void handleDashboardBack() { if(homeGrid!=null&&homeGrid.closeFolder())return;if(webPanel!=null&&webPanel.exitFullscreen())return;if("apps".equals(page)){closeApps();return;}if("drive".equals(page)&&driveDashboard!=null&&driveDashboard.back())return;if("settings".equals(page)&&!settingsSection.isEmpty()){settingsSection="";render();return;}if(!"home".equals(page)) { page="home"; query=""; hideKeyboard(); render(); }else if(panelVisible){panelVisible=false;render();} }
+    boolean isNativeMusicIntent(Intent intent){return intent!=null&&intent.getComponent()!=null&&"com.music.bitchord.MainActivity".equals(intent.getComponent().getClassName());}
     void hideKeyboard() { ((android.view.inputmethod.InputMethodManager)getSystemService(INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(shell.getWindowToken(),0); }
 
     Drawable glass(int color, int radius) {
@@ -322,7 +325,7 @@ public class LauncherActivity extends Activity {
         catch(RuntimeException unavailable){Toast.makeText(this,"No image picker installed",Toast.LENGTH_SHORT).show();}
     }
     @Override protected void onActivityResult(int request,int result,Intent data){
-        super.onActivityResult(request,result,data);if(request==842){if(result==RESULT_OK&&data!=null&&data.getData()!=null&&driveDashboard!=null&&driveDashboard.bitChord!=null){driveDashboard.bitChord.file(data.getData());}return;}if(request!=WALLPAPER_REQUEST||result!=RESULT_OK||data==null||data.getData()==null)return;
+        super.onActivityResult(request,result,data);if(request!=WALLPAPER_REQUEST||result!=RESULT_OK||data==null||data.getData()==null)return;
         final android.net.Uri uri=data.getData();Toast.makeText(this,"Loading wallpaper…",Toast.LENGTH_SHORT).show();
         worker.execute(()->{boolean saved=false;try(java.io.InputStream input=getContentResolver().openInputStream(uri)){if(input==null)throw new java.io.IOException();CustomWallpaper.save(this,input);saved=true;}catch(java.io.IOException|RuntimeException|OutOfMemoryError unavailable){}final boolean success=saved;
             main.post(()->{if(destroyed)return;if(success){requestedWallpaper=null;selectWallpaper(CustomWallpaper.PATH);}else Toast.makeText(this,"Image unavailable. Choose a JPG, PNG or WebP under16MiB.",Toast.LENGTH_LONG).show();});});

@@ -1,0 +1,39 @@
+diff --git a/build.gradle.kts b/build.gradle.kts
+index 085352e..1745cc5 100644
+--- a/build.gradle.kts
++++ b/build.gradle.kts
+@@ -14,11 +14,13 @@ allprojects {
+ 
+     tasks.withType<JavaCompile> {
+         options.encoding = Charsets.UTF_8.toString()
++        sourceCompatibility = "11"
++        targetCompatibility = "11"
+     }
+ 
+     extensions.configure<JavaPluginExtension> {
+         toolchain {
+-            languageVersion.set(JavaLanguageVersion.of(11))
++            languageVersion.set(JavaLanguageVersion.of(21))
+         }
+     }
+ }
+diff --git a/settings.gradle.kts b/settings.gradle.kts
+index a1dfe45..a594e17 100644
+--- a/settings.gradle.kts
++++ b/settings.gradle.kts
+@@ -7,6 +7,7 @@ pluginManagement {
+     repositories {
+         gradlePluginPortal()
+         google()
++        maven(url = "file:///workspace/toolchains/maven-rebuild")
+         mavenCentral()
+     }
+ }
+@@ -14,6 +15,7 @@ dependencyResolutionManagement {
+     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+     repositories {
+         google()
++        maven(url = "file:///workspace/toolchains/maven-rebuild")
+         mavenCentral()
+         maven(url = "https://jitpack.io")
+     }

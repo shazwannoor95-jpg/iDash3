@@ -1,0 +1,165 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../innertubex/v0.7.0/innertubex-v0.7.0.module",
+    "group": "com.github.MetrolistGroup",
+    "module": "innertubex",
+    "version": "v0.7.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "androidApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "io.ktor",
+          "module": "ktor-client-core",
+          "version": {
+            "requires": "3.5.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-serialization-json",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.10"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "innertubex.aar",
+          "url": "innertubex-android-v0.7.0.aar",
+          "size": 1807401,
+          "sha512": "f4fcf4e81eee58d820443210b730e68bbb84304466eb13bb9d16efdd424782d8307b8bc00fb781065597341a1ccf508d992a1ca8b6f1092035c438d8bb30406d",
+          "sha256": "ecd8ae839ff2cd9714c868e99dee27804cb6fa23dfaa94aa40a18ac4ff786ff7",
+          "sha1": "9659d941246f9158b1a4c5251442fb01043bcde9",
+          "md5": "a817bc60d24ab7728fcdb569d519f0ee"
+        }
+      ]
+    },
+    {
+      "name": "androidRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "io.ktor",
+          "module": "ktor-client-core",
+          "version": {
+            "requires": "3.5.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-serialization-json",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.10"
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-client-content-negotiation",
+          "version": {
+            "requires": "3.5.2"
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-serialization-kotlinx-json",
+          "version": {
+            "requires": "3.5.2"
+          }
+        },
+        {
+          "group": "io.github.dokar3",
+          "module": "quickjs-kt",
+          "version": {
+            "requires": "1.0.14"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "innertubex.aar",
+          "url": "innertubex-android-v0.7.0.aar",
+          "size": 1807401,
+          "sha512": "f4fcf4e81eee58d820443210b730e68bbb84304466eb13bb9d16efdd424782d8307b8bc00fb781065597341a1ccf508d992a1ca8b6f1092035c438d8bb30406d",
+          "sha256": "ecd8ae839ff2cd9714c868e99dee27804cb6fa23dfaa94aa40a18ac4ff786ff7",
+          "sha1": "9659d941246f9158b1a4c5251442fb01043bcde9",
+          "md5": "a817bc60d24ab7728fcdb569d519f0ee"
+        }
+      ]
+    },
+    {
+      "name": "androidSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "files": [
+        {
+          "name": "innertubex-android-v0.7.0-sources.jar",
+          "url": "innertubex-android-v0.7.0-sources.jar",
+          "size": 150026,
+          "sha512": "54959e0f0da8781ca2854d21658387a10c612a5434695d81142d98faf6b9aa2a71a45feeaa796a6ebb7082060fc7b789a7e644856679a6c80e7cfe2f1efe3196",
+          "sha256": "28d08f77c18f620e501d37eb70c02175ec7d3fd6773737d2ab26f30dab221f08",
+          "sha1": "21c62b5bd461a5df6d9021881a06f64202ba06bb",
+          "md5": "6d77a4795502ba036e2f4dd310fe1e7e"
+        }
+      ]
+    }
+  ]
+}

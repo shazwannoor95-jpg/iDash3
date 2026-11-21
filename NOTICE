@@ -1,6 +1,6 @@
 This combined native-music build is distributed under GPL-3.0-only (LICENSE) due to adapted BitChord code. Original iDash components retain their MIT grant in LICENSE-MIT; existing artwork/font notices and rights below remain unchanged.
 
-BitChord adaptation: JioSaavnService.kt, upstream kushagrasinghx/BitChord commit acf219a7e4a7f52f026d4336d5c7ac5cf7bfafcc, GPLv3. Original reference source is in third_party/bitchord; Java adaptation is BitChordCatalogue.java. GPL text is also included in APK assets/licenses/BitChord-GPL-3.0.txt. Native UI/audio integration is iDash code under the combined GPL distribution. Corresponding source is published on the same trial branch as the APK. No claim is made that this subset is the full upstream BitChord application.
+BitChord native source integration: upstream kushagrasinghx/BitChord commit acf219a7e4a7f52f026d4336d5c7ac5cf7bfafcc (GPLv3), vendored as Android library plus shared data/UI modules in bitchord/. Actual upstream Compose navigation and Media3 playback service are hosted inside iDash. Host modifications and dependency provenance are in bitchord/PROVENANCE.md. Corresponding source and rebuild archives are included in this branch; GPL text is bundled in APK assets/licenses/BitChord-GPL-3.0.txt. SF Pro fonts and SF Symbols vectors are excluded; host variant uses Inter (OFL) and Material icons (Apache-2.0).
 
 Provenance
 - Application source is derived from iDash 0.1.8 (Phase 6C) as stabilised in iDash2

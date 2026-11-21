@@ -1,7 +1,7 @@
 package com.shazwan.idash3;
 import android.graphics.*;import android.view.*;import android.widget.SeekBar;
 /** Vertical public-API slider; preserves existing SeekBar listeners and accessibility. */
-final class CapsuleSlider extends SeekBar {
+final class CapsuleSlider extends androidx.appcompat.widget.AppCompatSeekBar {
  private final Paint paint=new Paint(3);private final RectF bounds=new RectF();private final GlassSurface glass;private final int glyph;private Shader fill;private OnSeekBarChangeListener listener;
  CapsuleSlider(LauncherActivity a,int glyph){super(a);this.glyph=glyph;setPadding(0,0,0,0);setMinimumWidth(a.dp(56));setBackground(null);glass=new GlassSurface(a.getResources().getDisplayMetrics().density,0xff25324d,36,0,false,IosStyle.backdrop(a),IosStyle.quality(a),IosStyle.DARK,true);glass.material(GlassMaterial.read(a)).appearance(GlassAppearance.active(a));glass.setCallback(this);}
  @Override public void setOnSeekBarChangeListener(OnSeekBarChangeListener l){listener=l;super.setOnSeekBarChangeListener(l);}

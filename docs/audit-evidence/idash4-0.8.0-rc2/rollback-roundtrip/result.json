@@ -1,0 +1,7 @@
+{
+  "rollback_install": true,
+  "forward_install_same_version_code": true,
+  "idash_preferences_preserved_on_rollback": true,
+  "idash_preferences_preserved_on_return": true,
+  "original_preference_keys": 17
+}

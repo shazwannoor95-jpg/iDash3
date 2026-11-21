@@ -1,3 +1,12 @@
 
 # Preserve the upstream reference source byte-for-byte.
 third_party/bitchord/JioSaavnService.kt -whitespace
+
+# Preserve formatting of vendored upstream source snapshots.
+bitchord/** -whitespace
+
+# Captured tool output is kept byte-for-byte for audit.
+docs/audit-evidence/idash4-0.8.0-rc2/** -whitespace
+
+# A unified diff uses one space for a blank context line.
+third_party/source/NewPipeExtractor-build.patch -whitespace

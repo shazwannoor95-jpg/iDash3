@@ -1,0 +1,18 @@
+"main" prio=5 tid=1 Runnable
+  | group="main" sCount=0 dsCount=0 flags=0 obj=0x725045f0 self=0x73a8342bea00
+  | sysTid=3286 nice=-10 cgrp=default sched=0/0 handle=0x73a8b932da08
+  | state=R schedstat=( 45444764958 11561226797 5725 ) utm=2938 stm=1606 core=1 HZ=100
+  | stack=0x7fff707c8000-0x7fff707ca000 stackSize=8MB
+  | held mutexes= "mutator lock"(shared held)
+  at com.music.bitchord.widget.MediaWidget.<clinit>(MediaWidget.kt:-1)
+  at com.music.bitchord.playback.PlaybackService.onCreate(PlaybackService.kt:1809)
+  at android.app.ActivityThread.handleCreateService(ActivityThread.java:3339)
+  at android.app.ActivityThread.-wrap4(ActivityThread.java:-1)
+  at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1677)
+  at android.os.Handler.dispatchMessage(Handler.java:106)
+  at android.os.Looper.loop(Looper.java:164)
+  at android.app.ActivityThread.main(ActivityThread.java:6494)
+  at java.lang.reflect.Method.invoke(Native method)
+  at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:438)
+  at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:807)
+

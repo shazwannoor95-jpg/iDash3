@@ -1,0 +1,3 @@
+BitChordChecks	gate	GAGAL	stream=FAIL afte
+NativePlaybackChecks	gate	LULUS	stream=PASS: 10 upst
+NativeDriveFlowChecks	gate	LULUS	stream=PASS: 42 native D

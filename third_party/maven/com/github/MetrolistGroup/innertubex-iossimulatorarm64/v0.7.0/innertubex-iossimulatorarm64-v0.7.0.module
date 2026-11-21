@@ -1,0 +1,186 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../innertubex/v0.7.0/innertubex-v0.7.0.module",
+    "group": "com.github.MetrolistGroup",
+    "module": "innertubex",
+    "version": "v0.7.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "iosSimulatorArm64ApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "io.ktor",
+          "module": "ktor-client-core",
+          "version": {
+            "requires": "3.5.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-serialization-json",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.10"
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-client-content-negotiation",
+          "version": {
+            "requires": "3.5.2"
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-serialization-kotlinx-json",
+          "version": {
+            "requires": "3.5.2"
+          }
+        },
+        {
+          "group": "io.github.dokar3",
+          "module": "quickjs-kt",
+          "version": {
+            "requires": "1.0.14"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "innertubex-iosSimulatorArm64Main-v0.7.0.klib",
+          "url": "innertubex-iossimulatorarm64-v0.7.0.klib",
+          "size": 1194664,
+          "sha512": "a1c6fbc5df7e7b30df23410606df8fd03a0de78d2491a39905bea9cbb0da90b3bd316f0095e49f032e7a5bfb26e6f35dc0003c45040a4efd058b3042321b1f24",
+          "sha256": "4fc884a3ca31bdec98b084bc25b68999a27d4c5aa4ae68901d6b1313720e8deb",
+          "sha1": "d933b7b82ac3c8d9d595628cd441ecd1745567a0",
+          "md5": "a0041171469e7404433e46a9bf21e090"
+        }
+      ]
+    },
+    {
+      "name": "iosSimulatorArm64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "files": [
+        {
+          "name": "innertubex-iossimulatorarm64-v0.7.0-sources.jar",
+          "url": "innertubex-iossimulatorarm64-v0.7.0-sources.jar",
+          "size": 228188,
+          "sha512": "f66f8993be7680882f5e70fe4b75f5ebc325dcc6e3234513e7da11ec2193b5b797861913728c61159c15d3b7c0615b24b9744c4e0569e0193ce60a7b9594cf07",
+          "sha256": "620732894e534e3548cb0dbe41aca8cb8df5e1f02ac15bcbe415e458a444f04a",
+          "sha1": "5a5aef1d643a6258e0f92af956c55103d155d3ab",
+          "md5": "b4b641489c94df4780eba262425ba980"
+        }
+      ]
+    },
+    {
+      "name": "iosSimulatorArm64MetadataElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "io.ktor",
+          "module": "ktor-client-core",
+          "version": {
+            "requires": "3.5.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-serialization-json",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.10"
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-client-content-negotiation",
+          "version": {
+            "requires": "3.5.2"
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-serialization-kotlinx-json",
+          "version": {
+            "requires": "3.5.2"
+          }
+        },
+        {
+          "group": "io.github.dokar3",
+          "module": "quickjs-kt",
+          "version": {
+            "requires": "1.0.14"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "innertubex-iossimulatorarm64-v0.7.0-metadata.jar",
+          "url": "innertubex-iossimulatorarm64-v0.7.0-metadata.jar",
+          "size": 3807,
+          "sha512": "0ba30d3d882489a6163c180b7c1364d8d0c7722376ea705d00a8bab6e7ef01d7e566eb23c1b8bac32429f61b2880317910f072e1e0ff5c4111989b8509c13529",
+          "sha256": "01f3665c1fe4e5e8a7a20fbeee26b83f2557e879bef2c74d2e86c62306ddd522",
+          "sha1": "49d2797a9da5dc6c8e0484f55bab15d9aa9ac667",
+          "md5": "02c869e834b122ef03fe28dab1477ad8"
+        }
+      ]
+    }
+  ]
+}

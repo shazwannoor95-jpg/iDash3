@@ -1,19 +1,28 @@
 plugins { id 'com.android.application' }
 android {
     namespace 'com.shazwan.idash3'
-    compileSdk 35
+    compileSdk 37
     defaultConfig {
         applicationId 'com.shazwan.idash3'
         minSdk 26
         targetSdk 35
-        versionCode 39
-        versionName '0.8.0-rc1'
+        versionCode 41
+        versionName '0.8.0-rc2'
         testInstrumentationRunner providers.gradleProperty('idashRunner').getOrElse('com.shazwan.idash3.SmokeChecks')
     }
+    packaging { resources { excludes += 'META-INF/versions/9/OSGI-INF/MANIFEST.MF'; pickFirsts += ['META-INF/LICENSE.md', 'META-INF/LICENSE.txt', 'META-INF/NOTICE.md'] } }
+    defaultConfig { ndk { abiFilters(*providers.gradleProperty('idashAbi').getOrElse('armeabi-v7a,x86_64').split(',')) } }
     buildFeatures { buildConfig true }
-    compileOptions { sourceCompatibility JavaVersion.VERSION_1_8; targetCompatibility JavaVersion.VERSION_1_8 }
-    buildTypes { release { minifyEnabled false } }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+    buildTypes {
+        debug {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), '../bitchord/app/proguard-rules.pro', 'headunit-proguard.pro'
+        }
+        release { minifyEnabled true; shrinkResources true; proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), '../bitchord/app/proguard-rules.pro', 'headunit-proguard.pro' }
+    }
     testOptions { unitTests.returnDefaultValues = true }
     lint { abortOnError true; warningsAsErrors false }
 }
-dependencies { implementation 'org.osmdroid:osmdroid-android:6.1.20'; testImplementation 'junit:junit:4.13.2' }
+dependencies { androidTestImplementation "androidx.media3:media3-session:1.11.0"; androidTestImplementation "androidx.media3:media3-common:1.11.0"; implementation project(':bitchord'); implementation 'androidx.appcompat:appcompat:1.7.0'; implementation 'androidx.activity:activity:1.9.3'; implementation 'org.osmdroid:osmdroid-android:6.1.20'; testImplementation 'junit:junit:4.13.2' }

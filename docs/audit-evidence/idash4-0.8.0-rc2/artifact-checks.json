@@ -1,0 +1,20 @@
+{
+  "apk": "iDash4-0.8.0-rc2-arm32-debug.apk",
+  "bytes": 80563231,
+  "sha256": "ea1590ee449ee10e109487ee63ae015b15051336f4b55009600838d6f4cb42cc",
+  "abis": [
+    "armeabi-v7a"
+  ],
+  "dex_count": 4,
+  "dex_identical_to_tested_x86_64_apk": true,
+  "dex_sha256": {
+    "classes.dex": "6301ee239a03d42a882901074012650877d664c8045f4f841379f84deb6f3167",
+    "classes2.dex": "a3255b7a97b3334557e9b220fc8957866727634841f9de53791d3d933e8c4397",
+    "classes3.dex": "4567ec4d1dc46d6a243f0a3c6e9d7cf70a0c7d85fac8f7b680745b9a72c208cf",
+    "classes4.dex": "ca14bbf1c923908176199b746c6f99063dd0ab08ca3be97dbf600574c025f81c"
+  },
+  "version_code": 41,
+  "minimum_sdk": 26,
+  "rollback_version_code": 41,
+  "rollback_same_signing_certificate": true
+}

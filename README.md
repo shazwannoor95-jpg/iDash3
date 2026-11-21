@@ -1,6 +1,6 @@
 # iDash4 — iDash3 integration
 
-**Trial candidate: iDash4 0.8.0-rc1** — native music browser/queue/player inside Drive, adapted from BitChord's JioSaavn source. No split-screen or external BitChord app required. [APK](dist/iDash4-0.8.0-rc1-debug.apk?raw=true) · [rc5 rollback](dist/iDash4-0.7.0-rc5-rollback-debug.apk?raw=true) · [Scope, GPL licensing and validation](docs/NATIVE-MUSIC-0.8.0-RC1.md). Online catalogue/streaming is not verified here; real native local decoding is tested.
+**Trial candidate: iDash4 0.8.0-rc2** — actual BitChord Compose UI and Media3 player integrated inside the native Drive panel beside JAKIM. [ARM32 APK](dist/iDash4-0.8.0-rc2-arm32-debug.apk?raw=true) · [rc5 rollback APK](dist/iDash4-0.7.0-rc5-rollback-full-debug.apk?raw=true) · [Preview](docs/audit-evidence/idash4-0.8.0-rc2/bitchord-full-ui-1024x600.png) · [Scope, GPL source and validation](docs/NATIVE-BITCHORD-0.8.0-RC2.md). API27 emulator: native UI, real local audio and Drive flows pass; live online streaming/login and physical head-unit performance remain unverified. No separate BitChord APK or split-screen is required.
 
 **Revert panel appearance:** Settings → Home & Dock → Liquid Glass → Material panel → **Classic iDash3**. The new iOS26 panel material and the icon-pack switch are independent.
 

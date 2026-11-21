@@ -1,0 +1,31 @@
+Final optimized source-integrated BitChord UI candidate: code41, API26+ ARM32.
+78 JVM tests: zero failures. lintDebug: zero errors.
+
+docs/audit-evidence/idash4-0.8.0-rc2/ui-final/BitChordChecks.txt
+INSTRUMENTATION_RESULT: stream=PASS: 13 full upstream native UI assertions
+
+INSTRUMENTATION_CODE: -1
+
+docs/audit-evidence/idash4-0.8.0-rc2/final-runtime/NativePlaybackChecks.txt
+INSTRUMENTATION_RESULT: stream=PASS: 10 upstream Media3 playback assertions (synthetic PCM, not live catalogue)
+
+INSTRUMENTATION_CODE: -1
+
+docs/audit-evidence/idash4-0.8.0-rc2/optimized-runtime/NativeDriveFlowChecks.txt
+INSTRUMENTATION_RESULT: stream=PASS: 42 native Drive flow assertions
+
+INSTRUMENTATION_CODE: -1
+
+docs/audit-evidence/idash4-0.8.0-rc2/home-regression/SmokeChecks.txt
+INSTRUMENTATION_RESULT: stream=PASS: 57 iDash API27 UI assertions
+
+INSTRUMENTATION_CODE: -1
+
+docs/audit-evidence/idash4-0.8.0-rc2/home-regression/AppLibraryChecks.txt
+INSTRUMENTATION_RESULT: stream=PASS: 17 app library assertions
+
+INSTRUMENTATION_CODE: -1
+
+ARM32 payload: 80563231 bytes, 4 DEX files byte-identical to tested x86_64 build; signing certificate matches rollback; live online/account features and physical ARM performance remain unverified.
+
+Rollback round trip: both installs succeed with equal versionCode41 and matching certificate; all17 existing iDash preference keys preserved on rollback and return. See rollback-roundtrip/result.json.

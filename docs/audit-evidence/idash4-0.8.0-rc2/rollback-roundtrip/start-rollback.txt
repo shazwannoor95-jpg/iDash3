@@ -1,0 +1,5 @@
+Starting: Intent { cmp=com.shazwan.idash3/.LauncherActivity }
+Status: timeout
+Activity: com.shazwan.idash3/.LauncherActivity
+WaitTime: 11062
+Complete

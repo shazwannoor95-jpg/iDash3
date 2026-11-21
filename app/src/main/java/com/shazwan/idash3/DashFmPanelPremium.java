@@ -196,7 +196,7 @@ final class DashFmPanelPremium extends LinearLayout {
     private TextView iconButton(int type,String description,Runnable action){
         IconControl v=new IconControl(type);v.setBackground(buttonBackground(false));v.setContentDescription(description);v.setTooltipText(description);v.setFocusable(true);v.setOnClickListener(w->{if(canAct())action.run();});return v;
     }
-    final class IconControl extends TextView {
+    final class IconControl extends androidx.appcompat.widget.AppCompatTextView {
         final Glyph glyph;
         IconControl(int type){super(owner);glyph=new Glyph(type);setText("");setGravity(Gravity.CENTER);setIncludeFontPadding(false);}
         @Override protected void onSizeChanged(int w,int h,int oldw,int oldh){super.onSizeChanged(w,h,oldw,oldh);int side=dp(24);glyph.setBounds((w-side)/2,(h-side)/2,(w+side)/2,(h+side)/2);}

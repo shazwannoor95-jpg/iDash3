@@ -1,4 +1,9 @@
 pluginManagement { repositories { google(); mavenCentral(); gradlePluginPortal() } }
-dependencyResolutionManagement { repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS); repositories { google(); mavenCentral() } }
+dependencyResolutionManagement { repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS); repositories { maven { url uri("third_party/maven") }; google(); mavenCentral() } }
 rootProject.name = 'iDash3'
 include ':app', ':debloat'
+
+include ':bitchord', ':shared', ':sharedUi'
+project(':bitchord').projectDir = file('bitchord/app')
+project(':shared').projectDir = file('bitchord/shared')
+project(':sharedUi').projectDir = file('bitchord/sharedUi')

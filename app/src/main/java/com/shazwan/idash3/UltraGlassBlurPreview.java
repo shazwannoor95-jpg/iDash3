@@ -17,7 +17,7 @@ import android.widget.ImageView;
  * It is NOT installed automatically: wrapping old LinearLayouts could alter their layout.
  * Does NOT blur a live map behind a View; the input here is a static bitmap only.
  */
-final class UltraGlassBlurPreview extends ImageView {
+final class UltraGlassBlurPreview extends androidx.appcompat.widget.AppCompatImageView {
     UltraGlassBlurPreview(Context c,Bitmap scene,float blurDp,float cornerRadiusDp){
         super(c);
         setImageBitmap(scene);

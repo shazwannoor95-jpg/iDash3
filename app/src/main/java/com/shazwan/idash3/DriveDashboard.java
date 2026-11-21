@@ -33,7 +33,7 @@ final class DriveDashboard extends LinearLayout implements AutoCloseable {
   public void onProviderEnabled(String p){}public void onProviderDisabled(String p){if(active)locationStatus.setText("Sumber lokasi terhenti");}public void onStatusChanged(String p,int s,Bundle b){}
  };
  DriveDashboard(LauncherActivity owner){
-  super(owner);a=owner;setOrientation(HORIZONTAL);setContentDescription("Drive Dashboard");
+  super(owner);a=owner;setOrientation(HORIZONTAL);setBaselineAligned(false);setContentDescription("Drive Dashboard");
   LinearLayout rail=a.column();rail.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL);rail.setBackground(a.glass(0xff25324d,18));addView(rail,new LayoutParams(a.dp(64),-1));
   TextClock clock=new TextClock(a);clock.setFormat24Hour(a.prefs.getBoolean("24h",true)?"HH:mm":"h:mm a");clock.setFormat12Hour(a.prefs.getBoolean("24h",true)?"HH:mm":"h:mm a");clock.setTextColor(Color.WHITE);clock.setTextSize(15);clock.setGravity(Gravity.CENTER);rail.addView(clock,new LayoutParams(-1,a.dp(36)));
   modeButtons[0]=icon("Peta","maps",()->setMode(0));rail.addView(modeButtons[0],railBounds());

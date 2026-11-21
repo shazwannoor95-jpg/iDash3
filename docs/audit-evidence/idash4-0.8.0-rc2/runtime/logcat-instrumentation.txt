@@ -1,0 +1,984 @@
+--------- beginning of main
+11-21 10:48:05.321  2646  2646 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-21 10:48:05.762  2646  2646 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-21 10:48:05.826  2646  2646 I app_process: The ClassLoaderContext is a special shared library.
+11-21 10:48:06.054  2646  2646 D AndroidRuntime: Calling main entry com.android.commands.wm.Wm
+--------- beginning of system
+11-21 10:48:06.068  1598  1866 I WindowManager: Using new display size: 1024x600
+11-21 10:48:06.240  1598  1621 W Looper  : Dispatch took 149ms on android.ui, h=Handler (com.android.server.policy.PhoneWindowManager$PolicyHandler) {6179bbf} cb=com.android.server.policy.PhoneWindowManager$21@e3bb28c msg=0
+11-21 10:48:06.360  2646  2646 D AndroidRuntime: Shutting down VM
+11-21 10:48:07.629  2656  2656 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-21 10:48:07.963  2656  2656 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-21 10:48:07.985  2656  2656 I app_process: The ClassLoaderContext is a special shared library.
+11-21 10:48:08.136  2656  2656 D AndroidRuntime: Calling main entry com.android.commands.wm.Wm
+11-21 10:48:08.180  2656  2656 D AndroidRuntime: Shutting down VM
+11-21 10:48:08.996  1598  1625 D AutofillManagerService: Close system dialogs
+11-21 10:48:10.187  2677  2677 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-21 10:48:10.522  2677  2677 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-21 10:48:10.559  2677  2677 I app_process: The ClassLoaderContext is a special shared library.
+11-21 10:48:10.682  2677  2677 D AndroidRuntime: Calling main entry com.android.commands.am.Am
+11-21 10:48:10.715  1598  2039 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: start instr
+11-21 10:48:10.766  1598  2039 I ActivityManager: Start proc 2690:com.shazwan.idash3/u0a59 for added application com.shazwan.idash3
+11-21 10:48:10.831  2690  2690 I zygote64: Late-enabling -Xcheck:jni
+11-21 10:48:10.879  2690  2690 W zygote64: Unexpected CPU variant for X86 using defaults: x86_64
+11-21 10:48:11.063  2690  2690 W zygote64: ClassLoaderContext classpath size mismatch for position 0. expected=0, found=4 (PCL[] | PCL[/data/app/com.shazwan.idash3.test-N8iFx6I_gEFPZlxdfB6Y3w==/base.apk*1721866575:/data/app/com.shazwan.idash3.test-N8iFx6I_gEFPZlxdfB6Y3w==/base.apk!classes2.dex*873749192:/data/app/com.shazwan.idash3.test-N8iFx6I_gEFPZlxdfB6Y3w==/base.apk!classes3.dex*2872129080:/data/app/com.shazwan.idash3.test-N8iFx6I_gEFPZlxdfB6Y3w==/base.apk!classes4.dex*2532548682])
+11-21 10:48:11.069  2690  2690 W zygote64: Found duplicate classes, falling back to extracting from APK : /data/app/com.shazwan.idash3-UJ2Wyj9l7mE2RbSeUOKlww==/base.apk
+11-21 10:48:11.069  2690  2690 W zygote64: NOTE: This wastes RAM and hurts startup performance.
+11-21 10:48:11.069  2690  2690 W zygote64: Found duplicated class when checking oat files: 'Landroid/accessibilityservice/AccessibilityService$TakeScreenshotCallback;' in /data/app/com.shazwan.idash3-UJ2Wyj9l7mE2RbSeUOKlww==/base.apk!classes19.dex and /data/app/com.shazwan.idash3.test-N8iFx6I_gEFPZlxdfB6Y3w==/base.apk!classes4.dex
+11-21 10:48:11.069  2690  2690 W zygote64: 
+11-21 10:48:16.667  2248  2525 I Dialer  : OmtpVvmCarrierCfgHlpr - OmtpEvent:CONFIG_STATUS_SMS_TIME_OUT
+11-21 10:48:16.683  2248  2248 I Dialer  : RetryPolicy - discarding deferred status: configuration_state=4
+11-21 10:48:16.697  2248  2248 I Dialer  : VvmTaskExecutor - no more tasks, stopping service if no task are added in 5000 millis
+11-21 10:48:16.699  2248  2248 I Dialer  : VvmTaskReceiver - task received
+11-21 10:48:16.700  2248  2248 I Dialer  : VvmTaskReceiver - TaskExecutor already running
+11-21 10:48:16.701  2248  2248 I Dialer  : Task.createTask - create task:com.android.voicemail.impl.ActivationTask
+11-21 10:48:16.702  2248  2248 I Dialer  : RetryPolicy - retry #2 for com.android.voicemail.impl.ActivationTask@2f4a870 queued, executing in 5000
+11-21 10:48:16.714  2248  2248 I Dialer  : VvmTaskExecutor - com.android.voicemail.impl.ActivationTask@2f4a870 added
+11-21 10:48:16.714  2248  2248 I Dialer  : VvmTaskExecutor - minimal wait time:4988
+11-21 10:48:16.715  2248  2248 I Dialer  : VvmTaskExecutor - sleep for 4988 millis
+11-21 10:48:18.585  1598  2593 D NetworkMonitor/NetworkAgentInfo [WIFI () - 100]: PROBE_DNS connectivitycheck.gstatic.com 40109ms FAIL
+11-21 10:48:18.615  1598  2592 D NetworkMonitor/NetworkAgentInfo [WIFI () - 100]: PROBE_DNS www.google.com 40164ms FAIL
+11-21 10:48:18.639  1598  2592 D NetworkMonitor/NetworkAgentInfo [WIFI () - 100]: PROBE_HTTPS https://www.google.com/generate_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "www.google.com": No address associated with hostname
+11-21 10:48:18.655  1598  2593 D NetworkMonitor/NetworkAgentInfo [WIFI () - 100]: PROBE_HTTP http://connectivitycheck.gstatic.com/generate_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "connectivitycheck.gstatic.com": No address associated with hostname
+11-21 10:48:19.838  2690  2690 W System  : ClassLoader referenced unknown path: 
+11-21 10:48:20.446  2690  2690 V NativeCrypto: Registering org/conscrypt/NativeCrypto's 288 native methods...
+11-21 10:48:20.935  1598  2039 I ActivityManager: START u0 {flg=0x10000000 cmp=com.shazwan.idash3/.LauncherActivity} from uid 10059
+11-21 10:48:21.016  1598  1652 W System  : ClassLoader referenced unknown path: 
+11-21 10:48:21.429  1392  1437 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-21 10:48:21.454  1598  1652 D         : HostConnection::get() New Host Connection established 0x73a82c2e0dc0, tid 1652
+11-21 10:48:21.528  1598  2168 D NetworkMonitor/NetworkAgentInfo [WIFI () - 100]: PROBE_FALLBACK http://play.googleapis.com/generate_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "play.googleapis.com": No address associated with hostname
+11-21 10:48:21.530  1598  1689 D ConnectivityService: NetworkAgentInfo [WIFI () - 100] validation failed
+11-21 10:48:21.531  1598  1684 D WifiStateMachine: NETWORK_STATUS_UNWANTED_VALIDATION_FAILED
+11-21 10:48:21.712  2248  2525 I Dialer  : VvmTaskExecutor - executing task com.android.voicemail.impl.ActivationTask@2f4a870
+11-21 10:48:21.728  2248  2525 I Dialer  : PreOMigrationHandler - ComponentInfo{com.android.phone/com.android.services.telephony.TelephonyConnectionService}, [e2f7d48dd2b5ca523e7313cf4ba0f6ea830b6281], UserHandle{0} already migrated
+11-21 10:48:21.874  2248  2525 I zygote64: IncrementDisableThreadFlip blocked for 16.593ms
+11-21 10:48:21.912  1402  1426 D PermissionCache: checking android.permission.READ_FRAME_BUFFER for uid=1000 => granted (8088 us)
+11-21 10:48:21.965  1392  1437 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-21 10:48:22.071  1598  1627 W zygote64: Long monitor contention with owner android.anim (1652) at void com.android.server.wm.WindowSurfacePlacer.lambda$-com_android_server_wm_WindowSurfacePlacer_5337()(WindowSurfacePlacer.java:107) waiters=0 in void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message) for 442ms
+11-21 10:48:22.074  1598  1866 W zygote64: Long monitor contention with owner android.anim (1652) at void com.android.server.wm.WindowSurfacePlacer.lambda$-com_android_server_wm_WindowSurfacePlacer_5337()(WindowSurfacePlacer.java:107) waiters=1 in void com.android.server.wm.StackWindowController.getBounds(android.graphics.Rect) for 334ms
+11-21 10:48:22.079  1598  1749 W zygote64: Long monitor contention with owner android.anim (1652) at void com.android.server.wm.WindowSurfacePlacer.lambda$-com_android_server_wm_WindowSurfacePlacer_5337()(WindowSurfacePlacer.java:107) waiters=2 in int com.android.server.wm.WindowManagerService.relayoutWindow(com.android.server.wm.Session, android.view.IWindow, int, android.view.WindowManager$LayoutParams, int, int, int, int, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.util.MergedConfiguration, android.view.Surface) for 269ms
+11-21 10:48:22.085  1715  2187 D         : HostConnection::get() New Host Connection established 0x73a81ca23f80, tid 2187
+11-21 10:48:22.517  2248  2525 I Dialer  : VvmActivationTask - VVM content provider configured - vvm_type_cvvm
+11-21 10:48:22.522  2248  2525 I Dialer  : OmtpVvmCarrierCfgHlpr - OmtpEvent:CONFIG_ACTIVATING
+11-21 10:48:22.771  2248  2525 I Dialer  : TelephonyMangerCompat.setVisualVoicemailSmsFilterSettings - using TelephonyManager
+11-21 10:48:22.851  2248  2525 I Dialer  : TelephonyMangerCompat.sendVisualVoicemailSms - using TelephonyManager
+11-21 10:48:23.917  2690  2690 D OpenGLRenderer: HWUI GL Pipeline
+11-21 10:48:24.044  1598  2597 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 101]: PROBE_DNS www.google.com 40077ms FAIL
+11-21 10:48:24.054  1598  2598 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 101]: PROBE_DNS connectivitycheck.gstatic.com 40120ms FAIL
+11-21 10:48:24.060  1598  2598 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 101]: PROBE_HTTP http://connectivitycheck.gstatic.com/generate_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "connectivitycheck.gstatic.com": No address associated with hostname
+11-21 10:48:24.064  1598  2597 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 101]: PROBE_HTTPS https://www.google.com/generate_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "www.google.com": No address associated with hostname
+11-21 10:48:24.880  2690  2705 I zygote64: Waiting for a blocking GC ProfileSaver
+11-21 10:48:25.764  1402  2031 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-21 10:48:25.774  2690  2701 I zygote64: Background concurrent copying GC freed 10287(3MB) AllocSpace objects, 5(164KB) LOS objects, 50% free, 2MB/5MB, paused 43.449ms total 1.660s
+11-21 10:48:25.775  2690  2705 I zygote64: WaitForGcToComplete blocked ProfileSaver on HeapTrim for 913.044ms
+11-21 10:48:26.622  2690  2715 D         : HostConnection::get() New Host Connection established 0x73a814be9c40, tid 2715
+11-21 10:48:26.637  1392  1437 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-21 10:48:26.657  1392  1392 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-21 10:48:26.674  1392  1436 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-21 10:48:26.687  1392  1436 D         : HostConnection::get() New Host Connection established 0x7ea878a21000, tid 1436
+11-21 10:48:26.736  2690  2715 I zygote64: android::hardware::configstore::V1_0::ISurfaceFlingerConfigs::hasWideColorDisplay retrieved: 0
+11-21 10:48:26.738  2690  2715 I OpenGLRenderer: Initialized EGL, version 1.4
+11-21 10:48:26.739  2690  2715 D OpenGLRenderer: Swap behavior 1
+11-21 10:48:26.764  2690  2715 D EGL_emulation: eglCreateContext: 0x73a8149f9f40: maj 3 min 0 rcv 3
+11-21 10:48:26.791  2690  2715 D EGL_emulation: eglMakeCurrent: 0x73a8149f9f40: ver 3 0 (tinfo 0x73a8343b1320)
+11-21 10:48:26.951  1402  1426 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-21 10:48:27.256  1392  1436 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-21 10:48:27.514  1392  1436 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-21 10:48:27.537  2690  2690 I Choreographer: Skipped 79 frames!  The application may be doing too much work on its main thread.
+11-21 10:48:28.183  2690  2715 D EGL_emulation: eglMakeCurrent: 0x73a8149f9f40: ver 3 0 (tinfo 0x73a8343b1320)
+11-21 10:48:28.433  1402  1593 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-21 10:48:28.666  1392  1436 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-21 10:48:28.770  2714  2714 D         : HostConnection::get() New Host Connection established 0x73e35b62ff00, tid 2714
+11-21 10:48:30.998  1598  1620 W ActivityManager: Launch timeout has expired, giving up wake lock!
+11-21 10:48:31.078  1598  1619 E memtrack: Couldn't load memtrack module
+11-21 10:48:31.079  1598  1619 W android.os.Debug: failed to get memory consumption info: -1
+11-21 10:48:31.848  2690  2695 I zygote64: Do partial code cache collection, code=17KB, data=29KB
+11-21 10:48:31.951  2690  2695 I zygote64: After code cache collection, code=14KB, data=29KB
+11-21 10:48:31.973  2690  2695 I zygote64: Increasing code cache capacity to 128KB
+11-21 10:48:32.083  2690  2695 I zygote64: Do partial code cache collection, code=14KB, data=47KB
+11-21 10:48:32.147  2690  2695 I zygote64: After code cache collection, code=14KB, data=47KB
+11-21 10:48:32.147  2690  2695 I zygote64: Increasing code cache capacity to 256KB
+11-21 10:48:32.268  2690  2695 I zygote64: JIT allocated 71KB for compiled code of void android.widget.TextView.<init>(android.content.Context, android.util.AttributeSet, int, int)
+11-21 10:48:32.269  2690  2695 I zygote64: Compiler allocated 7MB to compile void android.widget.TextView.<init>(android.content.Context, android.util.AttributeSet, int, int)
+11-21 10:48:33.857  1598  1627 I ActivityManager: Displayed com.shazwan.idash3/.LauncherActivity: +12s782ms
+11-21 10:48:33.948  1598  1619 E memtrack: Couldn't load memtrack module
+11-21 10:48:33.949  1598  1619 W android.os.Debug: failed to get memory consumption info: -1
+11-21 10:48:34.011  1598  2239 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 101]: PROBE_FALLBACK http://www.google.com/gen_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "www.google.com": No address associated with hostname
+11-21 10:48:34.018  1598  1689 D ConnectivityService: NetworkAgentInfo [MOBILE (LTE) - 101] validation failed
+11-21 10:48:34.036  2690  2731 D ProfileInstaller: Installing profile for com.shazwan.idash3
+11-21 10:48:34.188  2690  2731 W zygote64: Verification of void androidx.profileinstaller.ProfileVerifier.<clinit>() took 145.023ms
+11-21 10:48:35.242  1598  1619 E memtrack: Couldn't load memtrack module
+11-21 10:48:35.242  1598  1619 W android.os.Debug: failed to get memory consumption info: -1
+11-21 10:48:36.572  2690  2701 I zygote64: Background concurrent copying GC freed 40485(1629KB) AllocSpace objects, 2(284KB) LOS objects, 49% free, 2MB/5MB, paused 10.366ms total 941.210ms
+11-21 10:48:37.432  2690  2695 I zygote64: Do full code cache collection, code=126KB, data=75KB
+11-21 10:48:37.506  2690  2695 I zygote64: After code cache collection, code=113KB, data=47KB
+11-21 10:48:38.984  2690  2690 I Choreographer: Skipped 61 frames!  The application may be doing too much work on its main thread.
+11-21 10:48:40.567  2690  2701 I zygote64: NativeAlloc concurrent copying GC freed 21167(1005KB) AllocSpace objects, 5(372KB) LOS objects, 49% free, 3MB/6MB, paused 3.147ms total 731.390ms
+11-21 10:48:41.563  2690  2695 I zygote64: Do partial code cache collection, code=125KB, data=73KB
+11-21 10:48:41.611  2690  2695 I zygote64: After code cache collection, code=121KB, data=73KB
+11-21 10:48:41.611  2690  2695 I zygote64: Increasing code cache capacity to 512KB
+11-21 10:48:42.061  2690  2690 I Choreographer: Skipped 50 frames!  The application may be doing too much work on its main thread.
+11-21 10:48:44.031  2690  2690 I OsmDroid: Using tile source: Mapnik
+11-21 10:48:44.080  2690  2690 I OsmDroid: Tile cache increased from 0 to 32
+11-21 10:48:46.924  2690  2690 W zygote64: Verification of void org.slf4j.LoggerFactory.emitReplayOrSubstituionWarning(org.slf4j.event.SubstituteLoggingEvent, int) took 121.490ms
+11-21 10:48:46.986  2690  2690 W System.err: SLF4J(W): No SLF4J providers were found.
+11-21 10:48:46.993  2690  2690 W System.err: SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+11-21 10:48:46.993  2690  2690 W System.err: SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+11-21 10:48:47.101  2690  2701 I zygote64: NativeAlloc concurrent copying GC freed 34205(1785KB) AllocSpace objects, 4(268KB) LOS objects, 49% free, 4MB/8MB, paused 2.745ms total 1.316s
+11-21 10:48:47.522  2690  2690 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+11-21 10:48:49.114  2690  2690 W zygote64: Verification of void kotlinx.coroutines.flow.FlowKt__ShareKt.launchSharingDeferred$FlowKt__ShareKt(kotlinx.coroutines.CoroutineScope, kotlin.coroutines.CoroutineContext, kotlinx.coroutines.flow.Flow, kotlinx.coroutines.CompletableDeferred) took 104.292ms
+11-21 10:48:49.578  2690  2690 W zygote64: Verification of java.lang.Object com.metrolist.innertubex.extraction.InnerTubeExtractor.extractWithConfig(java.lang.String, com.metrolist.innertubex.extraction.ContentHints, java.util.Set, java.lang.String, com.metrolist.innertubex.extraction.PlayerConfig, long, boolean, com.metrolist.innertubex.extraction.AudioQuality, com.metrolist.innertubex.extraction.InnerTubeExtractor$ExtractionDiagnostics, kotlinx.coroutines.Deferred, com.metrolist.innertubex.extraction.TvBearerCredential, kotlin.coroutines.Continuation) took 159.175ms
+11-21 10:48:50.969  1471  1471 I keystore: del USRPKEY__androidx_security_master_key_ 10059
+11-21 10:48:50.976  1471  1471 I keystore: del USRSKEY__androidx_security_master_key_ 10059
+11-21 10:48:50.982  1471  1471 I keystore: del USRCERT__androidx_security_master_key_ 10059
+11-21 10:48:50.984  1471  1471 I keystore: del CACERT__androidx_security_master_key_ 10059
+11-21 10:48:52.708  2690  2695 I zygote64: Do full code cache collection, code=251KB, data=168KB
+11-21 10:48:52.711  2690  2695 I zygote64: After code cache collection, code=233KB, data=124KB
+11-21 10:48:52.913  2690  2695 I zygote64: Do partial code cache collection, code=243KB, data=134KB
+11-21 10:48:52.923  2690  2695 I zygote64: After code cache collection, code=238KB, data=133KB
+11-21 10:48:52.924  2690  2695 I zygote64: Increasing code cache capacity to 1024KB
+11-21 10:48:54.097  1598  2039 D ConnectivityService: requestNetwork for uid/pid:10059/2690 NetworkRequest [ TRACK_DEFAULT id=8, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ]
+11-21 10:48:54.125  1598  1684 D WIFI    : got request NetworkRequest [ TRACK_DEFAULT id=8, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] with score 20
+11-21 10:48:54.134  1598  1684 D WIFI_UT : got request NetworkRequest [ TRACK_DEFAULT id=8, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] with score 20
+11-21 10:48:54.136  1808  1808 D PhoneSwitcherNetworkRequstListener: got request NetworkRequest [ TRACK_DEFAULT id=8, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] with score 20
+11-21 10:48:54.562  2690  2701 I zygote64: Background concurrent copying GC freed 50359(2MB) AllocSpace objects, 12(808KB) LOS objects, 50% free, 4MB/9MB, paused 1.146ms total 1.154s
+11-21 10:48:54.748  2690  2690 E BluetoothAdapter: Bluetooth binder is null
+11-21 10:48:55.284  1598  1749 D ConnectivityService: requestNetwork for uid/pid:10059/2690 NetworkRequest [ TRACK_DEFAULT id=9, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ]
+11-21 10:48:55.296  1598  1684 D WIFI    : got request NetworkRequest [ TRACK_DEFAULT id=9, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] with score 20
+11-21 10:48:55.298  1598  1684 D WIFI_UT : got request NetworkRequest [ TRACK_DEFAULT id=9, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] with score 20
+11-21 10:48:55.301  1808  1808 D PhoneSwitcherNetworkRequstListener: got request NetworkRequest [ TRACK_DEFAULT id=9, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] with score 20
+11-21 10:48:55.624  2690  2745 W zygote64: Verification of kotlinx.serialization.encoding.CompositeEncoder kotlinx.serialization.json.internal.StreamingJsonEncoder.beginStructure(kotlinx.serialization.descriptors.SerialDescriptor) took 121.044ms
+11-21 10:48:56.780  1400  1400 I boot-pipe: done populating /dev/random
+11-21 10:48:57.786  2690  2690 D BitChord: invalidated 0 source cache entries after matcher upgrade
+11-21 10:49:00.033  1598  2039 D AutofillManagerServiceImpl: Reset component for user 0
+11-21 10:49:00.060  1598  1619 E memtrack: Couldn't load memtrack module
+11-21 10:49:00.060  1598  1619 W android.os.Debug: failed to get memory consumption info: -1
+11-21 10:49:01.592  2690  2690 I Choreographer: Skipped 1147 frames!  The application may be doing too much work on its main thread.
+11-21 10:49:02.460  2690  2705 I zygote64: Waiting for a blocking GC ProfileSaver
+11-21 10:49:02.854  2690  2701 I zygote64: Background concurrent copying GC freed 40272(2MB) AllocSpace objects, 16(832KB) LOS objects, 49% free, 5MB/11MB, paused 1.058ms total 648.270ms
+11-21 10:49:02.859  2690  2705 I zygote64: WaitForGcToComplete blocked ProfileSaver on HeapTrim for 399.181ms
+11-21 10:49:03.803  2690  2690 W zygote64: Verification of void com.music.bitchord.MainActivityKt.BitChordApp-o3XDK20(boolean, float, float, com.music.bitchord.ui.components.backdrop.backdrops.LayerBackdrop, com.music.bitchord.ui.MainViewModel, androidx.compose.runtime.Composer, int, int) took 1.780s (large method)
+11-21 10:49:05.064  2690  2742 W zygote64: Long monitor contention with owner DefaultDispatcher-worker-6 (2764) at java.lang.Object com.music.bitchord.data.YtMusicRepository.shelvesOf(java.lang.String, kotlin.coroutines.Continuation)(YtMusicRepository.kt:300) waiters=0 in java.lang.Object com.music.bitchord.data.YtMusicRepository.shelvesOf(java.lang.String, kotlin.coroutines.Continuation) for 160ms
+11-21 10:49:06.346  1393  1421 D hwcomposer: hw_composer sent 99 syncs in 64s
+11-21 10:49:07.930  2690  2695 I zygote64: Method exceeds compiler instruction limit: 30914 in void com.music.bitchord.MainActivityKt.BitChordApp-o3XDK20(boolean, float, float, com.music.bitchord.ui.components.backdrop.backdrops.LayerBackdrop, com.music.bitchord.ui.MainViewModel, androidx.compose.runtime.Composer, int, int)
+11-21 10:49:08.261  2690  2690 W zygote64: Verification of android.graphics.BlendMode androidx.compose.ui.graphics.AndroidBlendMode_androidKt.toAndroidBlendMode-s9anfk8(int) took 118.808ms
+11-21 10:49:09.740  1598  2723 D NetworkMonitor/NetworkAgentInfo [WIFI () - 100]: PROBE_DNS www.google.com 40194ms FAIL
+11-21 10:49:09.779  1598  2723 D NetworkMonitor/NetworkAgentInfo [WIFI () - 100]: PROBE_HTTPS https://www.google.com/generate_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "www.google.com": No address associated with hostname
+11-21 10:49:09.794  1598  2724 D NetworkMonitor/NetworkAgentInfo [WIFI () - 100]: PROBE_DNS connectivitycheck.gstatic.com 40180ms FAIL
+11-21 10:49:09.814  1598  2724 D NetworkMonitor/NetworkAgentInfo [WIFI () - 100]: PROBE_HTTP http://connectivitycheck.gstatic.com/generate_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "connectivitycheck.gstatic.com": No address associated with hostname
+11-21 10:49:10.177  1598  1620 W BroadcastQueue: Timeout of broadcast BroadcastRecord{1815038 u-1 android.intent.action.TIME_TICK} - receiver=android.os.BinderProxy@80d289e, started 10002ms ago
+11-21 10:49:10.178  1598  1620 W BroadcastQueue: Receiver during timeout of BroadcastRecord{1815038 u-1 android.intent.action.TIME_TICK} : BroadcastFilter{baccb4c u0 ReceiverList{82e9f7f 2690 com.shazwan.idash3/10059/u0 remote:80d289e}}
+11-21 10:49:10.185  1598  1619 E memtrack: Couldn't load memtrack module
+11-21 10:49:10.186  1598  1619 W android.os.Debug: failed to get memory consumption info: -1
+11-21 10:49:11.008  1598  1619 E memtrack: Couldn't load memtrack module
+11-21 10:49:11.008  1598  1619 W android.os.Debug: failed to get memory consumption info: -1
+11-21 10:49:11.272  1598  1620 I zygote64: libdebuggerd_client: started dumping process 2690
+11-21 10:49:11.305  1483  1483 I /system/bin/tombstoned: registered intercept for pid 2690 and type kDebuggerdJavaBacktrace
+11-21 10:49:11.307  2690  2696 I zygote64: Thread[3,tid=2696,WaitingInMainSignalCatcherLoop,Thread*=0x73a8342bf400,peer=0x14545578,"Signal Catcher"]: reacting to signal 3
+11-21 10:49:11.307  2690  2696 I zygote64: 
+11-21 10:49:11.975  1483  1483 I /system/bin/tombstoned: received crash request for pid 2690
+11-21 10:49:11.976  1483  1483 I /system/bin/tombstoned: found intercept fd 512 for pid 2690 and type kDebuggerdJavaBacktrace
+11-21 10:49:11.994  2690  2696 I zygote64: Wrote stack traces to '[tombstoned]'
+11-21 10:49:12.004  1598  1620 I zygote64: libdebuggerd_client: done dumping process 2690
+11-21 10:49:12.004  1598  1620 I zygote64: libdebuggerd_client: started dumping process 1598
+11-21 10:49:12.014  1483  1483 I /system/bin/tombstoned: registered intercept for pid 1598 and type kDebuggerdJavaBacktrace
+11-21 10:49:12.016  1598  1603 I zygote64: Thread[2,tid=1603,WaitingInMainSignalCatcherLoop,Thread*=0x73a82c212000,peer=0x13380108,"Signal Catcher"]: reacting to signal 3
+11-21 10:49:12.016  1598  1603 I zygote64: 
+11-21 10:49:12.859  2690  2690 D AndroidRuntime: Shutting down VM
+--------- beginning of crash
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: FATAL EXCEPTION: main
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: Process: com.shazwan.idash3, PID: 2690
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: java.lang.IllegalStateException: Vertically scrollable component was measured with an infinity maximum height constraints, which is disallowed. One of the common reasons is nesting layouts like LazyColumn and Column(Modifier.verticalScroll()). If you want to add a header before the list of items please add a header as a separate item() before the main items() inside the LazyColumn scope. There could be other reasons for this to happen: your ComposeView was added into a LinearLayout with some weight, you applied Modifier.wrapContentSize(unbounded = true) or wrote a custom layout. Please try to remove the source of infinite constraints in the hierarchy above the scrolling container.
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at androidx.compose.foundation.internal.InlineClassHelperKt.throwIllegalStateException(InlineClassHelper.kt:26)
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at androidx.compose.foundation.CheckScrollableContainerConstraintsKt.checkScrollableContainerConstraints-K40F9xA(CheckScrollableContainerConstraints.kt:59)
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at androidx.compose.foundation.lazy.LazyListKt$rememberLazyListMeasurePolicy$1$1.measure-0kLqBqw(LazyList.kt:205)
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at androidx.compose.foundation.lazy.layout.LazyLayoutKt.LazyLayout$lambda$1$3$0(LazyLayout.kt:141)
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at androidx.compose.foundation.lazy.layout.LazyLayoutKt.$r8$lambda$rf3vllu87hDgmhs57JbwRZ1rpS4(Unknown Source:0)
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at androidx.compose.foundation.lazy.layout.LazyLayoutKt$$ExternalSyntheticLambda5.invoke(D8$$SyntheticClass:0)
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.layout.LayoutNodeSubcompositionsState$createMeasurePolicy$1.measure-3p2s80s(SubcomposeLayout.kt:955)
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.InnerNodeCoordinator.measure-BRTryo0(InnerNodeCoordinator.kt:128)
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at com.music.bitchord.ui.utils.IosOverscrollNode.measure-3p2s80s(IosOverscroll.kt:184)
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.LayoutModifierNodeCoordinator.measure-BRTryo0(LayoutModifierNodeCoordinator.kt:190)
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.graphics.SimpleGraphicsLayerModifier.measure-3p2s80s(GraphicsLayerModifier.kt:843)
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.LayoutModifierNodeCoordinator.measure-BRTryo0(LayoutModifierNodeCoordinator.kt:190)
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at androidx.compose.foundation.lazy.layout.LazyLayoutBeyondBoundsProviderModifierNode.measure-3p2s80s(LazyLayoutBeyondBoundsModifierLocal.kt:122)
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.LayoutModifierNodeCoordinator.measure-BRTryo0(LayoutModifierNodeCoordinator.kt:190)
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at androidx.compose.foundation.layout.FillNode.measure-3p2s80s(Size.kt:721)
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.LayoutModifierNodeCoordinator.measure-BRTryo0(LayoutModifierNodeCoordinator.kt:190)
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate$performMeasureBlock$1.invoke(MeasurePassDelegate.kt:173)
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate$performMeasureBlock$1.invoke(MeasurePassDelegate.kt:172)
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at androidx.compose.runtime.snapshots.SnapshotStateObserver.observeReads(SnapshotStateObserver.kt:699)
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate.remeasure-BRTryo0(MeasurePassDelegate.kt:1064)
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate.measure-BRTryo0(MeasurePassDelegate.kt:470)
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at androidx.compose.foundation.layout.BoxMeasurePolicy.measure-3p2s80s(Box.kt:145)
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.InnerNodeCoordinator.measure-BRTryo0(InnerNodeCoordinator.kt:128)
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at androidx.compose.foundation.layout.FillNode.measure-3p2s80s(Size.kt:721)
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.LayoutModifierNodeCoordinator.measure-BRTryo0(LayoutModifierNodeCoordinator.kt:190)
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate$performMeasureBlock$1.invoke(MeasurePassDelegate.kt:173)
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate$performMeasureBlock$1.invoke(MeasurePassDelegate.kt:172)
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at androidx.compose.runtime.snapshots.SnapshotStateObserver.observeReads(SnapshotStateObserver.kt:699)
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate.remeasure-BRTryo0(MeasurePassDelegate.kt:1064)
+11-21 10:49:12.942  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate.measure-BRTryo0(MeasurePassDelegate.kt:470)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.animation.AnimatedEnterExitMeasurePolicy.measure-3p2s80s(AnimatedVisibility.kt:791)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.InnerNodeCoordinator.measure-BRTryo0(InnerNodeCoordinator.kt:128)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.animation.EnterExitTransitionModifierNode.measure-3p2s80s(EnterExitTransition.kt:1269)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.LayoutModifierNodeCoordinator.measure-BRTryo0(LayoutModifierNodeCoordinator.kt:190)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.graphics.BlockGraphicsLayerModifier.measure-3p2s80s(GraphicsLayerModifier.kt:725)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.LayoutModifierNodeCoordinator.measure-BRTryo0(LayoutModifierNodeCoordinator.kt:190)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.animation.AnimatedContentKt$AnimatedContent$6$1$1$1.invoke-3p2s80s(AnimatedContent.kt:842)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.animation.AnimatedContentKt$AnimatedContent$6$1$1$1.invoke(AnimatedContent.kt:841)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.layout.LayoutModifierImpl.measure-3p2s80s(LayoutModifier.kt:278)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.LayoutModifierNodeCoordinator.measure-BRTryo0(LayoutModifierNodeCoordinator.kt:190)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate$performMeasureBlock$1.invoke(MeasurePassDelegate.kt:173)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate$performMeasureBlock$1.invoke(MeasurePassDelegate.kt:172)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.runtime.snapshots.SnapshotStateObserver.observeReads(SnapshotStateObserver.kt:699)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate.remeasure-BRTryo0(MeasurePassDelegate.kt:1064)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate.measure-BRTryo0(MeasurePassDelegate.kt:470)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.animation.AnimatedContentMeasurePolicy.measure-3p2s80s(AnimatedContent.kt:894)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.InnerNodeCoordinator.measure-BRTryo0(InnerNodeCoordinator.kt:128)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.animation.AnimatedContentTransitionScopeImpl$SizeModifierNode.measure-3p2s80s(AnimatedContent.kt:655)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.LayoutModifierNodeCoordinator.measure-BRTryo0(LayoutModifierNodeCoordinator.kt:190)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate$performMeasureBlock$1.invoke(MeasurePassDelegate.kt:173)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate$performMeasureBlock$1.invoke(MeasurePassDelegate.kt:172)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.runtime.snapshots.SnapshotStateObserver.observeReads(SnapshotStateObserver.kt:699)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate.remeasure-BRTryo0(MeasurePassDelegate.kt:1064)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate.measure-BRTryo0(MeasurePassDelegate.kt:470)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.foundation.layout.BoxMeasurePolicy.measure-3p2s80s(Box.kt:168)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.InnerNodeCoordinator.measure-BRTryo0(InnerNodeCoordinator.kt:128)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.foundation.layout.FillNode.measure-3p2s80s(Size.kt:721)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.LayoutModifierNodeCoordinator.measure-BRTryo0(LayoutModifierNodeCoordinator.kt:190)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate$performMeasureBlock$1.invoke(MeasurePassDelegate.kt:173)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate$performMeasureBlock$1.invoke(MeasurePassDelegate.kt:172)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.runtime.snapshots.SnapshotStateObserver.observeReads(SnapshotStateObserver.kt:699)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate.remeasure-BRTryo0(MeasurePassDelegate.kt:1064)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate.measure-BRTryo0(MeasurePassDelegate.kt:470)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.foundation.layout.RowColumnMeasurePolicyKt.measure(RowColumnMeasurePolicy.kt:208)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.foundation.layout.RowColumnMeasurePolicyKt.measure$default(RowColumnMeasurePolicy.kt:77)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.foundation.layout.RowMeasurePolicy.measure-3p2s80s(Row.kt:142)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.InnerNodeCoordinator.measure-BRTryo0(InnerNodeCoordinator.kt:128)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.foundation.layout.FillNode.measure-3p2s80s(Size.kt:721)
+11-21 10:49:12.977  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.LayoutModifierNodeCoordinator.measure-BRTryo0(LayoutModifierNodeCoordinator.kt:190)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate$performMeasureBlock$1.invoke(MeasurePassDelegate.kt:173)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate$performMeasureBlock$1.invoke(MeasurePassDelegate.kt:172)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.runtime.snapshots.SnapshotStateObserver.observeReads(SnapshotStateObserver.kt:699)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate.remeasure-BRTryo0(MeasurePassDelegate.kt:1064)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate.measure-BRTryo0(MeasurePassDelegate.kt:470)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.foundation.layout.BoxMeasurePolicy.measure-3p2s80s(Box.kt:168)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.InnerNodeCoordinator.measure-BRTryo0(InnerNodeCoordinator.kt:128)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.foundation.layout.FillNode.measure-3p2s80s(Size.kt:721)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.LayoutModifierNodeCoordinator.measure-BRTryo0(LayoutModifierNodeCoordinator.kt:190)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate$performMeasureBlock$1.invoke(MeasurePassDelegate.kt:173)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate$performMeasureBlock$1.invoke(MeasurePassDelegate.kt:172)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.runtime.snapshots.SnapshotStateObserver.observeReads(SnapshotStateObserver.kt:699)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate.remeasure-BRTryo0(MeasurePassDelegate.kt:1064)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate.measure-BRTryo0(MeasurePassDelegate.kt:470)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.foundation.layout.BoxMeasurePolicy.measure-3p2s80s(Box.kt:145)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.foundation.layout.BoxWithConstraintsKt.BoxWithConstraints$lambda$0$0(BoxWithConstraints.kt:68)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.foundation.layout.BoxWithConstraintsKt.$r8$lambda$p9yh-8kbO_kwrsRP1ZyRK8puGy8(Unknown Source:0)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.foundation.layout.BoxWithConstraintsKt$$ExternalSyntheticLambda0.invoke(D8$$SyntheticClass:0)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.layout.LayoutNodeSubcompositionsState$createMeasurePolicy$1.measure-3p2s80s(SubcomposeLayout.kt:955)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.InnerNodeCoordinator.measure-BRTryo0(InnerNodeCoordinator.kt:128)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.foundation.layout.FillNode.measure-3p2s80s(Size.kt:721)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.LayoutModifierNodeCoordinator.measure-BRTryo0(LayoutModifierNodeCoordinator.kt:190)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate$performMeasureBlock$1.invoke(MeasurePassDelegate.kt:173)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate$performMeasureBlock$1.invoke(MeasurePassDelegate.kt:172)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.runtime.snapshots.SnapshotStateObserver.observeReads(SnapshotStateObserver.kt:699)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate.remeasure-BRTryo0(MeasurePassDelegate.kt:1064)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate.measure-BRTryo0(MeasurePassDelegate.kt:470)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.layout.RootMeasurePolicy.measure-3p2s80s(RootMeasurePolicy.kt:37)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.InnerNodeCoordinator.measure-BRTryo0(InnerNodeCoordinator.kt:128)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.platform.AndroidComposeView$RootModifierNode.measure-3p2s80s(AndroidComposeView.android.kt:3384)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.LayoutModifierNodeCoordinator.measure-BRTryo0(LayoutModifierNodeCoordinator.kt:190)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate$performMeasureBlock$1.invoke(MeasurePassDelegate.kt:173)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate$performMeasureBlock$1.invoke(MeasurePassDelegate.kt:172)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.runtime.snapshots.SnapshotStateObserver.observeReads(SnapshotStateObserver.kt:728)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasurePassDelegate.remeasure-BRTryo0(MeasurePassDelegate.kt:1064)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.LayoutNode.remeasure-_Sx5XlM$ui(LayoutNode.kt:1281)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasureAndLayoutDelegate.doRemeasure-sdFAvZA(MeasureAndLayoutDelegate.kt:378)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasureAndLayoutDelegate.remeasureOnly(MeasureAndLayoutDelegate.kt:652)
+11-21 10:49:13.011  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.node.MeasureAndLayoutDelegate.measureOnly(MeasureAndLayoutDelegate.kt:446)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.platform.AndroidComposeView.onMeasure(AndroidComposeView.android.kt:1847)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.View.measure(View.java:22071)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.platform.AbstractComposeView.internalOnMeasure$ui(ComposeView.android.kt:314)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at androidx.compose.ui.platform.AbstractComposeView.onMeasure(ComposeView.android.kt:301)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.View.measure(View.java:22071)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.ViewGroup.measureChildWithMargins(ViewGroup.java:6602)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.widget.FrameLayout.onMeasure(FrameLayout.java:185)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.View.measure(View.java:22071)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.ViewGroup.measureChildWithMargins(ViewGroup.java:6602)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.widget.FrameLayout.onMeasure(FrameLayout.java:185)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.View.measure(View.java:22071)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.ViewGroup.measureChildWithMargins(ViewGroup.java:6602)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.widget.LinearLayout.measureChildBeforeLayout(LinearLayout.java:1514)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.widget.LinearLayout.measureVertical(LinearLayout.java:806)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.widget.LinearLayout.onMeasure(LinearLayout.java:685)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.View.measure(View.java:22071)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.widget.LinearLayout.measureHorizontal(LinearLayout.java:1148)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.widget.LinearLayout.onMeasure(LinearLayout.java:687)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at com.shazwan.idash3.DriveDashboard.onMeasure(DriveDashboard.java:63)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.View.measure(View.java:22071)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.ViewGroup.measureChildWithMargins(ViewGroup.java:6602)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.widget.LinearLayout.measureChildBeforeLayout(LinearLayout.java:1514)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.widget.LinearLayout.measureVertical(LinearLayout.java:806)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.widget.LinearLayout.onMeasure(LinearLayout.java:685)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.View.measure(View.java:22071)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.ViewGroup.measureChildWithMargins(ViewGroup.java:6602)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.widget.LinearLayout.measureChildBeforeLayout(LinearLayout.java:1514)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.widget.LinearLayout.measureVertical(LinearLayout.java:806)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.widget.LinearLayout.onMeasure(LinearLayout.java:685)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.View.measure(View.java:22071)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.ViewGroup.measureChildWithMargins(ViewGroup.java:6602)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.widget.FrameLayout.onMeasure(FrameLayout.java:185)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.View.measure(View.java:22071)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.ViewGroup.measureChildWithMargins(ViewGroup.java:6602)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.widget.FrameLayout.onMeasure(FrameLayout.java:185)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at androidx.appcompat.widget.ContentFrameLayout.onMeasure(ContentFrameLayout.java:141)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.View.measure(View.java:22071)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.ViewGroup.measureChildWithMargins(ViewGroup.java:6602)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.widget.LinearLayout.measureChildBeforeLayout(LinearLayout.java:1514)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.widget.LinearLayout.measureVertical(LinearLayout.java:806)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.widget.LinearLayout.onMeasure(LinearLayout.java:685)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.View.measure(View.java:22071)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.ViewGroup.measureChildWithMargins(ViewGroup.java:6602)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.widget.FrameLayout.onMeasure(FrameLayout.java:185)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.View.measure(View.java:22071)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.ViewGroup.measureChildWithMargins(ViewGroup.java:6602)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.widget.FrameLayout.onMeasure(FrameLayout.java:185)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.View.measure(View.java:22071)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.ViewGroup.measureChildWithMargins(ViewGroup.java:6602)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.widget.FrameLayout.onMeasure(FrameLayout.java:185)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at com.android.internal.policy.DecorView.onMeasure(DecorView.java:724)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.View.measure(View.java:22071)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.ViewRootImpl.performMeasure(ViewRootImpl.java:2422)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.ViewRootImpl.measureHierarchy(ViewRootImpl.java:1504)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.ViewRootImpl.performTraversals(ViewRootImpl.java:1761)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.ViewRootImpl.doTraversal(ViewRootImpl.java:1392)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.ViewRootImpl$TraversalRunnable.run(ViewRootImpl.java:6752)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.Choreographer$CallbackRecord.run(Choreographer.java:911)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.Choreographer.doCallbacks(Choreographer.java:723)
+11-21 10:49:13.023  2690  2690 E AndroidRuntime: 	at android.view.Choreographer.doFrame(Choreographer.java:658)
+11-21 10:49:13.036  2690  2690 E AndroidRuntime: 	at android.view.Choreographer$FrameDisplayEventReceiver.run(Choreographer.java:897)
+11-21 10:49:13.036  2690  2690 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:790)
+11-21 10:49:13.036  2690  2690 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:99)
+11-21 10:49:13.036  2690  2690 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:164)
+11-21 10:49:13.036  2690  2690 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:6494)
+11-21 10:49:13.036  2690  2690 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+11-21 10:49:13.036  2690  2690 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:438)
+11-21 10:49:13.036  2690  2690 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:807)
+11-21 10:49:13.119  2690  2690 I Process : Sending signal. PID: 2690 SIG: 9
+11-21 10:49:13.279  1598  1672 W InputDispatcher: channel 'dd07d31 com.shazwan.idash3/com.shazwan.idash3.LauncherActivity (server)' ~ Consumer closed input channel or an error occurred.  events=0x9
+11-21 10:49:13.279  1598  1672 E InputDispatcher: channel 'dd07d31 com.shazwan.idash3/com.shazwan.idash3.LauncherActivity (server)' ~ Channel is unrecoverably broken and will be disposed!
+11-21 10:49:13.293  1598  2145 D ConnectivityService: ConnectivityService NetworkRequestInfo binderDied(NetworkRequest [ TRACK_DEFAULT id=8, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ], android.os.BinderProxy@7b58557)
+11-21 10:49:13.305  1598  1689 D ConnectivityService: releasing NetworkRequest [ TRACK_DEFAULT id=8, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] (release request)
+11-21 10:49:13.312  1598  1866 D ConnectivityService: ConnectivityService NetworkRequestInfo binderDied(NetworkRequest [ TRACK_DEFAULT id=9, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ], android.os.BinderProxy@f347844)
+11-21 10:49:13.313  1598  1849 W WindowManager: removeWindowToken: Attempted to remove non-existing token: android.os.Binder@dd06811
+11-21 10:49:13.315  1598  1749 I WindowManager: WIN DEATH: Window{dd07d31 u0 com.shazwan.idash3/com.shazwan.idash3.LauncherActivity}
+11-21 10:49:13.316  1598  1749 W InputDispatcher: Attempted to unregister already unregistered input channel 'dd07d31 com.shazwan.idash3/com.shazwan.idash3.LauncherActivity (server)'
+11-21 10:49:13.328  1598  1689 D ConnectivityService: releasing NetworkRequest [ TRACK_DEFAULT id=9, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] (release request)
+11-21 10:49:13.397  1402  1593 E SurfaceFlinger: Failed to find layer (com.shazwan.idash3/com.shazwan.idash3.LauncherActivity#0) in layer parent (no-parent).
+11-21 10:49:13.439  1598  2168 D NetworkMonitor/NetworkAgentInfo [WIFI () - 100]: PROBE_FALLBACK http://play.googleapis.com/generate_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "play.googleapis.com": No address associated with hostname
+11-21 10:49:13.446  1598  2118 I ActivityManager: Process com.shazwan.idash3 (pid 2690) has died: fore TOP 
+11-21 10:49:13.483  1598  1689 D ConnectivityService: NetworkAgentInfo [WIFI () - 100] validation failed
+11-21 10:49:13.494  1483  1483 I /system/bin/tombstoned: received crash request for pid 1598
+11-21 10:49:13.494  1483  1483 I /system/bin/tombstoned: found intercept fd 512 for pid 1598 and type kDebuggerdJavaBacktrace
+11-21 10:49:13.497  1598  1603 I zygote64: Wrote stack traces to '[tombstoned]'
+11-21 10:49:13.529  1598  1620 I zygote64: libdebuggerd_client: done dumping process 1598
+11-21 10:49:13.537  1598  1684 D WifiStateMachine: NETWORK_STATUS_UNWANTED_VALIDATION_FAILED
+11-21 10:49:13.540  1598  2118 W ActivityManager: Force removing ActivityRecord{bb743b7 u0 com.shazwan.idash3/.LauncherActivity t89}: app died, no saved state
+11-21 10:49:13.578  1598  1622 W zygote64: kill(-2690, 9) failed: No such process
+11-21 10:49:13.578  1598  1620 I zygote64: libdebuggerd_client: started dumping process 1808
+11-21 10:49:13.579  1483  1483 I /system/bin/tombstoned: registered intercept for pid 1808 and type kDebuggerdJavaBacktrace
+11-21 10:49:13.580  1808  1814 I zygote64: Thread[3,tid=1814,WaitingInMainSignalCatcherLoop,Thread*=0x73a8342bf400,peer=0x138c0188,"Signal Catcher"]: reacting to signal 3
+11-21 10:49:13.580  1808  1814 I zygote64: 
+11-21 10:49:13.589  1598  2118 W ActivityManager: Crash of app com.shazwan.idash3 running instrumentation ComponentInfo{com.shazwan.idash3.test/com.shazwan.idash3.BitChordChecks}
+11-21 10:49:13.615  1598  1622 I zygote64: Successfully killed process cgroup uid 10059 pid 2690 in 126ms
+11-21 10:49:13.618  1598  2118 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: finished inst
+11-21 10:49:13.685  1598  2786 W Binder  : Outgoing transactions from this process must be FLAG_ONEWAY
+11-21 10:49:13.685  1598  2786 W Binder  : java.lang.Throwable
+11-21 10:49:13.685  1598  2786 W Binder  : 	at android.os.BinderProxy.transact(Binder.java:752)
+11-21 10:49:13.685  1598  2786 W Binder  : 	at android.app.IInstrumentationWatcher$Stub$Proxy.instrumentationFinished(IInstrumentationWatcher.java:160)
+11-21 10:49:13.685  1598  2786 W Binder  : 	at com.android.server.am.InstrumentationReporter$MyThread.run(InstrumentationReporter.java:86)
+11-21 10:49:13.744  1598  1627 W zygote64: Long monitor contention with owner Binder:1598_9 (2118) at void com.android.server.am.ActivityManagerService$AppDeathRecipient.binderDied()(ActivityManagerService.java:1625) waiters=0 in void com.android.server.am.ActivityManagerService$LocalService.setHasOverlayUi(int, boolean) for 403ms
+11-21 10:49:13.745  1598  1627 W ActivityManager: setHasOverlayUi called on unknown pid: 2690
+11-21 10:49:13.769  1598  1621 W Looper  : Dispatch took 245ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {2f07801} cb=null msg=53
+11-21 10:49:13.937  2677  2677 D AndroidRuntime: Shutting down VM
+11-21 10:49:14.045  1392  1436 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2891776
+11-21 10:49:14.151  1598  1608 I zygote64: Background concurrent copying GC freed 59696(3MB) AllocSpace objects, 19(648KB) LOS objects, 42% free, 6MB/12MB, paused 40.086ms total 1.015s
+11-21 10:49:14.320  1392  1436 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2891776
+11-21 10:49:14.408  1598  2786 I ActivityManager: Failure reporting to instrumentation watcher: comp=ComponentInfo{com.shazwan.idash3.test/com.shazwan.idash3.BitChordChecks} results=Bundle[{shortMsg=Process crashed.}]
+11-21 10:49:14.875  1483  1483 I /system/bin/tombstoned: received crash request for pid 1808
+11-21 10:49:14.876  1483  1483 I /system/bin/tombstoned: found intercept fd 512 for pid 1808 and type kDebuggerdJavaBacktrace
+11-21 10:49:14.880  1598  1620 I zygote64: libdebuggerd_client: done dumping process 1808
+11-21 10:49:14.880  1598  1620 I zygote64: libdebuggerd_client: started dumping process 1715
+11-21 10:49:14.882  1483  1483 I /system/bin/tombstoned: registered intercept for pid 1715 and type kDebuggerdJavaBacktrace
+11-21 10:49:14.882  1808  1814 I zygote64: Wrote stack traces to '[tombstoned]'
+11-21 10:49:14.884  1715  1724 I zygote64: Thread[3,tid=1724,WaitingInMainSignalCatcherLoop,Thread*=0x73a8342bf400,peer=0x13880088,"Signal Catcher"]: reacting to signal 3
+11-21 10:49:14.884  1715  1724 I zygote64: 
+11-21 10:49:15.074  1392  1436 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2891776
+11-21 10:49:15.197  1598  1627 W zygote64: Long monitor contention with owner android.anim (1652) at void com.android.server.wm.WindowSurfacePlacer.lambda$-com_android_server_wm_WindowSurfacePlacer_5337()(WindowSurfacePlacer.java:107) waiters=0 in void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message) for 196ms
+11-21 10:49:15.385  1598  1849 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: from pid 2794
+11-21 10:49:15.479  1483  1483 I /system/bin/tombstoned: received crash request for pid 1715
+11-21 10:49:15.479  1483  1483 I /system/bin/tombstoned: found intercept fd 512 for pid 1715 and type kDebuggerdJavaBacktrace
+11-21 10:49:15.492  1598  1620 I zygote64: libdebuggerd_client: done dumping process 1715
+11-21 10:49:15.504  1715  1724 I zygote64: Wrote stack traces to '[tombstoned]'
+11-21 10:49:15.525  1598  1620 I zygote64: libdebuggerd_client: started dumping process 1402
+11-21 10:49:15.534  1483  1483 I /system/bin/tombstoned: registered intercept for pid 1402 and type kDebuggerdNativeBacktrace
+11-21 10:49:15.539  1402  1402 I libc    : Requested dump for tid 1402 (surfaceflinger)
+11-21 10:49:15.734  2801  2801 I crash_dump64: obtaining output fd from tombstoned, type: kDebuggerdNativeBacktrace
+11-21 10:49:15.736  1483  1483 I /system/bin/tombstoned: received crash request for pid 1402
+11-21 10:49:15.736  1483  1483 I /system/bin/tombstoned: found intercept fd 512 for pid 1402 and type kDebuggerdNativeBacktrace
+11-21 10:49:15.738  2801  2801 I crash_dump64: performing dump of process 1402 (target tid = 1402)
+11-21 10:49:15.886  1598  1620 I zygote64: libdebuggerd_client: done dumping process 1402
+11-21 10:49:15.887  1598  1620 I zygote64: libdebuggerd_client: started dumping process 1467
+11-21 10:49:15.890  1483  1483 I /system/bin/tombstoned: registered intercept for pid 1467 and type kDebuggerdNativeBacktrace
+11-21 10:49:15.895  1467  1467 I libc    : Requested dump for tid 1467 (audioserver)
+11-21 10:49:16.233  2807  2807 I crash_dump32: obtaining output fd from tombstoned, type: kDebuggerdNativeBacktrace
+11-21 10:49:16.238  1483  1483 I /system/bin/tombstoned: received crash request for pid 1467
+11-21 10:49:16.238  1483  1483 I /system/bin/tombstoned: found intercept fd 512 for pid 1467 and type kDebuggerdNativeBacktrace
+11-21 10:49:16.272  2807  2807 I crash_dump32: performing dump of process 1467 (target tid = 1467)
+11-21 10:49:16.438  1598  1620 I zygote64: libdebuggerd_client: done dumping process 1467
+11-21 10:49:16.438  1598  1620 I zygote64: libdebuggerd_client: started dumping process 1468
+11-21 10:49:16.446  1468  1468 I libc    : Requested dump for tid 1468 (cameraserver)
+11-21 10:49:16.448  1483  1483 I /system/bin/tombstoned: registered intercept for pid 1468 and type kDebuggerdNativeBacktrace
+11-21 10:49:16.574  2812  2812 I crash_dump32: obtaining output fd from tombstoned, type: kDebuggerdNativeBacktrace
+11-21 10:49:16.578  1483  1483 I /system/bin/tombstoned: received crash request for pid 1468
+11-21 10:49:16.578  1483  1483 I /system/bin/tombstoned: found intercept fd 512 for pid 1468 and type kDebuggerdNativeBacktrace
+11-21 10:49:16.581  2812  2812 I crash_dump32: performing dump of process 1468 (target tid = 1468)
+11-21 10:49:16.682  1598  1620 I zygote64: libdebuggerd_client: done dumping process 1468
+11-21 10:49:16.683  1598  1620 I zygote64: libdebuggerd_client: started dumping process 1469
+11-21 10:49:16.687  1483  1483 I /system/bin/tombstoned: registered intercept for pid 1469 and type kDebuggerdNativeBacktrace
+11-21 10:49:16.689  1469  1469 I libc    : Requested dump for tid 1469 (drmserver)
+11-21 10:49:16.911  2817  2817 I crash_dump32: obtaining output fd from tombstoned, type: kDebuggerdNativeBacktrace
+11-21 10:49:16.926  1483  1483 I /system/bin/tombstoned: received crash request for pid 1469
+11-21 10:49:16.927  1483  1483 I /system/bin/tombstoned: found intercept fd 512 for pid 1469 and type kDebuggerdNativeBacktrace
+11-21 10:49:16.929  2817  2817 I crash_dump32: performing dump of process 1469 (target tid = 1469)
+11-21 10:49:17.022  1598  1620 I zygote64: libdebuggerd_client: done dumping process 1469
+11-21 10:49:17.033  1598  1620 I zygote64: libdebuggerd_client: started dumping process 1472
+11-21 10:49:17.035  1483  1483 I /system/bin/tombstoned: registered intercept for pid 1472 and type kDebuggerdNativeBacktrace
+11-21 10:49:17.037  1472  1472 I libc    : Requested dump for tid 1472 (mediadrmserver)
+11-21 10:49:17.177  2821  2821 I crash_dump32: obtaining output fd from tombstoned, type: kDebuggerdNativeBacktrace
+11-21 10:49:17.181  1483  1483 I /system/bin/tombstoned: received crash request for pid 1472
+11-21 10:49:17.181  1483  1483 I /system/bin/tombstoned: found intercept fd 512 for pid 1472 and type kDebuggerdNativeBacktrace
+11-21 10:49:17.185  2821  2821 I crash_dump32: performing dump of process 1472 (target tid = 1472)
+11-21 10:49:17.239  1598  1620 I zygote64: libdebuggerd_client: done dumping process 1472
+11-21 10:49:17.239  1598  1620 I zygote64: libdebuggerd_client: started dumping process 1473
+11-21 10:49:17.241  1483  1483 I /system/bin/tombstoned: registered intercept for pid 1473 and type kDebuggerdNativeBacktrace
+11-21 10:49:17.247  1473  1473 I libc    : Requested dump for tid 1473 (mediaextractor)
+11-21 10:49:17.350  2824  2824 I crash_dump64: obtaining output fd from tombstoned, type: kDebuggerdNativeBacktrace
+11-21 10:49:17.352  1483  1483 I /system/bin/tombstoned: received crash request for pid 1473
+11-21 10:49:17.352  1483  1483 I /system/bin/tombstoned: found intercept fd 512 for pid 1473 and type kDebuggerdNativeBacktrace
+11-21 10:49:17.358  2824  2824 I crash_dump64: performing dump of process 1473 (target tid = 1473)
+11-21 10:49:17.408  1598  1620 I zygote64: libdebuggerd_client: done dumping process 1473
+11-21 10:49:17.408  1598  1620 I zygote64: libdebuggerd_client: started dumping process 1475
+11-21 10:49:17.410  1483  1483 I /system/bin/tombstoned: registered intercept for pid 1475 and type kDebuggerdNativeBacktrace
+11-21 10:49:17.416  1475  1475 I libc    : Requested dump for tid 1475 (mediaserver)
+11-21 10:49:17.532  2828  2828 I crash_dump32: obtaining output fd from tombstoned, type: kDebuggerdNativeBacktrace
+11-21 10:49:17.535  1483  1483 I /system/bin/tombstoned: received crash request for pid 1475
+11-21 10:49:17.536  1483  1483 I /system/bin/tombstoned: found intercept fd 512 for pid 1475 and type kDebuggerdNativeBacktrace
+11-21 10:49:17.539  2828  2828 I crash_dump32: performing dump of process 1475 (target tid = 1475)
+11-21 10:49:17.615  1598  1620 I zygote64: libdebuggerd_client: done dumping process 1475
+11-21 10:49:17.615  1598  1620 I zygote64: libdebuggerd_client: started dumping process 1479
+11-21 10:49:17.650  1483  1483 I /system/bin/tombstoned: registered intercept for pid 1479 and type kDebuggerdNativeBacktrace
+11-21 10:49:17.655  1483  1483 I /system/bin/tombstoned: received crash request for pid 1479
+11-21 10:49:17.655  1483  1483 I /system/bin/tombstoned: found intercept fd 512 for pid 1479 and type kDebuggerdNativeBacktrace
+11-21 10:49:17.693  1483  1483 W /system/bin/tombstoned: crash socket received short read of length 0 (expected 12)
+11-21 10:49:17.694  1598  1620 I zygote64: libdebuggerd_client: done dumping process 1479
+11-21 10:49:17.745  1598  1620 E ActivityManager: ANR in com.shazwan.idash3
+11-21 10:49:17.745  1598  1620 E ActivityManager: PID: 2690
+11-21 10:49:17.745  1598  1620 E ActivityManager: Reason: Broadcast of Intent { act=android.intent.action.TIME_TICK flg=0x50200014 (has extras) }
+11-21 10:49:17.745  1598  1620 E ActivityManager: Load: 4.65 / 3.5 / 1.68
+11-21 10:49:17.745  1598  1620 E ActivityManager: CPU usage from 0ms to 7507ms later (2026-11-21 10:49:10.188 to 2026-11-21 10:49:17.695):
+11-21 10:49:17.745  1598  1620 E ActivityManager:   44% 1598/system_server: 11% user + 33% kernel / faults: 1477 minor 6 major
+11-21 10:49:17.745  1598  1620 E ActivityManager:   19% 1402/surfaceflinger: 5.6% user + 14% kernel / faults: 155 minor 2 major
+11-21 10:49:17.745  1598  1620 E ActivityManager:   10% 1395/android.hardware.sensors@1.0-service: 2.2% user + 8.5% kernel
+11-21 10:49:17.745  1598  1620 E ActivityManager:   6.5% 2107/system:ui: 1.4% user + 5% kernel / faults: 3071 minor
+11-21 10:49:17.745  1598  1620 E ActivityManager:   5.3% 1393/android.hardware.graphics.composer@2.1-service: 1.3% user + 4% kernel / faults: 4 minor
+11-21 10:49:17.745  1598  1620 E ActivityManager:   4.2% 1407/adbd: 0.1% user + 4.1% kernel / faults: 364 minor
+11-21 10:49:17.745  1598  1620 E ActivityManager:   3.7% 1715/com.android.systemui: 0.6% user + 3% kernel / faults: 473 minor 1 major
+11-21 10:49:17.745  1598  1620 E ActivityManager:   3.4% 1808/com.android.phone: 0% user + 3.4% kernel / faults: 470 minor
+11-21 10:49:17.745  1598  1620 E ActivityManager:   2.1% 1334/logd: 0.2% user + 1.8% kernel / faults: 5 minor
+11-21 10:49:17.745  1598  1620 E ActivityManager:   1.7% 7/rcu_preempt: 0% user + 1.7% kernel
+11-21 10:49:17.745  1598  1620 E ActivityManager:   0% 1483/tombstoned: 0% user + 0% kernel / faults: 4 minor
+11-21 10:49:17.745  1598  1620 E ActivityManager:   0.8% 3/ksoftirqd/0: 0% user + 0.8% kernel
+11-21 10:49:17.745  1598  1620 E ActivityManager:   0.8% 17/kworker/u4:1: 0% user + 0.8% kernel
+11-21 10:49:17.745  1598  1620 E ActivityManager:   0.8% 1391/android.hardware.gnss@1.0-service: 0.1% user + 0.6% kernel
+11-21 10:49:17.745  1598  1620 E ActivityManager:   0.8% 1447/kworker/u5:0: 0% user + 0.8% kernel
+11-21 10:49:17.745  1598  1620 E ActivityManager:   0.5% 511/kswapd0: 0% user + 0.5% kernel
+11-21 10:49:17.745  1598  1620 E ActivityManager:   0.5% 1404/logcat: 0.1% user + 0.4% kernel / faults: 3 minor
+11-21 10:49:17.745  1598  1620 E ActivityManager:   0.5% 1467/audioserver: 0.1% user + 0.4% kernel / faults: 20 minor 1 major
+11-21 10:49:17.745  1598  1620 E ActivityManager:   0% 1468/cameraserver: 0% user + 0% kernel / faults: 47 minor
+11-21 10:49:17.745  1598  1620 E ActivityManager:   0.5% 1476/netd: 0% user + 0.5% kernel / faults: 4 minor
+11-21 10:49:17.745  1598  1620 E ActivityManager:   0.5% 2668/logcat: 0% user + 0.5% kernel / faults: 4 minor
+11-21 10:49:17.745  1598  1620 E ActivityManager:   0.3% 1//init: 0.1% user + 0.2% kernel / faults: 1 minor
+11-21 10:49:17.745  1598  1620 E ActivityManager:   0.4% 678/hwrng: 0% user + 0.4% kernel
+11-21 10:49:17.745  1598  1620 E ActivityManager:   0.4% 1394/android.hardware.power@1.0-service: 0% user + 0.4% kernel
+11-21 10:49:17.745  1598  1620 E ActivityManager:   0% 1469/drmserver: 0% user + 0% kernel / faults: 36 minor
+11-21 10:49:17.745  1598  1620 E ActivityManager:   0% 1472/mediadrmserver: 0% user + 0% kernel / faults: 37 minor
+11-21 10:49:17.745  1598  1620 E ActivityManager:   0.4% 1475/mediaserver: 0.1% user + 0.2% kernel / faults: 42 minor
+11-21 10:49:17.745  1598  1620 E ActivityManager:   0.2% 4/kworker/0:0: 0% user + 0.2% kernel
+11-21 10:49:17.745  1598  1620 E ActivityManager:   0.2% 12/ksoftirqd/1: 0% user + 0.2% kernel
+11-21 10:49:17.745  1598  1620 E ActivityManager:   0.2% 1392/android.hardware.graphics.allocator@2.0-service: 0.1% user + 0.1% kernel / faults: 3 minor
+11-21 10:49:17.745  1598  1620 E ActivityManager:   0.2% 1473/media.extractor: 0.1% user + 0.1% kernel / faults: 43 minor
+11-21 10:49:17.745  1598  1620 E ActivityManager:   0.1% 655/kworker/u4:2: 0% user + 0.1% kernel
+11-21 10:49:17.745  1598  1620 E ActivityManager:   0.1% 1335/servicemanager: 0% user + 0.1% kernel
+11-21 10:49:17.745  1598  1620 E ActivityManager:   0.1% 1480/rild: 0% user + 0.1% kernel
+11-21 10:49:17.745  1598  1620 E ActivityManager:   0.1% 1710/com.android.inputmethod.latin: 0.1% user + 0% kernel / faults: 6 minor
+11-21 10:49:17.745  1598  1620 E ActivityManager:  +0% 2802/sh: 0% user + 0% kernel
+11-21 10:49:17.745  1598  1620 E ActivityManager:  +0% 2806/cmd: 0% user + 0% kernel
+11-21 10:49:17.745  1598  1620 E ActivityManager: 85% TOTAL: 27% user + 56% kernel + 0.3% iowait + 0.9% softirq
+11-21 10:49:17.745  1598  1620 E ActivityManager: CPU usage from 141ms to 1005ms later (2026-11-21 10:49:10.329 to 2026-11-21 10:49:11.193):
+11-21 10:49:17.745  1598  1620 E ActivityManager:   80% 1598/system_server: 17% user + 62% kernel / faults: 170 minor
+11-21 10:49:17.745  1598  1620 E ActivityManager:     50% 1620/ActivityManager: 14% user + 35% kernel
+11-21 10:49:17.745  1598  1620 E ActivityManager:     19% 1619/android.bg: 1.7% user + 17% kernel
+11-21 10:49:17.745  1598  1620 E ActivityManager:     7.1% 1657/SensorService: 1.7% user + 5.3% kernel
+11-21 10:49:17.745  1598  1620 E ActivityManager:   115% 2690/com.shazwan.idash3: 74% user + 40% kernel / faults: 159 minor
+11-21 10:49:17.745  1598  1620 E ActivityManager:     74% 2690/.shazwan.idash3: 59% user + 14% kernel
+11-21 10:49:17.745  1598  1620 E ActivityManager:     37% 2695/Jit thread pool: 3.7% user + 33% kernel
+11-21 10:49:17.745  1598  1620 E ActivityManager:   18% 1395/android.hardware.sensors@1.0-service: 5.6% user + 12% kernel
+11-21 10:49:17.745  1598  1620 E ActivityManager:     16% 1395/sensors@1.0-ser: 5.6% user + 11% kernel
+11-21 10:49:17.745  1598  1620 E ActivityManager:   1.1% 3/ksoftirqd/0: 0% user + 1.1% kernel
+11-21 10:49:17.745  1598  1620 E ActivityManager:   1.3% 1334/logd: 0% user + 1.3% kernel
+11-21 10:49:17.745  1598  1620 E ActivityManager:   1.3% 1391/android.hardware.gnss@1.0-service: 1.3% user + 0% kernel
+11-21 10:49:17.745  1598  1620 E ActivityManager:   1.3% 1393/android.hardware.graphics.composer@2.1-service: 0% user + 1.3% kernel
+11-21 10:49:17.745  1598  1620 E ActivityManager:     1.3% 1421/android.hardwar: 0% user + 1.3% kernel
+11-21 10:49:17.745  1598  1620 E ActivityManager: 95% TOTAL: 46% user + 48% kernel
+11-21 10:49:17.846  1598  1620 W ActivityManager: Error shutting down UiAutomationConnection
+11-21 10:49:17.935  1598  1625 D AutofillManagerService: Close system dialogs
+11-21 10:49:18.017  1808  1808 D CarrierSvcBindHelper: No carrier app for: 0
+11-21 10:49:18.376  1598  1621 W Looper  : Dispatch took 611ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {2f07801} cb=null msg=2
+11-21 10:49:18.548  2830  2830 I /vendor/bin/hw/android.hardware.media.omx@1.0-service: mediacodecservice starting
+11-21 10:49:18.561  2830  2830 W /vendor/bin/hw/android.hardware.media.omx@1.0-service: Could not read additional policy file '/vendor/etc/seccomp_policy/mediacodec.policy'
+11-21 10:49:18.576  2830  2830 W /vendor/bin/hw/android.hardware.media.omx@1.0-service: libminijail[2830]: allowing syscall: socketcall
+11-21 10:49:18.577  2830  2830 W /vendor/bin/hw/android.hardware.media.omx@1.0-service: libminijail[2830]: allowing syscall: writev
+11-21 10:49:18.577  2830  2830 W /vendor/bin/hw/android.hardware.media.omx@1.0-service: libminijail[2830]: allowing syscall: fcntl64
+11-21 10:49:18.577  2830  2830 W /vendor/bin/hw/android.hardware.media.omx@1.0-service: libminijail[2830]: allowing syscall: clock_gettime
+11-21 10:49:18.579  2830  2830 W /vendor/bin/hw/android.hardware.media.omx@1.0-service: libminijail[2830]: logging seccomp filter failures
+11-21 10:49:18.611  2830  2830 W MediaCodecsXmlParser: unable to open media codecs configuration xml file: /data/misc/media/media_codecs_profiling_results.xml
+11-21 10:49:18.611  2830  2830 W MediaCodecsXmlParser: parseTopLevelXMLFile(/data/misc/media/media_codecs_profiling_results.xml) failed
+11-21 10:49:18.636  2830  2830 I ServiceManagement: Removing namespace from process name android.hardware.media.omx@1.0-service to omx@1.0-service.
+11-21 10:49:19.022  2830  2830 W MediaCodecsXmlParser: unable to open media codecs configuration xml file: /data/misc/media/media_codecs_profiling_results.xml
+11-21 10:49:19.057  2830  2830 W MediaCodecsXmlParser: parseTopLevelXMLFile(/data/misc/media/media_codecs_profiling_results.xml) failed
+11-21 10:49:19.059  2830  2830 I ServiceManagement: Removing namespace from process name android.hardware.media.omx@1.0-service to omx@1.0-service.
+11-21 10:49:19.078  2830  2830 I /vendor/bin/hw/android.hardware.media.omx@1.0-service: Treble OMX service created.
+11-21 10:49:19.116  1598  1627 W zygote64: Long monitor contention with owner android.ui (1621) at int com.android.server.wm.WindowManagerService.relayoutWindow(com.android.server.wm.Session, android.view.IWindow, int, android.view.WindowManager$LayoutParams, int, int, int, int, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.util.MergedConfiguration, android.view.Surface)(WindowManagerService.java:1930) waiters=0 in void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message) for 660ms
+11-21 10:49:19.121  1598  1652 W zygote64: Long monitor contention with owner android.ui (1621) at int com.android.server.wm.WindowManagerService.relayoutWindow(com.android.server.wm.Session, android.view.IWindow, int, android.view.WindowManager$LayoutParams, int, int, int, int, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.util.MergedConfiguration, android.view.Surface)(WindowManagerService.java:1930) waiters=1 in void com.android.server.wm.WindowAnimator.lambda$-com_android_server_wm_WindowAnimator_3951(long) for 597ms
+11-21 10:49:19.130  1392  1436 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 655360
+11-21 10:49:19.148  1392  2717 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 655360
+11-21 10:49:19.186  1392  2717 D         : HostConnection::get() New Host Connection established 0x7ea878a21180, tid 2717
+11-21 10:49:19.199  1392  1436 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 655360
+11-21 10:49:19.220  1598  2161 I zygote64: android::hardware::configstore::V1_0::ISurfaceFlingerConfigs::hasWideColorDisplay retrieved: 0
+11-21 10:49:19.221  1598  2161 I OpenGLRenderer: Initialized EGL, version 1.4
+11-21 10:49:19.222  1598  2161 D OpenGLRenderer: Swap behavior 1
+11-21 10:49:19.228  1598  2161 D EGL_emulation: eglCreateContext: 0x73a813952920: maj 3 min 0 rcv 3
+11-21 10:49:19.244  1598  2161 D EGL_emulation: eglMakeCurrent: 0x73a813952920: ver 3 0 (tinfo 0x73a81395a6c0)
+11-21 10:49:19.259  1598  1621 W Looper  : Dispatch took 853ms on android.ui, h=Handler (android.view.Choreographer$FrameHandler) {cc9a2e6} cb=android.view.Choreographer$FrameDisplayEventReceiver@560a027 msg=0
+11-21 10:49:19.269  1598  1621 I Choreographer: Skipped 50 frames!  The application may be doing too much work on its main thread.
+11-21 10:49:19.438  1598  2161 D EGL_emulation: eglMakeCurrent: 0x73a813952920: ver 3 0 (tinfo 0x73a81395a6c0)
+11-21 10:49:20.171  2835  2835 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-21 10:49:20.457  1598  1621 W Looper  : Dispatch took 1187ms on android.ui, h=Handler (android.view.Choreographer$FrameHandler) {cc9a2e6} cb=android.view.Choreographer$FrameDisplayEventReceiver@560a027 msg=0
+11-21 10:49:20.460  1598  1621 I Choreographer: Skipped 61 frames!  The application may be doing too much work on its main thread.
+11-21 10:49:20.751  2835  2835 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-21 10:49:20.778  2835  2835 I app_process: The ClassLoaderContext is a special shared library.
+11-21 10:49:20.985  2835  2835 D AndroidRuntime: Calling main entry com.android.commands.am.Am
+11-21 10:49:21.026  1598  1749 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: start instr
+11-21 10:49:21.128  2849  2849 I zygote64: Late-enabling -Xcheck:jni
+11-21 10:49:21.138  1598  1749 W ActivityManager: Slow operation: 96ms so far, now at startProcess: returned from zygote!
+11-21 10:49:21.138  1598  1749 W ActivityManager: Slow operation: 96ms so far, now at startProcess: done updating battery stats
+11-21 10:49:21.139  1598  1749 W ActivityManager: Slow operation: 97ms so far, now at startProcess: building log message
+11-21 10:49:21.139  1598  1749 I ActivityManager: Start proc 2849:com.shazwan.idash3/u0a59 for added application com.shazwan.idash3
+11-21 10:49:21.139  1598  1749 W ActivityManager: Slow operation: 97ms so far, now at startProcess: starting to update pids map
+11-21 10:49:21.139  1598  1749 W ActivityManager: Slow operation: 97ms so far, now at startProcess: done updating pids map
+11-21 10:49:21.165  1598  1621 W Looper  : Dispatch took 123ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {2f07801} cb=null msg=53
+11-21 10:49:21.207  2849  2849 W zygote64: Unexpected CPU variant for X86 using defaults: x86_64
+11-21 10:49:21.409  2849  2849 W zygote64: ClassLoaderContext classpath size mismatch for position 0. expected=0, found=4 (PCL[] | PCL[/data/app/com.shazwan.idash3.test-N8iFx6I_gEFPZlxdfB6Y3w==/base.apk*1721866575:/data/app/com.shazwan.idash3.test-N8iFx6I_gEFPZlxdfB6Y3w==/base.apk!classes2.dex*873749192:/data/app/com.shazwan.idash3.test-N8iFx6I_gEFPZlxdfB6Y3w==/base.apk!classes3.dex*2872129080:/data/app/com.shazwan.idash3.test-N8iFx6I_gEFPZlxdfB6Y3w==/base.apk!classes4.dex*2532548682])
+11-21 10:49:21.416  2849  2849 W zygote64: Found duplicate classes, falling back to extracting from APK : /data/app/com.shazwan.idash3-UJ2Wyj9l7mE2RbSeUOKlww==/base.apk
+11-21 10:49:21.417  2849  2849 W zygote64: NOTE: This wastes RAM and hurts startup performance.
+11-21 10:49:21.417  2849  2849 W zygote64: Found duplicated class when checking oat files: 'Landroid/accessibilityservice/AccessibilityService$TakeScreenshotCallback;' in /data/app/com.shazwan.idash3-UJ2Wyj9l7mE2RbSeUOKlww==/base.apk!classes19.dex and /data/app/com.shazwan.idash3.test-N8iFx6I_gEFPZlxdfB6Y3w==/base.apk!classes4.dex
+11-21 10:49:21.417  2849  2849 W zygote64: 
+11-21 10:49:22.196  1598  2734 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 101]: PROBE_DNS www.google.com 40152ms FAIL
+11-21 10:49:22.201  1598  2735 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 101]: PROBE_DNS connectivitycheck.gstatic.com 40171ms FAIL
+11-21 10:49:22.248  1598  2734 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 101]: PROBE_HTTPS https://www.google.com/generate_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "www.google.com": No address associated with hostname
+11-21 10:49:22.255  1598  2735 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 101]: PROBE_HTTP http://connectivitycheck.gstatic.com/generate_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "connectivitycheck.gstatic.com": No address associated with hostname
+11-21 10:49:23.492  2248  2525 I Dialer  : OmtpVvmCarrierCfgHlpr - OmtpEvent:CONFIG_STATUS_SMS_TIME_OUT
+11-21 10:49:23.505  2248  2248 I Dialer  : RetryPolicy - discarding deferred status: configuration_state=4
+11-21 10:49:23.526  2248  2248 I Dialer  : VvmTaskExecutor - no more tasks, stopping service if no task are added in 5000 millis
+11-21 10:49:23.528  2248  2248 I Dialer  : VvmTaskReceiver - task received
+11-21 10:49:23.528  2248  2248 I Dialer  : VvmTaskReceiver - TaskExecutor already running
+11-21 10:49:23.529  2248  2248 I Dialer  : Task.createTask - create task:com.android.voicemail.impl.ActivationTask
+11-21 10:49:23.530  2248  2248 I Dialer  : RetryPolicy - retry #3 for com.android.voicemail.impl.ActivationTask@8617f0f queued, executing in 5000
+11-21 10:49:23.531  2248  2248 I Dialer  : VvmTaskExecutor - com.android.voicemail.impl.ActivationTask@8617f0f added
+11-21 10:49:23.532  2248  2248 I Dialer  : VvmTaskExecutor - minimal wait time:4999
+11-21 10:49:23.532  2248  2248 I Dialer  : VvmTaskExecutor - sleep for 4999 millis
+11-21 10:49:28.545  2248  2525 I Dialer  : VvmTaskExecutor - executing task com.android.voicemail.impl.ActivationTask@8617f0f
+11-21 10:49:28.556  2248  2525 I Dialer  : PreOMigrationHandler - ComponentInfo{com.android.phone/com.android.services.telephony.TelephonyConnectionService}, [e2f7d48dd2b5ca523e7313cf4ba0f6ea830b6281], UserHandle{0} already migrated
+11-21 10:49:28.834  1598  1619 E memtrack: Couldn't load memtrack module
+11-21 10:49:28.834  1598  1619 W android.os.Debug: failed to get memory consumption info: -1
+11-21 10:49:29.181  2248  2525 I Dialer  : VvmActivationTask - VVM content provider configured - vvm_type_cvvm
+11-21 10:49:29.196  2248  2525 I Dialer  : OmtpVvmCarrierCfgHlpr - OmtpEvent:CONFIG_ACTIVATING
+11-21 10:49:29.414  1598  1619 E memtrack: Couldn't load memtrack module
+11-21 10:49:29.414  1598  1619 W android.os.Debug: failed to get memory consumption info: -1
+11-21 10:49:29.464  2248  2525 I Dialer  : TelephonyMangerCompat.setVisualVoicemailSmsFilterSettings - using TelephonyManager
+11-21 10:49:29.516  2248  2525 I Dialer  : TelephonyMangerCompat.sendVisualVoicemailSms - using TelephonyManager
+11-21 10:49:30.126  2849  2849 W System  : ClassLoader referenced unknown path: 
+11-21 10:49:30.705  2849  2849 V NativeCrypto: Registering org/conscrypt/NativeCrypto's 288 native methods...
+11-21 10:49:31.198  1598  1749 I ActivityManager: START u0 {flg=0x10000000 cmp=com.shazwan.idash3/.LauncherActivity} from uid 10059
+11-21 10:49:31.622  1392  2717 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-21 10:49:31.637  1402  2031 D         : HostConnection::get() New Host Connection established 0x787a160a4e60, tid 2031
+11-21 10:49:31.865  1392  2717 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-21 10:49:31.872  1402  1632 D         : HostConnection::get() New Host Connection established 0x787a15c1bec0, tid 1632
+11-21 10:49:32.058  1715  1738 D         : HostConnection::get() New Host Connection established 0x73a82c23b700, tid 1738
+11-21 10:49:32.262  1598  2239 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 101]: PROBE_FALLBACK http://www.google.com/gen_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "www.google.com": No address associated with hostname
+11-21 10:49:32.296  1598  1689 D ConnectivityService: NetworkAgentInfo [MOBILE (LTE) - 101] validation failed
+11-21 10:49:33.398  1598  1746 E memtrack: Couldn't load memtrack module
+11-21 10:49:33.398  1598  1746 W android.os.Debug: failed to get memory consumption info: -1
+11-21 10:49:33.855  2849  2849 D OpenGLRenderer: HWUI GL Pipeline
+11-21 10:49:34.537  2849  2863 I zygote64: Explicit concurrent copying GC freed 10385(3MB) AllocSpace objects, 2(40KB) LOS objects, 49% free, 2MB/5MB, paused 10.055ms total 1.048s
+11-21 10:49:34.714  2849  2863 W zygote64: Suspending all threads took: 18.910ms
+11-21 10:49:35.205  1402  1632 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-21 10:49:36.196  1598  1608 I zygote64: Background concurrent copying GC freed 16654(1547KB) AllocSpace objects, 24(3MB) LOS objects, 42% free, 6MB/11MB, paused 233us total 1.247s
+11-21 10:49:36.837  2849  2849 W System.err: SLF4J(W): No SLF4J providers were found.
+11-21 10:49:36.838  2849  2849 W System.err: SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+11-21 10:49:36.838  2849  2849 W System.err: SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+11-21 10:49:37.277  2849  2849 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+11-21 10:49:37.354  1476  2770 W SocketClient: write error (Broken pipe)
+11-21 10:49:38.473  1476  2772 W SocketClient: write error (Broken pipe)
+11-21 10:49:38.912  2849  2849 W zygote64: Verification of java.lang.Object com.metrolist.innertubex.extraction.InnerTubeExtractor.extractWithConfig(java.lang.String, com.metrolist.innertubex.extraction.ContentHints, java.util.Set, java.lang.String, com.metrolist.innertubex.extraction.PlayerConfig, long, boolean, com.metrolist.innertubex.extraction.AudioQuality, com.metrolist.innertubex.extraction.InnerTubeExtractor$ExtractionDiagnostics, kotlinx.coroutines.Deferred, com.metrolist.innertubex.extraction.TvBearerCredential, kotlin.coroutines.Continuation) took 230.156ms
+11-21 10:49:39.123  2849  2860 I zygote64: Background concurrent copying GC freed 22549(1191KB) AllocSpace objects, 7(448KB) LOS objects, 49% free, 3MB/6MB, paused 1.872ms total 1.217s
+11-21 10:49:39.953  2849  2854 I zygote64: Do partial code cache collection, code=17KB, data=29KB
+11-21 10:49:40.346  2849  2854 I zygote64: After code cache collection, code=14KB, data=28KB
+11-21 10:49:40.346  2849  2854 I zygote64: Increasing code cache capacity to 128KB
+11-21 10:49:40.672  2849  2854 I zygote64: Do partial code cache collection, code=14KB, data=46KB
+11-21 10:49:40.843  2849  2854 I zygote64: After code cache collection, code=14KB, data=46KB
+11-21 10:49:40.844  2849  2854 I zygote64: Increasing code cache capacity to 256KB
+11-21 10:49:40.847  2849  2854 I zygote64: JIT allocated 71KB for compiled code of void android.widget.TextView.<init>(android.content.Context, android.util.AttributeSet, int, int)
+11-21 10:49:40.847  2849  2854 I zygote64: Compiler allocated 7MB to compile void android.widget.TextView.<init>(android.content.Context, android.util.AttributeSet, int, int)
+11-21 10:49:41.233  1598  1620 W ActivityManager: Launch timeout has expired, giving up wake lock!
+11-21 10:49:41.387  1598  1619 E memtrack: Couldn't load memtrack module
+11-21 10:49:41.388  1598  1619 W android.os.Debug: failed to get memory consumption info: -1
+11-21 10:49:44.823  2849  2884 W zygote64: Verification of kotlinx.coroutines.channels.ReceiveChannel kotlinx.coroutines.channels.ProduceKt.produce(kotlinx.coroutines.CoroutineScope, kotlin.coroutines.CoroutineContext, int, kotlinx.coroutines.channels.BufferOverflow, kotlinx.coroutines.CoroutineStart, kotlin.jvm.functions.Function1, kotlin.jvm.functions.Function2) took 130.278ms
+11-21 10:49:45.095  1598  1749 D ConnectivityService: requestNetwork for uid/pid:10059/2849 NetworkRequest [ TRACK_DEFAULT id=10, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ]
+11-21 10:49:45.108  1598  1684 D WIFI    : got request NetworkRequest [ TRACK_DEFAULT id=10, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] with score 20
+11-21 10:49:45.108  1598  1684 D WIFI_UT : got request NetworkRequest [ TRACK_DEFAULT id=10, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] with score 20
+11-21 10:49:45.113  1808  1808 D PhoneSwitcherNetworkRequstListener: got request NetworkRequest [ TRACK_DEFAULT id=10, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] with score 20
+11-21 10:49:45.262  2849  2884 W zygote64: Verification of kotlinx.coroutines.selects.SelectClause1 kotlinx.coroutines.channels.BufferedChannel.getOnReceive() took 214.993ms
+11-21 10:49:45.585  2849  2849 E BluetoothAdapter: Bluetooth binder is null
+11-21 10:49:46.341  1476  2781 W SocketClient: write error (Broken pipe)
+11-21 10:49:46.402  1598  1749 D ConnectivityService: requestNetwork for uid/pid:10059/2849 NetworkRequest [ TRACK_DEFAULT id=11, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ]
+11-21 10:49:46.410  1598  1684 D WIFI    : got request NetworkRequest [ TRACK_DEFAULT id=11, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] with score 20
+11-21 10:49:46.411  1598  1684 D WIFI_UT : got request NetworkRequest [ TRACK_DEFAULT id=11, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] with score 20
+11-21 10:49:46.424  1808  1808 D PhoneSwitcherNetworkRequstListener: got request NetworkRequest [ TRACK_DEFAULT id=11, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] with score 20
+11-21 10:49:48.102  2849  2849 W zygote64: Verification of void com.music.bitchord.data.stats.ListeningStats.record(com.music.bitchord.data.model.Song, long, boolean) took 135.693ms
+11-21 10:49:48.104  2849  2884 W zygote64: Verification of java.lang.Object kotlinx.coroutines.flow.internal.CombineKt.combineInternal(kotlinx.coroutines.flow.FlowCollector, kotlinx.coroutines.flow.Flow[], kotlin.jvm.functions.Function0, kotlin.jvm.functions.Function3, kotlin.coroutines.Continuation) took 118.892ms
+11-21 10:49:48.577  2849  2860 I zygote64: Background concurrent copying GC freed 44562(2MB) AllocSpace objects, 6(184KB) LOS objects, 49% free, 5MB/10MB, paused 1.803ms total 2.953s
+11-21 10:49:50.434  2849  2884 W zygote64: Long monitor contention with owner ExoPlayer:SimpleCacheInit (2910) at long android.database.sqlite.SQLiteConnection.nativeOpen(java.lang.String, int, java.lang.String, boolean, boolean, int, int)(SQLiteConnection.java:-2) waiters=0 in java.util.Set androidx.media3.datasource.cache.SimpleCache.getKeys() for 1.502s
+11-21 10:49:50.446  2849  2854 I zygote64: Do full code cache collection, code=104KB, data=85KB
+11-21 10:49:50.854  2849  2854 I zygote64: After code cache collection, code=95KB, data=47KB
+11-21 10:49:51.199  2849  2849 I Choreographer: Skipped 955 frames!  The application may be doing too much work on its main thread.
+11-21 10:49:52.253  2849  2849 W zygote64: Verification of void androidx.compose.ui.platform.AndroidComposeView.<init>(android.content.Context, kotlin.coroutines.CoroutineContext) took 110.172ms
+11-21 10:49:54.728  2849  2849 W zygote64: Verification of java.lang.Object androidx.compose.ui.text.SaversKt.AnnotationRangeSaver$lambda$0(androidx.compose.runtime.saveable.SaverScope, androidx.compose.ui.text.AnnotatedString$Range) took 101.384ms
+11-21 10:49:55.400  2849  2849 W zygote64: Verification of void androidx.compose.ui.node.LayoutModifierNodeCoordinator.<clinit>() took 241.810ms
+11-21 10:49:56.225  2849  2860 I zygote64: NativeAlloc concurrent copying GC freed 28649(2MB) AllocSpace objects, 6(120KB) LOS objects, 49% free, 5MB/11MB, paused 1.211ms total 5.071s
+11-21 10:49:56.349  1476  2782 W SocketClient: write error (Broken pipe)
+11-21 10:49:56.355  2849  2849 W zygote64: Verification of void androidx.compose.ui.platform.CompositionLocalsKt.<clinit>() took 154.168ms
+11-21 10:49:56.393  1476  2783 W SocketClient: write error (Broken pipe)
+11-21 10:49:56.784  1400  1400 I boot-pipe: done populating /dev/random
+11-21 10:50:00.083  2849  2849 W zygote64: Verification of void com.music.bitchord.MainActivityKt.BitChordApp-o3XDK20(boolean, float, float, com.music.bitchord.ui.components.backdrop.backdrops.LayerBackdrop, com.music.bitchord.ui.MainViewModel, androidx.compose.runtime.Composer, int, int) took 2.156s (large method)
+11-21 10:50:00.252  2849  2849 W zygote64: Verification of kotlin.Unit com.music.bitchord.MainActivityKt.BitChordApp_o3XDK20$lambda$400(com.music.bitchord.playback.PlayerState, kotlin.jvm.functions.Function1, com.music.bitchord.ui.MainViewModel, boolean, boolean, kotlin.jvm.functions.Function1, kotlin.jvm.functions.Function0, androidx.media3.session.MediaController, kotlin.jvm.functions.Function0, com.music.bitchord.ui.components.backdrop.backdrops.SnapshotBackdrop, kotlin.jvm.functions.Function0, android.content.Context, kotlinx.coroutines.CoroutineScope, java.lang.String, com.music.bitchord.ui.navigation.AppNavigator, androidx.compose.runtime.MutableIntState, androidx.compose.runtime.MutableState, float, float, androidx.compose.runtime.MutableState, androidx.compose.runtime.MutableState, androidx.compose.runtime.MutableState, androidx.compose.runtime.MutableState, androidx.compose.runtime.MutableState, androidx.compose.runtime.State, androidx.compose.runtime.State, androidx.compose.runtime.MutableState, androidx.compose.runtime.State, androidx.comp
+11-21 10:50:00.621  2849  2849 W zygote64: Verification of kotlin.Unit com.music.bitchord.MainActivityKt.BitChordApp_o3XDK20$lambda$403$11$0$2$3(com.music.bitchord.ui.navigation.AppRoute, com.music.bitchord.playback.PlayerState, com.music.bitchord.ui.MainViewModel, androidx.compose.foundation.lazy.LazyListState, kotlinx.coroutines.CoroutineScope, kotlin.jvm.functions.Function0, androidx.media3.session.MediaController, java.lang.String, kotlin.jvm.functions.Function1, androidx.compose.foundation.layout.PaddingValues, androidx.compose.foundation.lazy.grid.LazyGridState, kotlin.jvm.functions.Function2, com.music.bitchord.ui.replay.ReplayState, kotlin.jvm.functions.Function1, androidx.compose.runtime.MutableState, kotlin.jvm.functions.Function2, java.lang.String, android.content.Context, androidx.compose.runtime.MutableState, androidx.compose.runtime.MutableState, androidx.compose.foundation.lazy.LazyListState, com.music.bitchord.ui.navigation.AppNavigator, androidx.compose.runtime.MutableState, androidx.compose.runtime.MutableState, float, androidx.comp
+11-21 10:50:01.276  2849  2849 W zygote64: Verification of void com.music.bitchord.ui.MainViewModel.<init>(android.app.Application) took 102.102ms
+11-21 10:50:02.985  2849  2884 W zygote64: Verification of kotlin.Unit com.music.bitchord.data.innertube.Innertube$postMusic$response$1.invokeSuspend$lambda$0$3$0(java.lang.String, java.lang.String, com.music.bitchord.data.innertube.Innertube$SessionScope, kotlinx.serialization.json.JsonObjectBuilder) took 101.781ms
+11-21 10:50:08.244  2849  2849 W zygote64: Verification of android.graphics.BlendMode androidx.compose.ui.graphics.AndroidBlendMode_androidKt.toAndroidBlendMode-s9anfk8(int) took 184.030ms
+11-21 10:50:09.596  1598  2865 D NetworkMonitor/NetworkAgentInfo [WIFI () - 100]: PROBE_DNS connectivitycheck.gstatic.com 40124ms FAIL
+11-21 10:50:09.616  1598  2865 D NetworkMonitor/NetworkAgentInfo [WIFI () - 100]: PROBE_HTTP http://connectivitycheck.gstatic.com/generate_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "connectivitycheck.gstatic.com": No address associated with hostname
+11-21 10:50:09.651  1598  2864 D NetworkMonitor/NetworkAgentInfo [WIFI () - 100]: PROBE_DNS www.google.com 40181ms FAIL
+11-21 10:50:09.704  1598  2864 D NetworkMonitor/NetworkAgentInfo [WIFI () - 100]: PROBE_HTTPS https://www.google.com/generate_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "www.google.com": No address associated with hostname
+11-21 10:50:10.154  1598  1620 W BroadcastQueue: Timeout of broadcast BroadcastRecord{56f3b15 u-1 android.intent.action.TIME_TICK} - receiver=android.os.BinderProxy@e22de1e, started 10007ms ago
+11-21 10:50:10.154  1598  1620 W BroadcastQueue: Receiver during timeout of BroadcastRecord{56f3b15 u-1 android.intent.action.TIME_TICK} : BroadcastFilter{4c33ccc u0 ReceiverList{db9e6ff 2849 com.shazwan.idash3/10059/u0 remote:e22de1e}}
+11-21 10:50:10.965  1598  1749 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: from pid 2929
+11-21 10:50:10.967  1598  1749 I ActivityManager: Killing 2849:com.shazwan.idash3/u0a59 (adj 0): stop com.shazwan.idash3
+11-21 10:50:10.975  1598  1622 W zygote64: kill(-2849, 9) failed: No such process
+11-21 10:50:10.979  1598  1749 W ActivityManager: Force removing ActivityRecord{29028be u0 com.shazwan.idash3/.LauncherActivity t90}: app died, no saved state
+11-21 10:50:10.988  1598  1749 I WindowManager: Failed to capture screenshot of Token{4bf6d1f ActivityRecord{29028be u0 com.shazwan.idash3/.LauncherActivity t90 f}} appWin=Window{5c13eed u0 Splash Screen com.shazwan.idash3} drawState=4
+11-21 10:50:11.002  1393  1421 D hwcomposer: hw_composer sent 54 syncs in 65s
+11-21 10:50:11.019  1598  1622 W zygote64: kill(-2849, 9) failed: No such process
+11-21 10:50:11.105  1598  1622 I chatty  : uid=1000(system) ActivityManager identical 1 line
+11-21 10:50:11.155  1598  1622 W zygote64: kill(-2849, 9) failed: No such process
+11-21 10:50:11.160  1598  1627 W zygote64: Long monitor contention with owner Binder:1598_4 (1749) at void com.android.server.wm.AppWindowContainerController.removeContainer(int)(AppWindowContainerController.java:239) waiters=0 in void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message) for 159ms
+11-21 10:50:11.194  1598  1622 W zygote64: kill(-2849, 9) failed: No such process
+11-21 10:50:11.197  1598  1652 W WindowManager: Failed looking up window callers=com.android.server.wm.WindowManagerService.windowForClientLocked:5797 com.android.server.wm.WindowManagerService.removeWindow:1715 com.android.server.wm.Session.remove:222 
+11-21 10:50:11.207  1598  1749 W ActivityManager: Crash of app com.shazwan.idash3 running instrumentation ComponentInfo{com.shazwan.idash3.test/com.shazwan.idash3.NativePlaybackChecks}
+11-21 10:50:11.215  1598  1749 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: finished inst
+11-21 10:50:11.226  1598  2931 W Binder  : Outgoing transactions from this process must be FLAG_ONEWAY
+11-21 10:50:11.226  1598  2931 W Binder  : java.lang.Throwable
+11-21 10:50:11.226  1598  2931 W Binder  : 	at android.os.BinderProxy.transact(Binder.java:752)
+11-21 10:50:11.226  1598  2931 W Binder  : 	at android.app.IInstrumentationWatcher$Stub$Proxy.instrumentationFinished(IInstrumentationWatcher.java:160)
+11-21 10:50:11.226  1598  2931 W Binder  : 	at com.android.server.am.InstrumentationReporter$MyThread.run(InstrumentationReporter.java:86)
+11-21 10:50:11.228  1598  2931 I ActivityManager: Failure reporting to instrumentation watcher: comp=ComponentInfo{com.shazwan.idash3.test/com.shazwan.idash3.NativePlaybackChecks} results=Bundle[{shortMsg=Process crashed.}]
+11-21 10:50:11.258  1598  1622 W zygote64: kill(-2849, 9) failed: No such process
+11-21 10:50:11.355  1598  2118 D ConnectivityService: ConnectivityService NetworkRequestInfo binderDied(NetworkRequest [ TRACK_DEFAULT id=10, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ], android.os.BinderProxy@74d59b8)
+11-21 10:50:11.356  1598  1614 D ConnectivityService: ConnectivityService NetworkRequestInfo binderDied(NetworkRequest [ TRACK_DEFAULT id=11, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ], android.os.BinderProxy@9957391)
+11-21 10:50:11.377  1598  1689 D ConnectivityService: releasing NetworkRequest [ TRACK_DEFAULT id=10, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] (release request)
+11-21 10:50:11.381  1598  1689 D ConnectivityService: releasing NetworkRequest [ TRACK_DEFAULT id=11, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] (release request)
+11-21 10:50:11.345  1598  1622 I chatty  : uid=1000(system) ActivityManager identical 2 lines
+11-21 10:50:11.385  1598  1622 W zygote64: kill(-2849, 9) failed: No such process
+11-21 10:50:11.422  1598  1627 W zygote64: Long monitor contention with owner Binder:1598_4 (1749) at boolean com.android.server.am.ActivityStack.resumeTopActivityInnerLocked(com.android.server.am.ActivityRecord, android.app.ActivityOptions)(ActivityStack.java:2571) waiters=2 in void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message) for 158ms
+11-21 10:50:11.428  1392  2717 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2891776
+11-21 10:50:11.472  1598  1652 W zygote64: Long monitor contention with owner Binder:1598_6 (1849) at int com.android.server.wm.WindowManagerService.relayoutWindow(com.android.server.wm.Session, android.view.IWindow, int, android.view.WindowManager$LayoutParams, int, int, int, int, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.util.MergedConfiguration, android.view.Surface)(WindowManagerService.java:1930) waiters=2 in void com.android.server.wm.WindowAnimator.lambda$-com_android_server_wm_WindowAnimator_3951(long) for 147ms
+11-21 10:50:11.512  1598  1620 W ProcessCpuTracker: Skipping unknown process pid 2849
+11-21 10:50:11.538  1598  1622 W zygote64: kill(-2849, 9) failed: No such process
+11-21 10:50:11.538  1598  1622 I zygote64: Successfully killed process cgroup uid 10059 pid 2849 in 564ms
+11-21 10:50:11.640  1598  1621 W zygote64: Long monitor contention with owner Binder:1598_4 (1749) at void com.android.server.am.ActivityManagerService.forceStopPackage(java.lang.String, int)(ActivityManagerService.java:6185) waiters=0 in void com.android.server.am.ActivityManagerService.dispatchUidsChanged() for 669ms
+11-21 10:50:11.657  1598  1621 W Looper  : Dispatch took 687ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {2f07801} cb=null msg=53
+11-21 10:50:11.678  1598  1627 W ActivityManager: setHasOverlayUi called on unknown pid: 2849
+11-21 10:50:11.807  1598  1620 I zygote64: libdebuggerd_client: started dumping process 2849
+11-21 10:50:11.817  1483  1483 I /system/bin/tombstoned: registered intercept for pid 2849 and type kDebuggerdJavaBacktrace
+11-21 10:50:11.818  1598  1620 E zygote64: libdebuggerd_client: failed to send signal to pid 2849: No such process
+11-21 10:50:11.819  1598  1620 I zygote64: libdebuggerd_client: started dumping process 2849
+11-21 10:50:11.820  1483  1483 I /system/bin/tombstoned: intercept for pid 2849 and type kDebuggerdJavaBacktrace terminated: due to input
+11-21 10:50:11.821  1598  1620 E zygote64: libdebuggerd_client: failed to send signal to pid 2849: No such process
+11-21 10:50:11.822  1598  1620 I zygote64: libdebuggerd_client: started dumping process 1598
+11-21 10:50:11.823  1483  1483 I /system/bin/tombstoned: registered intercept for pid 2849 and type kDebuggerdNativeBacktrace
+11-21 10:50:11.838  1483  1483 I /system/bin/tombstoned: intercept for pid 2849 and type kDebuggerdNativeBacktrace terminated: due to input
+11-21 10:50:11.839  1598  1603 I zygote64: Thread[2,tid=1603,WaitingInMainSignalCatcherLoop,Thread*=0x73a82c212000,peer=0x13380108,"Signal Catcher"]: reacting to signal 3
+11-21 10:50:11.839  1598  1603 I zygote64: 
+11-21 10:50:11.844  1598  1652 W zygote64: Long monitor contention with owner Binder:1598_4 (1749) at int com.android.server.wm.WindowManagerService.relayoutWindow(com.android.server.wm.Session, android.view.IWindow, int, android.view.WindowManager$LayoutParams, int, int, int, int, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.util.MergedConfiguration, android.view.Surface)(WindowManagerService.java:1930) waiters=1 in void com.android.server.wm.WindowAnimator.animate(long) for 108ms
+11-21 10:50:11.850  1483  1483 I /system/bin/tombstoned: registered intercept for pid 1598 and type kDebuggerdJavaBacktrace
+11-21 10:50:12.388  1483  1483 I /system/bin/tombstoned: received crash request for pid 1598
+11-21 10:50:12.389  1483  1483 I /system/bin/tombstoned: found intercept fd 512 for pid 1598 and type kDebuggerdJavaBacktrace
+11-21 10:50:12.396  1598  1603 I zygote64: Wrote stack traces to '[tombstoned]'
+11-21 10:50:12.427  1598  1620 I zygote64: libdebuggerd_client: done dumping process 1598
+11-21 10:50:12.428  1598  1620 I zygote64: libdebuggerd_client: started dumping process 1808
+11-21 10:50:12.430  1483  1483 I /system/bin/tombstoned: registered intercept for pid 1808 and type kDebuggerdJavaBacktrace
+11-21 10:50:12.438  1808  1814 I zygote64: Thread[3,tid=1814,WaitingInMainSignalCatcherLoop,Thread*=0x73a8342bf400,peer=0x138c0188,"Signal Catcher"]: reacting to signal 3
+11-21 10:50:12.438  1808  1814 I zygote64: 
+11-21 10:50:12.593  1483  1483 I /system/bin/tombstoned: received crash request for pid 1808
+11-21 10:50:12.593  1483  1483 I /system/bin/tombstoned: found intercept fd 512 for pid 1808 and type kDebuggerdJavaBacktrace
+11-21 10:50:12.597  1598  1620 I zygote64: libdebuggerd_client: done dumping process 1808
+11-21 10:50:12.598  1598  1620 I zygote64: libdebuggerd_client: started dumping process 1715
+11-21 10:50:12.600  1483  1483 I /system/bin/tombstoned: registered intercept for pid 1715 and type kDebuggerdJavaBacktrace
+11-21 10:50:12.602  1715  1724 I zygote64: Thread[3,tid=1724,WaitingInMainSignalCatcherLoop,Thread*=0x73a8342bf400,peer=0x13880088,"Signal Catcher"]: reacting to signal 3
+11-21 10:50:12.602  1715  1724 I zygote64: 
+11-21 10:50:12.601  1808  1814 I zygote64: Wrote stack traces to '[tombstoned]'
+11-21 10:50:12.685  1598  2168 D NetworkMonitor/NetworkAgentInfo [WIFI () - 100]: PROBE_FALLBACK http://play.googleapis.com/generate_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "play.googleapis.com": No address associated with hostname
+11-21 10:50:12.687  1598  1689 D ConnectivityService: NetworkAgentInfo [WIFI () - 100] validation failed
+11-21 10:50:12.690  1598  1684 D WifiStateMachine: NETWORK_STATUS_UNWANTED_VALIDATION_FAILED
+11-21 10:50:12.754  1483  1483 I /system/bin/tombstoned: received crash request for pid 1715
+11-21 10:50:12.754  1483  1483 I /system/bin/tombstoned: found intercept fd 512 for pid 1715 and type kDebuggerdJavaBacktrace
+11-21 10:50:12.758  1598  1620 I zygote64: libdebuggerd_client: done dumping process 1715
+11-21 10:50:12.759  1598  1620 I zygote64: libdebuggerd_client: started dumping process 1402
+11-21 10:50:12.760  1715  1724 I zygote64: Wrote stack traces to '[tombstoned]'
+11-21 10:50:12.762  1483  1483 I /system/bin/tombstoned: registered intercept for pid 1402 and type kDebuggerdNativeBacktrace
+11-21 10:50:12.765  1402  1402 I libc    : Requested dump for tid 1402 (surfaceflinger)
+11-21 10:50:12.886  2937  2937 I crash_dump64: obtaining output fd from tombstoned, type: kDebuggerdNativeBacktrace
+11-21 10:50:12.893  1483  1483 I /system/bin/tombstoned: received crash request for pid 1402
+11-21 10:50:12.894  1483  1483 I /system/bin/tombstoned: found intercept fd 512 for pid 1402 and type kDebuggerdNativeBacktrace
+11-21 10:50:12.896  2937  2937 I crash_dump64: performing dump of process 1402 (target tid = 1402)
+11-21 10:50:13.044  1598  1620 I zygote64: libdebuggerd_client: done dumping process 1402
+11-21 10:50:13.045  1598  1620 I zygote64: libdebuggerd_client: started dumping process 1467
+11-21 10:50:13.047  1483  1483 I /system/bin/tombstoned: registered intercept for pid 1467 and type kDebuggerdNativeBacktrace
+11-21 10:50:13.054  1467  1467 I libc    : Requested dump for tid 1467 (audioserver)
+11-21 10:50:13.060  1392  2717 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2891776
+11-21 10:50:13.199  1392  2717 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2891776
+11-21 10:50:13.282  2940  2940 I crash_dump32: obtaining output fd from tombstoned, type: kDebuggerdNativeBacktrace
+11-21 10:50:13.286  1483  1483 I /system/bin/tombstoned: received crash request for pid 1467
+11-21 10:50:13.286  1483  1483 I /system/bin/tombstoned: found intercept fd 512 for pid 1467 and type kDebuggerdNativeBacktrace
+11-21 10:50:13.287  2940  2940 I crash_dump32: performing dump of process 1467 (target tid = 1467)
+11-21 10:50:13.423  1598  1620 I zygote64: libdebuggerd_client: done dumping process 1467
+11-21 10:50:13.424  1598  1620 I zygote64: libdebuggerd_client: started dumping process 1468
+11-21 10:50:13.425  1483  1483 I /system/bin/tombstoned: registered intercept for pid 1468 and type kDebuggerdNativeBacktrace
+11-21 10:50:13.435  1468  1468 I libc    : Requested dump for tid 1468 (cameraserver)
+11-21 10:50:13.571  2943  2943 I crash_dump32: obtaining output fd from tombstoned, type: kDebuggerdNativeBacktrace
+11-21 10:50:13.573  1483  1483 I /system/bin/tombstoned: received crash request for pid 1468
+11-21 10:50:13.574  1483  1483 I /system/bin/tombstoned: found intercept fd 512 for pid 1468 and type kDebuggerdNativeBacktrace
+11-21 10:50:13.577  2943  2943 I crash_dump32: performing dump of process 1468 (target tid = 1468)
+11-21 10:50:13.664  1598  1620 I zygote64: libdebuggerd_client: done dumping process 1468
+11-21 10:50:13.665  1598  1620 I zygote64: libdebuggerd_client: started dumping process 1469
+11-21 10:50:13.667  1483  1483 I /system/bin/tombstoned: registered intercept for pid 1469 and type kDebuggerdNativeBacktrace
+11-21 10:50:13.673  1469  1469 I libc    : Requested dump for tid 1469 (drmserver)
+11-21 10:50:13.797  2946  2946 I crash_dump32: obtaining output fd from tombstoned, type: kDebuggerdNativeBacktrace
+11-21 10:50:13.800  1483  1483 I /system/bin/tombstoned: received crash request for pid 1469
+11-21 10:50:13.801  1483  1483 I /system/bin/tombstoned: found intercept fd 512 for pid 1469 and type kDebuggerdNativeBacktrace
+11-21 10:50:13.802  2946  2946 I crash_dump32: performing dump of process 1469 (target tid = 1469)
+11-21 10:50:13.864  1598  1620 I zygote64: libdebuggerd_client: done dumping process 1469
+11-21 10:50:13.865  1598  1620 I zygote64: libdebuggerd_client: started dumping process 1472
+11-21 10:50:13.867  1483  1483 I /system/bin/tombstoned: registered intercept for pid 1472 and type kDebuggerdNativeBacktrace
+11-21 10:50:13.871  1472  1472 I libc    : Requested dump for tid 1472 (mediadrmserver)
+11-21 10:50:13.983  2949  2949 I crash_dump32: obtaining output fd from tombstoned, type: kDebuggerdNativeBacktrace
+11-21 10:50:13.985  1483  1483 I /system/bin/tombstoned: received crash request for pid 1472
+11-21 10:50:13.985  1483  1483 I /system/bin/tombstoned: found intercept fd 512 for pid 1472 and type kDebuggerdNativeBacktrace
+11-21 10:50:13.987  2949  2949 I crash_dump32: performing dump of process 1472 (target tid = 1472)
+11-21 10:50:14.049  1598  1620 I zygote64: libdebuggerd_client: done dumping process 1472
+11-21 10:50:14.050  1598  1620 I zygote64: libdebuggerd_client: started dumping process 1473
+11-21 10:50:14.054  1483  1483 I /system/bin/tombstoned: registered intercept for pid 1473 and type kDebuggerdNativeBacktrace
+11-21 10:50:14.057  1473  1473 I libc    : Requested dump for tid 1473 (mediaextractor)
+11-21 10:50:14.157  2952  2952 I crash_dump64: obtaining output fd from tombstoned, type: kDebuggerdNativeBacktrace
+11-21 10:50:14.159  1483  1483 I /system/bin/tombstoned: received crash request for pid 1473
+11-21 10:50:14.159  1483  1483 I /system/bin/tombstoned: found intercept fd 512 for pid 1473 and type kDebuggerdNativeBacktrace
+11-21 10:50:14.161  2952  2952 I crash_dump64: performing dump of process 1473 (target tid = 1473)
+11-21 10:50:14.225  1598  1620 I zygote64: libdebuggerd_client: done dumping process 1473
+11-21 10:50:14.226  1598  1620 I zygote64: libdebuggerd_client: started dumping process 1475
+11-21 10:50:14.227  1483  1483 I /system/bin/tombstoned: registered intercept for pid 1475 and type kDebuggerdNativeBacktrace
+11-21 10:50:14.237  1475  1475 I libc    : Requested dump for tid 1475 (mediaserver)
+11-21 10:50:14.359  2957  2957 I crash_dump32: obtaining output fd from tombstoned, type: kDebuggerdNativeBacktrace
+11-21 10:50:14.361  1483  1483 I /system/bin/tombstoned: received crash request for pid 1475
+11-21 10:50:14.361  1483  1483 I /system/bin/tombstoned: found intercept fd 512 for pid 1475 and type kDebuggerdNativeBacktrace
+11-21 10:50:14.362  2957  2957 I crash_dump32: performing dump of process 1475 (target tid = 1475)
+11-21 10:50:14.459  1598  1620 I zygote64: libdebuggerd_client: done dumping process 1475
+11-21 10:50:14.460  1598  1620 I zygote64: libdebuggerd_client: started dumping process 2830
+11-21 10:50:14.461  1483  1483 I /system/bin/tombstoned: registered intercept for pid 2830 and type kDebuggerdNativeBacktrace
+11-21 10:50:14.465  1483  1483 I /system/bin/tombstoned: received crash request for pid 2830
+11-21 10:50:14.465  1483  1483 I /system/bin/tombstoned: found intercept fd 512 for pid 2830 and type kDebuggerdNativeBacktrace
+11-21 10:50:14.495  1483  1483 W /system/bin/tombstoned: crash socket received short read of length 0 (expected 12)
+11-21 10:50:14.496  1598  1620 I zygote64: libdebuggerd_client: done dumping process 2830
+11-21 10:50:14.496  1598  1620 I zygote64: libdebuggerd_client: started dumping process 2107
+11-21 10:50:14.497  1483  1483 I /system/bin/tombstoned: registered intercept for pid 2107 and type kDebuggerdJavaBacktrace
+11-21 10:50:14.505  2107  2117 I zygote64: Thread[3,tid=2117,WaitingInMainSignalCatcherLoop,Thread*=0x73a8342bf400,peer=0x13640218,"Signal Catcher"]: reacting to signal 3
+11-21 10:50:14.505  2107  2117 I zygote64: 
+11-21 10:50:14.504  1336  1336 E hw-IPCThreadState: attemptIncStrongHandle(24): Not supported
+11-21 10:50:14.526  1336  1336 I chatty  : uid=1000(system) hwservicemanage identical 6 lines
+11-21 10:50:14.526  1336  1336 E hw-IPCThreadState: attemptIncStrongHandle(24): Not supported
+11-21 10:50:14.659  1483  1483 I /system/bin/tombstoned: received crash request for pid 2107
+11-21 10:50:14.659  1483  1483 I /system/bin/tombstoned: found intercept fd 512 for pid 2107 and type kDebuggerdJavaBacktrace
+11-21 10:50:14.661  1598  1620 I zygote64: libdebuggerd_client: done dumping process 2107
+11-21 10:50:14.683  2107  2117 I zygote64: Wrote stack traces to '[tombstoned]'
+11-21 10:50:14.686  1598  1620 E ActivityManager: ANR in com.shazwan.idash3
+11-21 10:50:14.686  1598  1620 E ActivityManager: PID: 2849
+11-21 10:50:14.686  1598  1620 E ActivityManager: Reason: Broadcast of Intent { act=android.intent.action.TIME_TICK flg=0x50200014 (has extras) }
+11-21 10:50:14.686  1598  1620 E ActivityManager: Load: 5.94 / 4.05 / 1.98
+11-21 10:50:14.686  1598  1620 E ActivityManager: CPU usage from 15626ms to 0ms ago (2026-11-21 10:49:54.533 to 2026-11-21 10:50:10.159):
+11-21 10:50:14.686  1598  1620 E ActivityManager:   166% 2849/com.shazwan.idash3: 112% user + 54% kernel / faults: 7442 minor
+11-21 10:50:14.686  1598  1620 E ActivityManager:   10% 1598/system_server: 4.4% user + 6.3% kernel / faults: 91 minor
+11-21 10:50:14.686  1598  1620 E ActivityManager:   10% 1395/android.hardware.sensors@1.0-service: 1.7% user + 8.6% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:   2.3% 1393/android.hardware.graphics.composer@2.1-service: 0.6% user + 1.6% kernel / faults: 2 minor
+11-21 10:50:14.686  1598  1620 E ActivityManager:   1.4% 1402/surfaceflinger: 0.5% user + 0.8% kernel / faults: 2 minor
+11-21 10:50:14.686  1598  1620 E ActivityManager:   1.2% 7/rcu_preempt: 0% user + 1.2% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:   1.1% 1715/com.android.systemui: 0.5% user + 0.6% kernel / faults: 278 minor
+11-21 10:50:14.686  1598  1620 E ActivityManager:   0.8% 1808/com.android.phone: 0.3% user + 0.4% kernel / faults: 2 minor
+11-21 10:50:14.686  1598  1620 E ActivityManager:   0.7% 655/kworker/u4:2: 0% user + 0.7% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:   0.5% 1407/adbd: 0.1% user + 0.4% kernel / faults: 102 minor
+11-21 10:50:14.686  1598  1620 E ActivityManager:   0.3% 1455/kworker/u5:1: 0% user + 0.3% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:   0.3% 1476/netd: 0% user + 0.3% kernel / faults: 60 minor
+11-21 10:50:14.686  1598  1620 E ActivityManager:   0.2% 3/ksoftirqd/0: 0% user + 0.2% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:   0.2% 1334/logd: 0% user + 0.1% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:   0.1% 1//init: 0.1% user + 0% kernel / faults: 9 minor
+11-21 10:50:14.686  1598  1620 E ActivityManager:   0% 511/kswapd0: 0% user + 0% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:   0.1% 1391/android.hardware.gnss@1.0-service: 0% user + 0% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:   0% 1399/qemu-props: 0% user + 0% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:   0.1% 1404/logcat: 0% user + 0% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:   0% 4/kworker/0:0: 0% user + 0% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:   0% 13/kworker/1:0: 0% user + 0% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:   0% 1335/servicemanager: 0% user + 0% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:   0% 1394/android.hardware.power@1.0-service: 0% user + 0% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:   0% 1397/healthd: 0% user + 0% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:   0% 1447/kworker/u5:0: 0% user + 0% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:   0% 1460/jbd2/dm-0-8: 0% user + 0% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:   0% 1480/rild: 0% user + 0% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:   0% 2668/logcat: 0% user + 0% kernel / faults: 1 minor
+11-21 10:50:14.686  1598  1620 E ActivityManager:  +0% 2927/sh: 0% user + 0% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager: 98% TOTAL: 64% user + 32% kernel + 0.4% softirq
+11-21 10:50:14.686  1598  1620 E ActivityManager: CPU usage from 255ms to 1570ms later (2026-11-21 10:50:10.414 to 2026-11-21 10:50:11.729):
+11-21 10:50:14.686  1598  1620 E ActivityManager:   73% 1598/system_server: 0% user + 73% kernel / faults: 236 minor
+11-21 10:50:14.686  1598  1620 E ActivityManager:     28% 1620/ActivityManager: 0% user + 28% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:     12% 1657/SensorService: 0% user + 12% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:     9.3% 1749/Binder:1598_4: 2.6% user + 6.6% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:     5.3% 1652/android.anim: 0% user + 5.3% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:     2.6% 1627/android.display: 2.6% user + 0% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:     2.6% 1866/Binder:1598_7: 0% user + 2.6% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:     2.6% 2785/Binder:1598_B: 0% user + 2.6% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:     1.3% 1621/android.ui: 0% user + 1.3% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:     1.3% 1622/ActivityManager: 0% user + 1.3% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:     1.3% 1672/InputDispatcher: 0% user + 1.3% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:     1.3% 1684/WifiStateMachin: 1.3% user + 0% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:     1.3% 1849/Binder:1598_6: 0% user + 1.3% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:    +0% 2931/Instrumentation: 0% user + 0% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:    +0% 2932/Binder:1598_C: 0% user + 0% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:   44% 1402/surfaceflinger: 23% user + 21% kernel / faults: 5 minor
+11-21 10:50:14.686  1598  1620 E ActivityManager:     18% 1402/surfaceflinger: 12% user + 5.8% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:     10% 1427/DispSync: 1.9% user + 8.7% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:     8.7% 1431/EventThread: 8.7% user + 0% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:     1.9% 1429/EventThread: 0.9% user + 0.9% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:     1.9% 1632/Binder:1402_4: 0% user + 1.9% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:     0.9% 1430/POSIX timer 1: 0% user + 0.9% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:     0.9% 1593/Binder:1402_3: 0% user + 0.9% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:   10% 1395/android.hardware.sensors@1.0-service: 0% user + 10% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:     7.5% 1395/sensors@1.0-ser: 0% user + 7.5% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:     5.6% 1655/HwBinder:1395_1: 0.9% user + 4.7% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:   7.5% 1393/android.hardware.graphics.composer@2.1-service: 2.8% user + 4.7% kernel / faults: 1 minor
+11-21 10:50:14.686  1598  1620 E ActivityManager:     6.6% 1433/HwBinder:1393_2: 4.7% user + 1.8% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:     0.9% 1421/android.hardwar: 0% user + 0.9% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:   12% 2107/system:ui: 0% user + 12% kernel / faults: 707 minor
+11-21 10:50:14.686  1598  1620 E ActivityManager:     12% 2107/system:ui: 1.8% user + 11% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:   4% 1407/adbd: 0% user + 4% kernel / faults: 45 minor
+11-21 10:50:14.686  1598  1620 E ActivityManager:     1% 1407/adbd: 0% user + 1% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:   2.6% 1334/logd: 0% user + 2.6% kernel / faults: 1 minor
+11-21 10:50:14.686  1598  1620 E ActivityManager:     1.7% 1343/logd.writer: 0% user + 1.7% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:     0.8% 2674/logd.reader.per: 0% user + 0.8% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:   4.3% 1715/com.android.systemui: 0% user + 4.3% kernel / faults: 9 minor
+11-21 10:50:14.686  1598  1620 E ActivityManager:     1.4% 1715/ndroid.systemui: 0% user + 1.4% kernel
+11-21 10:50:14.686  1598  1620 E ActivityManager:    +0% 2934/Binde
+11-21 10:50:14.697  1598  1620 W ActivityManager: Error shutting down UiAutomationConnection
+11-21 10:50:14.742  1808  1808 D CarrierSvcBindHelper: No carrier app for: 0
+11-21 10:50:14.814  1598  1608 I zygote64: ThreadFlipBegin blocked for 6.861ms
+11-21 10:50:14.864  1598  2959 I zygote64: IncrementDisableThreadFlip blocked for 10.086ms
+11-21 10:50:14.869  1598  2932 I zygote64: IncrementDisableThreadFlip blocked for 57.429ms
+11-21 10:50:15.448  1598  1621 W Looper  : Dispatch took 749ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {2f07801} cb=null msg=2
+11-21 10:50:15.502  2958  2958 I /vendor/bin/hw/android.hardware.media.omx@1.0-service: mediacodecservice starting
+11-21 10:50:15.517  2958  2958 W /vendor/bin/hw/android.hardware.media.omx@1.0-service: Could not read additional policy file '/vendor/etc/seccomp_policy/mediacodec.policy'
+11-21 10:50:15.519  2958  2958 W /vendor/bin/hw/android.hardware.media.omx@1.0-service: libminijail[2958]: allowing syscall: socketcall
+11-21 10:50:15.520  2958  2958 W /vendor/bin/hw/android.hardware.media.omx@1.0-service: libminijail[2958]: allowing syscall: writev
+11-21 10:50:15.520  2958  2958 W /vendor/bin/hw/android.hardware.media.omx@1.0-service: libminijail[2958]: allowing syscall: fcntl64
+11-21 10:50:15.520  2958  2958 W /vendor/bin/hw/android.hardware.media.omx@1.0-service: libminijail[2958]: allowing syscall: clock_gettime
+11-21 10:50:15.522  2958  2958 W /vendor/bin/hw/android.hardware.media.omx@1.0-service: libminijail[2958]: logging seccomp filter failures
+11-21 10:50:15.592  2958  2958 W MediaCodecsXmlParser: unable to open media codecs configuration xml file: /data/misc/media/media_codecs_profiling_results.xml
+11-21 10:50:15.594  2958  2958 W MediaCodecsXmlParser: parseTopLevelXMLFile(/data/misc/media/media_codecs_profiling_results.xml) failed
+11-21 10:50:15.599  2958  2958 I ServiceManagement: Removing namespace from process name android.hardware.media.omx@1.0-service to omx@1.0-service.
+11-21 10:50:15.679  1598  1608 I zygote64: Background concurrent copying GC freed 52928(2MB) AllocSpace objects, 11(2MB) LOS objects, 42% free, 7MB/12MB, paused 9.411ms total 894.262ms
+11-21 10:50:15.712  2958  2958 W MediaCodecsXmlParser: unable to open media codecs configuration xml file: /data/misc/media/media_codecs_profiling_results.xml
+11-21 10:50:15.712  2958  2958 W MediaCodecsXmlParser: parseTopLevelXMLFile(/data/misc/media/media_codecs_profiling_results.xml) failed
+11-21 10:50:15.719  1402  1402 D SurfaceFlinger: duplicate layer name: changing Application Not Responding: com.shazwan.idash3 to Application Not Responding: com.shazwan.idash3#1
+11-21 10:50:15.722  2958  2958 I ServiceManagement: Removing namespace from process name android.hardware.media.omx@1.0-service to omx@1.0-service.
+11-21 10:50:15.741  2958  2958 I /vendor/bin/hw/android.hardware.media.omx@1.0-service: Treble OMX service created.
+11-21 10:50:15.766  1392  2717 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 655360
+11-21 10:50:15.816  1598  1621 W Looper  : Dispatch took 351ms on android.ui, h=Handler (android.view.Choreographer$FrameHandler) {cc9a2e6} cb=android.view.Choreographer$FrameDisplayEventReceiver@560a027 msg=0
+11-21 10:50:15.796  1392  2717 I chatty  : uid=1000(system) HwBinder:1392_3 identical 1 line
+11-21 10:50:15.805  1392  2717 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 655360
+11-21 10:50:15.845  1598  2161 D EGL_emulation: eglMakeCurrent: 0x73a813952920: ver 3 0 (tinfo 0x73a81395a6c0)
+11-21 10:50:21.077  1598  2785 D WificondControl: Scan result ready event
+11-21 10:50:28.428  1598  2907 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 101]: PROBE_DNS connectivitycheck.gstatic.com 40091ms FAIL
+11-21 10:50:28.450  1598  2907 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 101]: PROBE_HTTP http://connectivitycheck.gstatic.com/generate_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "connectivitycheck.gstatic.com": No address associated with hostname
+11-21 10:50:28.456  1598  2906 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 101]: PROBE_DNS www.google.com 40121ms FAIL
+11-21 10:50:28.460  1598  2906 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 101]: PROBE_HTTPS https://www.google.com/generate_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "www.google.com": No address associated with hostname
+11-21 10:50:29.823  2248  2525 I Dialer  : OmtpVvmCarrierCfgHlpr - OmtpEvent:CONFIG_STATUS_SMS_TIME_OUT
+11-21 10:50:29.826  2248  2248 I Dialer  : RetryPolicy - discarding deferred status: configuration_state=4
+11-21 10:50:29.842  2248  2248 I Dialer  : VvmTaskExecutor - no more tasks, stopping service if no task are added in 5000 millis
+11-21 10:50:29.845  2248  2248 I Dialer  : VvmTaskReceiver - task received
+11-21 10:50:29.845  2248  2248 I Dialer  : VvmTaskReceiver - TaskExecutor already running
+11-21 10:50:29.846  2248  2248 I Dialer  : Task.createTask - create task:com.android.voicemail.impl.ActivationTask
+11-21 10:50:29.848  2248  2248 I Dialer  : RetryPolicy - retry #4 for com.android.voicemail.impl.ActivationTask@fc639a5 queued, executing in 5000
+11-21 10:50:29.849  2248  2248 I Dialer  : VvmTaskExecutor - com.android.voicemail.impl.ActivationTask@fc639a5 added
+11-21 10:50:29.849  2248  2248 I Dialer  : VvmTaskExecutor - minimal wait time:4999
+11-21 10:50:29.849  2248  2248 I Dialer  : VvmTaskExecutor - sleep for 4999 millis
+11-21 10:50:31.426  1598  2239 D NetworkMonitor/NetworkAgentInfo [MOBILE (LTE) - 101]: PROBE_FALLBACK http://play.googleapis.com/generate_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "play.googleapis.com": No address associated with hostname
+11-21 10:50:31.428  1598  1689 D ConnectivityService: NetworkAgentInfo [MOBILE (LTE) - 101] validation failed
+11-21 10:50:31.510  1476  2918 W SocketClient: write error (Broken pipe)
+11-21 10:50:32.768  1476  2920 W SocketClient: write error (Broken pipe)
+11-21 10:50:34.855  2248  2525 I Dialer  : VvmTaskExecutor - executing task com.android.voicemail.impl.ActivationTask@fc639a5
+11-21 10:50:34.857  2248  2525 I Dialer  : PreOMigrationHandler - ComponentInfo{com.android.phone/com.android.services.telephony.TelephonyConnectionService}, [e2f7d48dd2b5ca523e7313cf4ba0f6ea830b6281], UserHandle{0} already migrated
+11-21 10:50:35.085  2248  2525 I Dialer  : VvmActivationTask - VVM content provider configured - vvm_type_cvvm
+11-21 10:50:35.094  2248  2525 I Dialer  : OmtpVvmCarrierCfgHlpr - OmtpEvent:CONFIG_ACTIVATING
+11-21 10:50:35.145  2248  2525 I Dialer  : TelephonyMangerCompat.setVisualVoicemailSmsFilterSettings - using TelephonyManager
+11-21 10:50:35.161  2248  2525 I Dialer  : TelephonyMangerCompat.sendVisualVoicemailSms - using TelephonyManager
+11-21 10:50:46.109  1476  2924 W SocketClient: write error (Broken pipe)
+11-21 10:50:56.122  1476  2926 W SocketClient: write error (Broken pipe)
+11-21 10:50:56.127  1476  2925 W SocketClient: write error (Broken pipe)
+11-21 10:50:56.788  1400  1400 I boot-pipe: done populating /dev/random
+11-21 10:50:58.567  1598  1619 I GnssLocationProvider: WakeLock acquired by handleInjectNtpTime()
+11-21 10:51:18.121  1598  1619 E memtrack: Couldn't load memtrack module
+11-21 10:51:18.122  1598  1619 W android.os.Debug: failed to get memory consumption info: -1
+11-21 10:51:24.784  1598  2964 D NetworkMonitor/NetworkAgentInfo [WIFI () - 100]: PROBE_DNS connectivitycheck.gstatic.com 40071ms FAIL
+11-21 10:51:24.802  1598  2964 D NetworkMonitor/NetworkAgentInfo [WIFI () - 100]: PROBE_HTTP http://connectivitycheck.gstatic.com/generate_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "connectivitycheck.gstatic.com": No address associated with hostname
+11-21 10:51:24.832  1598  2963 D NetworkMonitor/NetworkAgentInfo [WIFI () - 100]: PROBE_DNS www.google.com 40111ms FAIL
+11-21 10:51:24.921  1598  2963 D NetworkMonitor/NetworkAgentInfo [WIFI () - 100]: PROBE_HTTPS https://www.google.com/generate_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "www.google.com": No address associated with hostname
+11-21 10:51:27.776  1598  2168 D NetworkMonitor/NetworkAgentInfo [WIFI () - 100]: PROBE_FALLBACK http://play.googleapis.com/generate_204 Probe failed with exception java.net.UnknownHostException: Unable to resolve host "play.googleapis.com": No address associated with hostname
+11-21 10:51:27.787  1598  1689 D ConnectivityService: NetworkAgentInfo [WIFI () - 100] validation failed
+11-21 10:51:27.787  1598  1684 D WifiStateMachine: NETWORK_STATUS_UNWANTED_VALIDATION_FAILED

@@ -1,0 +1,367 @@
+--------- beginning of main
+11-21 11:28:48.957  1598  1619 E memtrack: Couldn't load memtrack module
+11-21 11:28:48.957  1598  1619 W android.os.Debug: failed to get memory consumption info: -1
+11-21 11:28:49.041  1598  1619 E memtrack: Couldn't load memtrack module
+11-21 11:28:49.041  1598  1619 W android.os.Debug: failed to get memory consumption info: -1
+11-21 11:28:49.163  1598  1633 I PackageManager.DexOptimizer: Running dexopt (dexoptNeeded=1) on: /data/app/com.shazwan.idash3.test-hjRjj8A0SY4AhB6JSuIjMg==/base.apk pkg=com.shazwan.idash3.test isa=x86_64 dexoptFlags=boot_complete,debuggable,public target-filter=quicken oatDir=/data/app/com.shazwan.idash3.test-hjRjj8A0SY4AhB6JSuIjMg==/oat sharedLibraries=PCL[]
+11-21 11:28:49.287  4595  4595 W dex2oat : Unexpected CPU variant for X86 using defaults: x86_64
+11-21 11:28:49.298  4595  4595 I dex2oat : /system/bin/dex2oat --input-vdex-fd=-1 --output-vdex-fd=10 --compiler-filter=quicken --debuggable --classpath-dir=/data/app/com.shazwan.idash3.test-hjRjj8A0SY4AhB6JSuIjMg== --class-loader-context=PCL[]
+--------- beginning of system
+11-21 11:28:50.287  1476  4549 W SocketClient: write error (Broken pipe)
+11-21 11:28:50.490  4595  4595 I dex2oat : dex2oat took 1.209s (1.743s cpu) (threads: 2) arena alloc=17KB (17984B) java alloc=487KB (499160B) native alloc=1288KB (1319432B) free=1783KB (1826296B)
+11-21 11:28:50.506  1598  1620 I ActivityManager: Force stopping com.shazwan.idash3.test appid=10060 user=-1: installPackageLI
+11-21 11:28:50.610  1598  1633 I PackageManager: Package com.shazwan.idash3.test codePath changed from /data/app/com.shazwan.idash3.test-YHbJgPrOya1w_8Tb5DQmfA== to /data/app/com.shazwan.idash3.test-hjRjj8A0SY4AhB6JSuIjMg==; Retaining data and using new
+11-21 11:28:50.612  1598  1633 W PackageManager: Code path for com.shazwan.idash3.test changing from /data/app/com.shazwan.idash3.test-YHbJgPrOya1w_8Tb5DQmfA== to /data/app/com.shazwan.idash3.test-hjRjj8A0SY4AhB6JSuIjMg==
+11-21 11:28:50.613  1598  1633 W PackageManager: Resource path for com.shazwan.idash3.test changing from /data/app/com.shazwan.idash3.test-YHbJgPrOya1w_8Tb5DQmfA== to /data/app/com.shazwan.idash3.test-hjRjj8A0SY4AhB6JSuIjMg==
+11-21 11:28:50.833  1598  1633 D PackageManager: Ephemeral installer not found with new action; try old one
+11-21 11:28:50.835  1598  1633 D PackageManager: Clear ephemeral installer activity
+11-21 11:28:50.838  1598  1633 I zygote64: Waiting for a blocking GC Explicit
+11-21 11:28:50.887  1598  1608 I zygote64: Background concurrent copying GC freed 89397(4MB) AllocSpace objects, 28(1968KB) LOS objects, 42% free, 6MB/12MB, paused 124us total 113.652ms
+11-21 11:28:50.891  1598  1633 I zygote64: WaitForGcToComplete blocked Explicit on HeapTrim for 52.452ms
+11-21 11:28:51.008  1598  1633 I zygote64: Explicit concurrent copying GC freed 5620(296KB) AllocSpace objects, 4(208KB) LOS objects, 42% free, 6MB/11MB, paused 128us total 116.204ms
+11-21 11:28:51.021  1470  1674 E         : Couldn't opendir /data/app/vmdl613277992.tmp: No such file or directory
+11-21 11:28:51.024  1470  1674 E installd: Failed to delete /data/app/vmdl613277992.tmp: No such file or directory
+11-21 11:28:51.040  1598  1633 I ActivityManager: Force stopping com.shazwan.idash3.test appid=10060 user=0: pkg removed
+11-21 11:28:51.175  1598  1673 I InputReader: Reconfiguring input devices.  changes=0x00000010
+11-21 11:28:51.334  1598  1621 W Looper  : Dispatch took 101ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {2f07801} cb=null msg=53
+11-21 11:28:51.426  1598  2039 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.shazwan.idash3.test flg=0x4000010 (has extras) } to com.svox.pico/.VoiceDataInstallerReceiver
+11-21 11:28:51.485  1598  1598 I Telecom : DefaultDialerCache: Refreshing default dialer for user 0: now com.android.dialer: DDC.oR@ALQ
+11-21 11:28:51.178  1598  1673 I chatty  : uid=1000(system) InputReader identical 1 line
+11-21 11:28:51.274  1598  1673 I InputReader: Reconfiguring input devices.  changes=0x00000010
+11-21 11:28:51.866  1808  1808 D CarrierSvcBindHelper: No carrier app for: 0
+11-21 11:28:52.035  1598  1619 D AutofillManagerServiceImpl: Reset component for user 0
+11-21 11:28:52.044  1598  1621 D AutofillUI: destroySaveUiUiThread(): already destroyed
+11-21 11:28:51.988  1808  1808 D CarrierSvcBindHelper: No carrier app for: 0
+11-21 11:28:52.066  1808  1808 D ImsResolver: maybeAddedImsService, packageName: com.shazwan.idash3.test
+11-21 11:28:52.068  1808  1808 D CarrierConfigLoader: mHandler: 9 phoneId: 0
+11-21 11:28:52.082  1598  1619 W VoiceInteractionManagerService: no available voice recognition services found for user 0
+11-21 11:28:52.980  4605  4605 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-21 11:28:53.346  4605  4605 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+11-21 11:28:53.371  4605  4605 I app_process: The ClassLoaderContext is a special shared library.
+11-21 11:28:53.519  4605  4605 D AndroidRuntime: Calling main entry com.android.commands.am.Am
+11-21 11:28:53.562  1598  4586 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: start instr
+11-21 11:28:53.604  1598  4586 I ActivityManager: Start proc 4616:com.shazwan.idash3/u0a59 for added application com.shazwan.idash3
+11-21 11:28:53.636  4616  4616 I zygote64: Late-enabling -Xcheck:jni
+11-21 11:28:53.680  4616  4616 W zygote64: Unexpected CPU variant for X86 using defaults: x86_64
+11-21 11:28:53.819  4616  4616 W zygote64: ClassLoaderContext classpath size mismatch for position 0. expected=0, found=1 (PCL[] | PCL[/data/app/com.shazwan.idash3.test-hjRjj8A0SY4AhB6JSuIjMg==/base.apk*2018762665])
+11-21 11:28:53.898  4616  4616 W System  : ClassLoader referenced unknown path: 
+11-21 11:28:54.337  1393  1421 D hwcomposer: hw_composer sent 305 syncs in 85s
+11-21 11:28:54.559  1598  4348 I ActivityManager: START u0 {flg=0x10000000 cmp=com.shazwan.idash3/.LauncherActivity} from uid 10059
+11-21 11:28:54.726  2131  3039 D EGL_emulation: eglMakeCurrent: 0x73a81e0894c0: ver 3 0 (tinfo 0x73a81e14d4c0)
+11-21 11:28:54.944  1598  1621 W Looper  : Dispatch took 208ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {2f07801} cb=null msg=31
+11-21 11:28:54.975  1598  1620 W zygote64: Long monitor contention with owner Binder:1598_12 (4586) at void com.android.server.am.ActivityManagerService.activityPaused(android.os.IBinder)(ActivityManagerService.java:7438) waiters=1 in void com.android.server.am.ActivityStackSupervisor$ActivityStackSupervisorHandler.activityIdleInternal(com.android.server.am.ActivityRecord, boolean) for 218ms
+11-21 11:28:54.986  1598  4078 D AutofillManagerServiceImpl: Reset component for user 0
+11-21 11:28:55.079  1598  1621 W Looper  : Dispatch took 135ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {2f07801} cb=null msg=53
+11-21 11:28:55.920  1476  4559 W SocketClient: write error (Broken pipe)
+11-21 11:28:56.250  4616  4616 D OpenGLRenderer: HWUI GL Pipeline
+11-21 11:28:57.017  1400  1400 I boot-pipe: done populating /dev/random
+11-21 11:28:57.525  1402  1593 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-21 11:28:58.900  4616  4630 I zygote64: Waiting for a blocking GC ProfileSaver
+11-21 11:28:58.909  1598  1627 W zygote64: Long monitor contention with owner Binder:1598_12 (4586) at int com.android.server.wm.WindowManagerService.relayoutWindow(com.android.server.wm.Session, android.view.IWindow, int, android.view.WindowManager$LayoutParams, int, int, int, int, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.util.MergedConfiguration, android.view.Surface)(WindowManagerService.java:1930) waiters=0 in void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message) for 562ms
+11-21 11:28:58.912  1598  1652 W zygote64: Long monitor contention with owner Binder:1598_12 (4586) at int com.android.server.wm.WindowManagerService.relayoutWindow(com.android.server.wm.Session, android.view.IWindow, int, android.view.WindowManager$LayoutParams, int, int, int, int, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.util.MergedConfiguration, android.view.Surface)(WindowManagerService.java:1930) waiters=1 in void com.android.server.wm.WindowAnimator.animate(long) for 431ms
+11-21 11:28:58.916  1598  1652 I Choreographer: Skipped 33 frames!  The application may be doing too much work on its main thread.
+11-21 11:28:58.916  1598  2039 W zygote64: Long monitor contention with owner Binder:1598_12 (4586) at int com.android.server.wm.WindowManagerService.relayoutWindow(com.android.server.wm.Session, android.view.IWindow, int, android.view.WindowManager$LayoutParams, int, int, int, int, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.util.MergedConfiguration, android.view.Surface)(WindowManagerService.java:1930) waiters=2 in void com.android.server.wm.WindowManagerService.statusBarVisibilityChanged(int) for 252ms
+11-21 11:28:59.110  1392  1436 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-21 11:28:59.174  1598  1627 W zygote64: Long monitor contention with owner android.anim (1652) at void com.android.server.wm.WindowSurfacePlacer.lambda$-com_android_server_wm_WindowSurfacePlacer_5337()(WindowSurfacePlacer.java:107) waiters=0 in void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message) for 103ms
+11-21 11:28:59.184  1392  1436 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-21 11:28:59.207  1392  2717 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-21 11:28:59.659  4616  4627 I zygote64: Background concurrent copying GC freed 18052(2MB) AllocSpace objects, 9(552KB) LOS objects, 50% free, 2MB/4MB, paused 2.127ms total 1.160s
+11-21 11:28:59.660  4616  4630 I zygote64: WaitForGcToComplete blocked ProfileSaver on HeapTrim for 775.869ms
+11-21 11:28:59.718  4616  4638 D         : HostConnection::get() New Host Connection established 0x73a829704160, tid 4638
+11-21 11:28:59.798  4322  4339 D EGL_emulation: eglMakeCurrent: 0x73a82c23cd20: ver 3 0 (tinfo 0x73a82c20d5a0)
+11-21 11:28:59.858  4616  4638 I zygote64: android::hardware::configstore::V1_0::ISurfaceFlingerConfigs::hasWideColorDisplay retrieved: 0
+11-21 11:28:59.859  4616  4638 I OpenGLRenderer: Initialized EGL, version 1.4
+11-21 11:28:59.860  4616  4638 D OpenGLRenderer: Swap behavior 1
+11-21 11:28:59.899  4616  4638 D EGL_emulation: eglCreateContext: 0x73a8296911c0: maj 3 min 0 rcv 3
+11-21 11:28:59.919  4616  4638 D EGL_emulation: eglMakeCurrent: 0x73a8296911c0: ver 3 0 (tinfo 0x73a81abd9120)
+11-21 11:28:59.987  4616  4616 I Choreographer: Skipped 117 frames!  The application may be doing too much work on its main thread.
+11-21 11:29:00.044  1402  1426 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-21 11:29:00.057  4616  4621 I zygote64: Do partial code cache collection, code=8KB, data=29KB
+11-21 11:29:00.110  4616  4621 I zygote64: After code cache collection, code=8KB, data=29KB
+11-21 11:29:00.110  4616  4621 I zygote64: Increasing code cache capacity to 128KB
+11-21 11:29:00.119  1598  1620 W zygote64: Long monitor contention with owner Binder:1598_F (4078) at android.app.ActivityManager$StackInfo com.android.server.am.ActivityManagerService.getStackInfo(int)(ActivityManagerService.java:10885) waiters=0 in void com.android.server.am.ActivityManagerService$MainHandler.handleMessage(android.os.Message) for 222ms
+11-21 11:29:00.396  4616  4621 I zygote64: Do partial code cache collection, code=8KB, data=47KB
+11-21 11:29:00.552  4616  4621 I zygote64: After code cache collection, code=8KB, data=48KB
+11-21 11:29:00.552  4616  4621 I zygote64: Increasing code cache capacity to 256KB
+11-21 11:29:00.750  4616  4621 I zygote64: JIT allocated 71KB for compiled code of void android.widget.TextView.<init>(android.content.Context, android.util.AttributeSet, int, int)
+11-21 11:29:00.750  4616  4621 I zygote64: Compiler allocated 7MB to compile void android.widget.TextView.<init>(android.content.Context, android.util.AttributeSet, int, int)
+11-21 11:29:01.010  4616  4638 D EGL_emulation: eglMakeCurrent: 0x73a8296911c0: ver 3 0 (tinfo 0x73a81abd9120)
+11-21 11:29:04.599  1598  1620 W ActivityManager: Launch timeout has expired, giving up wake lock!
+11-21 11:29:04.827  1598  1619 E memtrack: Couldn't load memtrack module
+11-21 11:29:04.827  1598  1619 W android.os.Debug: failed to get memory consumption info: -1
+11-21 11:29:06.311  1598  1627 I ActivityManager: Displayed com.shazwan.idash3/.LauncherActivity: +11s507ms
+11-21 11:29:06.401  1402  1402 W SurfaceFlinger: couldn't log to binary event log: overflow.
+11-21 11:29:06.494  4616  4647 D ProfileInstaller: Installing profile for com.shazwan.idash3
+11-21 11:29:08.639  4616  4616 I Choreographer: Skipped 66 frames!  The application may be doing too much work on its main thread.
+11-21 11:29:09.690  4616  4627 I zygote64: Background concurrent copying GC freed 32941(1466KB) AllocSpace objects, 3(244KB) LOS objects, 49% free, 2MB/5MB, paused 2.312ms total 1.266s
+11-21 11:29:11.236  4616  4621 I zygote64: Do full code cache collection, code=126KB, data=94KB
+11-21 11:29:11.434  4616  4621 I zygote64: After code cache collection, code=118KB, data=52KB
+11-21 11:29:11.663  4616  4627 I zygote64: NativeAlloc concurrent copying GC freed 4399(301KB) AllocSpace objects, 2(128KB) LOS objects, 50% free, 2MB/5MB, paused 5.654ms total 1.882s
+11-21 11:29:11.962  4616  4616 I Choreographer: Skipped 63 frames!  The application may be doing too much work on its main thread.
+11-21 11:29:13.046  4616  4621 I zygote64: Do partial code cache collection, code=125KB, data=72KB
+11-21 11:29:13.594  4616  4621 I zygote64: After code cache collection, code=124KB, data=77KB
+11-21 11:29:13.594  4616  4621 I zygote64: Increasing code cache capacity to 512KB
+11-21 11:29:13.931  4616  4616 I OsmDroid: Using tile source: Mapnik
+11-21 11:29:13.960  4616  4616 I OsmDroid: Tile cache increased from 0 to 32
+11-21 11:29:15.905  4616  4616 W System.err: SLF4J(W): No SLF4J providers were found.
+11-21 11:29:15.905  4616  4616 W System.err: SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+11-21 11:29:15.906  4616  4616 W System.err: SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+11-21 11:29:16.176  4616  4616 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+11-21 11:29:16.548  4616  4627 I zygote64: Background concurrent copying GC freed 31389(1730KB) AllocSpace objects, 8(572KB) LOS objects, 49% free, 3MB/6MB, paused 2.242ms total 733.496ms
+11-21 11:29:17.862  4616  4627 I zygote64: NativeAlloc concurrent copying GC freed 4659(339KB) AllocSpace objects, 2(196KB) LOS objects, 49% free, 3MB/7MB, paused 1.525ms total 1.306s
+11-21 11:29:19.885  1598  4078 D ConnectivityService: requestNetwork for uid/pid:10059/4616 NetworkRequest [ TRACK_DEFAULT id=24, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ]
+11-21 11:29:19.890  1808  1808 D PhoneSwitcherNetworkRequstListener: got request NetworkRequest [ TRACK_DEFAULT id=24, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] with score 20
+11-21 11:29:19.904  1598  1684 D WIFI    : got request NetworkRequest [ TRACK_DEFAULT id=24, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] with score 20
+11-21 11:29:19.904  1598  1684 D WIFI_UT : got request NetworkRequest [ TRACK_DEFAULT id=24, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] with score 20
+11-21 11:29:20.170  4616  4616 E BluetoothAdapter: Bluetooth binder is null
+11-21 11:29:20.411  1598  4078 D ConnectivityService: requestNetwork for uid/pid:10059/4616 NetworkRequest [ TRACK_DEFAULT id=25, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ]
+11-21 11:29:20.435  1598  1684 D WIFI    : got request NetworkRequest [ TRACK_DEFAULT id=25, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] with score 20
+11-21 11:29:20.441  1598  1684 D WIFI_UT : got request NetworkRequest [ TRACK_DEFAULT id=25, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] with score 20
+11-21 11:29:20.451  1808  1808 D PhoneSwitcherNetworkRequstListener: got request NetworkRequest [ TRACK_DEFAULT id=25, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] with score 20
+11-21 11:29:21.208  1598  1619 E memtrack: Couldn't load memtrack module
+11-21 11:29:21.209  1598  1619 W android.os.Debug: failed to get memory consumption info: -1
+11-21 11:29:22.143  4616  4652 W zygote64: Long monitor contention with owner ExoPlayer:SimpleCacheInit (4674) at long android.database.sqlite.SQLiteConnection.nativeOpen(java.lang.String, int, java.lang.String, boolean, boolean, int, int)(SQLiteConnection.java:-2) waiters=0 in java.util.Set androidx.media3.datasource.cache.SimpleCache.getKeys() for 998ms
+11-21 11:29:23.510  4616  4616 I Choreographer: Skipped 657 frames!  The application may be doing too much work on its main thread.
+11-21 11:29:23.562  4616  4627 I zygote64: Background concurrent copying GC freed 53428(2MB) AllocSpace objects, 21(644KB) LOS objects, 50% free, 5MB/10MB, paused 1.162ms total 1.646s
+11-21 11:29:28.265  1598  1619 E memtrack: Couldn't load memtrack module
+11-21 11:29:28.266  1598  1619 W android.os.Debug: failed to get memory consumption info: -1
+11-21 11:29:28.371  1598  1619 E memtrack: Couldn't load memtrack module
+11-21 11:29:28.371  1598  1619 W android.os.Debug: failed to get memory consumption info: -1
+11-21 11:29:29.113  4616  4621 I zygote64: Do full code cache collection, code=246KB, data=202KB
+11-21 11:29:29.124  4616  4621 I zygote64: After code cache collection, code=228KB, data=120KB
+11-21 11:29:30.271  4616  4621 I zygote64: Do partial code cache collection, code=247KB, data=142KB
+11-21 11:29:30.313  4616  4621 I zygote64: After code cache collection, code=240KB, data=140KB
+11-21 11:29:30.314  4616  4621 I zygote64: Increasing code cache capacity to 1024KB
+11-21 11:29:31.386  4616  4621 I zygote64: Method exceeds compiler instruction limit: 30618 in void com.music.bitchord.MainActivityKt.BitChordApp-o3XDK20(boolean, float, float, com.music.bitchord.ui.components.backdrop.backdrops.LayerBackdrop, com.music.bitchord.ui.MainViewModel, androidx.compose.runtime.Composer, int, int)
+11-21 11:29:32.645  4616  4627 I zygote64: Background concurrent copying GC freed 48418(2MB) AllocSpace objects, 9(660KB) LOS objects, 48% free, 6MB/12MB, paused 1.070ms total 411.169ms
+11-21 11:29:34.481  4616  4616 I Choreographer: Skipped 529 frames!  The application may be doing too much work on its main thread.
+11-21 11:29:36.400  4616  4616 I zygote64: Rejecting re-init on previously-failed class java.lang.Class<com.music.bitchord.playback.smart.TrackAnalyzer$$ExternalSyntheticLambda13>: java.lang.NoClassDefFoundError: Failed resolution of: Landroid/os/PowerManager$OnThermalStatusChangedListener;
+11-21 11:29:36.400  4616  4616 I zygote64:   at void com.music.bitchord.playback.PlaybackService.<init>() (PlaybackService.kt:642)
+11-21 11:29:36.400  4616  4616 I zygote64:   at java.lang.Object java.lang.Class.newInstance() (Class.java:-2)
+11-21 11:29:36.400  4616  4616 I zygote64:   at void android.app.ActivityThread.handleCreateService(android.app.ActivityThread$CreateServiceData) (ActivityThread.java:3321)
+11-21 11:29:36.400  4616  4616 I zygote64:   at void android.app.ActivityThread.-wrap4(android.app.ActivityThread, android.app.ActivityThread$CreateServiceData) (ActivityThread.java:-1)
+11-21 11:29:36.401  4616  4616 I zygote64:   at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1677)
+11-21 11:29:36.401  4616  4616 I zygote64:   at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:106)
+11-21 11:29:36.401  4616  4616 I zygote64:   at void android.os.Looper.loop() (Looper.java:164)
+11-21 11:29:36.401  4616  4616 I zygote64:   at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6494)
+11-21 11:29:36.401  4616  4616 I zygote64:   at java.lang.Object java.lang.reflect.Method.invoke(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+11-21 11:29:36.401  4616  4616 I zygote64:   at void com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run() (RuntimeInit.java:438)
+11-21 11:29:36.401  4616  4616 I zygote64:   at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:807)
+11-21 11:29:36.401  4616  4616 I zygote64: Caused by: java.lang.ClassNotFoundException: Didn't find class "android.os.PowerManager$OnThermalStatusChangedListener" on path: DexPathList[[zip file "/data/app/com.shazwan.idash3.test-hjRjj8A0SY4AhB6JSuIjMg==/base.apk", zip file "/data/app/com.shazwan.idash3-jxl7Vsini10Icqv2GzdKEA==/base.apk"],nativeLibraryDirectories=[/data/app/com.shazwan.idash3.test-hjRjj8A0SY4AhB6JSuIjMg==/lib/x86_64, /data/app/com.shazwan.idash3-jxl7Vsini10Icqv2GzdKEA==/lib/x86_64, /data/app/com.shazwan.idash3.test-hjRjj8A0SY4AhB6JSuIjMg==/base.apk!/lib/x86_64, /data/app/com.shazwan.idash3-jxl7Vsini10Icqv2GzdKEA==/base.apk!/lib/x86_64, /system/lib64, /vendor/lib64]]
+11-21 11:29:36.401  4616  4616 I zygote64:   at java.lang.Class dalvik.system.BaseDexClassLoader.findClass(java.lang.String) (BaseDexClassLoader.java:125)
+11-21 11:29:36.401  4616  4616 I zygote64:   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String, boolean) (ClassLoader.java:379)
+11-21 11:29:36.401  4616  4616 I zygote64:   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String) (ClassLoader.java:312)
+11-21 11:29:36.401  4616  4616 I zygote64:   at void com.music.bitchord.playback.PlaybackService.<init>() (PlaybackService.kt:642)
+11-21 11:29:36.401  4616  4616 I zygote64:   at java.lang.Object java.lang.Class.newInstance() (Class.java:-2)
+11-21 11:29:36.401  4616  4616 I zygote64:   at void android.app.ActivityThread.handleCreateService(android.app.ActivityThread$CreateServiceData) (ActivityThread.java:3321)
+11-21 11:29:36.401  4616  4616 I zygote64:   at void android.app.ActivityThread.-wrap4(android.app.ActivityThread, android.app.ActivityThread$CreateServiceData) (ActivityThread.java:-1)
+11-21 11:29:36.401  4616  4616 I zygote64:   at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1677)
+11-21 11:29:36.401  4616  4616 I zygote64:   at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:106)
+11-21 11:29:36.401  4616  4616 I zygote64:   at void android.os.Looper.loop() (Looper.java:164)
+11-21 11:29:36.401  4616  4616 I zygote64:   at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6494)
+11-21 11:29:36.401  4616  4616 I zygote64:   at java.lang.Object java.lang.reflect.Method.invoke(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+11-21 11:29:36.401  4616  4616 I zygote64:   at void com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run() (RuntimeInit.java:438)
+11-21 11:29:36.401  4616  4616 I zygote64:   at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:807)
+11-21 11:29:36.401  4616  4616 I zygote64: 
+11-21 11:29:36.402  4616  4616 I zygote64: Rejecting re-init on previously-failed class java.lang.Class<com.music.bitchord.playback.smart.TrackAnalyzer$$ExternalSyntheticLambda13>: java.lang.NoClassDefFoundError: Failed resolution of: Landroid/os/PowerManager$OnThermalStatusChangedListener;
+11-21 11:29:36.402  4616  4616 I zygote64:   at void com.music.bitchord.playback.PlaybackService.<init>() (PlaybackService.kt:642)
+11-21 11:29:36.402  4616  4616 I zygote64:   at java.lang.Object java.lang.Class.newInstance() (Class.java:-2)
+11-21 11:29:36.402  4616  4616 I zygote64:   at void android.app.ActivityThread.handleCreateService(android.app.ActivityThread$CreateServiceData) (ActivityThread.java:3321)
+11-21 11:29:36.402  4616  4616 I zygote64:   at void android.app.ActivityThread.-wrap4(android.app.ActivityThread, android.app.ActivityThread$CreateServiceData) (ActivityThread.java:-1)
+11-21 11:29:36.402  4616  4616 I zygote64:   at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1677)
+11-21 11:29:36.402  4616  4616 I zygote64:   at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:106)
+11-21 11:29:36.402  4616  4616 I zygote64:   at void android.os.Looper.loop() (Looper.java:164)
+11-21 11:29:36.402  4616  4616 I zygote64:   at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6494)
+11-21 11:29:36.402  4616  4616 I zygote64:   at java.lang.Object java.lang.reflect.Method.invoke(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+11-21 11:29:36.402  4616  4616 I zygote64:   at void com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run() (RuntimeInit.java:438)
+11-21 11:29:36.402  4616  4616 I zygote64:   at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:807)
+11-21 11:29:36.402  4616  4616 I zygote64: Caused by: java.lang.ClassNotFoundException: Didn't find class "android.os.PowerManager$OnThermalStatusChangedListener" on path: DexPathList[[zip file "/data/app/com.shazwan.idash3.test-hjRjj8A0SY4AhB6JSuIjMg==/base.apk", zip file "/data/app/com.shazwan.idash3-jxl7Vsini10Icqv2GzdKEA==/base.apk"],nativeLibraryDirectories=[/data/app/com.shazwan.idash3.test-hjRjj8A0SY4AhB6JSuIjMg==/lib/x86_64, /data/app/com.shazwan.idash3-jxl7Vsini10Icqv2GzdKEA==/lib/x86_64, /data/app/com.shazwan.idash3.test-hjRjj8A0SY4AhB6JSuIjMg==/base.apk!/lib/x86_64, /data/app/com.shazwan.idash3-jxl7Vsini10Icqv2GzdKEA==/base.apk!/lib/x86_64, /system/lib64, /vendor/lib64]]
+11-21 11:29:36.402  4616  4616 I zygote64:   at java.lang.Class dalvik.system.BaseDexClassLoader.findClass(java.lang.String) (BaseDexClassLoader.java:125)
+11-21 11:29:36.402  4616  4616 I zygote64:   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String, boolean) (ClassLoader.java:379)
+11-21 11:29:36.402  4616  4616 I zygote64:   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String) (ClassLoader.java:312)
+11-21 11:29:36.403  4616  4616 I zygote64:   at void com.music.bitchord.playback.PlaybackService.<init>() (PlaybackService.kt:642)
+11-21 11:29:36.403  4616  4616 I zygote64:   at java.lang.Object java.lang.Class.newInstance() (Class.java:-2)
+11-21 11:29:36.403  4616  4616 I zygote64:   at void android.app.ActivityThread.handleCreateService(android.app.ActivityThread$CreateServiceData) (ActivityThread.java:3321)
+11-21 11:29:36.403  4616  4616 I zygote64:   at void android.app.ActivityThread.-wrap4(android.app.ActivityThread, android.app.ActivityThread$CreateServiceData) (ActivityThread.java:-1)
+11-21 11:29:36.403  4616  4616 I zygote64:   at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1677)
+11-21 11:29:36.403  4616  4616 I zygote64:   at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:106)
+11-21 11:29:36.403  4616  4616 I zygote64:   at void android.os.Looper.loop() (Looper.java:164)
+11-21 11:29:36.403  4616  4616 I zygote64:   at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6494)
+11-21 11:29:36.403  4616  4616 I zygote64:   at java.lang.Object java.lang.reflect.Method.invoke(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+11-21 11:29:36.403  4616  4616 I zygote64:   at void com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run() (RuntimeInit.java:438)
+11-21 11:29:36.404  4616  4616 I zygote64:   at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:807)
+11-21 11:29:36.404  4616  4616 I zygote64: 
+11-21 11:29:36.404  4616  4616 I zygote64: Rejecting re-init on previously-failed class java.lang.Class<com.music.bitchord.playback.smart.TrackAnalyzer$$ExternalSyntheticLambda13>: java.lang.NoClassDefFoundError: Failed resolution of: Landroid/os/PowerManager$OnThermalStatusChangedListener;
+11-21 11:29:36.404  4616  4616 I zygote64:   at void com.music.bitchord.playback.PlaybackService.<init>() (PlaybackService.kt:642)
+11-21 11:29:36.404  4616  4616 I zygote64:   at java.lang.Object java.lang.Class.newInstance() (Class.java:-2)
+11-21 11:29:36.404  4616  4616 I zygote64:   at void android.app.ActivityThread.handleCreateService(android.app.ActivityThread$CreateServiceData) (ActivityThread.java:3321)
+11-21 11:29:36.404  4616  4616 I zygote64:   at void android.app.ActivityThread.-wrap4(android.app.ActivityThread, android.app.ActivityThread$CreateServiceData) (ActivityThread.java:-1)
+11-21 11:29:36.404  4616  4616 I zygote64:   at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1677)
+11-21 11:29:36.404  4616  4616 I zygote64:   at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:106)
+11-21 11:29:36.404  4616  4616 I zygote64:   at void android.os.Looper.loop() (Looper.java:164)
+11-21 11:29:36.404  4616  4616 I zygote64:   at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6494)
+11-21 11:29:36.404  4616  4616 I zygote64:   at java.lang.Object java.lang.reflect.Method.invoke(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+11-21 11:29:36.404  4616  4616 I zygote64:   at void com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run() (RuntimeInit.java:438)
+11-21 11:29:36.405  4616  4616 I zygote64:   at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:807)
+11-21 11:29:36.405  4616  4616 I zygote64: Caused by: java.lang.ClassNotFoundException: Didn't find class "android.os.PowerManager$OnThermalStatusChangedListener" on path: DexPathList[[zip file "/data/app/com.shazwan.idash3.test-hjRjj8A0SY4AhB6JSuIjMg==/base.apk", zip file "/data/app/com.shazwan.idash3-jxl7Vsini10Icqv2GzdKEA==/base.apk"],nativeLibraryDirectories=[/data/app/com.shazwan.idash3.test-hjRjj8A0SY4AhB6JSuIjMg==/lib/x86_64, /data/app/com.shazwan.idash3-jxl7Vsini10Icqv2GzdKEA==/lib/x86_64, /data/app/com.shazwan.idash3.test-hjRjj8A0SY4AhB6JSuIjMg==/base.apk!/lib/x86_64, /data/app/com.shazwan.idash3-jxl7Vsini10Icqv2GzdKEA==/base.apk!/lib/x86_64, /system/lib64, /vendor/lib64]]
+11-21 11:29:36.405  4616  4616 I zygote64:   at java.lang.Class dalvik.system.BaseDexClassLoader.findClass(java.lang.String) (BaseDexClassLoader.java:125)
+11-21 11:29:36.405  4616  4616 I zygote64:   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String, boolean) (ClassLoader.java:379)
+11-21 11:29:36.405  4616  4616 I zygote64:   at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String) (ClassLoader.java:312)
+11-21 11:29:36.405  4616  4616 I zygote64:   at void com.music.bitchord.playback.PlaybackService.<init>() (PlaybackService.kt:642)
+11-21 11:29:36.405  4616  4616 I zygote64:   at java.lang.Object java.lang.Class.newInstance() (Class.java:-2)
+11-21 11:29:36.405  4616  4616 I zygote64:   at void android.app.ActivityThread.handleCreateService(android.app.ActivityThread$CreateServiceData) (ActivityThread.java:3321)
+11-21 11:29:36.405  4616  4616 I zygote64:   at void android.app.ActivityThread.-wrap4(android.app.ActivityThread, android.app.ActivityThread$CreateServiceData) (ActivityThread.java:-1)
+11-21 11:29:36.405  4616  4616 I zygote64:   at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1677)
+11-21 11:29:36.405  4616  4616 I zygote64:   at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:106)
+11-21 11:29:36.405  4616  4616 I zygote64:   at void android.os.Looper.loop() (Looper.java:164)
+11-21 11:29:36.405  4616  4616 I zygote64:   at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6494)
+11-21 11:29:36.405  4616  4616 I zygote64:   at java.lang.Object java.lang.reflect.Method.invoke(java.lang.Object, java.lang.Object[]) (Method.java:-2)
+11-21 11:29:36.405  4616  4616 I zygote64:   at void com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run() (RuntimeInit.java:438)
+11-21 11:29:36.405  4616  4616 I zygote64:   at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:807)
+11-21 11:29:36.405  4616  4616 I zygote64: 
+11-21 11:29:36.508  4616  4616 E BluetoothAdapter: Bluetooth binder is null
+11-21 11:29:37.041  1598  4586 D MediaSessionService: Media button session is changed to com.shazwan.idash3/androidx.media3.session.id.BitChordPlayback (userId=0)
+11-21 11:29:37.245  4616  4616 W GooglePlayServicesUtil: com.shazwan.idash3 requires the Google Play Store, but it is missing.
+11-21 11:29:37.245  4616  4616 I BitChordCast: Play Services unavailable; casting disabled
+11-21 11:29:38.175  4616  4616 I Choreographer: Skipped 220 frames!  The application may be doing too much work on its main thread.
+11-21 11:29:39.286  4616  4621 I zygote64: Compiler allocated 4MB to compile boolean androidx.compose.runtime.snapshots.SnapshotStateObserver$ObservedScopeMap.recordInvalidation(java.util.Set)
+11-21 11:29:40.745  4616  4616 I Choreographer: Skipped 49 frames!  The application may be doing too much work on its main thread.
+11-21 11:29:42.107  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 20979817 , only wrote 20979360
+11-21 11:29:42.123  4616  4621 I zygote64: Do full code cache collection, code=503KB, data=464KB
+11-21 11:29:42.171  4616  4621 I zygote64: After code cache collection, code=384KB, data=249KB
+11-21 11:29:42.199  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 20983821 , only wrote 20983680
+11-21 11:29:42.358  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 20991313 , only wrote 20990880
+11-21 11:29:42.523  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 20998815 , only wrote 20998800
+11-21 11:29:42.547  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 20999940 , only wrote 20999520
+11-21 11:29:42.551  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 20999705 , only wrote 20999520
+11-21 11:29:42.643  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21003951 , only wrote 21003840
+11-21 11:29:42.687  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21005768 , only wrote 21005280
+11-21 11:29:43.143  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21027346 , only wrote 21026880
+11-21 11:29:43.209  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21030026 , only wrote 21029760
+11-21 11:29:43.222  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21030394 , only wrote 21029760
+11-21 11:29:43.279  4616  4621 I zygote64: Compiler allocated 5MB to compile void androidx.compose.ui.platform.AndroidComposeViewAccessibilityDelegateCompat.populateAccessibilityNodeInfoProperties(int, androidx.core.view.accessibility.AccessibilityNodeInfoCompat, androidx.compose.ui.semantics.SemanticsNode)
+11-21 11:29:43.540  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21045039 , only wrote 21044880
+11-21 11:29:43.546  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21045145 , only wrote 21044880
+11-21 11:29:43.643  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21049550 , only wrote 21049200
+11-21 11:29:43.729  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21053348 , only wrote 21052800
+11-21 11:29:44.145  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21072734 , only wrote 21072240
+11-21 11:29:44.240  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21076833 , only wrote 21076560
+11-21 11:29:44.265  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21077757 , only wrote 21077280
+11-21 11:29:44.271  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21077561 , only wrote 21077280
+11-21 11:29:44.293  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21078315 , only wrote 21078000
+11-21 11:29:44.313  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21078980 , only wrote 21078720
+11-21 11:29:44.329  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21079493 , only wrote 21079440
+11-21 11:29:44.333  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21079640 , only wrote 21079440
+11-21 11:29:44.350  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21080218 , only wrote 21080160
+11-21 11:29:44.410  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21083066 , only wrote 21083040
+11-21 11:29:44.426  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21083807 , only wrote 21083760
+11-21 11:29:44.443  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21084564 , only wrote 21084480
+11-21 11:29:44.463  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21085444 , only wrote 21085200
+11-21 11:29:44.471  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21085561 , only wrote 21085200
+11-21 11:29:44.493  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21086257 , only wrote 21085920
+11-21 11:29:44.528  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21087632 , only wrote 21085920
+11-21 11:29:44.626  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21090600 , only wrote 21090240
+11-21 11:29:44.702  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21093889 , only wrote 21093840
+11-21 11:29:44.735  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21095435 , only wrote 21095280
+11-21 11:29:44.753  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21096149 , only wrote 21096000
+11-21 11:29:44.756  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21096125 , only wrote 21096000
+11-21 11:29:44.774  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21096855 , only wrote 21096720
+11-21 11:29:44.800  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21097987 , only wrote 21097440
+11-21 11:29:44.840  4616  4621 I zygote64: Compiler allocated 7MB to compile void androidx.compose.foundation.text.CoreTextFieldKt.CoreTextField(androidx.compose.ui.text.input.TextFieldValue, kotlin.jvm.functions.Function1, androidx.compose.ui.Modifier, androidx.compose.ui.text.TextStyle, androidx.compose.ui.text.input.VisualTransformation, kotlin.jvm.functions.Function1, androidx.compose.foundation.interaction.MutableInteractionSource, androidx.compose.ui.graphics.Brush, boolean, int, int, androidx.compose.ui.text.input.ImeOptions, androidx.compose.foundation.text.KeyboardActions, boolean, boolean, kotlin.jvm.functions.Function3, androidx.compose.foundation.text.TextFieldScrollerPosition, androidx.compose.runtime.Composer, int, int, int)
+11-21 11:29:44.942  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21104234 , only wrote 21103920
+11-21 11:29:45.084  4616  4616 D Autofill Status: Autofill popup isn't shown because autofill is not available.
+11-21 11:29:45.084  4616  4616 D Autofill Status: 
+11-21 11:29:45.084  4616  4616 D Autofill Status: Did you set up autofill?
+11-21 11:29:45.084  4616  4616 D Autofill Status: 1. Go to Settings > System > Languages&input > Advanced > Autofill Service
+11-21 11:29:45.084  4616  4616 D Autofill Status: 2. Pick a service
+11-21 11:29:45.084  4616  4616 D Autofill Status: 
+11-21 11:29:45.084  4616  4616 D Autofill Status: Did you add an account?
+11-21 11:29:45.084  4616  4616 D Autofill Status: 1. Go to Settings > System > Languages&input > Advanced
+11-21 11:29:45.084  4616  4616 D Autofill Status: 2. Click on the settings icon next to the Autofill Service
+11-21 11:29:45.084  4616  4616 D Autofill Status: 3. Add your account
+11-21 11:29:45.088  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21110938 , only wrote 21110400
+11-21 11:29:45.122  4616  4621 I zygote64: Do partial code cache collection, code=499KB, data=442KB
+11-21 11:29:45.141  4616  4621 I zygote64: After code cache collection, code=497KB, data=441KB
+11-21 11:29:45.141  4616  4621 I zygote64: Increasing code cache capacity to 2MB
+11-21 11:29:45.209  1385  3009 W audio_hw_generic: Not supplying enough data to HAL, expected position 21116209 , only wrote 21116160
+11-21 11:29:45.363  1385  1534 W audio_hw_generic: Not supplying enough data to HAL, expected position 21130555 , only wrote 21123360
+11-21 11:29:45.389  4616  4616 I Choreographer: Skipped 111 frames!  The application may be doing too much work on its main thread.
+11-21 11:29:46.546  4616  4616 I Choreographer: Skipped 68 frames!  The application may be doing too much work on its main thread.
+11-21 11:29:46.754  1710  1710 I LatinIME: Starting input. Cursor position = 0,0
+11-21 11:29:47.386  1710  1710 I Choreographer: Skipped 38 frames!  The application may be doing too much work on its main thread.
+11-21 11:29:47.490  1392  2717 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-21 11:29:47.504  1392  2717 I chatty  : uid=1000(system) HwBinder:1392_3 identical 1 line
+11-21 11:29:47.514  1392  2717 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-21 11:29:48.202  1710  1720 I zygote64: Do partial code cache collection, code=113KB, data=71KB
+11-21 11:29:48.211  1710  1720 I zygote64: After code cache collection, code=113KB, data=71KB
+11-21 11:29:48.212  1710  1720 I zygote64: Increasing code cache capacity to 512KB
+11-21 11:29:49.383  4616  4621 I zygote64: JIT allocated 53KB for stack maps of void com.music.bitchord.ui.screens.SearchScreenKt.SearchScreen-EjWj86g(java.lang.String, kotlin.jvm.functions.Function1, com.music.bitchord.data.model.SearchFilter, com.music.bitchord.data.model.Song, boolean, kotlin.jvm.functions.Function1, com.music.bitchord.data.model.UiState, boolean, kotlin.jvm.functions.Function0, androidx.compose.foundation.lazy.LazyListState, int, boolean, kotlin.jvm.functions.Function0, kotlin.jvm.functions.Function2, kotlin.jvm.functions.Function1, kotlin.jvm.functions.Function1, kotlin.jvm.functions.Function1, kotlin.jvm.functions.Function1, kotlin.jvm.functions.Function1, kotlin.jvm.functions.Function1, java.util.List, java.util.List, java.util.List, kotlin.jvm.functions.Function0, kotlin.jvm.functions.Function1, kotlin.jvm.functions.Function1, kotlin.jvm.functions.Function1, kotlin.jvm.functions.Function0, kotlin.jvm.functions.Function1, androidx.compose.ui.Modifier, androidx.compose.foundation.layout.PaddingValues, float, boolean, boolean, b
+11-21 11:29:49.456  4616  4621 I zygote64: Compiler allocated 12MB to compile void com.music.bitchord.ui.screens.SearchScreenKt.SearchScreen-EjWj86g(java.lang.String, kotlin.jvm.functions.Function1, com.music.bitchord.data.model.SearchFilter, com.music.bitchord.data.model.Song, boolean, kotlin.jvm.functions.Function1, com.music.bitchord.data.model.UiState, boolean, kotlin.jvm.functions.Function0, androidx.compose.foundation.lazy.LazyListState, int, boolean, kotlin.jvm.functions.Function0, kotlin.jvm.functions.Function2, kotlin.jvm.functions.Function1, kotlin.jvm.functions.Function1, kotlin.jvm.functions.Function1, kotlin.jvm.functions.Function1, kotlin.jvm.functions.Function1, kotlin.jvm.functions.Function1, java.util.List, java.util.List, java.util.List, kotlin.jvm.functions.Function0, kotlin.jvm.functions.Function1, kotlin.jvm.functions.Function1, kotlin.jvm.functions.Function1, kotlin.jvm.functions.Function0, kotlin.jvm.functions.Function1, androidx.compose.ui.Modifier, androidx.compose.foundation.layout.PaddingValues, float, boolean, boolean, boo
+11-21 11:29:49.762  1710  1710 W RichInputConnection: Slow InputConnection: GET_TEXT_AFTER_CURSOR took 1996 ms.
+11-21 11:29:49.774  1710  1710 I Choreographer: Skipped 121 frames!  The application may be doing too much work on its main thread.
+11-21 11:29:49.973  1710  3387 D EGL_emulation: eglMakeCurrent: 0x73a82c23e120: ver 3 0 (tinfo 0x73a82c20d8c0)
+11-21 11:29:50.085  4616  4616 I Choreographer: Skipped 32 frames!  The application may be doing too much work on its main thread.
+11-21 11:29:51.045  1598  1619 E memtrack: Couldn't load memtrack module
+11-21 11:29:51.045  1598  1619 W android.os.Debug: failed to get memory consumption info: -1
+11-21 11:29:51.093  1710  3387 D EGL_emulation: eglMakeCurrent: 0x73a82c23e120: ver 3 0 (tinfo 0x73a82c20d8c0)
+11-21 11:29:51.389  1598  1619 E memtrack: Couldn't load memtrack module
+11-21 11:29:51.389  1598  1619 W android.os.Debug: failed to get memory consumption info: -1
+11-21 11:29:52.208  4616  4627 I zygote64: Background concurrent copying GC freed 77276(4MB) AllocSpace objects, 8(476KB) LOS objects, 42% free, 8MB/14MB, paused 7.312ms total 1.015s
+11-21 11:29:52.869  4616  4616 I Choreographer: Skipped 164 frames!  The application may be doing too much work on its main thread.
+11-21 11:29:53.374  1598  1619 I UsageStatsService: User[0] Flushing usage stats to disk
+11-21 11:29:53.750  4616  4673 D BitChord: ITX InnerTube: fetchFreshVisitorData start
+11-21 11:29:54.520  1393  1421 D hwcomposer: hw_composer sent 140 syncs in 60s
+11-21 11:29:54.871  1392  2717 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-21 11:29:54.879  4605  4615 D         : HostConnection::get() New Host Connection established 0x7dc654431a60, tid 4615
+11-21 11:29:56.498  4616  4621 I zygote64: Do full code cache collection, code=748KB, data=768KB
+11-21 11:29:56.538  4616  4621 I zygote64: After code cache collection, code=716KB, data=578KB
+11-21 11:29:56.568  4616  4621 I zygote64: JIT allocated 258KB for stack maps of kotlin.Unit com.music.bitchord.MainActivityKt.BitChordApp_o3XDK20$lambda$403$11$0$2$3(com.music.bitchord.ui.navigation.AppRoute, com.music.bitchord.playback.PlayerState, com.music.bitchord.ui.MainViewModel, androidx.compose.foundation.lazy.LazyListState, kotlinx.coroutines.CoroutineScope, kotlin.jvm.functions.Function0, androidx.media3.session.MediaController, java.lang.String, kotlin.jvm.functions.Function1, androidx.compose.foundation.layout.PaddingValues, androidx.compose.foundation.lazy.grid.LazyGridState, kotlin.jvm.functions.Function2, com.music.bitchord.ui.replay.ReplayState, kotlin.jvm.functions.Function1, androidx.compose.runtime.MutableState, kotlin.jvm.functions.Function2, java.lang.String, android.content.Context, androidx.compose.runtime.MutableState, androidx.compose.runtime.MutableState, androidx.compose.foundation.lazy.LazyListState, com.music.bitchord.ui.navigation.AppNavigator, androidx.compose.runtime.MutableState, androidx.compose.runtime.MutableState
+11-21 11:29:57.034  1400  1400 I boot-pipe: done populating /dev/random
+11-21 11:29:57.732  4616  4616 I OsmDroid: Using tile source: Mapnik
+11-21 11:29:57.739  4616  4616 I OsmDroid: Tile cache increased from 0 to 32
+11-21 11:29:58.125  4616  4621 I zygote64: Compiler allocated 9MB to compile void com.music.bitchord.ui.replay.ReplayCardKt.ReplayCreditCard(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, kotlin.jvm.functions.Function0, androidx.compose.ui.Modifier, androidx.compose.runtime.Composer, int, int)
+11-21 11:29:58.518  4616  4616 I Choreographer: Skipped 87 frames!  The application may be doing too much work on its main thread.
+11-21 11:30:01.037  4616  4616 I Choreographer: Skipped 142 frames!  The application may be doing too much work on its main thread.
+11-21 11:30:03.071  4616  4631 W zygote64: Verification of void com.shazwan.idash3.AppearanceChecks.onStart() took 146.714ms
+11-21 11:30:03.231  1715  1715 D StatusBar: disable<e i a s b h r c s q >
+11-21 11:30:03.239  1598  4078 W WindowManager: removeWindowToken: Attempted to remove non-existing token: android.os.Binder@fc5bab2
+11-21 11:30:03.399  1598  4586 I ActivityManager: Force stopping com.shazwan.idash3 appid=10059 user=0: finished inst
+11-21 11:30:03.401  1598  4586 I ActivityManager: Killing 4616:com.shazwan.idash3/u0a59 (adj 0): stop com.shazwan.idash3
+11-21 11:30:03.428  1598  4697 W Binder  : Outgoing transactions from this process must be FLAG_ONEWAY
+11-21 11:30:03.428  1598  4697 W Binder  : java.lang.Throwable
+11-21 11:30:03.428  1598  4697 W Binder  : 	at android.os.BinderProxy.transact(Binder.java:752)
+11-21 11:30:03.428  1598  4697 W Binder  : 	at android.app.IInstrumentationWatcher$Stub$Proxy.instrumentationFinished(IInstrumentationWatcher.java:160)
+11-21 11:30:03.428  1598  4697 W Binder  : 	at com.android.server.am.InstrumentationReporter$MyThread.run(InstrumentationReporter.java:86)
+11-21 11:30:03.532  1392  2717 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-21 11:30:03.555  1392  2717 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-21 11:30:03.574  1715  1715 D StatusBar: disable<e i a s b h r c s q >
+11-21 11:30:03.601  4605  4605 D AndroidRuntime: Shutting down VM
+11-21 11:30:03.606  1392  2717 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2461696
+11-21 11:30:03.629  1598  1622 W zygote64: kill(-4616, 9) failed: No such process
+11-21 11:30:03.674  1598  1622 I chatty  : uid=1000(system) ActivityManager identical 1 line
+11-21 11:30:03.718  1598  1622 W zygote64: kill(-4616, 9) failed: No such process
+11-21 11:30:03.765  1598  4586 W zygote64: Long monitor contention with owner Binder:1598_11 (4348) at int com.android.server.wm.WindowManagerService.relayoutWindow(com.android.server.wm.Session, android.view.IWindow, int, android.view.WindowManager$LayoutParams, int, int, int, int, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.util.MergedConfiguration, android.view.Surface)(WindowManagerService.java:1930) waiters=0 in void com.android.server.wm.WindowManagerService.executeAppTransition() for 167ms
+11-21 11:30:03.767  1598  1622 W zygote64: kill(-4616, 9) failed: No such process
+11-21 11:30:03.782  1598  1621 W zygote64: Long monitor contention with owner Binder:1598_12 (4586) at void com.android.server.am.ActivityManagerService.finishInstrumentation(android.app.IApplicationThread, int, android.os.Bundle)(ActivityManagerService.java:20136) waiters=1 in void com.android.server.am.ActivityManagerService.dispatchUidsChanged() for 371ms
+11-21 11:30:03.792  1598  1621 W Looper  : Dispatch took 382ms on android.ui, h=Handler (com.android.server.am.ActivityManagerService$UiHandler) {2f07801} cb=null msg=53
+11-21 11:30:03.801  1392  2717 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1650688
+11-21 11:30:03.818  1392  1436 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1650688
+11-21 11:30:03.844  2131  3039 D EGL_emulation: eglMakeCurrent: 0x73a81e0894c0: ver 3 0 (tinfo 0x73a81e14d4c0)
+11-21 11:30:03.848  1392  2717 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 1650688
+11-21 11:30:03.938  1598  1622 W zygote64: kill(-4616, 9) failed: No such process
+11-21 11:30:03.984  4322  4339 D EGL_emulation: eglMakeCurrent: 0x73a82c23cd20: ver 3 0 (tinfo 0x73a82c20d5a0)
+11-21 11:30:04.104  1598  1622 W zygote64: kill(-4616, 9) failed: No such process
+11-21 11:30:04.204  1598  1622 I chatty  : uid=1000(system) ActivityManager identical 1 line
+11-21 11:30:04.252  1598  1622 W zygote64: kill(-4616, 9) failed: No such process
+11-21 11:30:04.322  2131  3039 W OpenGLRenderer: Incorrectly called buildLayer on View: ShortcutAndWidgetContainer, destroying layer...
+11-21 11:30:04.354  1598  1622 W zygote64: kill(-4616, 9) failed: No such process
+11-21 11:30:04.359  1476  1506 E FrameworkListener: read() failed (Connection reset by peer)
+11-21 11:30:04.366  1598  1672 W InputDispatcher: channel '410a44 com.shazwan.idash3/com.shazwan.idash3.LauncherActivity (server)' ~ Consumer closed input channel or an error occurred.  events=0x9
+11-21 11:30:04.366  1598  1672 E InputDispatcher: channel '410a44 com.shazwan.idash3/com.shazwan.idash3.LauncherActivity (server)' ~ Channel is unrecoverably broken and will be disposed!
+11-21 11:30:04.399  1598  1622 W zygote64: kill(-4616, 9) failed: No such process
+11-21 11:30:04.399  1598  1622 I zygote64: Successfully killed process cgroup uid 10059 pid 4616 in 975ms
+11-21 11:30:04.437  1598  1749 D MediaSessionService: Media button session is changed to null
+11-21 11:30:04.446  1598  1614 D ConnectivityService: ConnectivityService NetworkRequestInfo binderDied(NetworkRequest [ TRACK_DEFAULT id=25, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ], android.os.BinderProxy@2f602a)
+11-21 11:30:04.448  1598  1689 D ConnectivityService: releasing NetworkRequest [ TRACK_DEFAULT id=25, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] (release request)
+11-21 11:30:04.450  1598  1866 D ConnectivityService: ConnectivityService NetworkRequestInfo binderDied(NetworkRequest [ TRACK_DEFAULT id=24, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ], android.os.BinderProxy@df4ee1b)
+11-21 11:30:04.454  1598  1689 D ConnectivityService: releasing NetworkRequest [ TRACK_DEFAULT id=24, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN] ] (release request)

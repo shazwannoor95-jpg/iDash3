@@ -1,0 +1,223 @@
+plugins {
+ id("com.android.library")
+ id("org.jetbrains.kotlin.android")
+ id("org.jetbrains.kotlin.plugin.compose")
+ id("org.jetbrains.kotlin.plugin.serialization")
+}
+android {
+ namespace = "com.music.bitchord"
+ compileSdk = 37
+ defaultConfig {
+  minSdk = 26
+  buildConfigField("String", "APPLICATION_ID", "\"com.shazwan.idash3\"")
+  buildConfigField("String", "VERSION_NAME", "\"0.8.0-rc2\"")
+  buildConfigField("int", "VERSION_CODE", "41")
+  buildConfigField("boolean", "IS_IDASH_HOST", "true")
+  buildConfigField("String", "LASTFM_API_KEY", "\"\"")
+  buildConfigField("String", "LASTFM_SECRET", "\"\"")
+  buildConfigField("String", "LISTEN_TOGETHER_SERVER", "\"https://bitchord-listen-together.onrender.com\"")
+  buildConfigField("String", "ADDON_AUTH_URL", "\"https://bitchord-auth.kushagrasingh.in\"")
+  buildConfigField("String", "UPDATE_APK_PREFIX", "\"iDash4-\"")
+  ndk { abiFilters += listOf("armeabi-v7a", "x86_64") }
+ }
+ sourceSets { getByName("main") { java.srcDir("../wearos/protocol") } }
+ externalNativeBuild { cmake { path = file("src/main/cpp/CMakeLists.txt"); version = "3.22.1" } }
+ compileOptions { sourceCompatibility = JavaVersion.VERSION_17; targetCompatibility = JavaVersion.VERSION_17 }
+ packaging { resources { excludes += "META-INF/versions/9/OSGI-INF/MANIFEST.MF"; pickFirsts += setOf("META-INF/LICENSE.md", "META-INF/LICENSE.txt", "META-INF/NOTICE.md") } }
+ buildFeatures { compose = true; buildConfig = true }
+ testOptions { unitTests.isReturnDefaultValues = true }
+}
+kotlin { compilerOptions { jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17) } }
+val newPipeExtractorRaw: Configuration by configurations.creating {
+    isTransitive = false
+    isCanBeConsumed = false
+}
+dependencies {
+    newPipeExtractorRaw("com.github.TeamNewPipe:NewPipeExtractor:v0.26.3")
+}
+val newPipeExtractorStripped = tasks.register<org.gradle.api.tasks.bundling.Jar>(
+    "stripNewPipeExtractorUtils"
+) {
+    archiveFileName.set("NewPipeExtractor-v0.26.3-noutils.jar")
+    destinationDirectory.set(layout.buildDirectory.dir("stripped-libs"))
+    from(provider { newPipeExtractorRaw.map { zipTree(it) } }) {
+        // The class itself, plus any nested or synthetic siblings the upstream
+        // compiler emitted alongside it, so nothing from the jar's Utils survives.
+        exclude("org/schabi/newpipe/extractor/utils/Utils.class")
+        exclude("org/schabi/newpipe/extractor/utils/Utils\$*.class")
+    }
+}
+
+dependencies {
+    implementation(project(":shared"))
+    implementation(project(":sharedUi"))
+
+    // ---- Compose (Material 3) ----
+    val composeBom = platform("androidx.compose:compose-bom:2024.12.01")
+    implementation(composeBom)
+    // Pinned above the BOM's 1.7.6: [IosOverscroll] uses OverscrollFactory,
+    // which that version doesn't have. Newer foundation alongside the BOM's
+    // older ui/material3 is a combination Compose supports deliberately —
+    // foundation depends on ui, not the reverse — and this exact pairing was
+    // already in effect (foundation was reaching 1.10.0 transitively through
+    // the liquid-glass library before that dependency was removed).
+    implementation("androidx.compose.foundation:foundation:1.10.0")
+    implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.ui:ui-graphics")
+    implementation("androidx.compose.ui:ui-tooling-preview")
+    implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.material:material-icons-extended")
+    implementation("androidx.activity:activity-compose:1.9.3")
+    implementation("androidx.navigation:navigation-compose:2.8.5")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
+    // ProcessLifecycleOwner: whether the app is on screen, for the open-app count.
+    implementation("androidx.lifecycle:lifecycle-process:2.8.7")
+    // The scheduled check behind "Keep playlists updated"; see PlaylistSync.
+    implementation("androidx.work:work-runtime-ktx:2.10.1")
+    implementation("androidx.core:core-ktx:1.15.0")
+    implementation("androidx.appcompat:appcompat:1.7.0")
+    debugImplementation("androidx.compose.ui:ui-tooling")
+
+    // ---- Media playback: Media3 / ExoPlayer ----
+    implementation("androidx.media3:media3-exoplayer:1.11.0")
+    implementation("androidx.media3:media3-session:1.11.0")
+    implementation("androidx.media3:media3-common:1.11.0")
+    implementation("androidx.media3:media3-datasource-okhttp:1.11.0")
+    // Audio is progressive, but Apple serves its motion artwork as HLS — this
+    // is what lets the animated sleeve play it. See CanvasArtworkPlayer.
+    implementation("androidx.media3:media3-exoplayer-hls:1.11.0")
+    // Source modules hand back manifests rather than files, and which kind is
+    // the backend's choice, not ours: the Tidal one served `.m3u8` until
+    // September 2026 and `.mpd` after it, for the same track and the same
+    // request. Without this artifact a DASH manifest is not merely unplayed —
+    // DefaultMediaSourceFactory cannot build a source for it, falls back to
+    // progressive, and the extractors try to sniff XML as audio
+    // (ERROR_CODE_PARSING_CONTAINER_UNSUPPORTED). See withResolvedStreamType.
+    implementation("androidx.media3:media3-exoplayer-dash:1.11.0")
+    // FFmpeg audio decoding for what the phone has no decoder of its own for:
+    // ALAC on every phone, and AC-4, E-AC-3 / AC-3 (Dolby Atmos music),
+    // TrueHD and DTS on phones without Dolby or DTS licensed in. Added as the
+    // *last* audio renderer in silenceSkippingRenderers, so a platform decoder
+    // still wins wherever one exists. No artifact: the extension's Java half is
+    // vendored under app/src/main/java/androidx/media3/decoder/ffmpeg, and
+    // libffmpegJNI.so under src/main/jniLibs is built from librempeg (the only
+    // FFmpeg line with an AC-4 decoder) by native/ffmpeg/build.sh. It needs
+    // media3-decoder, which media3-exoplayer already brings.
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-guava:1.9.0")
+
+    // ---- Images: Coil 3 + Palette (dominant colors for the mesh gradient) ----
+    implementation("io.coil-kt.coil3:coil-compose:3.0.4")
+    implementation("io.coil-kt.coil3:coil-network-okhttp:3.0.4")
+    // Title logos are PNG, but artist signatures are usually SVG — without
+    // this Coil can't decode them (see ArtistSignatureRepository).
+    implementation("io.coil-kt.coil3:coil-svg:3.0.4")
+    // SF Symbols as Compose vectors, for the iOS-style settings and menus (as Convx uses).
+    // Without its own dependencies: it asks for Compose 1.12, which needs a newer Android
+    // Gradle plugin than this build, and the plain ImageVectors used here need nothing
+    // the app's own Compose doesn't already have.
+    implementation("androidx.palette:palette-ktx:1.0.0")
+
+    // ---- Frosted glass / progressive blur (Telegram-style bars) ----
+    implementation("dev.chrisbanes.haze:haze:1.3.1")
+    implementation("dev.chrisbanes.haze:haze-materials:1.3.1")
+
+    // ---- QR encoding, for the party invite ----
+    // `core` only: the `android-core`/`zxing-android-embedded` artifacts bring
+    // a camera scanner and an Activity with it, and nothing here reads a code —
+    // a party is joined by tapping somebody else's link or typing six
+    // characters. This produces the bit matrix; the drawing is ours, in
+    // [com.music.bitchord.ui.components.QrCode], so the result is styled like
+    // the rest of the app rather than a stock black-and-white bitmap.
+    implementation("com.google.zxing:core:3.5.3")
+
+    // ---- Markdown rendering (release notes in the update dialog) ----
+    // Pure Compose, not an AndroidView wrapper — needed so the text composes
+    // correctly under the dialog's Haze blur.
+    implementation("com.halilibo.compose-richtext:richtext-ui-material3:0.20.0")
+    implementation("com.halilibo.compose-richtext:richtext-commonmark:0.20.0")
+
+    // ---- Innertube (YouTube Music) client: Ktor + kotlinx.serialization ----
+    // Ktor and serialization are held at InnerTubeX's versions (below) so the
+    // upgrade it forces is explicit rather than resolved behind our backs.
+    implementation("io.ktor:ktor-client-core:3.5.2")
+    implementation("io.ktor:ktor-client-okhttp:3.5.2")
+    implementation("io.ktor:ktor-client-content-negotiation:3.5.2")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:3.5.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.11.0")
+
+    // ---- Discord Rich Presence: the gateway is a WebSocket, so Ktor needs the plugin ----
+    implementation("io.ktor:ktor-client-websockets:3.5.2")
+
+    // ---- YouTube stream extraction: live-benchmarked client catalog + cipher tiers ----
+    implementation("com.github.MetrolistGroup:innertubex-android:v0.7.0")
+
+    // ---- Stream resolution: NewPipe solves YouTube's signature + `n` throttling ----
+    // Pinned to v0.26.3, not the newer v0.26.4: v0.26.4's player-JS parser fails with
+    // "Could not parse deobfuscation function" on the current player build, which blocks
+    // WEB_REMIX's ciphered formats entirely. v0.26.3 solves the same signatures cleanly
+    // against the same player JS — confirmed side by side against PixelMusic-ref, which
+    // pins v0.26.3 and doesn't hit the parse failure.
+    //
+    // Consumed as a stripped jar rather than as the module, so its own
+    // Utils.class does not reach dexing. See newPipeExtractorStripped above; the
+    // transitive dependencies the module would have brought are listed here
+    // because dropping its artifact drops them too. If the version changes,
+    // re-derive this list with
+    //   ./gradlew :app:dependencies --configuration prodReleaseRuntimeClasspath
+    implementation(files(newPipeExtractorStripped))
+    implementation("com.github.TeamNewPipe:nanojson:e9d656ddb49a412a5a0a5d5ef20ca7ef09549996")
+    implementation("org.jsoup:jsoup:1.22.2")
+    implementation("com.google.code.findbugs:jsr305:3.0.2")
+    implementation("com.google.protobuf:protobuf-javalite:4.35.0")
+    implementation("org.mozilla:rhino:1.8.1")
+    implementation("org.mozilla:rhino-engine:1.8.1")
+
+    // ---- Auth/session storage ----
+    implementation("androidx.security:security-crypto:1.1.0-alpha06")
+
+    // ---- JS module execution: QuickJS VM for style source plugins ----
+    // Held at InnerTubeX's version; the same VM runs QuickJsExecutor's module sources.
+    implementation("io.github.dokar3:quickjs-kt-android:1.0.14")
+
+    // ---- SMB file shares: pure-Java SMB2/3 client (listing + streaming) ----
+    implementation("com.hierynomus:smbj:0.15.0")
+
+    // ---- Automix: on-device beat/downbeat model (Beat This!, MIT-licensed) ----
+    // The full android artifact, not onnxruntime-mobile: mobile only loads .ort
+    // files, which would put an offline conversion step between the model and
+    // the app for a saving that does not matter in a self-distributed APK.
+    implementation("com.microsoft.onnxruntime:onnxruntime-android:1.28.0")
+
+    // ---- Casting: Google Cast sender + the route discovery it sits on ----
+    // The framework and the router only. media3-cast is left out on purpose:
+    // its CastPlayer hands the receiver whatever URI a MediaItem carries, and
+    // ours are `bitchord://` addresses that only the service's resolver can
+    // turn into a real stream — see [com.music.bitchord.playback.cast.CastPlayback].
+    implementation("com.google.android.gms:play-services-cast-framework:22.2.0")
+    implementation("androidx.mediarouter:mediarouter:1.8.1")
+
+    // ---- The watch app (wearos/): Data Layer state out, commands in ----
+    // See com.music.bitchord.wear.WearBridge. Rides on the Play services base
+    // the Cast framework already brings, so it adds very little.
+    implementation("com.google.android.gms:play-services-wearable:20.0.1")
+    // Opens the watch app after an update, so its install prompt is on screen.
+    implementation("androidx.wear:wear-remote-interactions:1.1.0")
+
+    // ---- "BitChord for Wear OS": the first install onto a watch ----
+    // Without the Play Store only ADB can install on a watch, so this phone is
+    // the ADB client, over the watch's Wireless debugging — see WatchInstaller.
+    // GPL-3.0/Apache-2.0 dual-licensed. Its own BouncyCastle (jdk15to18) is the
+    // same classes as the jdk18on one SMBJ already brings, so it is excluded;
+    // bcpkix supplies the certificate the ADB client identifies itself with.
+
+    testImplementation("junit:junit:4.13.2")
+    // A real HTTP server for the addon tests. The addon protocol is entirely
+    // "what does this app send, and what does it do with what comes back", and
+    // a hand-rolled fake of the client would be a test of the fake. Pinned to
+    // the OkHttp version already on the runtime classpath.
+    testImplementation("com.squareup.okhttp3:mockwebserver:5.3.2")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.2")
+    androidTestImplementation("androidx.test.ext:junit:1.3.0")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
+}

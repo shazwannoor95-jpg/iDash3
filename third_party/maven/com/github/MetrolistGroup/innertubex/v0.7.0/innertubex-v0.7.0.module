@@ -1,0 +1,311 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.github.MetrolistGroup",
+    "module": "innertubex",
+    "version": "v0.7.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "metadataApiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.platform.type": "common"
+      },
+      "dependencies": [
+        {
+          "group": "io.ktor",
+          "module": "ktor-client-core",
+          "version": {
+            "requires": "3.5.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-serialization-json",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.10"
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-client-content-negotiation",
+          "version": {
+            "requires": "3.5.2"
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-serialization-kotlinx-json",
+          "version": {
+            "requires": "3.5.2"
+          }
+        },
+        {
+          "group": "io.github.dokar3",
+          "module": "quickjs-kt",
+          "version": {
+            "requires": "1.0.14"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "innertubex-metadata-v0.7.0.jar",
+          "url": "innertubex-v0.7.0.jar",
+          "size": 115494,
+          "sha512": "f01bd0bf1bed6533a84a60e8f8b1949f04b483b33ec03e58847ced32459de2818ebd71851a2aa1b5f4b75e09026a6c1fdc5513a1afb167a2db0d486c144a20a8",
+          "sha256": "48a6c3983b847e9fea1154fc3239c7e2cdd41f9867bb5906e282f869702040c3",
+          "sha1": "ec6bbca5a9dd383e298bbd4bceaee322e26fb24a",
+          "md5": "3b16fd3c26d8c518432cb0315f72a594"
+        }
+      ]
+    },
+    {
+      "name": "metadataSourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.platform.type": "common"
+      },
+      "files": [
+        {
+          "name": "innertubex-kotlin-v0.7.0-sources.jar",
+          "url": "innertubex-v0.7.0-sources.jar",
+          "size": 228188,
+          "sha512": "6836f035eb852506c860251f94f0b3ffe43f3f4b835dff8c487bba8f809bcbb60ee8f11d93fd802115d218dcd8263f16d1c707a11ac9278de8eaa4f6171992dc",
+          "sha256": "48ed07365de5ee0b3703a887a3f49d63e39a2975f17ddac24f8d864544755886",
+          "sha1": "3a2ce8b31c0b00cafeab68129d0b9750d7bf3d21",
+          "md5": "9bf46d3a964d7ef1fb6e9745ce56aa0b"
+        }
+      ]
+    },
+    {
+      "name": "androidApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "available-at": {
+        "url": "../../innertubex-android/v0.7.0/innertubex-android-v0.7.0.module",
+        "group": "com.github.MetrolistGroup",
+        "module": "innertubex-android",
+        "version": "v0.7.0"
+      }
+    },
+    {
+      "name": "androidRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "available-at": {
+        "url": "../../innertubex-android/v0.7.0/innertubex-android-v0.7.0.module",
+        "group": "com.github.MetrolistGroup",
+        "module": "innertubex-android",
+        "version": "v0.7.0"
+      }
+    },
+    {
+      "name": "androidSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "available-at": {
+        "url": "../../innertubex-android/v0.7.0/innertubex-android-v0.7.0.module",
+        "group": "com.github.MetrolistGroup",
+        "module": "innertubex-android",
+        "version": "v0.7.0"
+      }
+    },
+    {
+      "name": "desktopApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "available-at": {
+        "url": "../../innertubex-desktop/v0.7.0/innertubex-desktop-v0.7.0.module",
+        "group": "com.github.MetrolistGroup",
+        "module": "innertubex-desktop",
+        "version": "v0.7.0"
+      }
+    },
+    {
+      "name": "desktopRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "available-at": {
+        "url": "../../innertubex-desktop/v0.7.0/innertubex-desktop-v0.7.0.module",
+        "group": "com.github.MetrolistGroup",
+        "module": "innertubex-desktop",
+        "version": "v0.7.0"
+      }
+    },
+    {
+      "name": "desktopSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "available-at": {
+        "url": "../../innertubex-desktop/v0.7.0/innertubex-desktop-v0.7.0.module",
+        "group": "com.github.MetrolistGroup",
+        "module": "innertubex-desktop",
+        "version": "v0.7.0"
+      }
+    },
+    {
+      "name": "iosArm64ApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "ios_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../innertubex-iosarm64/v0.7.0/innertubex-iosarm64-v0.7.0.module",
+        "group": "com.github.MetrolistGroup",
+        "module": "innertubex-iosarm64",
+        "version": "v0.7.0"
+      }
+    },
+    {
+      "name": "iosArm64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "ios_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../innertubex-iosarm64/v0.7.0/innertubex-iosarm64-v0.7.0.module",
+        "group": "com.github.MetrolistGroup",
+        "module": "innertubex-iosarm64",
+        "version": "v0.7.0"
+      }
+    },
+    {
+      "name": "iosArm64MetadataElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "ios_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../innertubex-iosarm64/v0.7.0/innertubex-iosarm64-v0.7.0.module",
+        "group": "com.github.MetrolistGroup",
+        "module": "innertubex-iosarm64",
+        "version": "v0.7.0"
+      }
+    },
+    {
+      "name": "iosSimulatorArm64ApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../innertubex-iossimulatorarm64/v0.7.0/innertubex-iossimulatorarm64-v0.7.0.module",
+        "group": "com.github.MetrolistGroup",
+        "module": "innertubex-iossimulatorarm64",
+        "version": "v0.7.0"
+      }
+    },
+    {
+      "name": "iosSimulatorArm64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../innertubex-iossimulatorarm64/v0.7.0/innertubex-iossimulatorarm64-v0.7.0.module",
+        "group": "com.github.MetrolistGroup",
+        "module": "innertubex-iossimulatorarm64",
+        "version": "v0.7.0"
+      }
+    },
+    {
+      "name": "iosSimulatorArm64MetadataElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../innertubex-iossimulatorarm64/v0.7.0/innertubex-iossimulatorarm64-v0.7.0.module",
+        "group": "com.github.MetrolistGroup",
+        "module": "innertubex-iossimulatorarm64",
+        "version": "v0.7.0"
+      }
+    }
+  ]
+}

@@ -8,9 +8,9 @@ grep -q "applicationId '$APPID'" app/build.gradle && ok "applicationId $APPID" |
 grep -qi "signingConfig" app/build.gradle build.gradle && bad "signingConfig dalam Gradle (keputusan signing belum dibuat)" || ok "tiada signingConfig"
 # Drive Dashboard uses native map/player views. External activity embedding stays out.
 pat='VirtualDisplay|allowEmbedded|ActivityView|SurfaceControlViewHost|setLaunchDisplayId|GLOBAL_ACTION_TOGGLE_SPLIT_SCREEN|FLAG_ACTIVITY_LAUNCH_ADJACENT|a1lab|DashNative|createVirtualDisplay'
-grep -rnE "$pat" app/src/main && bad "ciri eksperimen embedding/VirtualDisplay ditemui" || ok "tiada embedding/VirtualDisplay"
+grep -rnE "$pat" app/src/main bitchord/app/src/main && bad "ciri eksperimen embedding/VirtualDisplay ditemui" || ok "tiada embedding/VirtualDisplay"
 # Third-party assets whose licence is not established must not come back.
-if find app/src -iname '*mrios*' -o -iname 'sf_pro*' -o -iname '*smarttube*' | grep -q .; then bad "aset MRiOS/SF Pro/SmartTube ditemui"; else ok "tiada aset MRiOS/SF Pro/SmartTube"; fi
+if find app/src bitchord/app/src -iname '*mrios*' -o -iname 'sf_pro*' -o -iname '*smarttube*' | grep -q .; then bad "aset MRiOS/SF Pro/SmartTube ditemui"; else ok "tiada aset MRiOS/SF Pro/SmartTube"; fi
 grep -rqi "mrios\|sf_pro" app/src/main && bad "rujukan MRiOS/SF Pro dalam source" || ok "tiada rujukan MRiOS/SF Pro"
 grep -q 'permission android:name="com.shazwan.idash3.permission.CONTROL"' app/src/main/AndroidManifest.xml && ok "permission signature dinamakan untuk iDash3" || bad "permission signature bertembung dengan iDash lama"
 for c in DriveDashboard DrivePlan HomeWidgets HomeGrid HomeLayout JakimCalendar QuickControls GlassSurface GlassBackdrop GlassPerf Spring IconStyler MorphOverlay DashSettings; do
@@ -22,8 +22,11 @@ if [ "${1:-}" ]; then
   if [ -n "$aapt2" ]; then
     b="$("$aapt2" dump badging "$apk")"
     echo "$b" | grep -q "package: name='$APPID'" && ok "APK: pakej $APPID" || bad "APK: pakej salah"
-    echo "$b" | grep -q "native-code" && bad "APK: ada pustaka native" || ok "APK: tiada pustaka native (neutral ABI)"
+    expected_abis="${IDASH_EXPECTED_ABIS:-armeabi-v7a x86_64}"
+    for native_abi in $expected_abis; do
+      echo "$b" | grep -q "native-code:.*$native_abi" && ok "APK: ABI $native_abi" || bad "APK: ABI $native_abi tiada"
+    done
   else bad "aapt2 tidak ditemui"; fi
-  size=$(stat -c %s "$apk"); [ "$size" -lt 8000000 ] && ok "APK ${size} bait (<8 MB)" || bad "APK terlalu besar: $size"
+  size=$(stat -c %s "$apk"); [ "$size" -lt 220000000 ] && ok "APK ${size} bait (<220 MB, full native music stack)" || bad "APK melebihi had stack penuh: $size"
 fi
 exit $fail
