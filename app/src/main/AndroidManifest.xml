@@ -11,7 +11,7 @@
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
     <permission android:name="com.shazwan.idash3.permission.CONTROL" android:protectionLevel="signature"/>
     <uses-permission android:name="com.shazwan.idash3.permission.CONTROL"/>
-    <queries><intent><action android:name="android.intent.action.SHOW_TIMERS"/></intent><intent><action android:name="android.intent.action.SET_TIMER"/></intent><intent><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.APP_CALCULATOR"/></intent><package android:name="com.android.fmradio"/><package android:name="com.acloud.stub.extradio"/><intent><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent></queries>
+    <queries><package android:name="com.music.bitchord"/><package android:name="com.dev.bitchord"/><intent><action android:name="android.intent.action.SHOW_TIMERS"/></intent><intent><action android:name="android.intent.action.SET_TIMER"/></intent><intent><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.APP_CALCULATOR"/></intent><package android:name="com.android.fmradio"/><package android:name="com.acloud.stub.extradio"/><intent><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent></queries>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>

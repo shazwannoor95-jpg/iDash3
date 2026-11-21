@@ -1,6 +1,6 @@
 # iDash4 — iDash3 integration
 
-**Trial candidate: iDash4 0.7.0-rc2** — compact FM preset capsules, adaptive frequency text and clearer native JAKIM icon motion. [APK](dist/iDash4-0.7.0-rc2-debug.apk?raw=true) · [rc1 rollback](dist/iDash4-0.7.0-rc1-rollback-debug.apk?raw=true) · [Changes and validation](docs/FM-PRAYER-0.7.0-RC2.md). Native Drive workflow and ULTRA appearance retained.
+**Trial candidate: iDash4 0.7.0-rc3** — native BitChord control panel in Drive, package-filtered sessions and callback reuse. [APK](dist/iDash4-0.7.0-rc3-debug.apk?raw=true) · [rc2 rollback](dist/iDash4-0.7.0-rc2-rollback-debug.apk?raw=true) · [Integration / limitations](docs/BITCHORD-0.7.0-RC3.md). BitChord itself is a separate official app, not bundled or embedded.
 
 **Revert panel appearance:** Settings → Home & Dock → Liquid Glass → Material panel → **Classic iDash3**. The new iOS26 panel material and the icon-pack switch are independent.
 

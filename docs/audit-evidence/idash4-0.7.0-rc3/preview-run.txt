@@ -1,0 +1,3 @@
+INSTRUMENTATION_RESULT: stream=PASS: captured Apps and Home FM panel native windows
+
+INSTRUMENTATION_CODE: -1

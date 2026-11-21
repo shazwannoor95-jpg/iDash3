@@ -10,6 +10,7 @@ public class ToolbarPreview extends Instrumentation {
  runOnMainSync(()->{a.page="apps";a.query="";a.render();});shot("apps-native-1024x600");
  runOnMainSync(()->{p.edit().putInt("dashboard_panel",0).putBoolean("dashboard_location",false).apply();a.page="drive";a.render();if(a.driveDashboard.map!=null)a.driveDashboard.map.setUseDataConnection(false);});shot("drive-native-1024x600");
  runOnMainSync(()->a.driveDashboard.setMode(2));shot("drive-fm-native-1024x600");
+ runOnMainSync(()->a.driveDashboard.setMode(4));shot("drive-bitchord-native-1024x600");
  runOnMainSync(()->{a.page="home";a.panelVisible=false;a.render();});shot("home-native-1024x600");
  runOnMainSync(()->{p.edit().putInt("panel_mode",1).apply();a.page="home";a.panelVisible=true;a.render();});shot("home-panel-native-1024x600");out.putString("stream","PASS: captured Apps and Home FM panel native windows\n");code=Activity.RESULT_OK;
  }catch(Throwable t){out.putString("stream","FAIL: "+t+"\n");}finally{if(a!=null)runOnMainSync(a::finish);AppearanceChecks.restore(p,saved);}finish(code,out);}
