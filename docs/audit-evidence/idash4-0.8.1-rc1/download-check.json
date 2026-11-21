@@ -1,0 +1,26 @@
+[
+  {
+    "file": "dist/iDash4-0.8.1-rc1-arm32-debug.apk",
+    "status": 200,
+    "content_type": "application/octet-stream",
+    "content_length": "80546891"
+  },
+  {
+    "file": "dist/iDash4-0.8.1-rc1-arm64-debug.apk",
+    "status": 200,
+    "content_type": "application/octet-stream",
+    "content_length": "90029293"
+  },
+  {
+    "file": "dist/iDash4-0.8.1-rc1-x86_64-debug.apk",
+    "status": 200,
+    "content_type": "application/octet-stream",
+    "content_length": "96264276"
+  },
+  {
+    "file": "dist/iDash4-0.7.0-rc5-rollback-code42.apk",
+    "status": 200,
+    "content_type": "application/octet-stream",
+    "content_length": "3826850"
+  }
+]

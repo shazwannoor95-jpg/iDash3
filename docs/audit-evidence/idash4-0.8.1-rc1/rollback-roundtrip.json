@@ -1,0 +1,11 @@
+{
+  "install_sequence": [
+    "0.8.1-rc1 code42",
+    "0.7.0-rc5-rollback-full code42",
+    "0.8.1-rc1 code42"
+  ],
+  "uninstall_used": false,
+  "pre_existing_preferences": 17,
+  "rollback_preserves_all": true,
+  "reinstall_preserves_all": true
+}
