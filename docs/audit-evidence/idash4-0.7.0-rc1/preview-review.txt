@@ -1,0 +1,7 @@
+Final installed app: com.shazwan.idash3 versionCode 29 versionName 0.7.0-rc1.
+Five native screenshots, logical and physical 1024x600, emulator API27 x86_64.
+Each capture required LauncherActivity.hasWindowFocus(); all five visually reviewed.
+Apps, Drive map, Drive FM, Home, Home FM panel: visible and unobscured.
+FM sidebar has cyan selected outline; Map sidebar has selected outline in map capture.
+Tiles disabled in Map preview; GPS opt-in false. No invented location/media metadata.
+Initial System UI ANR-obscured captures excluded outside repo in workspace backup.

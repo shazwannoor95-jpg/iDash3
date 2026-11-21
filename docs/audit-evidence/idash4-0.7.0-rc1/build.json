@@ -1,0 +1,10 @@
+{
+  "jvm_tests": 78,
+  "failures": 0,
+  "errors": 0,
+  "lint": "0 errors, 90 warnings",
+  "gradle": "assembleDebug, testDebugUnitTest, lintDebug, assembleDebugAndroidTest: BUILD SUCCESSFUL",
+  "rollback_source_diff": [
+    "app/build.gradle versionCode/versionName only"
+  ]
+}

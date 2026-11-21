@@ -1,0 +1,12 @@
+[
+  {
+    "file": "dist/iDash4-0.7.0-rc1-debug.apk",
+    "certificate": "Signer #1 certificate SHA-256 digest: cf3906b6e81372d253cdf786428558b4432453fd345480bc72c490c385c2c2e6",
+    "package": "package: name='com.shazwan.idash3' versionCode='29' versionName='0.7.0-rc1' platformBuildVersionName='15' platformBuildVersionCode='35' compileSdkVersion='35' compileSdkVersionCodename='15'"
+  },
+  {
+    "file": "dist/iDash4-0.6.0-rc8-rollback-debug.apk",
+    "certificate": "Signer #1 certificate SHA-256 digest: cf3906b6e81372d253cdf786428558b4432453fd345480bc72c490c385c2c2e6",
+    "package": "package: name='com.shazwan.idash3' versionCode='30' versionName='0.6.0-rc8-rollback' platformBuildVersionName='15' platformBuildVersionCode='35' compileSdkVersion='35' compileSdkVersionCodename='15'"
+  }
+]

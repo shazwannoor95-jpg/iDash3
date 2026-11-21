@@ -1,0 +1,3 @@
+INSTRUMENTATION_RESULT: stream=FAIL after 15: java.lang.AssertionError: java.lang.AssertionError: return restores camera and zoom
+
+INSTRUMENTATION_CODE: 0

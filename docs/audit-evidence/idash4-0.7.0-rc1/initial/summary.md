@@ -1,0 +1,9 @@
+### Instrumentation (emulator API27 x86_64, benar-benar dijalankan)
+
+| Kelas | Jenis | Keputusan | Butiran |
+|---|---|---|---|
+| NativeDriveFlowChecks | gate | GAGAL | stream=FAIL afte |
+| DriveDashboardChecks | gate | LULUS | stream=PASS: 24 D |
+| ToolbarDockChecks | gate | LULUS | stream=PASS: 446 toolba |
+| ClockGlassChecks | gate | LULUS | stream=PASS: 98 clock/glass geomet |
+| PageGlassChecks | gate | LULUS | stream=PASS: 25 page skin asse |

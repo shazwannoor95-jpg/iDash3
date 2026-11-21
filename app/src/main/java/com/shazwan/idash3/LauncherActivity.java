@@ -37,6 +37,7 @@ public class LauncherActivity extends Activity {
     int theme;
     boolean panelVisible; LinearLayout panelBox; DashWebPlayer webPanel; FmPanelHost fmPanel; SagaAngleView carPanel;
     PrayerJourneyView prayerJourney;
+    String libraryReturnPage="home";DriveViewport driveViewport;
     DriveDashboard driveDashboard;DrivingWorkspace drivingWorkspace;int drivingTab;
     int libraryPage; int homePage; HomeGrid homeGrid; private final GlassPerf.Watcher frameWatcher=new GlassPerf.Watcher(); private boolean watching;
     AlertDialog wallpaperDialog; Bitmap wallpaperBitmap; String requestedWallpaper; int wallpaperGeneration;
@@ -50,7 +51,7 @@ public class LauncherActivity extends Activity {
     @Override public void onCreate(Bundle state) {
         super.onCreate(state); prefs=getSharedPreferences("idash",MODE_PRIVATE); GlassPerf.load(this); theme=prefs.getInt("theme",0); migrateFavorites(); migratePanelPreferences();if(!prefs.getBoolean("prayer_visibility_v2",false))prefs.edit().putBoolean("jakim",true).putBoolean("prayer_visibility_v2",true).apply();
         if(!prefs.contains("wallpaper"))prefs.edit().putString("wallpaper",theme==1?"":Wallpapers.DEFAULT).apply();
-        if(state!=null) { libraryPage=Math.max(0,state.getInt("library_page",0));homePage=Math.max(0,state.getInt("home_page",0));panelVisible=state.getBoolean("panel",false); page=state.getString("page","home"); query=state.getString("query","");settingsSection=state.getString("settings_section","");drivingTab=DrivingTemplates.tab(state.getInt("driving_tab",0)); }
+        if(state!=null) { libraryReturnPage="drive".equals(state.getString("library_return"))?"drive":"home";if(state.getBoolean("drive_viewport",false))driveViewport=DriveViewport.of(state.getDouble("drive_lat",Double.NaN),state.getDouble("drive_lon",Double.NaN),state.getDouble("drive_zoom",Double.NaN)); libraryPage=Math.max(0,state.getInt("library_page",0));homePage=Math.max(0,state.getInt("home_page",0));panelVisible=state.getBoolean("panel",false); page=state.getString("page","home"); query=state.getString("query","");settingsSection=state.getString("settings_section","");drivingTab=DrivingTemplates.tab(state.getInt("driving_tab",0)); }
         libraryQuery=query.toLowerCase(Locale.ROOT).trim();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         immersive(); render(); loadApps();
@@ -63,9 +64,9 @@ public class LauncherActivity extends Activity {
     @Override protected void onPause() { resumed=false;UltraGlassSkin.pause(this);if(prayerJourney!=null)prayerJourney.stop();if(driveDashboard!=null)driveDashboard.pause();if(drivingWorkspace!=null)drivingWorkspace.pause();stopFrameWatch();if(appearanceEditor!=null)appearanceEditor.pause();if(quickControls!=null)quickControls.pause();main.removeCallbacks(ticker);if(webPanel!=null)webPanel.pause();if(fmPanel!=null)fmPanel.pause();if(carPanel!=null)carPanel.pause(); super.onPause(); }
     @Override protected void onDestroy() { destroyed=true;UltraGlassSkin.release(this);if(driveDashboard!=null)driveDashboard.close();if(drivingWorkspace!=null)drivingWorkspace.close();if(settingsNavigation!=null)settingsNavigation.close();if(settingsScreen!=null)settingsScreen.close();if(appearanceEditor!=null)appearanceEditor.close();IosStyle.releaseGlass(this);if(quickControls!=null){quickControls.close();}if(wallpaperDialog!=null)wallpaperDialog.dismiss();disposePanel(); main.removeCallbacksAndMessages(null); worker.shutdownNow(); networkWorker.shutdownNow(); super.onDestroy(); }
     @Override public void onTrimMemory(int level){super.onTrimMemory(level);if(level>=android.content.ComponentCallbacks2.TRIM_MEMORY_RUNNING_LOW){Ios26Icons.clear();GlassBake.trim();}}
-    @Override protected void onSaveInstanceState(Bundle out) { out.putInt("library_page",libraryPage);out.putInt("home_page",homePage);out.putInt("driving_tab",drivingTab);out.putBoolean("panel",panelVisible);out.putString("page",page);out.putString("settings_section",settingsSection); out.putString("query",query); super.onSaveInstanceState(out); }
+    @Override protected void onSaveInstanceState(Bundle out) { if(driveDashboard!=null)driveDashboard.captureViewport();out.putString("library_return",libraryReturnPage);if(driveViewport!=null){out.putBoolean("drive_viewport",true);out.putDouble("drive_lat",driveViewport.latitude);out.putDouble("drive_lon",driveViewport.longitude);out.putDouble("drive_zoom",driveViewport.zoom);}out.putInt("library_page",libraryPage);out.putInt("home_page",homePage);out.putInt("driving_tab",drivingTab);out.putBoolean("panel",panelVisible);out.putString("page",page);out.putString("settings_section",settingsSection); out.putString("query",query); super.onSaveInstanceState(out); }
     @Override public void onConfigurationChanged(Configuration config) { super.onConfigurationChanged(config); render(); }
-    @Override protected void onNewIntent(Intent intent) { super.onNewIntent(intent); setIntent(intent); if("home".equals(page)&&!panelVisible)return;page="home";query="";hideKeyboard();render(); }
+    @Override protected void onNewIntent(Intent intent) { super.onNewIntent(intent); setIntent(intent); if("home".equals(page)&&!panelVisible)return;libraryReturnPage="home";page="home";query="";hideKeyboard();render(); }
     /** Real frame durations feed the low-performance policy; nothing runs while no frames are drawn. */
     void startFrameWatch(){if(watching)return;try{frameWatcher.reset();getWindow().addOnFrameMetricsAvailableListener(frameWatcher,main);watching=true;}catch(RuntimeException unsupported){watching=false;}}
     void stopFrameWatch(){if(!watching)return;watching=false;try{getWindow().removeOnFrameMetricsAvailableListener(frameWatcher);}catch(RuntimeException ignored){}}
@@ -74,7 +75,7 @@ public class LauncherActivity extends Activity {
         if(!GlassPerf.low()){int act=e.getActionMasked();if(act==android.view.MotionEvent.ACTION_DOWN||act==android.view.MotionEvent.ACTION_MOVE||act==android.view.MotionEvent.ACTION_UP||act==android.view.MotionEvent.ACTION_CANCEL){GlassBackdrop b=IosStyle.backdrops.get(this);if(b!=null)for(int i=b.surfaces.size()-1;i>=0;i--){GlassSurface g=b.surfaces.get(i).get();if(g!=null)g.onScreenTouch(e.getRawX(),e.getRawY(),act);}}}
         return super.dispatchTouchEvent(e);
     }
-    @Override public void onBackPressed() { if(homeGrid!=null&&homeGrid.closeFolder())return;if(webPanel!=null&&webPanel.exitFullscreen())return;if("settings".equals(page)&&!settingsSection.isEmpty()){settingsSection="";render();return;}if(!"home".equals(page)) { page="home"; query=""; hideKeyboard(); render(); }else if(panelVisible){panelVisible=false;render();} }
+    @Override public void onBackPressed() { if(homeGrid!=null&&homeGrid.closeFolder())return;if(webPanel!=null&&webPanel.exitFullscreen())return;if("apps".equals(page)){closeApps();return;}if("drive".equals(page)&&driveDashboard!=null&&driveDashboard.back())return;if("settings".equals(page)&&!settingsSection.isEmpty()){settingsSection="";render();return;}if(!"home".equals(page)) { page="home"; query=""; hideKeyboard(); render(); }else if(panelVisible){panelVisible=false;render();} }
     void hideKeyboard() { ((android.view.inputmethod.InputMethodManager)getSystemService(INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(shell.getWindowToken(),0); }
 
     Drawable glass(int color, int radius) {
@@ -168,7 +169,7 @@ public class LauncherActivity extends Activity {
         View divider=new View(this);divider.setBackgroundColor(0x40ffffff);LinearLayout.LayoutParams d=new LinearLayout.LayoutParams(dp(1),dp(32));d.setMargins(dp(6),0,dp(6),0);dock.addView(divider,d);
         dock.addView(dockAction("⚙","Settings",()->{settingsSection="";page="settings";render();}),new LinearLayout.LayoutParams(dp(dockItemWidth()),-1));
         dock.addView(dockAction("◎","Drive",()->{page="drive";render();}),new LinearLayout.LayoutParams(dp(dockItemWidth()),-1));
-        dock.addView(dockAction("▦","Apps",()-> {if("apps".equals(page)){page="home";query="";hideKeyboard();render();}else showApps();}),new LinearLayout.LayoutParams(dp(dockItemWidth()),-1));
+        dock.addView(dockAction("▦","Apps",()-> {if("apps".equals(page))closeApps();else showApps();}),new LinearLayout.LayoutParams(dp(dockItemWidth()),-1));
     }
     View dockAction(String glyph,String label,Runnable action) {
         LinearLayout l=column();l.setGravity(Gravity.CENTER);l.setPadding(dp(4),dp(2),dp(4),dp(2));View icon;
@@ -178,7 +179,8 @@ public class LauncherActivity extends Activity {
         if(settings&&prefs.getBoolean("ios_icons",true)){Bitmap packed=Ios26Icons.named(this,"settings");if(packed!=null){tile.removeAllViews();tile.setBackground(null);ImageView image=new ImageView(this);image.setImageBitmap(packed);tile.addView(image,new FrameLayout.LayoutParams(-1,-1));}}
         l.addView(icon,new LinearLayout.LayoutParams(dp(dockIconSize()),dp(dockIconSize())));TextView name=text(label,9,Color.WHITE);name.setGravity(Gravity.CENTER);name.setIncludeFontPadding(false);name.setSingleLine(true);name.setEllipsize(TextUtils.TruncateAt.END);LinearLayout.LayoutParams nameBounds=new LinearLayout.LayoutParams(-1,dockLabelHeight());nameBounds.topMargin=dp(2);l.addView(name,nameBounds);l.setContentDescription(label);l.setOnClickListener(v->action.run());Elastic.attach(l);return l;
     }
-    void showApps() {page="apps";render();}
+    void showApps() {if(!"apps".equals(page))libraryReturnPage="drive".equals(page)?"drive":"home";page="apps";render();}
+    void closeApps(){page="drive".equals(libraryReturnPage)?"drive":"home";query="";hideKeyboard();render();}
     int dockIconSize(){return prefs.getInt("dock_size",0)==0?28:34;}
     int dockItemWidth(){return prefs.getInt("dock_size",0)==0?52:58;}
     int dockLabelHeight(){return Math.max(dp(14),(int)Math.ceil(12*getResources().getDisplayMetrics().scaledDensity));}
@@ -189,7 +191,7 @@ public class LauncherActivity extends Activity {
         v.setForeground(new InsetDrawable(new LiquidGlassStrokeDrawable(getResources().getDisplayMetrics().density,16),0,dp(7),0,dp(7)));
         LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(dp("Refresh".equals(label)?60:52),dp(48));lp.leftMargin=dp(4);v.setLayoutParams(lp);v.setOnClickListener(w->action.run());return v;
     }
-    void addLibraryActions(LinearLayout target){target.addView(libraryAction("Search",()->{boolean show=search.getVisibility()!=View.VISIBLE;search.setVisibility(show?View.VISIBLE:View.GONE);drawerCount.setVisibility(show?View.VISIBLE:View.GONE);if(show){search.requestFocus();((android.view.inputmethod.InputMethodManager)getSystemService(INPUT_METHOD_SERVICE)).showSoftInput(search,android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT);}else{search.setText("");hideKeyboard();}}));target.addView(libraryAction("Refresh",this::loadApps));target.addView(libraryAction("Done",()-> {page="home";query="";hideKeyboard();render();})); }
+    void addLibraryActions(LinearLayout target){target.addView(libraryAction("Search",()->{boolean show=search.getVisibility()!=View.VISIBLE;search.setVisibility(show?View.VISIBLE:View.GONE);drawerCount.setVisibility(show?View.VISIBLE:View.GONE);if(show){search.requestFocus();((android.view.inputmethod.InputMethodManager)getSystemService(INPUT_METHOD_SERVICE)).showSoftInput(search,android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT);}else{search.setText("");hideKeyboard();}}));target.addView(libraryAction("Refresh",this::loadApps));target.addView(libraryAction("Done",this::closeApps)); }
     void buildDrawer() {
         LinearLayout header=row();LinearLayout words=column();TextView compact=text("App Library · Ringkas ›",18,Color.WHITE);compact.setContentDescription("Open driving workspace");compact.setMinHeight(dp(56));compact.setGravity(Gravity.CENTER_VERTICAL);compact.setOnClickListener(v->{page="road";render();});words.addView(compact);header.addView(words,new LinearLayout.LayoutParams(0,-2,1));body.addView(header);
         search=new EditText(this);search.setSingleLine();search.setTextSize(16);search.setTextColor(Color.WHITE);search.setHintTextColor(0xffd0d8ec);search.setHint("Search apps");search.setContentDescription("Search apps");search.setPadding(dp(20),0,dp(20),0);search.setBackground(glass(0x55ffffff,18));search.setText(query);search.setVisibility(query.isEmpty()?View.GONE:View.VISIBLE);body.addView(search,new LinearLayout.LayoutParams(-1,dp(48)));

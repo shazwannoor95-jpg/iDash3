@@ -1,0 +1,9 @@
+{
+  "rollback_install": "Performing Streamed Install\nSuccess",
+  "rollback_launch": "launched",
+  "candidate_reinstall_test_only_downgrade": "Performing Streamed Install\nSuccess",
+  "preferences_sha256_before": "0769f1edfeb4aca2be500b60855eceb1869de0142cb78329963c5c4ca1f31d30",
+  "preferences_unchanged_after_rollback_install": true,
+  "preferences_unchanged_after_rollback_launch": true,
+  "preferences_unchanged_after_candidate_reinstall": true
+}
