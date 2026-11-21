@@ -6314,6 +6314,13 @@ object BitChordEmbedded {
                 ThemeMode.LIGHT -> false
                 ThemeMode.DARK -> true
             }
+            // Half-size dp/sp within music only. Measuring and hit testing use
+            // the same density; the host viewport stays full size in pixels.
+            val hostDensity = LocalDensity.current
+            val musicDensity = remember(hostDensity.density, hostDensity.fontScale) {
+                androidx.compose.ui.unit.Density(hostDensity.density * 0.5f, hostDensity.fontScale)
+            }
+            CompositionLocalProvider(LocalDensity provides musicDensity) {
             BitChordTheme(darkTheme = darkTheme, font = appFont) {
                 // The glass surfaces sample this layer, and a layer records only
                 // what is drawn into it — which, for BitChord, is a page that
@@ -6368,6 +6375,7 @@ object BitChordEmbedded {
                     }
                 }
                 }
+            }
             }
         
             }

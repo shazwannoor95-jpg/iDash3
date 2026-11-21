@@ -1,6 +1,6 @@
 # iDash4 — iDash3 integration
 
-**Emulator-only trial: iDash4 0.8.1-rc2** — selecting B opens music expanded immediately. Now Playing stays in the host ComposeView, and supported music links/standalone BitChord intents from that panel route internally. [Android Studio x86_64 APK](dist/iDash4-0.8.1-rc2-emulator-x86_64-debug.apk?raw=true) · [Scope, validation and emulator rollback](docs/BITCHORD-EMULATOR-0.8.1-RC2.md). No new ARM/head-unit APK is supplied for this trial; prior versions remain preserved. No standalone BitChord APK or split-screen is required.
+**Emulator-only trial: iDash4 0.8.1-rc3** — BitChord's dp/sp dimensions use 50% of the previous pixel scale while its viewport stays full size. Its native toolbar is also reduced by half. [Android Studio x86_64 APK](dist/iDash4-0.8.1-rc3-emulator-x86_64-debug.apk?raw=true) · [Scope, validation and scale rollback](docs/BITCHORD-COMPACT-0.8.1-RC3.md). The native inline player and internal music navigation from rc2 remain in use. No new ARM/head-unit APK is supplied.
 
 **Revert panel appearance:** Settings → Home & Dock → Liquid Glass → Material panel → **Classic iDash3**. The new iOS26 panel material and the icon-pack switch are independent.
 

@@ -1,0 +1,11 @@
+{
+  "file": "dist/iDash4-0.8.1-rc3-emulator-x86_64-debug.apk",
+  "bytes": 96280656,
+  "sha256": "873b36eb370b56f51676bf10263204355c1659784089480e1a6d319021602e7c",
+  "abis": [
+    "x86_64"
+  ],
+  "versionName": "0.8.1-rc3",
+  "versionCode": 44,
+  "music_ui_scale": 0.5
+}
