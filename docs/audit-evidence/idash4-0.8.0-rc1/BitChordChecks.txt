@@ -1,0 +1,3 @@
+INSTRUMENTATION_RESULT: stream=PASS: 12 BitChord native integration assertions
+
+INSTRUMENTATION_CODE: -1

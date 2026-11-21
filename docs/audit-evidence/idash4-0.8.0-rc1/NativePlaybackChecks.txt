@@ -1,0 +1,3 @@
+INSTRUMENTATION_RESULT: stream=PASS: 14 real Android native audio assertions (synthetic PCM, not live catalogue)
+
+INSTRUMENTATION_CODE: -1

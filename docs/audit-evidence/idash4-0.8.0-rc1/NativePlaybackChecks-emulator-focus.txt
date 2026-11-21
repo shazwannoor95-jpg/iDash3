@@ -1,0 +1,3 @@
+INSTRUMENTATION_RESULT: stream=FAIL after 2: java.lang.AssertionError: java.lang.AssertionError: focused test window
+
+INSTRUMENTATION_CODE: 0

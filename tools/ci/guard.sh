@@ -7,7 +7,7 @@ cd "$(dirname "$0")/../.."
 grep -q "applicationId '$APPID'" app/build.gradle && ok "applicationId $APPID" || bad "applicationId berubah"
 grep -qi "signingConfig" app/build.gradle build.gradle && bad "signingConfig dalam Gradle (keputusan signing belum dibuat)" || ok "tiada signingConfig"
 # Drive Dashboard uses native map/player views. External activity embedding stays out.
-pat='VirtualDisplay|allowEmbedded|ActivityView|SurfaceControlViewHost|setLaunchDisplayId|a1lab|DashNative|createVirtualDisplay'
+pat='VirtualDisplay|allowEmbedded|ActivityView|SurfaceControlViewHost|setLaunchDisplayId|GLOBAL_ACTION_TOGGLE_SPLIT_SCREEN|FLAG_ACTIVITY_LAUNCH_ADJACENT|a1lab|DashNative|createVirtualDisplay'
 grep -rnE "$pat" app/src/main && bad "ciri eksperimen embedding/VirtualDisplay ditemui" || ok "tiada embedding/VirtualDisplay"
 # Third-party assets whose licence is not established must not come back.
 if find app/src -iname '*mrios*' -o -iname 'sf_pro*' -o -iname '*smarttube*' | grep -q .; then bad "aset MRiOS/SF Pro/SmartTube ditemui"; else ok "tiada aset MRiOS/SF Pro/SmartTube"; fi

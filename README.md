@@ -1,6 +1,6 @@
 # iDash4 — iDash3 integration
 
-**Trial candidate: iDash4 0.7.0-rc5** — remove the API31+ rejection and try the Android12L+ native adjacent-window route. [APK](dist/iDash4-0.7.0-rc5-debug.apk?raw=true) · [rc4 rollback](dist/iDash4-0.7.0-rc4-rollback-debug.apk?raw=true) · [Compatibility and validation limits](docs/MODERN-SPLIT-0.7.0-RC5.md). Modern runtime pairing remains untested; Android/OEM controls multi-window support.
+**Trial candidate: iDash4 0.8.0-rc1** — native music browser/queue/player inside Drive, adapted from BitChord's JioSaavn source. No split-screen or external BitChord app required. [APK](dist/iDash4-0.8.0-rc1-debug.apk?raw=true) · [rc5 rollback](dist/iDash4-0.7.0-rc5-rollback-debug.apk?raw=true) · [Scope, GPL licensing and validation](docs/NATIVE-MUSIC-0.8.0-RC1.md). Online catalogue/streaming is not verified here; real native local decoding is tested.
 
 **Revert panel appearance:** Settings → Home & Dock → Liquid Glass → Material panel → **Classic iDash3**. The new iOS26 panel material and the icon-pack switch are independent.
 
@@ -153,4 +153,4 @@ APK: `app/build/outputs/apk/debug/app-debug.apk`. CI GitHub Actions (`.github/wo
 | [`docs/AUDIT.md`](docs/AUDIT.md), [`docs/REVIEW.md`](docs/REVIEW.md), [`docs/SOURCE-INVENTORY.md`](docs/SOURCE-INVENTORY.md) | Audit asal & asal-usul kod |
 
 ### Lesen
-Kod: MIT ([`LICENSE`](LICENSE)). Font Inter: SIL OFL 1.1. Atribusi lain (JAKIM, NexaDash) dalam [`NOTICE`](NOTICE).
+Combined native-music software: GPLv3 ([`LICENSE`](LICENSE)); original iDash MIT components retain [`LICENSE-MIT`](LICENSE-MIT). Font Inter: SIL OFL 1.1. Atribusi lain (JAKIM, NexaDash) dalam [`NOTICE`](NOTICE).

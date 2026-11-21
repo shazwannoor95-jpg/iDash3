@@ -1,0 +1,6 @@
+{
+  "jvm_tests": 83,
+  "failures": 0,
+  "lint": "0 errors, 97 warnings",
+  "catalogue_live_test": "Blocked by environment HTTPS proxy 403; no live playback claim"
+}

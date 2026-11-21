@@ -1,0 +1,3 @@
+INSTRUMENTATION_RESULT: stream=FAIL after 3: java.lang.AssertionError: java.lang.AssertionError: actual MediaPlayer time advances
+
+INSTRUMENTATION_CODE: 0

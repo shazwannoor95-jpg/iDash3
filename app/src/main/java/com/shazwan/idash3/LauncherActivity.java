@@ -38,7 +38,7 @@ public class LauncherActivity extends Activity {
     boolean panelVisible; LinearLayout panelBox; DashWebPlayer webPanel; FmPanelHost fmPanel; SagaAngleView carPanel;
     PrayerJourneyView prayerJourney;
     String libraryReturnPage="home";DriveViewport driveViewport;
-    DriveDashboard driveDashboard;DrivingWorkspace drivingWorkspace;int drivingTab;
+    NativeMusicEngine nativeMusic;DriveDashboard driveDashboard;DrivingWorkspace drivingWorkspace;int drivingTab;
     int libraryPage; int homePage; HomeGrid homeGrid; private final GlassPerf.Watcher frameWatcher=new GlassPerf.Watcher(); private boolean watching;
     AlertDialog wallpaperDialog; Bitmap wallpaperBitmap; String requestedWallpaper; int wallpaperGeneration;
     final Runnable ticker = new Runnable() { public void run() { updateClock(); if (foregroundVisible) main.postDelayed(this, 1000); } };
@@ -322,7 +322,7 @@ public class LauncherActivity extends Activity {
         catch(RuntimeException unavailable){Toast.makeText(this,"No image picker installed",Toast.LENGTH_SHORT).show();}
     }
     @Override protected void onActivityResult(int request,int result,Intent data){
-        super.onActivityResult(request,result,data);if(request!=WALLPAPER_REQUEST||result!=RESULT_OK||data==null||data.getData()==null)return;
+        super.onActivityResult(request,result,data);if(request==842){if(result==RESULT_OK&&data!=null&&data.getData()!=null&&driveDashboard!=null&&driveDashboard.bitChord!=null){driveDashboard.bitChord.file(data.getData());}return;}if(request!=WALLPAPER_REQUEST||result!=RESULT_OK||data==null||data.getData()==null)return;
         final android.net.Uri uri=data.getData();Toast.makeText(this,"Loading wallpaper…",Toast.LENGTH_SHORT).show();
         worker.execute(()->{boolean saved=false;try(java.io.InputStream input=getContentResolver().openInputStream(uri)){if(input==null)throw new java.io.IOException();CustomWallpaper.save(this,input);saved=true;}catch(java.io.IOException|RuntimeException|OutOfMemoryError unavailable){}final boolean success=saved;
             main.post(()->{if(destroyed)return;if(success){requestedWallpaper=null;selectWallpaper(CustomWallpaper.PATH);}else Toast.makeText(this,"Image unavailable. Choose a JPG, PNG or WebP under16MiB.",Toast.LENGTH_LONG).show();});});
