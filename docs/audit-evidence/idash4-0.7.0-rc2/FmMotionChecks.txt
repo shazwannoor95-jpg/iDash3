@@ -1,0 +1,3 @@
+INSTRUMENTATION_RESULT: stream=PASS: 50 FM/motion assertions
+
+INSTRUMENTATION_CODE: -1

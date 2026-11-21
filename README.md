@@ -1,6 +1,6 @@
 # iDash4 — iDash3 integration
 
-**Trial candidate: iDash4 0.7.0-rc1** — native Drive source selection, camera restoration and Apps return flow. [APK](dist/iDash4-0.7.0-rc1-debug.apk?raw=true) · [rc8 rollback APK](dist/iDash4-0.6.0-rc8-rollback-debug.apk?raw=true) · [Changes and validation](docs/NATIVE-DRIVE-FLOW-0.7.0-RC1.md). Previous compact Home and ULTRA appearance retained; [rc8 sizing notes](docs/COMPACT-HOME-0.6.0-RC8.md).
+**Trial candidate: iDash4 0.7.0-rc2** — compact FM preset capsules, adaptive frequency text and clearer native JAKIM icon motion. [APK](dist/iDash4-0.7.0-rc2-debug.apk?raw=true) · [rc1 rollback](dist/iDash4-0.7.0-rc1-rollback-debug.apk?raw=true) · [Changes and validation](docs/FM-PRAYER-0.7.0-RC2.md). Native Drive workflow and ULTRA appearance retained.
 
 **Revert panel appearance:** Settings → Home & Dock → Liquid Glass → Material panel → **Classic iDash3**. The new iOS26 panel material and the icon-pack switch are independent.
 

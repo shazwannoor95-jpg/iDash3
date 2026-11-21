@@ -44,6 +44,7 @@ final class DashFmPanelPremium extends LinearLayout {
     private final TextView[] presets = new TextView[10];
     private final LinearLayout[] presetRows = new LinearLayout[2];
     private final DialScale dial;
+    private final LinearLayout header;
     private AlertDialog dialog;
     private boolean active, closed, compact;
 
@@ -61,7 +62,7 @@ final class DashFmPanelPremium extends LinearLayout {
         // are delegated to the project's existing implementation.
         controller = new DashFmController(owner, this::refresh);
 
-        LinearLayout header = row();
+        header = row();
         header.setGravity(Gravity.CENTER_VERTICAL);
         TextView title = text("FM RADIO", 15, ACCENT, true);
         title.setCompoundDrawablesWithIntrinsicBounds(new Glyph(2),null,null,null);title.setCompoundDrawablePadding(dp(6));title.setSingleLine(true);
@@ -123,7 +124,9 @@ final class DashFmPanelPremium extends LinearLayout {
                     if (DashFmBand.valid(saved)) controller.frequency(saved);
                     else Toast.makeText(owner, "Hold to save this frequency", Toast.LENGTH_SHORT).show();
                 }, false);
-                preset.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15);
+                preset.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
+                preset.setIncludeFontPadding(false);
+                preset.setAutoSizeTextTypeUniformWithConfiguration(10,12,1,TypedValue.COMPLEX_UNIT_SP);
                 preset.setLineSpacing(0, 0.92f);
                 preset.setOnLongClickListener(v -> {
                     if (!canAct()) return true;
@@ -230,7 +233,7 @@ final class DashFmPanelPremium extends LinearLayout {
             String suffix = DashFmBand.valid(khz) ? DashFmBand.text(khz) : "—";
             presets[i].setText((i + 1) + "\n" + suffix);
             boolean selected = DashFmBand.valid(khz) && khz == controller.frequency;
-            presets[i].setSelected(selected);presets[i].setContentDescription("FM channel "+(i+1)+"; "+suffix+"; hold to save");presets[i].setBackground(buttonBackground(selected));
+            presets[i].setSelected(selected);presets[i].setContentDescription("FM channel "+(i+1)+"; "+suffix+"; hold to save");presets[i].setBackground(new android.graphics.drawable.InsetDrawable(buttonBackground(selected),0,dp(4),0,dp(4)));
         }
     }
 
@@ -338,12 +341,17 @@ final class DashFmPanelPremium extends LinearLayout {
     }
     @Override protected void onMeasure(int w, int h) {
         int height = MeasureSpec.getSize(h);
-        boolean small = MeasureSpec.getMode(h) != MeasureSpec.UNSPECIFIED && height < dp(315);
-        if (small != compact) {
-            compact = small;
-            status.getLayoutParams().height = dp(small ? 23 : 28);
-            for (LinearLayout row : presetRows) row.getLayoutParams().height = dp(52);
-        }
+        compact = MeasureSpec.getMode(h) != MeasureSpec.UNSPECIFIED && height < dp(320);
+        setPadding(dp(8),dp(6),dp(8),dp(6));
+        header.getLayoutParams().height=dp(48);
+        // Toolbar children must follow the compact header, not retain a 48dp row.
+        android.view.ViewGroup actions=(android.view.ViewGroup)header.getChildAt(1);
+        actions.getLayoutParams().height=dp(48);
+        for(int i=0;i<actions.getChildCount();i++)actions.getChildAt(i).getLayoutParams().height=dp(48);
+        status.getLayoutParams().height=dp(compact?22:28);
+        dial.getLayoutParams().height=dp(compact?18:25);
+        for(LinearLayout row:presetRows){row.getLayoutParams().height=dp(48);((LayoutParams)row.getLayoutParams()).topMargin=dp(4);}
+        frequency.setAutoSizeTextTypeUniformWithConfiguration(14,compact?38:50,2,TypedValue.COMPLEX_UNIT_SP);
         super.onMeasure(w, h);
     }
 

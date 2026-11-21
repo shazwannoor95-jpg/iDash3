@@ -51,4 +51,5 @@
     <instrumentation android:name="com.shazwan.idash3.CraftUiAudit" android:targetPackage="com.shazwan.idash3"/>
     <instrumentation android:name="com.shazwan.idash3.CraftPagesAudit" android:targetPackage="com.shazwan.idash3"/>
     <instrumentation android:name="com.shazwan.idash3.NativeDriveFlowChecks" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.FmMotionChecks" android:targetPackage="com.shazwan.idash3"/>
 </manifest>
