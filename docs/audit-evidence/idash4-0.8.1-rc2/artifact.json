@@ -1,0 +1,10 @@
+{
+  "file": "dist/iDash4-0.8.1-rc2-emulator-x86_64-debug.apk",
+  "bytes": 96280656,
+  "sha256": "aaad61df451e3dcfa0880de0bb3731260bbb6b2e4c744693dc3305a3b8bed390",
+  "abis": [
+    "x86_64"
+  ],
+  "versionCode": 43,
+  "versionName": "0.8.1-rc2"
+}

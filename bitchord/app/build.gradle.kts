@@ -10,8 +10,8 @@ android {
  defaultConfig {
   minSdk = 26
   buildConfigField("String", "APPLICATION_ID", "\"com.shazwan.idash3\"")
-  buildConfigField("String", "VERSION_NAME", "\"0.8.1-rc1\"")
-  buildConfigField("int", "VERSION_CODE", "42")
+  buildConfigField("String", "VERSION_NAME", "\"0.8.1-rc2\"")
+  buildConfigField("int", "VERSION_CODE", "43")
   buildConfigField("boolean", "IS_IDASH_HOST", "true")
   buildConfigField("String", "LASTFM_API_KEY", "\"\"")
   buildConfigField("String", "LASTFM_SECRET", "\"\"")

@@ -104,6 +104,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.produceState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
@@ -600,7 +602,9 @@ private fun BitChordApp(
     // player and no artwork flying between the two. Everything below that
     // takes part in the docking asks for [activeDock] / this, never for the
     // dock or the motion directly.
-    val reducePlayerMotion by AppSettings.reduceAnimation.collectAsStateWithLifecycle()
+    val embeddedMusic = LocalEmbeddedMusic.current
+    val reducePlayerMotionSetting by AppSettings.reduceAnimation.collectAsStateWithLifecycle()
+    val reducePlayerMotion = embeddedMusic || reducePlayerMotionSetting
     val activeDock = playerDock.takeIf { !reducePlayerMotion }
     playerSheetMotion.flingVelocity = with(LocalDensity.current) { PLAYER_PULL_FLING_VELOCITY.toPx() }
     // How the app takes the player down, whatever for: a back press, or a page
@@ -4654,7 +4658,21 @@ private fun BitChordApp(
             )
         }
         // ---- Now Playing ----
-        if (playerRaised) {
+        if (playerRaised && embeddedMusic) {
+            // Stay in the host ComposeView: a Material dialog creates a separate
+            // Activity-sized window and escapes the embedded panel constraints.
+            BackHandler { showNowPlaying = false }
+            Box(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)
+                .then(Modifier.semantics { contentDescription = "iDash native now playing" })) {
+                CompositionLocalProvider(LocalPlayerDock provides null) { nowPlaying(playerSong!!) }
+                IosMenuPopover(
+                    item = songActions?.takeIf { songMenuOrigin == null && menuFromPlayer },
+                    anchor = songMenuAnchor,
+                    onDismiss = { songActions = null },
+                    backdrop = appBackdrop,
+                ) { song -> songMenuBody(song) }
+            }
+        } else if (playerRaised) {
             // What rememberModalBottomSheetState builds, but able to start open,
             // and with every hide routed through [playerSheetMotion] — a drag
             // released low, a back press, a tap on the scrim. Refused here and
@@ -6277,6 +6295,8 @@ private const val TAB_LIBRARY = 2
 private const val TAB_SEARCH = 3
 
 /** iDash native host: actual upstream navigation and player, sized by ComposeView constraints. */
+private val LocalEmbeddedMusic = androidx.compose.runtime.staticCompositionLocalOf { false }
+
 object BitChordEmbedded {
     @kotlin.OptIn(androidx.compose.ui.ExperimentalComposeUiApi::class)
     @JvmStatic fun create(activity: androidx.appcompat.app.AppCompatActivity): android.view.View {
@@ -6313,6 +6333,7 @@ object BitChordEmbedded {
                 }
                 val appBackdrop = rememberLayerBackdrop(onDraw = paintBackdrop)
                 CompositionLocalProvider(
+                    LocalEmbeddedMusic provides true,
                     LocalOverscrollFactory provides iosOverscrollFactory,
                     LocalLiquidGlassEnabled provides liquidGlassEnabled,
                     LocalAppBackdrop provides appBackdrop,
@@ -6351,6 +6372,18 @@ object BitChordEmbedded {
         
             }
         }
+    }
+    /** Resolve supported music navigation here instead of Android's app resolver. */
+    @JvmStatic fun routeInHost(intent: Intent): Boolean {
+        val explicit = intent.component?.packageName == "com.music.bitchord" || intent.`package` == "com.music.bitchord"
+        val musicUrl = intent.action == Intent.ACTION_VIEW && intent.data?.let { MusicLink.parse(it) != null } == true
+        if (!explicit && !musicUrl) return false
+        consumeIntent(Intent(intent))
+        if (explicit) openPlayer()
+        return true
+    }
+    @JvmStatic fun openPlayer() {
+        PlayerDeepLink.consume(Intent().putExtra(PlayerDeepLink.EXTRA_OPEN_PLAYER, true))
     }
     @JvmStatic fun dispose(view: android.view.View) {
         (view as? androidx.compose.ui.platform.ComposeView)?.disposeComposition()

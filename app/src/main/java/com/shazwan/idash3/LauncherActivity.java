@@ -68,7 +68,7 @@ public class LauncherActivity extends androidx.appcompat.app.AppCompatActivity {
     @Override public void onTrimMemory(int level){super.onTrimMemory(level);if(level>=android.content.ComponentCallbacks2.TRIM_MEMORY_RUNNING_LOW){Ios26Icons.clear();GlassBake.trim();}}
     @Override protected void onSaveInstanceState(Bundle out) { if(driveDashboard!=null)driveDashboard.captureViewport();out.putString("library_return",libraryReturnPage);if(driveViewport!=null){out.putBoolean("drive_viewport",true);out.putDouble("drive_lat",driveViewport.latitude);out.putDouble("drive_lon",driveViewport.longitude);out.putDouble("drive_zoom",driveViewport.zoom);}out.putInt("library_page",libraryPage);out.putInt("home_page",homePage);out.putInt("driving_tab",drivingTab);out.putBoolean("panel",panelVisible);out.putString("page",page);out.putString("settings_section",settingsSection); out.putString("query",query); super.onSaveInstanceState(out); }
     @Override public void onConfigurationChanged(Configuration config) { super.onConfigurationChanged(config); render(); }
-    @Override protected void onNewIntent(Intent intent) { super.onNewIntent(intent); setIntent(intent); if(isNativeMusicIntent(intent)){page="drive";prefs.edit().putInt("dashboard_panel",4).apply();com.music.bitchord.BitChordEmbedded.consumeIntent(intent);render();return;} if("home".equals(page)&&!panelVisible)return;libraryReturnPage="home";page="home";query="";hideKeyboard();render(); }
+    @Override protected void onNewIntent(Intent intent) { super.onNewIntent(intent); setIntent(intent); if(isNativeMusicIntent(intent)){page="drive";prefs.edit().putInt("dashboard_panel",4).apply();com.music.bitchord.BitChordEmbedded.consumeIntent(intent);if(driveDashboard!=null&&"drive".equals(page)){driveDashboard.setMode(4);}else render();return;} if("home".equals(page)&&!panelVisible)return;libraryReturnPage="home";page="home";query="";hideKeyboard();render(); }
     /** Real frame durations feed the low-performance policy; nothing runs while no frames are drawn. */
     void startFrameWatch(){if(watching)return;try{frameWatcher.reset();getWindow().addOnFrameMetricsAvailableListener(frameWatcher,main);watching=true;}catch(RuntimeException unsupported){watching=false;}}
     void stopFrameWatch(){if(!watching)return;watching=false;try{getWindow().removeOnFrameMetricsAvailableListener(frameWatcher);}catch(RuntimeException ignored){}}
@@ -78,7 +78,11 @@ public class LauncherActivity extends androidx.appcompat.app.AppCompatActivity {
         return super.dispatchTouchEvent(e);
     }
     void handleDashboardBack() { if(homeGrid!=null&&homeGrid.closeFolder())return;if(webPanel!=null&&webPanel.exitFullscreen())return;if("apps".equals(page)){closeApps();return;}if("drive".equals(page)&&driveDashboard!=null&&driveDashboard.back())return;if("settings".equals(page)&&!settingsSection.isEmpty()){settingsSection="";render();return;}if(!"home".equals(page)) { page="home"; query=""; hideKeyboard(); render(); }else if(panelVisible){panelVisible=false;render();} }
-    boolean isNativeMusicIntent(Intent intent){return intent!=null&&intent.getComponent()!=null&&"com.music.bitchord.MainActivity".equals(intent.getComponent().getClassName());}
+    @Override public void startActivity(Intent intent, Bundle options){
+        if(driveDashboard!=null&&driveDashboard.mode==4&&com.music.bitchord.BitChordEmbedded.routeInHost(intent))return;
+        super.startActivity(intent,options);
+    }
+    boolean isNativeMusicIntent(Intent intent){return intent!=null&&(intent.getBooleanExtra("idash.openMusic",false)||(intent.getComponent()!=null&&"com.music.bitchord.MainActivity".equals(intent.getComponent().getClassName())));}
     void hideKeyboard() { ((android.view.inputmethod.InputMethodManager)getSystemService(INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(shell.getWindowToken(),0); }
 
     Drawable glass(int color, int radius) {

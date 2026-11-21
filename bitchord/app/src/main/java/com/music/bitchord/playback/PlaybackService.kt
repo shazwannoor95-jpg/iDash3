@@ -3599,7 +3599,10 @@ class PlaybackService : MediaLibraryService() {
     private fun sessionActivity(): PendingIntent = PendingIntent.getActivity(
         this,
         0,
-        Intent(this, MainActivity::class.java)
+        (if (packageName == "com.shazwan.idash3") Intent().setClassName(packageName, "$packageName.LauncherActivity")
+            .putExtra("idash.openMusic", true)
+            .putExtra(PlayerDeepLink.EXTRA_OPEN_PLAYER, true)
+        else Intent(this, MainActivity::class.java))
             .setAction(Intent.ACTION_MAIN)
             .addCategory(Intent.CATEGORY_LAUNCHER)
             // MainActivity is singleTask, so this resumes the existing task

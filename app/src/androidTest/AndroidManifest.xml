@@ -53,5 +53,6 @@
     <instrumentation android:name="com.shazwan.idash3.NativeDriveFlowChecks" android:targetPackage="com.shazwan.idash3"/>
     <instrumentation android:name="com.shazwan.idash3.FmMotionChecks" android:targetPackage="com.shazwan.idash3"/>
     <instrumentation android:name="com.shazwan.idash3.BitChordChecks" android:targetPackage="com.shazwan.idash3"/>
+    <instrumentation android:name="com.shazwan.idash3.EmbeddedPlayerChecks" android:targetPackage="com.shazwan.idash3"/>
     <instrumentation android:name="com.shazwan.idash3.NativePlaybackChecks" android:targetPackage="com.shazwan.idash3"/>
 </manifest>

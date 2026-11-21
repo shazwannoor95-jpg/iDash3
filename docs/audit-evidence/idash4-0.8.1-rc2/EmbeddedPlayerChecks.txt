@@ -1,0 +1,3 @@
+INSTRUMENTATION_RESULT: stream=PASS: 19 upstream Media3 playback assertions (synthetic PCM, not live catalogue)
+
+INSTRUMENTATION_CODE: -1
